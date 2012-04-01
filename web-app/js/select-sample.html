@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UI-select</title>
+<style type="text/css">
+* { margin:0; padding:0; list-style:none;   } body { padding: 10px; }
+select {
+	display: inline-block;
+	min-width: 165px; /*height: 28px;*/
+	padding: 3px 8px 3px 9px;
+	border: 1px solid #a0a0a0;
+	color: #a0a0a0;
+	font: normal 12px "Trebuchet MS", Arial, sans-serif;
+	min-width: 150px\9;  //width: 165px;
+}
+.sel2 {  //outline: 1px solid;
+	position: absolute;
+	height: 28px;
+	padding: 0 27px 0 0;
+	color: #a0a0a0;
+	font: normal 12px "Trebuchet MS", Arial, sans-serif;
+	line-height: 28px;
+	cursor: pointer;
+	display:none\9;
+}
+.sel2 .sel2-bg {
+	height: 26px;
+	background: url(../images/select-box-gradient.png) repeat-x;
+	border: 1px solid #c8c9ca;  border-width: 1px 0 1px 1px;
+	border-radius: 3px 0 0 3px;
+}
+.sel2 .chosen { //outline:1px solid;
+	position: absolute;   top:0;  left:0;
+	height:100%;
+	padding: 0 0 0 12px;
+}
+.sel2 .arrow {
+	position: absolute; top:0;  right:0;
+	width: 27px; height: 28px;
+	background: url(../images/select-box-btn.png) no-repeat;
+}
+.sel2 ul { outline:1px solid #81cffa;
+	position: absolute;  top:0;  left:0;
+	width: 99%;
+	margin: 28px 0 0 1px;
+	background: #fff;
+}
+.sel2.hide ul { display:none; }
+.sel2 ul li {
+	padding: 0 0 0 10px;
+}
+.sel2 ul li:hover {
+	background: #81cffa;
+	color: #fff;
+}
+.select-box-comp {
+	visibility: hidden;
+	visibility: visible\9;
+}
+
+</style>
+</head>
+
+<body>
+    <select class="select-box" id="sel">
+    	<option value="0" selected> Select</option>
+        <option value="1">Option 1</option>
+		<option value="2">Option 2</option>
+    </select>
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script  type="text/javascript">
+		$('.select-box').each(function(){
+			$(this).after('<div class="sel2"><div class="sel2-bg"></div>  <div class="chosen"></div> <span class="arrow"></span>                  <ul></ul></div>');
+		});
+			$('.sel2').each(function(){
+				$(this).addClass('hide');
+				var texts= [];
+				var box= $(this).prev();
+				var box2= $(this);
+				
+				$(this).find('.chosen').text(box.children('option:selected').text());
+				var boxWidth= box.width()-27+17+2;
+				$(this).css('width', boxWidth+'px');
+				
+				
+				var offset= box.offset();
+				$(this).offset({top:offset.top, left:offset.left});
+				
+				box.addClass('select-box-comp');
+				
+				$(this).prev().children().each(function(){
+					texts.push($(this).text());
+				});
+				
+				for(var i=0; i<texts.length; i++) {
+				$(this).find('ul').append('<li>'+texts[i]+'</li>');
+				}
+				
+				$(this).click(function(){ 
+					$(this).toggleClass('hide');
+				});
+
+				$(this).find('li').live('click', function(){
+					var thisText= $(this).text();
+					var selected= texts.indexOf(thisText);
+					box[0].selectedIndex=selected;
+					box2.find('.chosen').text(thisText);
+					var actualWidth= box.width();
+					box2.css('width', (actualWidth-27+17+2)+'px');
+				});
+			});
+			$('html').click(function(f){ 
+				if(!$(f.target).parent().hasClass('sel2') )
+				$('.sel2').addClass('hide');
+			});
+	</script>
+</body>
+</html>

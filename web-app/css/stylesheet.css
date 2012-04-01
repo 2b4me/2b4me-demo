@@ -1,0 +1,1544 @@
+* { margin: 0; padding: 0; list-style: none; outline: none; border: none; }
+body {
+	background: #def1fb url(../../images/bg.png) repeat-x;
+	color: #666666;
+	font: normal 13px Arial, sans-serif;
+	padding: 0 0 40px;
+}
+a:link { color: #0e71a8; }  
+a:visited { color: #7298ae; }
+a:hover { color: #5f9458; }
+
+::selection {  background-color: #8dd2f9;  color: #fff;  }
+::-moz-selection {  background-color: #8dd2f9;  color: #fff;  }
+::-o-selection {  background-color: #8dd2f9;  color: #fff;  }
+::-ms-selection {  background-color: #8dd2f9;  color: #fff;  }
+
+h2, h3, h4, h5 { margin: 0 0 30px; }
+h1 {
+	margin:0 0 50px;  padding: 0 0 15px 2px;
+	color: #256080;
+	font:bold 25px Arial, sans-serif;
+	letter-spacing: -1px;
+	text-transform: capitalize;
+	border-bottom: 4px solid #acc8d8;
+}
+h2 {
+	color:#5c5a5a; 
+	font: 500 28px "Trebuchet MS", Arial, sans-serif;
+	text-transform: capitalize;
+}
+h3 {
+	color:#256080;
+	font: 500 19px "Trebuchet MS", Arial, sans-serif;
+	text-transform: uppercase;
+}
+h4 {
+	color:#055984;
+	font-size: 17px;
+	text-transform: capitalize;
+}
+h5 {
+	color:#8bb06a;
+	font: bold 16px "Trebuchet MS", Arial, sans-serif;
+	text-transform: capitalize;
+}
+
+
+/********************************** CLASSES ***********************************************/
+
+a.biglink {
+	color: #256080;  
+	font: bold 15px "Trebuchet MS", Arial, sans-serif; 
+	letter-spacing: -1px;
+	text-transform: uppercase;
+} 
+a.biglink:visited { color: #7298ae; }
+a.biglink:hover { color: #5f9458; } 
+
+p { line-height: 18px; margin: 0 0 19px; }
+p.small { font-size: 11px; }
+
+.green-text { 
+	color: #8bb06a;
+	font: bold 12px "Trebuchet MS", Arial, sans-serif;
+}
+
+
+/************ PRICE STUFF ************/
+.nowonly { 
+	color: #4a762f;   
+	font: bold 12px Arial, sans-serif;  
+}
+.prev-price { 
+	position: relative;	
+	font-size: 16px;  font-weight: bold;
+    letter-spacing: -1px; 
+	//text-decoration: line-through;
+}
+.prev-price:after {
+	content: "";
+	position: absolute;  top: 50%; left: -15%;
+	width: 135%;  height: 1px;
+	background: #666;
+}
+.actual-price {  
+	color: #424141;   
+	font: 600 38px Arial, sans-serif;   
+	letter-spacing: -3px; 	
+	position: relative;
+}
+
+.error {
+	display: inline-block;
+	min-width: 313px;  height: 49px;
+	line-height: 49px;
+	border: 2px solid #acc8d8;
+	background: url(../../images/error-msg-bg.png) repeat-x;
+	//width: 313px;
+}
+.error span {
+	display: block;
+	height: 100%;
+	padding: 0 0 0 60px;
+	background: url(../../images/error-msg-alert-icon.png) 10px center no-repeat;
+	color: #f10909;
+	font-size: 16px; font-weight: bold;
+}
+
+label.blue-label {
+	color: #256080;
+	font: bold 12px "Trebuchet MS", Arial, sans-serif;
+}
+
+/*********** GREEN BUTTON **************/
+.green-btn { 
+	display: inline-block;  
+	height: 42px; 
+	padding: 0 12px;
+	position: relative;
+	color: #fff;   
+	font: 500 19px/42px "Trebuchet MS", Arial, sans-serif;
+	letter-spacing: -1px;
+	text-align: center;   text-decoration: none;   text-transform: uppercase;
+	background: #528656 url(../../images/2b4me-btn-gradient.png) left top repeat-x;
+	//border: 1px solid #4a762f;//border-width: 0 1px 0;
+}
+a.green-btn { color: #fff; }
+a.green-btn:hover {  background-position: left -42px;     //border-color: #016fab; }
+a.green-btn:active { background-position: bottom;         //border-color: #016fab; }
+a.green-btn:before,
+a.green-btn:after {
+ 	content:""; 
+	width: 5px;  height: 42px;
+	position: absolute;
+	background: url(../../images/2b4me-btn-sides.png) left top no-repeat;
+}
+a.green-btn:before { top: 0;   left: -5px;  }
+a.green-btn:after {  bottom: 0; right: -5px; background-position: right top;  }
+a.green-btn:hover:before { background-position: left -43px; }
+a.green-btn:hover:after { background-position: right -43px; }
+a.green-btn:active:before { background-position: left bottom; }
+a.green-btn:active:after { background-position: right bottom; }
+
+.green-btn.lvl2 {
+	font-weight: 600; font-size: 24px;
+	padding: 0 27px;
+}
+
+button.green-btn {
+	padding: 0 16px;
+	line-height: 40px;
+	border: 1px solid #4a762f;   border-radius: 4px;
+	background: url(../../images/2b4me-btn-input-gradients.png) repeat-x;
+	cursor: pointer;
+	//padding:0;
+}
+button.green-btn:hover { background-position: left -40px; border-color: #016fab; }
+button.green-btn:active { background-position: left bottom; border-color: #016fab; }
+
+button.green-btn.lvl2 {
+	padding: 0 31px;
+	//padding: 0;
+}
+
+
+/****************************************************/
+
+/**************** ROUND BUTTON ********************/
+.round-btn {
+	display:inline-block;
+	height: 34px;
+	position: relative; 
+	color: #fff;
+	font: 500 17px/34px "Trebuchet MS", Arial, sans-serif;
+	text-transform: capitalize;  text-shadow: 0 1px 3px #949393;
+	background: url(../../images/gradient-sprites.png) repeat-x;
+	//padding: 0 10px;
+}
+a.round-btn { color: #fff; text-decoration:none; }
+.round-btn:hover {
+	background-position: left -35px; 
+	color: #fff;
+}
+.round-btn:active { background-position: left bottom;  }
+
+.round-btn:before, 
+.round-btn:after { 
+	content:"";
+	position: absolute; top: 0;
+	width: 17px; height: 34px;
+	background: url(../../images/side-sprites.png) no-repeat;
+}
+.round-btn:before { left: -17px; }
+.round-btn:after {
+	right: -17px;
+	background-position: right top;
+}
+.round-btn:hover:before { background-position: left -35px; }
+.round-btn:hover:after { background-position: right -35px; }
+.round-btn:active:before { background-position: left bottom; }
+.round-btn:active:after { background-position: right bottom; }
+
+button.round-btn {
+	padding: 0 15px\9;
+	//padding: 0;
+}
+.round-btn.v2 {
+	padding: 0 49px 0 27px;
+}
+.round-btn.v2 span {
+	width: 18px; height: 20px;
+	position: absolute; top: 7px; right:0;
+	background: url(../../images/load-btn-arrow.png) no-repeat;
+	//right: 15px;
+}
+button.round-btn.v2 {
+	padding: 0 65px 0 40px\9;
+	//padding: 0 30px 0 0;
+}
+button.round-btn.v2 span {
+	right: 15px\9;
+	//right: 15px;
+}
+/************* TEXT INPUT ***************/
+.text-input {
+	display: inline-block;
+	width:173px;  height: 26px;
+	padding: 0 0 0 10px;
+	border: 1px solid #c8c9ca;
+	border-radius: 3px;
+	background: #f3f3f3 url(../../images/text-input-bg.png) repeat-x;
+	color: #a0a0a0;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	line-height: 26px;
+}
+.text-input.lvl2 {
+	width: 320px;  height: 36px;
+	line-height: 36px;
+	border-color: #e2e3e4;
+	background: url(../../images/text-input-lvl2-bg.png) repeat-x;
+}
+.text-input:focus { box-shadow: 0 0 4px  #8dd2f9/*#ececec*/; }
+/*********************************************/
+
+/*************** SELECT BOX ******************/
+select {
+	display: inline-block;
+	min-width: 165px; /*height: 28px;*/
+	padding: 3px 8px 3px 9px;
+	border: 1px solid #a0a0a0;
+	color: #a0a0a0;
+	font: normal 12px "Trebuchet MS", Arial, sans-serif;
+	min-width: 150px\9;  //width: 165px;
+}
+.sel2 {  //outline: 1px solid;
+	position: absolute;  z-index: 9;
+	height: 28px;
+	padding: 0 27px 0 0;
+	color: #a0a0a0;
+	font: normal 12px "Trebuchet MS", Arial, sans-serif;
+	line-height: 28px;
+	cursor: pointer;
+	display:none\9;
+}
+.sel2 .sel2-bg {
+	height: 26px;
+	background: url(../../images/select-box-gradient.png) repeat-x;
+	border: 1px solid #c8c9ca;  border-width: 1px 0 1px 1px;
+	border-radius: 3px 0 0 3px;
+}
+.sel2 .chosen { //outline:1px solid;
+	position: absolute;   top:0;  left:0;
+	height:100%;
+	padding: 0 0 0 12px;
+}
+.sel2 .arrow {
+	position: absolute; top:0;  right:0;
+	width: 27px; height: 28px;
+	background: url(../../images/select-box-btn.png) no-repeat;
+}
+.sel2 ul { outline:1px solid #ccc;
+	position: absolute;  top:0;  left:0;
+	width: 99%;
+	margin: 28px 0 0 1px;
+	background: #fff;
+}
+.sel2.hide ul { display:none; }
+.sel2 ul li {
+	padding: 0 0 0 10px;
+}
+.sel2 ul li:hover {
+	background: #81cffa;
+	color: #fff;
+}
+.select-box-comp {
+	visibility: hidden;
+	visibility: visible\9;
+}
+
+
+/***************** CHECKBOX ******************/
+.checkbox {float: left; margin: 1px 20px 0 0\9;  //margin-top: -2px; }
+input:not(#ie6-8).checkbox { display: none; }
+input:not(#ie6-8).checkbox + label {
+	display: inline-block;
+	height: 15px; line-height: 15px;
+}
+input:not(#ie6-8).checkbox + label:before {
+	content: "";
+	float: left;
+	width: 15px; height: 15px;
+	background:url(../../images/checkbox.png) no-repeat;
+	margin: 0 24px 0 0;
+}
+input:not(#ie6-8).checkbox:checked + label:before { background-position: left -30px; }
+input:not(#ie6-8).checkbox + label:active:before { background-position: left -15px; }
+input:not(#ie6-8).checkbox:checked + label:active:before { background-position: left bottom; }
+input:not(#ie6-8).checkbox + label:hover:before {
+	background-color: #d2edfd;
+	box-shadow: 0 0 5px #d2edfd;
+}
+
+
+
+
+/************************************* HEADER STUFF *******************************************/
+
+#header {
+	width: 928px; height: 129px;
+	margin: 0 auto;
+	margin-bottom: 27px;
+	position: relative;
+}
+#header #logo { position: absolute; top: 6px;}
+#nav {
+	float: right;
+	margin: 19px -2px 0 0;
+	color: #fff;
+	font: normal 19px "Trebuchet MS", Arial, sans-serif;
+	text-transform: uppercase;  text-shadow: 0 0 1px #fff;
+}
+#nav li {
+	float: left;
+	height: 18px;
+	padding: 0 16px 0 16px;
+	margin: 5px 0 0;
+	border-right: 2px solid #fff;
+}
+#nav a  {
+	float: left;
+	margin: -4px 0 0;
+	color: #fff;   text-decoration: none;
+} 
+#nav a:hover, #subnav a:hover { color: #93d4f8; }
+
+#nav #home-link { 
+	width: 26px; height: 26px; 
+	margin: 0 4px 0 0; padding: 0;
+	border: none;
+}
+#nav #home-link a {
+	width: 100%; height: 100%;
+	margin: 0;
+	background: url(../../images/home-icon.png) no-repeat; 
+}
+#nav #login-link {
+	padding-right: 0;
+	border: none;
+}
+#search-form {
+	position: absolute;
+	bottom: 18px; right: -2px;
+	width: 570px; height: 50px;
+}
+#search-form label { 
+	color: #fff; 
+	font: normal 12px "Trebuchet MS", Arial, sans-serif;    word-spacing: -1px;
+	text-transform: capitalize;
+	position: absolute;   top: 17px;   left: 5px;
+}
+#header select {
+	position: absolute;  right: 289px;  top: 13px;
+}
+#search-field { 
+	width: 249px; height: 47px;
+	background: url(../../images/search-bg.png) no-repeat;
+	position: absolute;
+	bottom: 0; right: 0;
+}
+#search-input {
+	width: 159px;	height: 35px;
+	color: #a0a0a0;
+	background: url(../../images/search-field.png) left top no-repeat;
+	position: absolute;   top: 7px; left: 8px;
+	padding: 0 0 0 17px;
+	font-size: 13px;   font-family: "Trebuchet MS", Arial, sans-serif;    line-height: 33px;
+	z-index:1;
+	//background: #fff;
+	//width: 150px;  //height: 32px;
+	//left: 16px;
+} 
+#search-btn {
+	width: 59px; height: 35px;
+	background: url(../../images/search-field.png) right top no-repeat;
+	position: absolute;  right: 7px;   top: 7px;
+	cursor: pointer;
+}
+
+
+/********************************** CONTAINER ********************************************/
+
+.container {
+	width: 928px;   margin: auto;   position: relative;
+	background: url(../../images/container-top-borders.png) center top no-repeat;
+	padding: 6px 0 0 0;
+	position: relative;
+	box-shadow: 0 -1px 7px #bed4e1;
+} 
+#container-inner { 
+	background: #fff; overflow: hidden;
+	padding: 50px;
+	min-height: 300px;
+}
+
+
+
+/******************************************* FOOTER STUFF ************************************************/
+
+#footer {
+	width: 928px;  height: 43px;
+	padding-bottom: 9px;
+	color: #fff;
+	background: url(../../images/footer-rounded-corners.png) center bottom no-repeat;
+	position: relative;  z-index: 3;
+	box-shadow: 0 0 7px #b2cede;
+} 
+#footer a { color: #fff; text-decoration: none; } 
+#footer-inner {  background: #545251;  height: 100%; }
+#copyright-2b4me {
+	float: left;
+	font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+	margin: 18px 0 0 23px;
+}
+#copyright-2b4me span { margin-right: 10px; }
+#subnav {
+	float: right;
+	margin: 18px 189px 0 0;
+	font: bold 14px "Trebuchet MS", Arial, sans-serif;
+	text-transform: uppercase;    word-spacing: 3px;
+}
+#social {
+	position: absolute;  top: 17px;  left: 774px;
+	font-size: 11px;
+	text-shadow: 0 0 1px #fff;
+}
+
+.social-btns { position: absolute; width: 27px; height: 27px; }
+#fb-btn { 
+	background: url(../../images/social-sprites.png) left top no-repeat;
+	right: -41px; top: -4px;
+}
+#twitter-btn { 
+	background: url(../../images/social-sprites.png) right top no-repeat; 
+	right: -78px; top: -4px;
+}
+#shadow-bottom {
+	width: 1003px;   height: 50px;
+	background: url(../../images/shadow-bottom.png) center top no-repeat;
+	margin: -25px auto 0;
+	position: relative;
+	left: -5px;
+}
+#shadow-bottom { z-index: -1; }
+
+
+#home { background: none; padding: 0; box-shadow: none;}
+
+/**************************************** SLIDER STUFF ***********************************************/
+#home #slider {
+	width: 928px;
+	margin: auto; padding: 6px 0 6px 0;
+	background: url(../../images/slider-top-bottom-sprites.png) top left no-repeat;
+	position: relative; z-index: 5;
+}
+#home #slider-inner {
+	background-color: #706e6d;
+	padding: 4px 10px;
+	overflow: hidden;
+}
+#home #slider-main {
+	width: 602px;
+	height: 289px;
+	float: left; 
+	border-right: 1px solid #a4a4a4;
+	position: relative;
+}
+#home #slider-desc { 
+	width: 100%;  height: 68px; 
+	position: absolute;   left: 0;  bottom: 0; 
+	background: url(../../images/one-pixel-transparent.png);  
+}
+#home #slider-desc h4 { 
+	color: #fff;  
+	font-size: 25px;
+	margin: 8px 0 0 24px;
+	letter-spacing: -1px;  word-spacing: -2px;
+}
+#home #slider-desc p { 
+	color: #fff; 
+	margin: 2px 0 0  27px;
+}
+#home #slider-info {
+	height: 289px;
+	width: 305px;
+	background: url(../../images/slider-info-bg.jpg) repeat-x;
+	float: left;
+	position: relative;
+}
+#home #slider-info h4 {
+	color: #256080;
+	font-size: 25px;
+	letter-spacing: -1px;  word-spacing: -1px;
+	margin: 20px 0 0 22px;
+}
+#home #slider-info p { 
+	margin: 8px 0 0 23px;  padding: 0 20px 0 0;
+}
+#home #deal-price {
+	position: relative;
+	text-align: center; 
+	margin-top: 8px;
+}
+#home #slider-info .nowonly { 
+	font-size:14px; letter-spacing: -1px;   word-spacing: 0px;
+	position: relative; left: 156px;  top: 12px;
+}
+#home #deal-price .prev-price { 
+	top: -10px; left: 0;
+	font-weight: 500;  font-size: 21px;
+}
+#home #deal-price .actual-price { 
+	font-size: 49px;
+	margin-left: 13px; 
+	left: -1px;
+}
+#home #view-deal-btn { 
+	margin-left: 60px;  margin-top: 9px;
+	width: 183px;
+	padding: 0;
+}
+#home #slider-reel {
+	clear: both;
+	overflow: hidden;
+	padding-top: 10px;
+	margin: auto;
+}
+#home .reel-img {  float: left;   margin-right: 10px;  }
+#home #slider-image3 { margin-right: 0; }
+#home #slider-bottom-corners {
+	height: 6px;
+	width: 100%;
+	background: url(../../images/slider-top-bottom-sprites.png) top right no-repeat;
+	position: absolute;
+	bottom: 0;
+}
+#home #shadow-bottom {
+	width: 1011px;   height: 50px;
+	background: url(../../images/shadow-bottom.png) center top no-repeat;
+	margin: -17px 0 -36px -45px;
+	position: relative;
+}
+#home #shadow-bottom { z-index: 1; }
+
+/******************************* BOTTOM STUFF **********************************/
+#home #bottom {
+	background:  url(../../images/bottom-bg-top.gif) center top no-repeat;
+	width: 934px;
+	margin: 9px 0 0 -4px;
+	padding-top: 10px;
+	position: relative;   z-index: 3;
+}
+#home #bottom-inner {
+	background: url(../../images/bottom-inner-bg.gif) center top repeat-y;
+	overflow: hidden;
+	padding: 25px 0 75px 0;
+}
+#home #bottom-main-block { overflow: hidden; }
+#home .bottom-blocks {
+	min-height: 196px;
+	float: left; 
+	border-right: 1px solid #bdd3dc;
+} 
+#home #bottom-block1 { width: 312px; } 
+#home #bottom-block2 { width: 310px;  margin-left: 2px; } 
+#home #bottom-block3 { width: 305px;  border-right: none; }
+              
+#home .bottom-blocks h3 { 
+	width: 254px; height: 49px;
+	position: relative;
+	margin-left: 26px;
+	background: url(../../images/bottom-h3-sprites.jpg) no-repeat;
+	text-indent: -9999999px;
+}
+
+#home #bottom-block1 h3 { margin-left: 25px; margin-bottom: 0; }
+#home #bottom-block2 h3 { width: 237px; height: 45px; margin: 6px 0 0 24px; background-position: -256px top; }
+#home #bottom-block3 h3 { height: 43px; margin: 5px 0 0 27px;  background-position: -495px top; }
+
+#home .bottom-blocks p {
+	font-size:12px; 
+	padding: 15px  31px 0 20px;
+}
+#home #bottom-block1 p { padding-top: 17px;  padding-left: 25px; padding-right: 33px; }
+#home #bottom-block2 p { padding-left: 23px; padding-right: 32px; }
+#home #bottom-block3 p { padding-top: 18px; padding-left: 27px; }
+
+#home #footer { margin: -45px 0 -25px -1px;   padding-bottom: 9px; } 
+
+
+#landing #container-inner {  background: #fff;  padding: 16px 9px 0  11px;  }
+#purchase #container-inner {  background: #fff;  padding: 0 9px 0  11px;  }
+
+#purchase #msg {
+	width: 875px; height: 111px;
+	margin: 15px auto 21px;
+	clear:both;
+	border: 3px solid #4a762f;  border-radius: 11px;
+	background: url(../images/purchased-msg-gradient.png) repeat-x;
+	position: relative;
+}
+#purchase #msg {
+	width: 875px; height: 111px;
+	margin: 15px auto 21px;
+	clear:both;
+	border: 3px solid #4a762f;  border-radius: 11px;
+	background: url(../images/purchased-msg-gradient.png) repeat-x;
+	position: relative;
+}
+#purchase #congrats {
+	width: 345px;  height: 77px;
+	background: url(../images/congrats-msg.png) no-repeat;
+	position: absolute;  top: 17px; left: 31px;
+}
+#purchase #msg-info {
+	color: #2e5019;
+	font-size: 14px;  font-weight: bold; 
+	float: right;
+	margin: 27px 67px 0 0;
+	text-align: center;
+	letter-spacing: -1px;
+}
+#purchase #advice {
+	margin: 0;
+	color: #2e5019;
+	font-size: 17px; font-weight: bold;
+}
+#purchase #msg-date {
+	font: bold 20px "Trebuchet MS", Arial, sans-serif;
+	color: #fff;
+	position: relative;  left: -14px; top: 2px;
+	text-align: center;
+}
+#purchase #msg-price {
+	font-size: 33px;
+	color: #fff;
+	font-weight: normal;
+	position: relative; left: 19px; top: 6px;
+}
+#purchase #msg-for {
+	position: relative;
+	top: -1px; left: 1px;
+}
+
+
+/************************************ MAIN CONTENT ****************************************/
+
+#landing #content-main, #purchase #content-main  {
+	padding: 0 13px 0 12px;
+	background: /*#dff2fd*/ url(../images/container-main-content-bg.jpg) left bottom repeat-x;
+	min-height: 642px;
+	overflow: hidden;
+}
+#landing #main-photo, #purchase #main-photo { float: left; }
+#landing #deal-info, #purchase #deal-info { width: 430px;  float: left; }
+#landing h1 {
+	margin: 9px 0 0 25px;  padding: 0;
+	border: none;
+	color: #055984;
+	font-size: 25px;
+	letter-spacing: -1px;  word-spacing: 2px;
+}
+
+#landing #deal-desc { 
+	font-size: 12px;  line-height: 20px;
+	margin: 9px 0 0 0;
+	padding: 0 40px 0 27px;
+}
+#landing #deal-price {
+	width: 200px ;
+	margin: 9px 0 0 0; 
+	float: left;
+	text-align: center;
+}
+#landing #deal-price .actual-price {  
+	display: block;   margin: 0 0 17px 5px;
+	font-size: 49px;
+}
+#landing #buynow-deal { 
+	left: 9px;
+	width: 155px; padding: 0;
+}
+#landing #deal-off {
+	text-align: left; 
+	float: left;
+	margin: 15px 0 0 30px;  padding: 10px 0 10px 25px;
+	border-left: 1px solid #d7d9da;
+}
+#landing #off {
+	color: #75c4f0;
+	font-size: 40px;  font-weight: 600;
+	letter-spacing: -3px;
+	margin: 5px 0 0 1px;
+}
+#landing #deal-off small {
+	color: #75c4f0;
+	font-weight: bold; font-size: 17px;
+	text-transform: uppercase; 
+	position: relative;  left: 6px;   bottom: 10px;
+}
+#landing #remain {
+	display: block;
+	color: #8bb06a;
+	font: bold 16px "Trebuchet MS", Arial, sans-serif; 
+	word-spacing: 1px;  letter-spacing: -1px;
+	margin: -3px 0 5px 3px;
+}
+#landing #get-yours { 
+	margin: 0 0 0 2px;
+	color: #256080;
+	font-size: 19px; font-family: "Trebuchet MS", Arial, sans-serif;
+	text-transform: uppercase;
+	display: block;
+}
+#landing #get-yours:hover { color: #5f9458; }
+
+/*////////////////////////////////   PURCHASED  //////////////////////////////////*/
+#purchase h1 {
+	margin: -3px 0 0 25px;  padding: 0;
+	border: none;
+	color: #055984;
+	font-size: 35px; font-weight: 600;
+	letter-spacing: -2px;  word-spacing: -1px;
+}
+#purchase #add-line {
+	margin: 4px 0 0 0;  padding: 0 40px 0 26px;
+	word-spacing: -1px;
+}
+#purchase #reference {
+	margin: 13px 0 1px 27px;
+	font-size: 16px;  font-weight: 600;
+	letter-spacing: -1px;
+}
+#purchase .deal-date { float: left; }
+#purchase .deal-date p {
+	margin: 0 0 5px 3px;
+	color: #8bb06a;
+	font: bold 16px "Trebuchet MS", Arial, sans-serif;
+	letter-spacing: -1px;  word-spacing: 1px;
+}
+#purchase .deal-date span {
+	color: #424141;
+	font-size: 36px;  font-weight: 600;
+	letter-spacing: -2px;
+}
+#purchase #redeem {
+	margin: 20px 20px 0 24px;
+}
+#purchase #expires {
+	margin: 23px 0 0 11px;   padding: 0 0 13px 30px;
+	border-left: 1px solid #d7d9da;
+}
+#purchase #expires p { margin-top: -3px; }
+
+#purchase #actions {
+	float:left;  clear: both;
+	margin: 26px 0 0 25px;
+}
+#purchase #actions a {
+	letter-spacing: -1px;  word-spacing: 1px;
+	float: left;
+	color: #256080;
+	margin: 0 23px 0 0;   padding: 0 0 0 20px;
+	background: url(../images/view-print-help.png) left 3px no-repeat;
+}
+#purchase #actions a:hover {color: #5f9458; }
+#purchase a#print { 
+	background-position: left -17px;  
+	padding-left: 21px;
+}
+#purchase a#help { 
+	background-position: left -36px;  
+	padding-left: 19px;  margin-left: 2px; 
+	word-spacing: -1px; 
+}
+/*////////////////////////////////////////////////////////////////////*/
+
+
+#landing #sharing {
+	float: left;
+	margin: 31px 0 0 28px;
+}
+#purchase #sharing {
+	float: left;
+	margin: 29px 0 0 25px;
+}
+
+#landing #sharing span,
+#purchase #sharing span { 
+	float: left;
+	font-size: 14px;  font-family: "Trebuchet MS", Arial, sans-serif;
+	word-spacing: 2px; letter-spacing:-1px;
+	margin: 0 29px 0 0;
+}
+#landing #share-fb, #purchase #share-fb { float: left; margin: 0 19px 0 0; }
+#landing #share-tweet, #purchase #share-tweet {float: left;  margin: 0 19px 0 0; }
+#landing #share-email, #purchase #share-email {
+	float: left;
+	height: 20px;
+	padding: 0 0 0 30px;
+	color: #4592bd;
+	font-size: 11px;  line-height: 20px;
+	background: url(../images/share-email.png) no-repeat;
+}
+#landing #share-email:hover, #purchase #share-email:hover { color: #5f9458; }
+
+/*****************************************************************************************************/
+#landing #details,
+#purchase #details {  overflow: hidden;   clear: both;  }
+
+#landing #location-box, 
+#purchase #location-box {
+	float: left;
+	width: 188px;  min-height: 213px;
+	border: 3px solid #d2e6f1;
+	border-radius: 10px;
+	position: relative;  top: 25px;   left: 1px;
+	background: #fff url(../images/location-box-title.png) 16px 17px no-repeat;
+}
+#landing #address,
+#purchase #address {
+	margin-top: 45px;  padding: 0 18px 0 16px;
+	text-align: left;
+}
+#landing #address strong, 
+#purchase #address strong { font-size: 12px;  font-weight: bold;  display: block; } 
+
+#landing #address a, 
+#purchase #address a { color: #4592bd;  } 
+
+#landing #address a:hover,
+#purchase #address a:hover { color: #5f9458; }
+
+#landing #more-details, 
+#purchase #more-details {
+	float: left;
+	width: 660px;
+	margin: 33px 0 0 27px;
+}
+#landing #more-details h3, 
+#purchase #more-details h3 {
+	height: 15px;
+	background: url(../images/details-title.png) no-repeat;
+	text-indent: -99999999px;	
+	margin:  0 0 12px 0;
+}
+
+#landing #more-details p, 
+#purchase #more-details p { padding: 0 0 0 2px; }
+
+#landing #terms,
+#purchase #terms {
+	height: 13px;
+	letter-spacing: -1px;   word-spacing: 1px;
+	margin: 26px 0 12px 3px;
+	text-indent: -999999px;
+	background: url(../images/terms.png) no-repeat;
+}
+
+#landing #more-details .terms-p,
+#purchase #more-details .terms-p {  margin-left: 1px;   }
+/********************************************************************************************/
+
+
+/************************************ RELATED DEALS *****************************************/
+#landing #related{ overflow: hidden;  padding-bottom: 49px; }
+#purchase #related { overflow: hidden;  padding-bottom: 46px; }
+
+#landing #related-head, 
+#purchase #related-head {
+	height: 42px; 
+	background: url(../images/related-deals-title.png) no-repeat;
+	position: relative;
+	margin: 24px 0 0 23px;
+}
+#landing #related-head a, 
+#purchase #related-head a { color: #256080; }
+
+#landing #related-head a:hover, 
+#purchase #related-head a:hover { color: #5f9458; }
+
+#landing #seerel, #landing #browserel,
+#purchase #seerel, #purchase #browserel {
+	position: absolute;   top: 0;   right: 0;
+	height: 16px;
+	padding-left: 20px;
+	background: url(../images/linkrel-sprites.png) top left no-repeat;
+}
+
+#landing #seerel,
+#purchase #seerel {
+	top: 13px;   right: 210px;
+	background-position: 1px 3px;
+	height: 17px;
+	padding-bottom: 1px;
+}
+#landing #browserel,
+#purchase #browserel {
+	top: 13px;  right: 30px; 
+	background-position: 2px -18px;
+	padding-bottom: 2px;
+}
+
+#landing .relblocks,
+#purchase .relblocks {  
+	width: 268px;  margin: 15px 0 0 22px;  
+	overflow: hidden;  position: relative;
+	float: left;  
+}
+
+#landing #relblock2, #purchase #relblock2 { margin-left: 26px; }
+#landing #relblock3, #purchase #relblock3 { margin-left: 26px; }
+
+#landing .deal-photos,
+#purchase .deal-photos {  
+	width: 259px;  height: 136px;
+	background: #8cd2f9; 
+	margin-left: 1px; padding: 4px;
+	text-align: center;
+}
+#landing .dealnames, #purchase .dealnames { margin-top: 12px; margin-bottom: 0; }
+
+#landing .dealnames a,
+#purchase .dealnames a { 
+	text-decoration: none;
+	letter-spacing: -1px;
+}
+
+#landing .relblocks p,
+#purchase .relblocks p { margin-top: 4px; margin-bottom:0; }
+
+#landing .relblocks .nowonly,
+#purchase .relblocks .nowonly {
+	display: block;
+	margin-top: 12px;  padding-left: 8px;
+	text-align: left;
+}
+
+#landing .relblocks .actual-price, 
+#purchase .relblocks .actual-price { 
+	margin-left: 3px; 
+	bottom: 0;  
+}
+#landing .relblocks .prev-price, 
+#purchase .relblocks .prev-price { 
+	position: relative;  bottom: 8px;  left: 11px;
+}
+#landing .relblocks .buynow,
+#purchase .relblocks .buynow {
+	min-width: 4.1em;
+	padding:0 10px;
+	position: absolute;   bottom: 8px;   right: 9px;
+}
+
+#landing .deals-price,
+#purchase .deals-price {  
+	float: left;  
+	text-align: center;  
+}
+
+#landing #shadow-bottom2,
+#purchase #shadow-bottom2 { top: -10px; }
+
+#browse #container-inner { padding: 0 0 70px;  }
+/************************************ CONTENT HEAD *******************************************/
+#browse #browse-head { position: relative;  float:left;  padding: 15px 0 0 25px;    }
+#browse h1 {
+	width: 183px;  height:45px;
+	padding: 0; margin: 0;
+	border: none;
+	background: url(../images/browsedeals.png) no-repeat;
+	text-indent: -999999px;
+	float: left;
+}
+#browse #browse-head .green-text { float: left; }
+
+#browse #label-category { margin: 13px 7px 0 50px; }
+#browse #category { 
+	margin-top: 3px; margin-bottom: 0;
+	float: left;
+} 
+#browse #label-sort { float: left; margin: 13px 0 0 187px;  word-spacing: -2px; }
+#browse #sort { float: left;   margin: 8px 0 0 13px; }
+
+
+/************************************* SEARCH BOX ********************************************/
+#browse #search-box {
+	width: 186px;  height: 104px;
+	float: left;  
+	position: relative;
+	margin: 21px 0 26px 26px;
+	background: #a4a6a7;
+	border-radius: 8px;
+}
+#browse #search-box-input {
+	display: block;
+	width: 153px;
+	margin: 12px auto 0 auto;
+	padding: 0 0 0 10px;
+	position: relative; left: 1px;
+}
+#browse #search-box-btn {
+	display: block;
+	width: 164px;
+	margin: 11px auto 0 auto;
+}
+#browse #category-list {
+	clear: both;  float: left;
+	width: 187px;
+	margin-left: 26px;  
+}
+#browse #category-list li {
+	height: 28px; 
+	margin-bottom: -3px !ie7;  padding-bottom: 3px;
+	border: 1px solid #dcddde;  border-bottom: none;
+	background: url(../images/list-bullet.png) 8px center no-repeat;
+	font: 600 13px/35px Arial, Helvetica, sans-serif;  letter-spacing: -1px;
+} 
+#browse #category-list li.first,
+#browse #category-list li.last { height: 35px;  padding-bottom: 0; }
+
+#browse #category-list li.first { border-top-left-radius: 5px; border-top-right-radius: 5px; }
+#browse #category-list li.last { 
+	border-bottom: 1px solid #dcddde;  border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; 
+}
+#browse #category-list li a { color: 0e71a8;   display: block;  padding-left: 31px;  text-decoration: none; }
+#browse #category-list li a:visited { color: #0e71a8; }
+#browse #category-list li a:hover { color: #679350; }
+#browse #category-list li.selected a { color: #679350; }
+
+/************************************** RESULTS BLOCK **************************************************/
+#browse #results-block {
+	float: left;
+	min-width: 310px; max-width: 657px; min-height:500px;
+	margin: -130px 0 0 32px;  //margin-top: 20px;
+	overflow: hidden;
+}
+#browse .deal-blocks {
+	width: 296px; height: 333px;
+	position: relative;
+	border-bottom: 1px solid #eaebeb;
+	padding: 27px 16px 0 18px;
+	float: left;
+	background: url(../images/first-deal-bg.png) bottom left repeat-x; 
+} 
+#browse #first-deal { padding-top:0;   }
+#browse #second-deal { padding-top:0; } 
+#browse .left-block {	
+	border: 1px solid #eaebeb; border-width: 0 1px 1px 0;
+	padding: 27px 16px 0 14px;
+}
+#browse .deal-img {
+	width: 288px;  height: 136px;
+	border: 4px solid #8cd2f9;
+}
+#browse .deal-blocks h4 { margin: 12px 0 4px -1px;  letter-spacing: -1px;  }
+#browse .deal-blocks h4 a { text-decoration: none; }
+#browse .deal-price {
+	float: left;
+	text-align: center;
+	margin: 15px 0 0 0;
+}
+#browse .deal-blocks p { margin-bottom:0; }
+#browse .deal-blocks .nowonly {
+	font-size: 12px; letter-spacing:0;  word-spacing:-1px; 
+	display: block;
+	padding:0 0 0 5px;
+}
+#browse .deal-blocks .actual-price { 
+	font-size: 39px; color: #424141;  
+	margin-left: 2px;
+	letter-spacing: -4px;
+}
+#browse .deal-blocks .prev-price { 
+	float: left;
+	position:relative;  left: 16px; top: 41px; 
+	font-size: 16px; font-weight: bold; 
+}
+#browse .deal-blocks .buynow {   
+	 min-width: 4.1em;
+	 padding:0 10px;
+	 position: absolute;  right:26px;  bottom:33px;
+}
+
+#browse #load-btn-box {
+	clear: both;  float: left;
+	text-align: center;
+	margin-top: 32px;
+	width: 100%;
+	position: relative;
+}
+#browse #load-btn {
+	float: left;
+	margin-left: 50%;
+	left: -82px;
+}
+
+
+#profile #head a:visited,
+#profile a.b-link:visited { color: #0e71a8; }
+#profile #head a:hover,
+#profile a.b-link:hover{ color: #5f9458; }
+
+#profile #container-inner { padding: 0 0 27px 0; }
+#profile #head { overflow: hidden; }
+#profile #head img {
+	border: 4px solid #8cd2f9;
+	float: left;
+	margin: 25px 0 0 38px;
+}
+#profile h1 {
+	float: left;
+	font-size: 29px;
+	margin: 56px 0 0 23px;
+	border: none;
+	color: #055984;
+	letter-spacing: -2px;   word-spacing: 2px;
+	text-transform: capitalize;
+}
+#profile #head p {
+	font-size: 15px;
+	float: left;
+	margin: 94px 0 0 -139px;
+}
+#profile #info {
+	max-width: 100%;
+	overflow: hidden;
+	padding: 42px 0 0 32px;  
+}
+#profile .blocks {
+	width: 412px;  height: 235px;
+	border: 3px solid #d2e6f1;  border-radius: 11px;
+	float: left;
+	margin: 0 29px 33px 0;
+	position: relative;
+}
+#profile #user {
+	background: url(../images/user-info-title.png) 16px 17px no-repeat;
+	font-size: 14px;
+}
+
+#profile #user dl { margin: 57px 0 0 0;  padding: 0 0 0 15px; }
+#user dl li { overflow: hidden; margin: 0 0 12px; }
+
+#profile #user dl dt { float: left; }
+#profile #user dl dd {
+	float: left;
+	margin: 0 0 0 35px;
+	word-spacing: -1px;
+	text-align: left;
+	max-width: 300px;
+}
+#profile #user #user-name {
+	margin: 0 0 0 53px;
+	font-weight: bold;
+	letter-spacing: -1px;  word-spacing:2px;
+}
+#profile #user #user-email {
+	margin: 0 0 0 52px;
+	font-weight: bold;
+}
+#profile #user #user-pass { margin: 0 0 0 26px;  }
+#profile a.b-link {
+	position: absolute;   bottom: 25px; right: 35px;
+	font-size: 15px;
+}
+
+/*********************** PURCHASED ************************/
+#profile #purchased {
+	background: url(../images/purchased-deals-title.png) 16px 17px no-repeat;
+	height: auto;  min-height: 235px;
+}
+#profile ul.list {
+	margin: 46px 12px 50px;
+	border: 1px solid #d2e6f1;  border-width: 1px 1px 0 1px;
+}
+#profile ul.list li {
+	position: relative;
+	border-bottom: 1px solid #d2e6f1;
+	height: 43px;
+	padding: 0 0 0 11px;
+	overflow: hidden;
+	font: normal 12px/43px Arial, sans-serif;
+	text-transform: capitalize;
+}
+#profile ul.list li .right {
+	float: right; 
+	margin: 0 20px 0 0;
+	//position: absolute; //top:0;  //right:0;
+}
+#profile ul.list li.first-row {
+	height: 38px;
+	color: #256080;
+	font: bold 13px/38px "Trebuchet MS", Arial, sans-serif;
+	word-spacing: -1px;
+	text-transform: uppercase;
+	background: #d2e6f1;
+}
+#profile #purchased a.b-link {  right: 18px; }
+
+/**************************** SUBSCRIPTIONS ********************************/
+#profile #subscriptions {
+	background: url(../images/email-suscriptions-title.png) 16px 17px no-repeat;
+	min-height: 235px; height: auto;
+}
+#profile #subs-list {
+	margin: 52px 0 25px;
+}
+#profile #subs-list li {
+	margin: 0 0 14px; padding: 0 0 0 23px;
+	font-size: 14px;
+	word-spacing: -1px;
+	overflow: hidden;
+	//margin: 0 0 5px;  //padding: 0 0 0 20px;
+}
+#profile li#subs-label {  
+	margin:0 0 22px; padding: 0 0 0 14px;
+	font-size: 14px; font-weight: bold; 
+}
+#profile #subs-list label {  display: block;   }
+#profile #subs-list li label { float:left; //margin: 3px 0 0; }
+#profile .checkbox { float: left\9; margin: 0 24px 0 0\9;  }
+
+/******************************* CREDIT CARDS *********************************/
+#profile #cards {
+	background: url(../images/credit-cards-title.png) 15px 17px no-repeat;
+	height:auto; min-height: 235px;
+}
+#profile #cards li img {
+	float: left;
+	margin: 12px 12px 0 1px;
+}
+#profile #cards .right { margin-right: 21px; }
+#profile #cards .b-link { right: 20px; }
+
+
+.modal-box {
+	width: 604px;  min-height: 557px;
+	background: #fff;
+	border-radius: 6px;
+	position:absolute;
+}
+.modal-header {
+	float: left;
+	width: 581px;  height: 129px;
+	margin: 12px 0 12px 11px;
+	background: url(../images/header-bg.jpg) repeat-x;
+	position:relative;
+}
+.modal-logo {
+	float: left;
+	margin: 8px 0 0 23px;
+}
+.modal-header h2 {
+	position: absolute; top:0;  right:0;
+	color: #fff;
+	font:600 34px Arial, sans-serif;
+	letter-spacing: -1px;
+}
+.modal-header .reference {
+	float: right;
+	margin: 83px 35px 0 0;
+	font-size: 16px;  font-weight: bold;
+	text-align: center;
+	color: #fff;
+}
+#receipt .list { 
+	clear: both;
+	width: 578px;
+	margin: 0 0 0 11px;
+	border: 1px solid #d2e6f1;  border-width: 1px 1px 0 1px;
+}
+.modal-box .linkprint {
+	clear: both;
+	float: left;
+	width: 581px;
+	text-align: center;
+}
+.modal-box .linkprint a {
+	display: inline-block;
+	padding: 0 0 0 24px;
+	color: #256080;
+	background: url(../images/view-print-help.png) left -17px no-repeat;
+	position: relative;
+}
+.modal-box .linkprint a:hover { color: #5f9458; }
+
+.modal-box .close-box {
+	position: absolute;  top:0;  right:0;
+	background: #fff;
+	padding: 7px;
+	border-radius: 11px;
+}
+.modal-box .close-box a {
+	display: block;
+	width: 28px;  height: 28px;
+	background: url(../images/close-btn.png) no-repeat;
+}
+.modal-box .close-box a:active { background-position: left bottom; }
+
+/************************************** LOGIN *********************************************/
+#login {
+	width: 603px;  min-height: 370px;
+	background: #fff;
+	border-radius: 5px;
+	padding: 47px 0 0;
+	position:absolute; top: 50%;  left: 50%;  z-index: 1000;
+	margin: -185px 0 0 -301.5px;
+}
+#login h2 {
+	margin: 0 19px 42px 18px;   padding: 0 0 15px 2px;
+	color: #256080;
+	font:bold 25px Arial, sans-serif;
+	letter-spacing: -1px;
+	border-bottom: 4px solid #acc8d8;
+}
+#login .login-input {
+	float: left;
+	margin:0 0 33px;  padding: 0 0 0 84px;
+}
+#login label {
+	float: left;
+	margin: 11px 22px 0 0;
+}
+#login input {
+	padding: 0 0 0 10px;
+	float: left;
+}
+
+#login-pass { margin: 0 0 0 8px; }
+
+#login-actions {
+	padding: 23px 0 0 184px;
+	float: left;
+}
+#login #cancel {
+	margin: 10px 74px 0 0;
+	float: left;
+	color: #256080;
+}
+#login #cancel:hover { color: #f00; }
+#login #cancel:focus { outline: 1px solid #8dd2f9; }
+
+#login #submit { 
+	float: left;
+	width: 193px;
+	padding: 0;
+	margin: -3px 0 0;
+}
+#login #submit:focus {
+	background-color: #8dd2f9;
+	outline: 2px solid #8dd2f9;
+}
+#login #close-btn {
+	position: absolute;  top:7px;  right:6px;
+	width: 28px;  height: 28px;
+	background: url(../images/close-btn.png) no-repeat;
+}
+#login #close-btn:active { background-position: left bottom; }
+
+
+/*************************************** RECEIPT ******************************************/
+#receipt h2 {
+	top:33px;  right:40px;
+}
+#receipt .list li {
+	min-height: 43px;
+	border-bottom: 1px solid #d2e6f1;
+	padding: 0 0px 0 13px;
+	position: relative;
+	font: normal 12px/43px Arial, sans-serif;
+	text-transform: capitalize;
+	overflow: hidden;
+}
+#receipt .list .first-row {
+	min-height: 38px; height:38px;
+	padding: 0 13px 0 13px;
+	color: #256080;
+	font: bold 13px "Trebuchet MS", Arial, sans-serif;
+	line-height: 38px;
+	word-spacing: -1px;
+	text-transform: uppercase;
+	background: #d2e6f1;
+}
+#receipt .list .first-row .desc { float: left; }
+#receipt .list .first-row .right { float:right; }
+#receipt .list .first-row .right span {
+	float: left;
+	margin: 0 0 0 30px;
+}
+#receipt .list .first-row .right span.qua { margin: 0 15px 0 0; }
+
+#receipt .list .rows .desc { float:left; }
+#receipt .list .rows .qua, 
+#receipt .list .rows .unit, 
+#receipt .list .rows .total {
+	position: absolute;  
+	min-width: 78px;
+	line-height: 38px; 
+	text-align: center;
+}
+#receipt .list .rows div.desc { 
+	width: 255px;
+	min-height: 38px;
+} 
+#receipt .list .rows div.qua { top: 3px;  right: 230px; }
+#receipt .list .rows div.unit { top: 3px;   right: 115px; }
+#receipt .list .rows div.total {  top: 3px; right: 15px; }
+
+#receipt #total {
+	width: 549px;
+	padding: 0 30px 19px 0;
+	margin: 20px 0 0 11px;
+	clear: both;
+	border-bottom: 4px solid #acc8d8;
+	text-align: right;
+}
+#receipt #total span {
+	font-size: 12px; font-weight: bold;
+	text-transform: uppercase;
+}
+#receipt #your-t { position:relative; left:-25px;  top: -3px;  }
+#receipt span#total-price {
+	font-size: 24px;
+}
+
+#receipt #pay-details {
+	float: left;
+	margin: 23px 0 0 26px;
+}
+#receipt h3 {
+	font-size: 15px; font-weight: bold;
+	margin: 0;
+	letter-spacing: -1px;
+}
+#receipt #pay-details p { margin: 0 0 5px; }
+#receipt #credit-card { position: relative;  left: 5px; }
+#receipt #credit-card img.credit-card { position: relative; left:8px; top: 6px;  }
+
+#receipt .linkprint {
+	margin: 49px 0 20px 11px;
+}
+#receipt .linkprint a {  left:-10px; }
+
+
+/*************************************** VOUCHER ********************************************/
+#voucher .modal-header {  margin-bottom: 33px; }
+#voucher h2 {
+	top:33px;  right:35px;
+}
+#voucher #code-box {
+	clear: both;
+	text-align: center;
+}
+#voucher #code-box * {
+	display: inline-block;
+}
+#voucher #vouch-or {
+	margin: 0 19px 0;
+	position: relative;  top:-37px;  left:-7px;
+	font: normal 20px "Trebuchet MS", Arial, sans-serif;
+	text-transform: uppercase;
+}
+#voucher #code2 { position:relative;  top: -7px; left: -14px; }
+
+#voucher #vendor {
+	color: #363434;
+	font-size: 14px;  font-weight: 600;
+	letter-spacing: -1px;
+	text-align: center;
+	margin: 10px 0 0;
+	padding: 0 5px 0 0;
+}
+#voucher #vouch-detail {
+	margin: 16px 120px 0;
+	font-size: 20px;
+	line-height: 31px;
+	text-align: center;
+}
+#voucher #vouch-detail strong {
+	font-size: 27px;
+}
+#voucher #vouch-detail em {
+	font-style: normal;
+	font-weight: bold;
+	word-spacing: -1px;
+}
+
+#voucher #expiration {
+	float: left; 
+	margin: 2px 0 0 115px;
+}
+#voucher .deal-date { float: left; }
+#voucher .deal-date p {
+	margin: 3px 0 5px 3px;
+	color: #8bb06a;
+	font: bold 16px "Trebuchet MS", Arial, sans-serif;
+	letter-spacing: -1px;  word-spacing: 1px;
+}
+#voucher .deal-date span {
+	color: #424141;
+	font-size: 36px;  font-weight: 600;
+	letter-spacing: -2px;
+}
+#voucher .redeem {
+	margin: 20px 20px 0 24px;
+}
+#voucher .expires {
+	margin: 23px 0 0 11px;   padding: 0 0 9px 30px;
+	border-left: 1px solid #d7d9da;
+}
+#voucher .expires p { margin-top: 0px; }
+
+#voucher .linkprint { margin-top: 23px; }
+#voucher .linkprint a { right: -5px;   }
