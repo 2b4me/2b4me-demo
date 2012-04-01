@@ -7,9 +7,9 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <g:external dir="css" file="stylesheet.css" />
+<%-- <g:external dir="css" file="modal.css" /> --%>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <g:external dir="js" file="custom-ui.js" />
-<g:external dir="css" file="modal.css" />
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="page" type="text" value="home" -->
 <!-- InstanceParam name="shadow" type="boolean" value="false" -->
