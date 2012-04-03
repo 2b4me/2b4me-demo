@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/2b4me-template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Browse Deals</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script  type="text/javascript" src="js/custom-ui.js"></script>
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="page" type="text" value="browse" -->
+<!-- InstanceParam name="shadow" type="boolean" value="true" -->
+<!-- InstanceParam name="footer" type="boolean" value="true" -->
+</head>
+
+<body>
+	<!--START HEADER-->
+	<div id="header">
+		<a href="home.html" id="logo"><img src="images/2b4me-logo.png" /></a>
+		<ul id="nav"> 
+			<li id="home-link"><a href="profile.html"></a></li>
+			<li id="featured-link"><a href="#">Featured</a></li>
+			<li id="browse-link"><a href="browse.html">Browse</a></li>
+			<li id="sign-link"><a href="#">Sign up</a></li>
+			<li id="login-link"><a href="login.html">Login</a></li>
+		</ul>
+		<form id="search-form" action="#">
+			<label for="city">Choose your city</label>
+			<select name="city" class="select-box">
+				<option value="">Miami</option>
+			</select>
+			
+			<div id="search-field">
+				<input type="text" id="search-input" name="search" value="Search Deals..."  />
+				<input type="submit" value="" id="search-btn" />
+			</div>
+		</form>
+	</div>
+	<!--END HEADER-->
+	
+	<!-- START CONTAINER-->
+	<div class="container" id="browse">
+	
+	<!-- InstanceBeginEditable name="container-inner" -->
+		<!--START CONTAINER-INNER-->
+		<div id="container-inner"><!--do not remove this div-->
+			<!-- START BROWSE HEAD -->
+			<div id="browse-head">
+				<h1>Browse Deals</h1>
+				<small class="green-text" id="label-category">Category</small><h2 id="category">Entertainment</h2>
+				<small class="green-text" id="label-sort"><label for="sort">Sort by</label></small>
+				<select name="sort" class="select-box" id="sort">
+					<option value="">Popularity</option>
+					<option value="">voted</option>
+				</select>
+			</div>
+			<!-- END BROWSE HEAD -->
+			
+			<!-- START SEARCH BOX -->
+			<div id="search-box">
+				<form action="#" id="search-box-form">
+					<input type="text" name="search" value="Search Deals..." class="text-input" id="search-box-input" />
+					<button type="submit" class="green-btn" id="search-box-btn">search </button>
+				</form>
+			</div>
+			<!-- END SEARCH BOX -->
+			
+			<!-- START CATEGORY LIST -->
+			<ul id="category-list">
+				<li class="first"><a href="#">Dining</a></li>
+				<li><a href="#">Retail</a></li>
+				<li><a href="#">Clothing</a></li>
+				<li><a href="#">Salon</a></li>
+				<li><a href="#">Fitness</a></li>
+				<li><a href="#">Nightlife</a></li>
+				<li class="selected"><a href="#">Entertainment</a></li>
+				<li class="last"><a href="#">All Deals</a></li>
+			</ul>
+			<!-- END CATEGORY LIST -->
+			
+			<!-- START RESTULT BLOCKS -->
+			<div id="results-block">
+			
+				<div class="deal-blocks left-block" id="first-deal"><!--the first deal of the result must have this ID-->
+					<img src="images/browse-photo1.jpg" alt="" class="deal-img" />
+					<h4 class="deal-name"><a href="#">Full Body Massage</a></h4>
+					<p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. dolor sit amet, consectetur adipiscing elit dull phils non duet men. <a href="#">Read More</a></p>
+					<div class="deal-price">
+						<span class="nowonly">Now Only</span>
+						<span class="actual-price">$30</span>
+					</div>
+					<span class="prev-price">$69</span>
+					<a href="#" class="green-btn buynow">Buy Now</a>
+				</div>
+				
+				<div class="deal-blocks" id="second-deal"><!--the second deal of the result must have this ID-->
+					<img src="images/browse-photo2.jpg" alt="" class="deal-img" />
+					<h4 class="deal-name"><a href="#">2 for 1 Dining on Tuesdays</a></h4>
+					<p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. dolor sit amet, consectetur adipiscing elit dull phils non duet men. <a href="#">Read More</a></p>
+					<div class="deal-price">
+						<span class="nowonly">Now Only</span>
+						<span class="actual-price">$10</span>
+					</div>
+					<span class="prev-price">$16</span>
+					<a href="#" class="green-btn buynow">Buy Now</a>
+				</div>
+				
+				<div class="deal-blocks left-block"><!--each first block must have the left-block class-->
+					<img src="images/browse-photo3.jpg" alt="" class="deal-img" />
+					<h4 class="deal-name"><a href="#">Exotic Vacation Destinations</a></h4>
+					<p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. dolor sit amet, consectetur adipiscing elit dull phils non duet men. <a href="#">Read More</a></p>
+					<div class="deal-price">
+						<span class="nowonly">Now Only</span>
+						<span class="actual-price">$399</span>
+					</div>
+					<span class="prev-price">$699</span>
+					<a href="#" class="green-btn buynow">Buy Now</a>
+				</div>
+				
+				<div class="deal-blocks">
+					<img src="images/browse-photo4.jpg" alt="" class="deal-img" />
+					<h4 class="deal-name"><a href="#">Cocktails Specials</a></h4>
+					<p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. dolor sit amet, consectetur adipiscing elit dull phils non duet men. <a href="#">Read More</a></p>
+					<div class="deal-price">
+						<span class="nowonly">Now Only</span>
+						<span class="actual-price">$4</span>
+					</div>
+					<span class="prev-price">$8</span>
+					<a href="#" class="green-btn buynow">Buy Now</a>
+				</div>
+				
+				<!----------------------------- HERE GOES THE LOAD BUTTON ---------------------------------->
+				<div id="load-btn-box">
+					<button href="#" class="round-btn v2" id="load-btn">Load More<span></span></button>
+				</div>
+			</div>
+		   <!-- END RESULT BLOCKS -->                
+		</div>
+		<!--START CONTAINER-INNER-->
+	<!-- InstanceEndEditable -->
+	
+		
+		<!--START FOOTER-->
+		<div id="footer">
+			<div id="footer-inner">
+				<p id="copyright-2b4me">Copyright © 2011 - <span>2012</span> 2b4me, Inc</p>
+				<p id="subnav"><a href="#">Sitemap</a> | <a href="#">Company</a> | <a href="#">Blog</a></p>
+				<p id="social">Follow Us<a href="#" class="social-btns" id="fb-btn"></a> <a href="#" class="social-btns" id="twitter-btn"></a></p>
+			</div>
+		</div>
+		<!--END FOOTER-->
+		
+	</div>
+	<!-- END CONTAINER -->
+	
+	<div id="shadow-bottom"> <!--required--> </div>
+	
+</body>
+<!-- InstanceEnd --></html>

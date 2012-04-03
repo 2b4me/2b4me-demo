@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/2b4me-template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Profile</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script  type="text/javascript" src="js/custom-ui.js"></script>
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="page" type="text" value="profile" -->
+<!-- InstanceParam name="shadow" type="boolean" value="true" -->
+<!-- InstanceParam name="footer" type="boolean" value="true" -->
+</head>
+
+<body>
+	<!--START HEADER-->
+	<div id="header">
+		<a href="home.html" id="logo"><img src="images/2b4me-logo.png" /></a>
+		<ul id="nav"> 
+			<li id="home-link"><a href="profile.html"></a></li>
+			<li id="featured-link"><a href="#">Featured</a></li>
+			<li id="browse-link"><a href="browse.html">Browse</a></li>
+			<li id="sign-link"><a href="#">Sign up</a></li>
+			<li id="login-link"><a href="login.html">Login</a></li>
+		</ul>
+		<form id="search-form" action="#">
+			<label for="city">Choose your city</label>
+			<select name="city" class="select-box">
+				<option value="">Miami</option>
+			</select>
+			
+			<div id="search-field">
+				<input type="text" id="search-input" name="search" value="Search Deals..."  />
+				<input type="submit" value="" id="search-btn" />
+			</div>
+		</form>
+	</div>
+	<!--END HEADER-->
+	
+	<!-- START CONTAINER-->
+	<div class="container" id="profile">
+	
+	<!-- InstanceBeginEditable name="container-inner" -->
+		<div id="container-inner">
+			<!--START TITLE PROFILE-->
+			<div id="head">
+				<img src="images/profile-photo.jpg" />
+				<h1>daniel silva</h1>
+				<p>daniel@silvanolte.com <a href="#">Update</a></p>
+			</div>
+			<!--END TITLE PROFILE-->
+			
+			<!--START INFO BLOCKS-->
+			<div id="info">
+				<!--START USER INFO-->
+				<div class="blocks" id="user">
+					<dl>
+						<li> <dt>Name:</dt>  <dd id="user-name">Daniel Silva</dd> </li>
+						<li> <dt>Address:</dt><dd id="user-address">20786 SW 87th Court Cutler Bay, FL 33189 </dd> </li>
+						<li> <dt>Email:</dt> <dd id="user-email">daniel@silvanolte.com</dd> </li>
+						<li><dt>Password:</dt> <dd id="user-pass">XXXXXXXXXXXXX</dd></li>
+					</dl>
+					<a href="#" class="b-link">Update</a>
+				</div>
+				<!--END USER INFO-->
+				
+				<!--START PURCHASED DEALS-->
+				<div class="blocks" id="purchased">
+					<ul class="list">
+						<li class="first-row">Deal Name <span class="right">Expiration</span></li>
+						<li>Hilton Head Vacation Villas <span class="right">12/01/12</span></li>
+						<li>Olive Garden <span class="right">12/01/12</span></li>
+					</ul>
+					<a href="#" class="b-link">See More</a>
+				</div>
+				<!--END PURCHASED DEALS-->
+				
+				<!--START SUBSCRIPTIONS-->
+				<div class="blocks" id="subscriptions">
+					<ul id="subs-list">
+						<li id="subs-label">Select the 2b4me email alerts you want:</li>
+						<li><input type="checkbox" class="checkbox" id="check0" /><label for="check0">Daily Deals</label></li>
+						<li><input type="checkbox" class="checkbox" id="check1" /><label for="check1">Cooking Deals</label></li>
+						<li><input type="checkbox" class="checkbox" id="check2" /><label for="check2">2b4me Escapes</label></li>
+					</ul>
+				</div>
+				<!--END SUBSCRIPTIONS-->
+				
+				<!--START CREDIT CARDS-->
+				<div class="blocks" id="cards">
+					<ul class="list"><li class="first-row">Card name <span class="right">Actions</span></li>
+						<li><img src="images/master-card.jpg" />Master Card - ending in 1234 <span class="right"><a href="#">Remove</a></span></li>
+						<li><img src="images/visa-card.jpg" />Visa - ending in 7898 <span class="right"><a href="#">Remove</a></span></li>
+					</ul>
+					<a href="#" class="b-link">Add Card</a>
+				</div>
+				<!--START CREDIT CARDS-->
+			</div>
+			<!--END INFO BLOCKS-->
+		</div>
+	<!-- InstanceEndEditable -->
+	
+		
+		<!--START FOOTER-->
+		<div id="footer">
+			<div id="footer-inner">
+				<p id="copyright-2b4me">Copyright © 2011 - <span>2012</span> 2b4me, Inc</p>
+				<p id="subnav"><a href="#">Sitemap</a> | <a href="#">Company</a> | <a href="#">Blog</a></p>
+				<p id="social">Follow Us<a href="#" class="social-btns" id="fb-btn"></a> <a href="#" class="social-btns" id="twitter-btn"></a></p>
+			</div>
+		</div>
+		<!--END FOOTER-->
+		
+	</div>
+	<!-- END CONTAINER -->
+	
+	<div id="shadow-bottom"> <!--required--> </div>
+	
+</body>
+<!-- InstanceEnd --></html>

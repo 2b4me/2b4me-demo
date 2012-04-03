@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Login</title>
+<style type="text/css">
+@import url('stylesheet.css');
+body{background:#fff;}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script  type="text/javascript" src="js/custom-ui.js"></script>
+</head>
+
+<body>
+	<div id="login" class="modal-box"> 
+		<h2>Please Log In 2b4me:</h2>
+		<form action="#">
+			<div class="login-input">
+				<label for="login-user" class="blue-label">User Name:</label>
+				<input type="text" value="User Name Here..." class="text-input lvl2" id="login-user" />
+			</div>
+			
+			<div class="login-input">
+				<label for="login-pass" class="blue-label">Password:</label>
+				<input type="password" value="Password Here..." class="text-input lvl2" id="login-pass" />
+			</div>
+			
+			<div id="login-actions">
+				<a href="#" class="biglink" id="cancel">cancel</a>
+				<button type="submit" class="green-btn lvl2" id="submit">log in</button>
+			</div>
+		</form>
+		<a href="#" title="cancel" id="close-btn"></a>
+	</div>
+</body>
+</html>

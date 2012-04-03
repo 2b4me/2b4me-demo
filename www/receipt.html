@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+@import url('stylesheet.css');
+body { background: #000; }
+</style>
+</head>
+
+<body>
+	<div id="receipt" class="modal-box">
+		<div class="modal-header">
+			<img class="modal-logo" src="images/2b4me-logo.png" />
+			<h2>Receipt</h2>
+			<p class="reference">Reference: 123244549773</p>
+		</div>
+		
+		<ul class="list">
+			<li class="first-row">
+				<span class="desc">description</span>
+				<div class="right">
+					<span class="qua">quantity</span>
+					<span>unit price</span>
+					<span>total price</span>
+				</div>
+			</li>
+			<!---- LOOP GOES FROM HERE ----->
+			<li class="rows">
+				<div class="desc">Hilton Head Vacation Villas </div>
+				<div class="qua">1</div>
+				<div class="unit">$399</div>
+				<div class="total">$399</div>
+			</li>
+			<!---- END THE LOOP ----->
+			
+			<li class="rows">
+				<div class="desc">Taxes / Fees</div>
+				<div class="qua"></div>
+				<div class="unit"></div>
+				<div class="total">$21</div>
+			</li>
+		</ul>
+		
+		<div id="total">
+			<span id="your-t">your total</span>
+			<span id="total-price">$420</span>
+		</div>
+		<div id="pay-details">
+			<h3>payment details</h3>
+			<p><strong>Paid with Credit Card:</strong> <span id="credit-card">ending with 7897 <img src="images/visa-card.jpg" class="credit-card" /></span></p>
+			<p><strong>Paid on:</strong> 12/01/2011</p>
+		</div>
+		<div class="linkprint"><a href="javascript:print();" class="biglink">print receipt</a></div>
+		<div class="close-box"><a href="#" title="Close"></a></div>
+	</div>
+</body>
+</html>
