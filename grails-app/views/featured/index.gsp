@@ -70,7 +70,7 @@
 				</div>
                 
                 <div id="slider-reel">
-                    <div id="slider-image1" class="reel-img"><a href="#"><r:img uri="/images/home-slider-image1.jpg" border="0" /></a></div>
+                  <div id="slider-image1" class="reel-img"><a href="#"><r:img uri="/images/home-slider-image1.jpg" border="0" /></a></div>
                   <div id="slider-image2" class="reel-img"><a href="#"><r:img uri="/images/home-slider-image2.jpg" border="0" /></a></div>
                   <div id="slider-image3" class="reel-img"><a href="#"><r:img uri="/images/home-slider-image3.jpg" border="0" /></a></div>
               </div>
