@@ -16,30 +16,14 @@
 <!-- InstanceParam name="footer" type="boolean" value="false" -->
 </head>
 
+<g:set var="deal" value="${featuredDeals.get(dealIndex).deal}" />
+
 <body>
-	<!--START HEADER-->
-	<div id="header">
-		<a href="home.html" id="logo"><r:img uri="/images/2b4me-logo.png"/></a>
-		<ul id="nav"> 
-			<li id="home-link"><a href="profile.html"></a></li>
-			<li id="featured-link"><a href="#">Featured</a></li>
-			<li id="browse-link"><a href="browse.html">Browse</a></li>
-			<li id="sign-link"><a href="#">Sign up</a></li>
-			<li id="login-link"><a href="login.html">Login</a></li>
-		</ul>
-		<form id="search-form" action="#">
-			<label for="city">Choose your city</label>
-			<select name="city" class="select-box">
-				<option value="">Miami</option>
-			</select>
-			
-			<div id="search-field">
-				<input type="text" id="search-input" name="search" value="Search Deals..."  />
-				<input type="submit" value="" id="search-btn" />
-			</div>
-		</form>
-	</div>
-	<!--END HEADER-->
+   <!--START HEADER-->
+   <div id="header">
+      <g:include controller="featured" action="header" />
+   </div>
+   <!-- END HEADER -->
 	
 	<!-- START CONTAINER-->
 	<div class="container" id="home">
@@ -52,19 +36,19 @@
             	<div id="slider-main">
                 	<r:img uri="/images/home-slider-main-photo.jpg" />
                 	<div id="slider-desc">
-                    	<h4>Amazing Hotels Discounts</h4>
-                        <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. Duis sollicitudin molestie velit.</p>
+                    	<h4>${deal.hoverTitle}</h4>
+                        <p class="small">${deal.hoverTeaser}</p>
                     </div>
                 </div>
                 
                 <div id="slider-info">
-                	<h4>Hotels Discounts</h4>
-                    <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. Duis sollicitudin molestie velit. Suspendisse id diam et diam varius sagittis id quis mi. <a href="#">Read More</a></p>
+                	<h4>${deal.title}</h4>
+                    <p class="small">${deal.teaser} <a href="#">Read More</a></p>
                     
                     <span class="nowonly">Now Only</span>
                     <div  id="deal-price">
-                        <span class="prev-price">$699</span>
-                        <span class="actual-price">$399</span>
+                        <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
+                        <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
 					</div>
 					<a href="#" class="green-btn lvl2" id="view-deal-btn">view deal</a>
 				</div>

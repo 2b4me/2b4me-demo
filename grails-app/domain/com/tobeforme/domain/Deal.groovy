@@ -2,15 +2,19 @@ package com.tobeforme.domain
 
 class Deal {
 
-    static constraints = {
-    }
-	
 	String hoverTitle
 	String hoverTeaser
 	String title
 	String teaser
 	double originalPrice
 	double price
+	
+	static constraints = {
+    }
+
+	static mapping = {
+		teaser sqlType: 'text'
+	}
 	
 	def discountInPct() {
 		def diff = price/originalPrice
