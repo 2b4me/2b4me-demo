@@ -6,10 +6,12 @@ class Deal {
 	String hoverTeaser
 	String title
 	String teaser
+	String largeImage
 	double originalPrice
 	double price
 	
 	static constraints = {
+		largeImage nullable: true
     }
 
 	static mapping = {

@@ -11,6 +11,7 @@ class BootStrap {
 			teaser: 'Take a breather from the every day routine with ' +
 			        'a 5 day and 4 night all-inclusive stay at the famous Sands Hotel, ' +
 			        'located directly on the beach.',
+			largeImage: 'images/home-slider-main-photo.jpg',
 			originalPrice: 800,
 			price: 400
 		).save()

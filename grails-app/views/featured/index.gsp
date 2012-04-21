@@ -34,7 +34,7 @@
     	<div id="slider"> 
         	<div id="slider-inner">
             	<div id="slider-main">
-                	<r:img uri="/images/home-slider-main-photo.jpg" />
+                	<img src="${deal.largeImage}" />
                 	<div id="slider-desc">
                     	<h4>${deal.hoverTitle}</h4>
                         <p class="small">${deal.hoverTeaser}</p>
@@ -54,9 +54,9 @@
 				</div>
                 
                 <div id="slider-reel">
-                  <div id="slider-image1" class="reel-img"><a href="#"><r:img uri="/images/home-slider-image1.jpg" border="0" /></a></div>
-                  <div id="slider-image2" class="reel-img"><a href="#"><r:img uri="/images/home-slider-image2.jpg" border="0" /></a></div>
-                  <div id="slider-image3" class="reel-img"><a href="#"><r:img uri="/images/home-slider-image3.jpg" border="0" /></a></div>
+                  <div id="slider-image1" class="reel-img"><a href="#"><img src="images/home-slider-image1.jpg" border="0" /></a></div>
+                  <div id="slider-image2" class="reel-img"><a href="#"><img src="images/home-slider-image2.jpg" border="0" /></a></div>
+                  <div id="slider-image3" class="reel-img"><a href="#"><img src="images/home-slider-image3.jpg" border="0" /></a></div>
               </div>
             </div>
            
