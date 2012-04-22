@@ -4,17 +4,31 @@ import com.tobeforme.domain.*
 
 class FeaturedController {
 
-    def index() {
-		def featuredDeals = FeaturedDeal.list(sort: 'prio', order: 'asc', max: 4)
-		[featuredDeals: featuredDeals, dealIndex: 0, deal: featuredDeals.get(0).deal, sliderIndex: 1]
-	}
+    def index() { }
 	
-	def header() {
-		
-	}
+	def header() { }
 	
-	def footer() {
+	def footer() { }
+	
+	def deals() {
+		def selectedDealIndex = params.selectedDealIndex?.toInteger()
+		if (selectedDealIndex == null || selectedDealIndex > 3) {
+			throw new IllegalArgumentException("Selected deal index either null or too high (${params.selectedDealIndex})")
+		}
 		
+		def fdList = FeaturedDeal.list(sort: 'prio', order: 'asc', max: 4)
+		def featuredDeal = fdList.get(selectedDealIndex).deal
+		def otherDeals = []
+		def i = selectedDealIndex
+		while (otherDeals.size() != 3) {
+			if (i == 3) {
+				i = 0
+			} else {
+				i++
+			}
+			otherDeals << fdList.get(i).deal
+		}
+		[featuredDeal: featuredDeal, otherDeals: otherDeals, sliderIndex: 1]
 	}
 	
 }

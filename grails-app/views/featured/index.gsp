@@ -15,47 +15,11 @@
       <!-- END HEADER -->
       <!-- START CONTAINER-->
       <div class="container" id="home">
-         <!-- InstanceBeginEditable name="container-inner" -->
+         <button id="testBtn">Replace div</button>
          <!-- START SLIDER -->
-         <div id="slider">
-            <div id="slider-inner">
-               <div id="slider-main">
-                  <r:img uri="${deal.largeImage}" />
-                  <div id="slider-desc">
-                     <h4>${deal.hoverTitle}</h4>
-                     <p class="small">${deal.hoverTeaser}</p>
-                  </div>
-               </div>
-               <div id="slider-info">
-                  <h4>${deal.title}</h4>
-                  <p class="small">${deal.teaser} <a href="#">Read More</a>
-                  </p>
-                  <span class="nowonly">Now Only</span>
-                  <div id="deal-price">
-                     <span class="prev-price">
-                        <g:formatNumber number="${deal.originalPrice}" format="\$###,##0" />
-                     </span>
-                     <span class="actual-price">
-                        <g:formatNumber number="${deal.price}" format="\$###,##0" />
-                     </span>
-                  </div>
-                  <a href="#" class="green-btn lvl2" id="view-deal-btn">view deal</a>
-               </div>
-               <div id="slider-reel">
-                  <g:each var="featuredDeal" in="${featuredDeals}" status="i">
-                     <g:if test="${i != dealIndex}">
-                        <div id="slider-image${sliderIndex++}" class="reel-img">
-                           <a href="#">
-                              <r:img uri="${featuredDeal.deal.smallImage}" border="0" />
-                           </a>
-                        </div>
-                     </g:if>
-                  </g:each>
-               </div>
-            </div>
-            <div id="slider-bottom-corners">
-               <!--Required-->
-            </div>
+         <g:include controller="featured" action="deals" params="[selectedDealIndex: 0]" />
+         <div id="slider-bottom-corners">
+            <!--Required-->
          </div>
          <!-- END SLIDER -->
          <!--START BOTTOM-->
@@ -89,9 +53,34 @@
          <div id="shadow-bottom">
             <!--required-->
          </div>
-         <!-- InstanceEndEditable -->
       </div>
       <!-- END CONTAINER -->
+      
+      <!-- SLIDER DIV UPDATING SCRIPT -->
+      <script>
+      var nextIndex = 1;
+      function loadNextDiv() {
+         $.ajax({
+           url: "featured/deals?selectedDealIndex="+nextIndex,
+           cache: false
+         }).done(function( html ) {
+            $("#slider").replaceWith(html);
+            if (nextIndex == 3) {
+               nextIndex = 0;
+            } else {
+               nextIndex++;
+            }
+         });
+      }
+      $(document).ready(function(){
+         $("#testBtn").click(function () {
+            loadNextDiv();
+         });
+         setInterval(function() {
+            loadNextDiv();
+         }, 5 * 1000);
+      });
+      </script>
    </body>
    <!-- InstanceEnd -->
 </html>

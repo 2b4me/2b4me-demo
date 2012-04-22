@@ -7,7 +7,7 @@ class BootStrap {
 		Deal a = new Deal(
 			hoverTitle: 'Lavish, All-Inclusive South Beach Resort',
 			hoverTeaser: 'Enjoy days on the beach and nights on the dance floor with our package',
-			title: 'Enjoy Sun and Fun on South Beach!',
+			title: 'South Beach Fun & Sun',
 			teaser: 'Take a breather from the every day routine with ' +
 			        'a 5 day and 4 night all-inclusive stay at the famous Sands Hotel, ' +
 			        'located directly on the beach.',
@@ -19,7 +19,7 @@ class BootStrap {
 		Deal b = new Deal(
 			hoverTitle: 'OneBurger Meal for \$5',
 			hoverTeaser: 'The best burgers in Miami at 50% off',
-			title: '\$10 to spend for \$5 at One Burger (\$10 VALUE)',
+			title: '\$10 for \$5 at One Burger',
 			teaser: 'Enjoy \$10 worth of juicy burgers and delicious' +
 			        'fries for \$5 at One Burger located in the heart ' +
 			        'of Coral Gables!',
@@ -31,7 +31,7 @@ class BootStrap {
 		Deal c = new Deal(
 			hoverTitle: 'Spa Retreat for Two',
 			hoverTeaser: 'It’s time to get pampered at Massage Paradise',
-			title: 'Spa Retreat for two for \$150 (\$300 VALUE)',
+			title: 'Spa Retreat for two',
 			teaser: 'Giving yourself a massage, like throwing yourself a surprise birthday party ' +
 			        'or asking for your own hand in marriage, is a surefire disappointment. Leave ' +
 			        'kneading to the knowledgeable with today\'s 2B4ME special: for \$25, you get a ' +
@@ -45,7 +45,7 @@ class BootStrap {
 		Deal d = new Deal(
 			hoverTitle: 'Open Bar at Five Miami Beach Bars for \$100',
 			hoverTeaser: 'Be the life of the party as the master cocktail warlock.',
-			title: 'Open Bar at Five Miami Beach Bars for \$100 (VALUE \$150)',
+			title: 'Open Bar in Miami Beach',
 			teaser: 'Bar Hopper’s party-savvy guides steer revelers through lively city neighborhoods, ' +
 			        'stopping at esteemed watering holes along the way. The guides chart courses ' +
 			        'by strolling the pre-designated route to ensure that bars are conveniently spaced ' +

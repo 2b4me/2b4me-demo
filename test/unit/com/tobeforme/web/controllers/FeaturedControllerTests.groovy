@@ -2,7 +2,7 @@ package com.tobeforme.web.controllers
 
 import grails.test.mixin.*
 import org.junit.*
-import com.tobeforme.domain.Deal
+import com.tobeforme.domain.*
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
@@ -10,23 +10,35 @@ import com.tobeforme.domain.Deal
 @TestFor(FeaturedController)
 @Mock(Deal)
 class FeaturedControllerTests {
+	
+	void setUp() {
+		Deal a = new Deal(hoverTitle: '', hoverTeaser: '', title: '', teaser: '',
+		                  largeImage: '', smallImage: '', originalPrice: 0,
+		                  price: 0).save()
+		Deal b = new Deal(hoverTitle: '', hoverTeaser: '', title: '', teaser: '',
+		                  largeImage: '', smallImage: '', originalPrice: 0,
+		                  price: 0).save()
+		Deal c = new Deal(hoverTitle: '', hoverTeaser: '', title: '', teaser: '',
+		                  largeImage: '', smallImage: '', originalPrice: 0,
+		                  price: 0).save()
+		Deal d = new Deal(hoverTitle: '', hoverTeaser: '', title: '', teaser: '',
+		                  largeImage: '', smallImage: '', originalPrice: 0,
+		                  price: 0).save()
+		
+		FeaturedDeal fa = new FeaturedDeal(deal: a, prio: 1).save()
+		FeaturedDeal fb = new FeaturedDeal(deal: b, prio: 2).save()
+		FeaturedDeal fc = new FeaturedDeal(deal: c, prio: 3).save()
+		FeaturedDeal fd = new FeaturedDeal(deal: d, prio: 4).save()
+	}
 
-    void testSomething() {
-       	def d
+    void testFeaturedDeals() {
+		params.selectedDealIndex = 0
 		
-		d = new Deal()
-		d.originalPrice = 100.00
-		d.price = 50.00
-		assert d.discountInPct() == 50
+		controller.deals()
 		
-		d = new Deal()
-		d.originalPrice = 250.00
-		d.price = 100.00
-		assert d.discountInPct() == 60
-		
-		d = new Deal()
-		d.originalPrice = 25.00
-		d.price = 15.00
-		assert d.discountInPct() == 40
-    }
+		assert model.featuredDeal != null
+		assert model.otherDeals.size() == 3
+	}
+
+
 }
