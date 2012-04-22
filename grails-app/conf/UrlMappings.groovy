@@ -8,6 +8,7 @@ class UrlMappings {
 		}
 
 		"/"(controller: "featured", action: "index")
+		"/browse"(controller: "browse", action: "index")
 		"/controllers"(view:"/index")
 		"500"(view:'/error')
 	}

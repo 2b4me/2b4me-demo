@@ -11,7 +11,8 @@ class BootStrap {
 			teaser: 'Take a breather from the every day routine with ' +
 			        'a 5 day and 4 night all-inclusive stay at the famous Sands Hotel, ' +
 			        'located directly on the beach.',
-			largeImage: 'images/home-slider-main-photo.jpg',
+			largeImage: '/images/home-slider-main-photo.jpg',
+			smallImage: '/images/home-slider-image1.jpg',
 			originalPrice: 800,
 			price: 400
 		).save()
@@ -22,6 +23,8 @@ class BootStrap {
 			teaser: 'Enjoy \$10 worth of juicy burgers and delicious' +
 			        'fries for \$5 at One Burger located in the heart ' +
 			        'of Coral Gables!',
+			largeImage: '/images/home-slider-main-photo.jpg',
+			smallImage: '/images/home-slider-image1.jpg',
 			originalPrice: 10,
 			price: 5
 		).save()
@@ -34,6 +37,8 @@ class BootStrap {
 			        'kneading to the knowledgeable with today\'s 2B4ME special: for \$25, you get a ' +
 			        '60-minute massage at a certified clinic from Massage Paradise - valid at all five ' +
 			        'Miami-area locations (a \$300 value).',
+			largeImage: '/images/home-slider-main-photo.jpg',
+			smallImage: '/images/home-slider-image2.jpg',
 			originalPrice: 150,
 			price: 300
 		).save()
@@ -45,6 +50,8 @@ class BootStrap {
 			        'stopping at esteemed watering holes along the way. The guides chart courses ' +
 			        'by strolling the pre-designated route to ensure that bars are conveniently spaced ' +
 			        'apart.',
+			largeImage: '/images/home-slider-main-photo.jpg',
+			smallImage: '/images/home-slider-image3.jpg',
 			originalPrice: 150,
 			price: 100
 		).save()
