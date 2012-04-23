@@ -18,9 +18,6 @@
          <button id="testBtn">Replace div</button>
          <!-- START SLIDER -->
          <g:include controller="featured" action="deals" params="[selectedDealIndex: 0]" />
-         <div id="slider-bottom-corners">
-            <!--Required-->
-         </div>
          <!-- END SLIDER -->
          <!--START BOTTOM-->
          <div id="bottom">
