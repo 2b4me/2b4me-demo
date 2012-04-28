@@ -52,32 +52,7 @@
          </div>
       </div>
       <!-- END CONTAINER -->
-      
-      <!-- SLIDER DIV UPDATING SCRIPT -->
-      <script>
-      var nextIndex = 1;
-      function loadNextDiv() {
-         $.ajax({
-           url: "featured/deals?selectedDealIndex="+nextIndex,
-           cache: false
-         }).done(function( html ) {
-            $("#slider").replaceWith(html);
-            if (nextIndex == 3) {
-               nextIndex = 0;
-            } else {
-               nextIndex++;
-            }
-         });
-      }
-      $(document).ready(function(){
-         $("#testBtn").click(function () {
-            loadNextDiv();
-         });
-         setInterval(function() {
-            loadNextDiv();
-         }, 5 * 1000);
-      });
-      </script>
+      <!--PAGE SCRIPT -->
+      <g:external dir="js" file="featured.js" />
    </body>
-   <!-- InstanceEnd -->
 </html>

@@ -2,12 +2,11 @@ package com.tobeforme.domain
 
 class Deal {
 
+	String shortName
 	String hoverTitle
 	String hoverTeaser
 	String title
 	String teaser
-	String smallImage
-	String largeImage
 	double originalPrice
 	double price
 	

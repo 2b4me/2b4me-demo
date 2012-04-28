@@ -1,7 +1,7 @@
 <div id="slider">
    <div id="slider-inner">
       <div id="slider-main">
-         <r:img uri="${featuredDeal.largeImage}" />
+         <r:img uri="/images/deals/${featuredDeal.shortName}-slider-main-photo.jpg" />
          <div id="slider-desc">
             <h4>${featuredDeal.hoverTitle}</h4>
             <p class="small">${featuredDeal.hoverTeaser}</p>
@@ -20,7 +20,7 @@
       <div id="slider-reel">
          <g:each var="otherDeal" in="${otherDeals}">
             <div id="slider-image${sliderIndex++}" class="reel-img">
-               <a href="#"><r:img uri="${otherDeal.smallImage}" border="0" /></a>
+               <a href="#"><r:img uri="/images/deals/${otherDeal.shortName}-slider-photo.jpg" border="0" /></a>
             </div>
          </g:each>
       </div>
