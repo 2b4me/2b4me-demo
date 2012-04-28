@@ -31,11 +31,8 @@ class BootStrap {
 			hoverTitle: 'Spa Retreat for Two',
 			hoverTeaser: 'It’s time to get pampered at Massage Paradise',
 			title: 'Spa Retreat for two',
-			teaser: 'Giving yourself a massage, like throwing yourself a surprise birthday party ' +
-			        'or asking for your own hand in marriage, is a surefire disappointment. Leave ' +
-			        'kneading to the knowledgeable with today\'s 2B4ME special: for \$25, you get a ' +
-			        '60-minute massage at a certified clinic from Massage Paradise - valid at all five ' +
-			        'Miami-area locations (a \$300 value).',
+			teaser: 'Giving yourself a massage is a surefire disappointment. Leave ' +
+			        'kneading to the knowledgeable with today\'s 2B4ME special.',
 			originalPrice: 150,
 			price: 300
 		).save()
@@ -45,9 +42,7 @@ class BootStrap {
 			hoverTeaser: 'Be the life of the party as the master cocktail warlock.',
 			title: 'Open Bar in Miami Beach',
 			teaser: 'Bar Hopper’s party-savvy guides steer revelers through lively city neighborhoods, ' +
-			        'stopping at esteemed watering holes along the way. The guides chart courses ' +
-			        'by strolling the pre-designated route to ensure that bars are conveniently spaced ' +
-			        'apart.',
+			        'stopping at esteemed watering holes along the way.',
 			originalPrice: 150,
 			price: 100
 		).save()
