@@ -15,7 +15,7 @@
             <span class="prev-price"><g:formatNumber number="${featuredDeal.originalPrice}" format="\$###,##0" /></span>
             <span class="actual-price"><g:formatNumber number="${featuredDeal.price}" format="\$###,##0" /></span>
          </div>
-         <a href="#" class="green-btn lvl2" id="view-deal-btn">view deal</a>
+         <g:link controller="deal" id="${featuredDeal.shortName}" class="green-btn lvl2" elementId="view-deal-btn">view deal</g:link>
       </div>
       <div id="slider-reel">
          <g:each var="otherDeal" in="${otherDeals}">

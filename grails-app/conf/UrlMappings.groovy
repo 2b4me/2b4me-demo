@@ -9,6 +9,7 @@ class UrlMappings {
 
 		"/"(controller: "featured", action: "index")
 		"/browse"(controller: "browse", action: "index")
+		"/deal/$id"(controller: "deal", action: "index")
 		"/controllers"(view:"/index")
 		"500"(view:'/error')
 	}
