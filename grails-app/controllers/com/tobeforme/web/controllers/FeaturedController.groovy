@@ -29,6 +29,14 @@ class FeaturedController {
 			otherDeals << fdList.get(i).deal
 		}
 		[featuredDeal: featuredDeal, otherDeals: otherDeals, sliderIndex: 1]
+		
+		/*
+		def deals = []
+		FeaturedDeal.list(sort: 'prio', order: 'asc', max: 4).each {
+			deals << it.deal
+		}
+		[deals: deals]
+		 */
 	}
 	
 }

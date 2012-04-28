@@ -15,7 +15,6 @@
       <!-- END HEADER -->
       <!-- START CONTAINER-->
       <div class="container" id="home">
-         <button id="testBtn">Replace div</button>
          <!-- START SLIDER -->
          <g:include controller="featured" action="deals" params="[selectedDealIndex: 0]" />
          <!-- END SLIDER -->
