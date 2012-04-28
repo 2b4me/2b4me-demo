@@ -5,6 +5,11 @@ import com.tobeforme.domain.*
 class DealController {
 
     def index() {
-		[deal: Deal.findByShortName(params.id)]
+		def deal = Deal.findByShortName(params.id)
+		def relatedDeals = []
+		Deal.list().each {
+			if (it.id != deal.id) relatedDeals << it
+		}
+		[deal: deal, relatedDeals: relatedDeals]
 	}
 }

@@ -118,3 +118,6 @@ $('#fade, a#close-btn, a#cancel').live('click', function(event){
 
 });
 
+$(".nyi").click(function() {
+  alert("Not yet implemented");
+});

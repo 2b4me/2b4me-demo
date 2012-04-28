@@ -33,8 +33,8 @@ class BootStrap {
 			title: 'Spa Retreat for two',
 			teaser: 'Giving yourself a massage is a surefire disappointment. Leave ' +
 			        'kneading to the knowledgeable with today\'s 2B4ME special.',
-			originalPrice: 150,
-			price: 300
+			originalPrice: 300,
+			price: 150
 		).save()
 		Deal d = new Deal(
 			shortName: 'openbar',

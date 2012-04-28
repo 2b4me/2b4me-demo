@@ -20,7 +20,7 @@
       <div id="slider-reel">
          <g:each var="otherDeal" in="${otherDeals}">
             <div id="slider-image${sliderIndex++}" class="reel-img">
-               <a href="#"><r:img uri="/images/deals/${otherDeal.shortName}-slider-photo.jpg" border="0" /></a>
+               <g:link controller="deal" id="${otherDeal.shortName}"><r:img uri="/images/deals/${otherDeal.shortName}-slider-photo.jpg" border="0" /></g:link>
             </div>
          </g:each>
       </div>
