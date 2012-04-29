@@ -1548,3 +1548,65 @@ input:not(#ie6-8).checkbox + label:hover:before {
 
 #voucher .linkprint { margin-top: 23px; }
 #voucher .linkprint a { right: -5px;   }
+
+/************************************** LOGIN *********************************************/
+#demo-login {
+	width: 603px;  min-height: 370px;
+	background: #fff;
+	border-radius: 5px;
+	padding: 47px 0 0;
+	position:absolute; top: 50%;  left: 50%;  z-index: 1000;
+	margin: -185px 0 0 -301.5px;
+}
+#demo-login h2 {
+	margin: 0 19px 42px 18px;   padding: 0 0 15px 2px;
+	color: #256080;
+	font:bold 25px Arial, sans-serif;
+	letter-spacing: -1px;
+	border-bottom: 4px solid #acc8d8;
+}
+#demo-login .login-input {
+	float: left;
+	margin:0 0 33px;  padding: 0 0 0 84px;
+}
+#demo-login label {
+	float: left;
+	margin: 11px 22px 0 0;
+}
+#demo-login input {
+	padding: 0 0 0 10px;
+	float: left;
+}
+
+#demo-login-pass { margin: 0 0 0 8px; }
+
+#demo-login-actions {
+	padding: 23px 0 0 184px;
+	float: left;
+}
+#demo-login #cancel {
+	margin: 10px 74px 0 0;
+	float: left;
+	color: #256080;
+}
+#demo-login #cancel:hover { color: #f00; }
+#demo-login #cancel:focus { outline: 1px solid #8dd2f9; }
+
+#demo-login #submit { 
+	float: left;
+	width: 193px;
+	padding: 0;
+	margin: -3px 0 0;
+}
+#demo-login #submit:focus {
+	background-color: #8dd2f9;
+	outline: 2px solid #8dd2f9;
+}
+#demo-login #close-btn {
+	position: absolute;  top:7px;  right:6px;
+	width: 28px;  height: 28px;
+	background: url(../images/close-btn.png) no-repeat;
+}
+#demo-login #close-btn:active { background-position: left bottom; }
+
+.demo-hide { display: none; }

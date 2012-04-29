@@ -31,4 +31,19 @@ class FeaturedController {
 		[featuredDeal: featuredDeal, otherDeals: otherDeals, sliderIndex: 1]
 	}
 	
+	def isAuthenticated() {
+		render session.authenticated
+	}
+	
+	def authenticate() {
+		def username = params.u
+		def password = params.p
+		if (username == '2b4me-demo' && password == 'Demo!2012') {
+			session.authenticated = true
+			render 'true'
+		} else {
+			render 'false'
+		}
+	}
+	
 }
