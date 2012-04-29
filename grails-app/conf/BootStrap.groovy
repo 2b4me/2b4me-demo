@@ -3,7 +3,6 @@ import com.tobeforme.domain.*
 class BootStrap {
 
     def init = { servletContext ->
-		// initialize some deals for the demo
 		Deal a = new Deal(
 			shortName: 'sobe',
 			hoverTitle: 'Lavish, All-Inclusive South Beach Resort',
@@ -47,15 +46,29 @@ class BootStrap {
 			price: 100
 		).save()
 		
-		/*
-		largeImage: '/images/home-slider-main-photo.jpg',
-		smallImage: '/images/home-slider-image3.jpg',
-		*/
-		
 		FeaturedDeal fa = new FeaturedDeal(deal: a, prio: 1).save()
 		FeaturedDeal fb = new FeaturedDeal(deal: b, prio: 2).save()
 		FeaturedDeal fc = new FeaturedDeal(deal: c, prio: 3).save()
 		FeaturedDeal fd = new FeaturedDeal(deal: d, prio: 4).save()
+		
+		Subscription dailyDeals = new Subscription(name: 'Daily Deals').save()
+		Subscription weddingDeals = new Subscription(name: 'Wedding Deals').save()
+		Subscription travelDeals = new Subscription(name: 'Travel Deals').save()
+		
+		User user = new User(
+			emailAddress: 'daniel@silvanolte.com',
+			password: 'XXXXXXXXXXXX',
+			firstName: 'Daniel',
+			lastName: 'Silva',
+			address: new Address(
+				address1: '20752 SW 87th Court',
+				address2: '',
+				city: 'Miami',
+				state: 'FL',
+				postalCode: '33189',
+				countryCode: 'US'
+			)
+		).save()
 
     }
 

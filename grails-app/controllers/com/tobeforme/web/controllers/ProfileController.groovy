@@ -4,5 +4,7 @@ import com.tobeforme.domain.*
 
 class ProfileController {
 
-    def index() { }
+    def index() {
+	
+	}
 }

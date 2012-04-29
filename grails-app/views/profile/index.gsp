@@ -44,7 +44,7 @@
                         <dd id="user-pass">XXXXXXXXXXXXX</dd>
                      </li>
                   </dl>
-                  <a href="#" class="b-link">Update</a>
+                  <a href="#" class="b-link nyi">Update</a>
                </div>
                <!--END USER INFO-->
                <!--START PURCHASED DEALS-->
@@ -54,7 +54,7 @@
                      <li>Hilton Head Vacation Villas <span class="right">12/01/12</span></li>
                      <li>Olive Garden <span class="right">12/01/12</span></li>
                   </ul>
-                  <a href="#" class="b-link">See More</a>
+                  <a href="#" class="b-link nyi">See More</a>
                </div>
                <!--END PURCHASED DEALS-->
                <!--START SUBSCRIPTIONS-->
@@ -73,14 +73,14 @@
                      <li class="first-row">Card name <span class="right">Actions</span></li>
                      <li>
                         <r:img uri="/images/master-card.jpg" />
-                        Master Card - ending in 1234 <span class="right"><a href="#">Remove</a></span>
+                        Master Card - ending in 1234 <span class="right"><a href="#" class="nyi">Remove</a></span>
                      </li>
                      <li>
                         <r:img uri="/images/visa-card.jpg" />
-                        Visa - ending in 7898 <span class="right"><a href="#">Remove</a></span>
+                        Visa - ending in 7898 <span class="right"><a href="#" class="nyi">Remove</a></span>
                      </li>
                   </ul>
-                  <a href="#" class="b-link">Add Card</a>
+                  <a href="#" class="b-link nyi">Add Card</a>
                </div>
                <!--START CREDIT CARDS-->
             </div>

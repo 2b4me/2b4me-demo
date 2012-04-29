@@ -8,7 +8,8 @@
    	<li id="login-link"><a href="login.html">Login</a></li>
 	</g:if>
 	<g:else>
-   	<li id="login-link"><g:link controller="profile">Daniel</g:link></li>
+   	<li id="sign-link"><g:link controller="profile">Profile</g:link></li>
+   	<li id="login-link"><a href="login.html">Logout</a></li>
 	</g:else>
 </ul>
 <div id="search-form">
