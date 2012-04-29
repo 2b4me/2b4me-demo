@@ -1,4 +1,4 @@
-<a href="/2b4me-demo/" id="logo"><r:img uri="/images/2b4me-logo.png"/></a>
+<g:link controller="featured" elementId="logo"><r:img uri="/images/2b4me-logo.png"/></g:link>
 <ul id="nav"> 
 	<li id="home-link"><g:link controller="featured"></g:link></li>
 	<li id="featured-link"><g:link controller="featured">Featured</g:link></li>
