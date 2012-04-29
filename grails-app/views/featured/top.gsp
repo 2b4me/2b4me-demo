@@ -9,13 +9,14 @@
 	</g:if>
 	<g:else>
    	<li id="sign-link"><g:link controller="profile">Profile</g:link></li>
-   	<li id="login-link"><a href="login.html">Logout</a></li>
+   	<li id="login-link"><a href="#" class="nyi">Logout</a></li>
 	</g:else>
 </ul>
 <div id="search-form">
 <label for="city">Choose your city</label>
 <select name="city" class="select-box">
    <option value="">Miami</option>
+   <option value="">Barcelona</option>
 </select>
 <g:form name="myForm" url="[action:'index',controller:'browse']" method="get">
 <div id="search-field">

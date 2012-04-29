@@ -1199,6 +1199,9 @@ input:not(#ie6-8).checkbox + label:hover:before {
 	background: url(../images/purchased-deals-title.png) 16px 17px no-repeat;
 	height: auto;  min-height: 235px;
 }
+#profile #purchased #no-deals-purchased {
+	margin: 52px 0px 0px 20px;
+}
 #profile ul.list {
 	margin: 46px 12px 50px;
 	border: 1px solid #d2e6f1;  border-width: 1px 1px 0 1px;
@@ -1254,6 +1257,9 @@ input:not(#ie6-8).checkbox + label:hover:before {
 #profile #cards {
 	background: url(../images/credit-cards-title.png) 15px 17px no-repeat;
 	height:auto; min-height: 235px;
+}
+#profile #cards #no-cc {
+	margin: 52px 0px 0px 20px;
 }
 #profile #cards li img {
 	float: left;

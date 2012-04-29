@@ -18,8 +18,8 @@
             <!--START TITLE PROFILE-->
             <div id="head">
                <r:img uri="/images/profile-photo.jpg" />
-               <h1>daniel silva</h1>
-               <p>daniel@silvanolte.com <a href="#">Update</a></p>
+               <h1>${user.firstName} ${user.lastName}</h1>
+               <p>${user.emailAddress} <a href="#">Update</a></p>
             </div>
             <!--END TITLE PROFILE-->
             <!--START INFO BLOCKS-->
@@ -29,15 +29,15 @@
                   <dl>
                      <li>
                         <dt>Name:</dt>
-                        <dd id="user-name">Daniel Silva</dd>
+                        <dd id="user-name">${user.firstName} ${user.lastName}</dd>
                      </li>
                      <li>
                         <dt>Address:</dt>
-                        <dd id="user-address">20786 SW 87th Court Cutler Bay, FL 33189 </dd>
+                        <dd id="user-address">${user.address.address1}, ${user.address.city}, ${user.address.state}, ${user.address.postalCode}</dd>
                      </li>
                      <li>
                         <dt>Email:</dt>
-                        <dd id="user-email">daniel@silvanolte.com</dd>
+                        <dd id="user-email">${user.emailAddress}</dd>
                      </li>
                      <li>
                         <dt>Password:</dt>
@@ -49,6 +49,7 @@
                <!--END USER INFO-->
                <!--START PURCHASED DEALS-->
                <div class="blocks" id="purchased">
+                  <p id="no-deals-purchased" style="display:none;">You haven't made a purchase yet!</p>
                   <ul class="list">
                      <li class="first-row">Deal Name <span class="right">Expiration</span></li>
                      <li>Hilton Head Vacation Villas <span class="right">12/01/12</span></li>
@@ -60,15 +61,23 @@
                <!--START SUBSCRIPTIONS-->
                <div class="blocks" id="subscriptions">
                   <ul id="subs-list">
+                     <li id="subUpdating" style="display:none;">Updating...</li>
+                     <li id="subDone" style="display:none;">Done!</li>
                      <li id="subs-label">Select the 2b4me email alerts you want:</li>
-                     <li><input type="checkbox" class="checkbox" id="check0" /><label for="check0">Daily Deals</label></li>
-                     <li><input type="checkbox" class="checkbox" id="check1" /><label for="check1">Cooking Deals</label></li>
-                     <li><input type="checkbox" class="checkbox" id="check2" /><label for="check2">2b4me Escapes</label></li>
+                     <g:each var="sub" in="${subscriptions}" status="i">
+                        <g:if test="${user.subscriptions.contains(sub)}">
+                        <li><input type="checkbox" class="checkbox sub" id="check${i}" name="${sub.name}" checked="true"/><label for="check${i}">${sub.name}</label></li>
+                        </g:if>
+                        <g:else>
+                        <li><input type="checkbox" class="checkbox sub" id="check${i}" name="${sub.name}" /><label for="check${i}">${sub.name}</label></li>
+                        </g:else>
+                     </g:each>
                   </ul>
                </div>
                <!--END SUBSCRIPTIONS-->
                <!--START CREDIT CARDS-->
                <div class="blocks" id="cards">
+                  <p id="no-cc" style="display:none;">You haven't saved a credit card yet!</p>
                   <ul class="list">
                      <li class="first-row">Card name <span class="right">Actions</span></li>
                      <li>
@@ -99,5 +108,6 @@
       <!--PAGE SCRIPT -->
       <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
       <g:external dir="js" file="custom-ui.js" />
+      <g:external dir="js" file="profile.js" />
    </body>
 </html>
