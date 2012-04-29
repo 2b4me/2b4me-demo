@@ -6,9 +6,9 @@ class FeaturedController {
 
     def index() { }
 	
-	def header() { }
+	def top() { }
 	
-	def footer() { }
+	def bottom() { }
 	
 	def deals() {
 		def selectedDealIndex = params.selectedDealIndex?.toInteger()

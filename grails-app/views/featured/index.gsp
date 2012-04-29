@@ -10,7 +10,7 @@
    <body>
       <!--START HEADER-->
       <div id="header">
-         <g:include controller="featured" action="header" />
+         <g:include controller="featured" action="top" />
       </div>
       <!-- END HEADER -->
       <!-- START CONTAINER-->
@@ -43,7 +43,7 @@
          <!-- END BOTTOM-->
          <!--START FOOTER-->
          <div id="footer">
-            <g:include controller="featured" action="footer" />
+            <g:include controller="featured" action="bottom" />
          </div>
          <!--END FOOTER-->
          <div id="shadow-bottom">
