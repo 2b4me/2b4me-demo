@@ -67,7 +67,8 @@ class BootStrap {
 				state: 'FL',
 				postalCode: '33189',
 				countryCode: 'US'
-			)
+			),
+			subscriptions: [dailyDeals, travelDeals]
 		).save()
 
     }
