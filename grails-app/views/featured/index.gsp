@@ -3,8 +3,6 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
       <title>Home</title>
-      <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-      <g:external dir="js" file="custom-ui.js" />
       <g:external dir="css" file="stylesheet.css" />
    </head>
    <body>
@@ -25,17 +23,17 @@
                   <div id="bottom-block1" class="bottom-blocks">
                      <h3>Update your profile</h3>
                      <p>By keeping your profile up to date, you can receive the latest offers and make buying deals as easy as 1-2-3.<br />&nbsp;<br />
-                        <a href="#">Click here to update your profile now</a>
+                        <g:link controller="profile">Click here to update your profile now</g:link>
                      </p>
                   </div>
                   <div id="bottom-block2" class="bottom-blocks">
                      <h3>How does it work?</h3>
-                     <p>2b4me works hard to search the city you love for the things that make it special and unique. Then we connect you with these things to give you an opportunity to fall in love with your city all over again - at a discount. <a href="#">Read More</a>
+                     <p>2b4me works hard to search the city you love for the things that make it special and unique. Then we connect you with these things to give you an opportunity to fall in love with your city all over again - at a discount. <a href="#" class="nyi">Read More</a>
                      </p>
                   </div>
                   <div id="bottom-block3" class="bottom-blocks">
                      <h3>Manage your deals</h3>
-                     <p>Need to print out that voucher before you go out? Or want to see a quick list of the deals you've purchased? <a href="#">Click here</a>.</p>
+                     <p>Need to print out that voucher before you go out? Or want to see a quick list of the deals you've purchased? <g:link controller="profile">Click here</g:link>.</p>
                   </div>
                </div>
             </div>
@@ -52,6 +50,8 @@
       </div>
       <!-- END CONTAINER -->
       <!--PAGE SCRIPT -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+      <g:external dir="js" file="custom-ui.js" />
       <g:external dir="js" file="featured.js" />
    </body>
 </html>

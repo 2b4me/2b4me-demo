@@ -4,8 +4,6 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
       <title>Browse Deals</title>
-      <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-      <g:external dir="js" file="custom-ui.js" />
       <g:external dir="css" file="stylesheet.css" />
    </head>
    <body>
@@ -120,6 +118,9 @@
       <div id="shadow-bottom">
          <!--required--> 
       </div>
+      <!--PAGE SCRIPT -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+      <g:external dir="js" file="custom-ui.js" />
    </body>
    <!-- InstanceEnd -->
 </html>
