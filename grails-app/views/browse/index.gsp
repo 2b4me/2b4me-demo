@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-   <!-- InstanceBegin template="/Templates/2b4me-template.dwt" codeOutsideHTMLIsLocked="false" -->
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
       <title>Browse Deals</title>
@@ -14,7 +13,6 @@
       <!-- END HEADER -->
       <!-- START CONTAINER-->
       <div class="container" id="browse">
-         <!-- InstanceBeginEditable name="container-inner" -->
          <!--START CONTAINER-INNER-->
          <div id="container-inner">
             <!--do not remove this div-->
@@ -40,14 +38,30 @@
             <!-- END SEARCH BOX -->
             <!-- START CATEGORY LIST -->
             <ul id="category-list">
-               <li class="first"><a href="#">Dining</a></li>
-               <li><a href="#">Retail</a></li>
-               <li><a href="#">Clothing</a></li>
-               <li><a href="#">Salon</a></li>
-               <li><a href="#">Fitness</a></li>
-               <li><a href="#">Nightlife</a></li>
-               <li class="selected"><a href="#">Entertainment</a></li>
-               <li class="last"><a href="#">All Deals</a></li>
+               <g:if test="${selectedCategory == 0}">
+                  <li class="first selected"><g:link controller="browse">All Deals</g:link></li>
+               </g:if>
+               <g:else>
+                  <li class="first"><g:link controller="browse">All Deals</g:link></li>
+               </g:else>
+               <g:each var="cat" in="${categories}" status="i">
+                  <g:if test="${i == (categories.size - 1)}">
+                     <g:if test="${selectedCategory == cat.id}">
+                        <li class="last selected"><g:link controller="browse" params="[cat: cat.id]">${cat.name}</g:link></li>
+                     </g:if>
+                     <g:else>
+                        <li class="last"><g:link controller="browse" params="[cat: cat.id]">${cat.name}</g:link></li>
+                     </g:else>
+                  </g:if>
+                  <g:else>
+                     <g:if test="${selectedCategory == cat.id}">
+                        <li class="selected"><g:link controller="browse" params="[cat: cat.id]">${cat.name}</g:link></li>
+                     </g:if>
+                     <g:else>
+                        <li><g:link controller="browse" params="[cat: cat.id]">${cat.name}</g:link></li>
+                     </g:else>
+                  </g:else>
+               </g:each>
             </ul>
             <!-- END CATEGORY LIST -->
             <!-- START RESTULT BLOCKS -->
@@ -122,5 +136,4 @@
       <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
       <g:external dir="js" file="custom-ui.js" />
    </body>
-   <!-- InstanceEnd -->
 </html>
