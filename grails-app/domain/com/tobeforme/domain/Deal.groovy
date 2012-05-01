@@ -9,6 +9,7 @@ class Deal {
 	String teaser
 	double originalPrice
 	double price
+	Category category
 	
 	static constraints = {
     }

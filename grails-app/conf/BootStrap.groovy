@@ -3,7 +3,7 @@ import com.tobeforme.domain.*
 class BootStrap {
 
     def init = { servletContext ->
-		Deal a = new Deal(
+		Deal sobe = new Deal(
 			shortName: 'sobe',
 			hoverTitle: 'Lavish, All-Inclusive South Beach Resort',
 			hoverTeaser: 'Enjoy days on the beach and nights on the dance floor with our package',
@@ -14,7 +14,7 @@ class BootStrap {
 			originalPrice: 800,
 			price: 400
 		).save()
-		Deal b = new Deal(
+		Deal oneBurger = new Deal(
 			shortName: 'oneburger',
 			hoverTitle: 'OneBurger Meal for \$5',
 			hoverTeaser: 'The best burgers in Miami at 50% off',
@@ -25,7 +25,7 @@ class BootStrap {
 			originalPrice: 10,
 			price: 5
 		).save()
-		Deal c = new Deal(
+		Deal spaRetreat = new Deal(
 			shortName: 'sparetreat',
 			hoverTitle: 'Spa Retreat for Two',
 			hoverTeaser: 'It’s time to get pampered at Massage Paradise',
@@ -35,7 +35,7 @@ class BootStrap {
 			originalPrice: 300,
 			price: 150
 		).save()
-		Deal d = new Deal(
+		Deal openBar = new Deal(
 			shortName: 'openbar',
 			hoverTitle: 'Open Bar at Five Miami Beach Bars for \$100',
 			hoverTeaser: 'Be the life of the party as the master cocktail warlock.',
@@ -46,10 +46,22 @@ class BootStrap {
 			price: 100
 		).save()
 		
-		FeaturedDeal fa = new FeaturedDeal(deal: a, prio: 1).save()
-		FeaturedDeal fb = new FeaturedDeal(deal: b, prio: 2).save()
-		FeaturedDeal fc = new FeaturedDeal(deal: c, prio: 3).save()
-		FeaturedDeal fd = new FeaturedDeal(deal: d, prio: 4).save()
+		FeaturedDeal fSobe = new FeaturedDeal(deal: sobe, prio: 1).save()
+		FeaturedDeal fOneBurger = new FeaturedDeal(deal: oneBurger, prio: 2).save()
+		FeaturedDeal fSpaRetreat = new FeaturedDeal(deal: spaRetreat, prio: 3).save()
+		FeaturedDeal fOpenBar = new FeaturedDeal(deal: openBar, prio: 4).save()
+		
+		Category wedding = new Category(name: 'Wedding', prio: 1, deals: []).save()
+		Category dining = new Category(name: 'Dining', prio: 2, deals: []).save()
+		Category retail = new Category(name: 'Retail', prio: 3, deals: []).save()
+		Category fashion = new Category(name: 'Fashion', prio: 4, deals: []).save()
+		Category entertainment = new Category(name: 'Entertainment', prio: 5, deals: []).save()
+		Category salon = new Category(name: 'Salon', prio: 6, deals: []).save()
+		
+		wedding.deals << sobe; wedding.save()
+		dining.deals << oneBurger; dining.save()
+		salon.deals << spaRetreat; salon.save()
+		entertainment.deals << openBar; entertainment.save()
 		
 		Subscription dailyDeals = new Subscription(name: 'Daily Deals').save()
 		Subscription weddingDeals = new Subscription(name: 'Wedding Deals').save()
