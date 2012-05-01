@@ -6,10 +6,12 @@ class User {
 	String password
 	String firstName
 	String lastName
-	Address address
+	
+	static hasOne = [address: Address]
 	
 	static hasMany = [subscriptions: Subscription]
 
     static constraints = {
+		address unique: true
     }
 }
