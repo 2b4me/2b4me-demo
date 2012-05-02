@@ -46,7 +46,7 @@
                </g:else>
                <g:each var="cat" in="${categories}" status="i">
                   <g:if test="${i == (categories.size - 1)}">
-                     <g:if test="${selectedCategory == cat.id}">
+                     <g:if test="${selectedCategory.toLong() == cat.id}">
                         <li class="last selected"><g:link controller="browse" params="[cat: cat.id]">${cat.name}</g:link></li>
                      </g:if>
                      <g:else>
@@ -54,7 +54,7 @@
                      </g:else>
                   </g:if>
                   <g:else>
-                     <g:if test="${selectedCategory == cat.id}">
+                     <g:if test="${selectedCategory.toLong() == cat.id}">
                         <li class="selected"><g:link controller="browse" params="[cat: cat.id]">${cat.name}</g:link></li>
                      </g:if>
                      <g:else>
