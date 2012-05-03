@@ -19,8 +19,13 @@
             <!-- START BROWSE HEAD -->
             <div id="browse-head">
                <h1>Browse Deals</h1>
-               <small class="green-text" id="label-category">Category</small>
-               <h2 id="category">Entertainment</h2>
+               <g:if test="${selectedCategoryTitle != 'All Deals'}">
+                  <small class="green-text" id="label-category">Category</small>
+               </g:if>
+               <g:else>
+                  <small class="green-text" id="label-category">&nbsp;</small>
+               </g:else>
+               <h2 id="category">${selectedCategoryTitle}</h2>
                <small class="green-text" id="label-sort"><label for="sort">Sort by</label></small>
                <select name="sort" class="select-box" id="sort">
                   <option value="">Popularity</option>
@@ -66,57 +71,71 @@
             <!-- END CATEGORY LIST -->
             <!-- START RESTULT BLOCKS -->
             <div id="results-block">
-               <div class="deal-blocks left-block" id="first-deal">
-                  <!--the first deal of the result must have this ID-->
-                  <r:img uri="/images/browse-photo1.jpg" alt="" class="deal-img" />
-                  <h4 class="deal-name"><a href="#">Full Body Massage</a></h4>
-                  <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. dolor sit amet, consectetur adipiscing elit dull phils non duet men. <a href="#">Read More</a></p>
-                  <div class="deal-price">
-                     <span class="nowonly">Now Only</span>
-                     <span class="actual-price">$30</span>
+               <g:if test="${deals.empty}">
+                  <h3>There are no ${selectedCategoryTitle} deals at this time, but check back soon!</h3>
+               </g:if>
+               <g:each var="deal" in="${deals}" status="i">
+                  <g:if test="${i == 0}">
+                     <div class="deal-blocks left-block" id="first-deal">
+                        <!--the first deal of the result must have this ID-->
+                        <r:img uri="/images/deals/${deal.shortName}-browse-photo.jpg" alt="" class="deal-img" />
+                        <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
+                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
+                        <div class="deal-price">
+                           <span class="nowonly">Now Only</span>
+                           <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
+                        </div>
+                        <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
+                        <g:link controller="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
+                     </div>
+                  </g:if>
+                  <g:elseif test="${i == 1}">
+                     <div class="deal-blocks" id="second-deal">
+                        <!--the second deal of the result must have this ID-->
+                        <r:img uri="/images/deals/${deal.shortName}-browse-photo.jpg" alt="" class="deal-img" />
+                        <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
+                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
+                        <div class="deal-price">
+                           <span class="nowonly">Now Only</span>
+                           <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
+                        </div>
+                        <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
+                        <g:link controller="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
+                     </div>
+                  </g:elseif>
+                  <g:elseif test="${i % 2 != 0}">
+                     <div class="deal-blocks left-block">
+                        <!--each first block must have the left-block class-->
+                        <r:img uri="/images/deals/${deal.shortName}-browse-photo.jpg" alt="" class="deal-img" />
+                        <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
+                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
+                        <div class="deal-price">
+                           <span class="nowonly">Now Only</span>
+                           <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
+                        </div>
+                        <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
+                        <g:link controller="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
+                     </div>
+                  </g:elseif>
+                  <g:else>
+                     <div class="deal-blocks">
+                        <r:img uri="/images/deals/${deal.shortName}-browse-photo.jpg" alt="" class="deal-img" />
+                        <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
+                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
+                        <div class="deal-price">
+                           <span class="nowonly">Now Only</span>
+                           <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
+                        </div>
+                        <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
+                        <g:link controller="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
+                     </div>
+                  </g:else>
+               </g:each>
+               <g:if test="${deals.size() == 4}">
+                  <div id="load-btn-box">
+                     <button href="#" class="round-btn v2 nyi" id="load-btn">Load More<span></span></button>
                   </div>
-                  <span class="prev-price">$69</span>
-                  <a href="#" class="green-btn buynow">Buy Now</a>
-               </div>
-               <div class="deal-blocks" id="second-deal">
-                  <!--the second deal of the result must have this ID-->
-                  <r:img uri="/images/browse-photo2.jpg" alt="" class="deal-img" />
-                  <h4 class="deal-name"><a href="#">2 for 1 Dining on Tuesdays</a></h4>
-                  <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. dolor sit amet, consectetur adipiscing elit dull phils non duet men. <a href="#">Read More</a></p>
-                  <div class="deal-price">
-                     <span class="nowonly">Now Only</span>
-                     <span class="actual-price">$10</span>
-                  </div>
-                  <span class="prev-price">$16</span>
-                  <a href="#" class="green-btn buynow">Buy Now</a>
-               </div>
-               <div class="deal-blocks left-block">
-                  <!--each first block must have the left-block class-->
-                  <r:img uri="/images/browse-photo3.jpg" alt="" class="deal-img" />
-                  <h4 class="deal-name"><a href="#">Exotic Vacation Destinations</a></h4>
-                  <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. dolor sit amet, consectetur adipiscing elit dull phils non duet men. <a href="#">Read More</a></p>
-                  <div class="deal-price">
-                     <span class="nowonly">Now Only</span>
-                     <span class="actual-price">$399</span>
-                  </div>
-                  <span class="prev-price">$699</span>
-                  <a href="#" class="green-btn buynow">Buy Now</a>
-               </div>
-               <div class="deal-blocks">
-                  <r:img uri="/images/browse-photo4.jpg" alt="" class="deal-img" />
-                  <h4 class="deal-name"><a href="#">Cocktails Specials</a></h4>
-                  <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. dolor sit amet, consectetur adipiscing elit dull phils non duet men. <a href="#">Read More</a></p>
-                  <div class="deal-price">
-                     <span class="nowonly">Now Only</span>
-                     <span class="actual-price">$4</span>
-                  </div>
-                  <span class="prev-price">$8</span>
-                  <a href="#" class="green-btn buynow">Buy Now</a>
-               </div>
-               <!----------------------------- HERE GOES THE LOAD BUTTON ---------------------------------->
-               <div id="load-btn-box">
-                  <button href="#" class="round-btn v2" id="load-btn">Load More<span></span></button>
-               </div>
+               </g:if>
             </div>
             <!-- END RESULT BLOCKS -->                
          </div>
