@@ -21,6 +21,10 @@ grails.project.dependency.resolution = {
         grailsHome()
         grailsCentral()
         mavenCentral()
+        mavenRepo "http://repository.springsource.com/maven/bundles/release"
+        mavenRepo "http://repository.springsource.com/maven/bundles/external"
+        mavenRepo "http://repository.springsource.com/maven/libraries/release"
+        mavenRepo "http://repository.springsource.com/maven/libraries/external"
 
         // uncomment these to enable remote dependency resolution from public Maven repositories
         //mavenCentral()

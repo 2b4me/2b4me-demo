@@ -9,18 +9,18 @@
       </div>
       <div id="slider-info">
          <h4>${featuredDeal.title}</h4>
-         <p class="small">${featuredDeal.teaser} <a href="#">Read More</a></p>
+         <p class="small">${featuredDeal.teaser} <g:link controller="deal" action="index" id="${featuredDeal.shortName}">Read More</g:link></p>
          <span class="nowonly">Now Only</span>
          <div id="deal-price">
             <span class="prev-price"><g:formatNumber number="${featuredDeal.originalPrice}" format="\$###,##0" /></span>
             <span class="actual-price"><g:formatNumber number="${featuredDeal.price}" format="\$###,##0" /></span>
          </div>
-         <g:link controller="deal" id="${featuredDeal.shortName}" class="green-btn lvl2" elementId="view-deal-btn">view deal</g:link>
+         <g:link controller="deal" action="index" id="${featuredDeal.shortName}" class="green-btn lvl2" elementId="view-deal-btn">view deal</g:link>
       </div>
       <div id="slider-reel">
          <g:each var="otherDeal" in="${otherDeals}">
             <div id="slider-image${sliderIndex++}" class="reel-img">
-               <g:link controller="deal" id="${otherDeal.shortName}"><r:img uri="/images/deals/${otherDeal.shortName}-slider-photo.jpg" border="0" /></g:link>
+               <g:link controller="deal" action="index" id="${otherDeal.shortName}"><r:img uri="/images/deals/${otherDeal.shortName}-slider-photo.jpg" border="0" /></g:link>
             </div>
          </g:each>
       </div>
