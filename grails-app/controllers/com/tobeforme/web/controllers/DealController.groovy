@@ -5,6 +5,16 @@ import com.tobeforme.domain.*
 class DealController {
 
     def index() {
+		def id = params.id
+		
+		if (id == 'purchase') {
+			forward(action: 'purchase')
+		}
+		
+		if (id == 'confirmation') {
+			forward(action: 'confirmation')
+		}
+	
 		def deal = Deal.findByShortName(params.id)
 		def relatedDeals = []
 		Deal.list().each {
@@ -38,10 +48,16 @@ class DealController {
 		}
 		
 		cancelOrder {
-			redirect(controller: 'deal', action: 'index', id: flow.shortName)
+			redirect(action: 'index', id: flow.shortName)
 		}
 		
-		confirmation()
+		confirmation {
+			redirect(action: 'confirmation', id: flow.shortName)
+		}
 		
+	}
+	
+	def confirmation() {
+		[shortName: params.id]
 	}
 }
