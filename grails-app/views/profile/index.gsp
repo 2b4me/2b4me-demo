@@ -5,6 +5,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
       <title>Profile</title>
       <g:external dir="css" file="stylesheet.css" />
+      <g:external dir="css" file="stylesheet-ext.css" />
    </head>
    <body>
       <!--START HEADER-->
