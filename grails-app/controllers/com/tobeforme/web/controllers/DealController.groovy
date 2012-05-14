@@ -3,6 +3,8 @@ package com.tobeforme.web.controllers
 import com.tobeforme.domain.*
 
 class DealController {
+	
+	def transient sessionFactory
 
     def index() {
 		def id = params.id
@@ -28,6 +30,15 @@ class DealController {
 		startFlow {
 			action {
 				flow.shortName = params.id
+				def dbDeal = Deal.findByShortName(params.id)
+				def deal = [:]
+				deal.shortName = dbDeal.shortName
+				deal.title = dbDeal.title
+				deal.teaser = dbDeal.teaser
+				deal.price = dbDeal.price
+				deal.discountInPct = dbDeal.discountInPct()
+				flow.deal = deal
+				sessionFactory.currentSession.clear() // to clear the session of hibernate objects
 			}
 			on('success').to 'paymentDetails'
 		}
