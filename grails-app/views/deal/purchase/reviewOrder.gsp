@@ -37,25 +37,25 @@
                         <h3>Your payment information</h3>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Name</label></div>
-                           <div id="form-input">${paymentDetails.name}</div>
+                           <div id="form-input">${name}</div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Address</label></div>
-                           <div id="form-input">${paymentDetails.address1}</div>
+                           <div id="form-input">${address1}</div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">&nbsp;</label></div>
-                           <div id="form-input">${paymentDetails.address2}</div>
+                           <div id="form-input">${address2}</div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">City</label></div>
-                           <div id="form-input">${paymentDetails.city}</div>
+                           <div id="form-input">${city}</div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">State</label></div>
-                           <div id="form-input">${paymentDetails.state}</div>
+                           <div id="form-input">${state}</div>
                            <div id="form-label"><label class="blue-label">Zip Code</label></div>
-                           <div id="form-input">${paymentDetails.zipCode}</div>
+                           <div id="form-input">${zipCode}</div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                         <div id="form-entry">
@@ -64,13 +64,13 @@
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">CC #</label></div>
-                           <div id="form-input">${paymentDetails.ccNum}</div>
+                           <div id="form-input">${ccNum}</div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Exp (mm/yy)</label></div>
-                           <div id="form-input" class="cc-input">${paymentDetails.ccExp}</div>
+                           <div id="form-input" class="cc-input">${ccExp}</div>
                            <div id="form-label"><label class="blue-label">CVV2</label></div>
-                           <div id="form-input" class="cc-input">${paymentDetails.ccCvv2}</div>
+                           <div id="form-input" class="cc-input">${ccCvv2}</div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                      </div>
