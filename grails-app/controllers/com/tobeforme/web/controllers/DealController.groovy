@@ -32,6 +32,7 @@ class DealController {
 				flow.shortName = params.id
 				def dbDeal = Deal.findByShortName(params.id)
 				def deal = [:]
+				deal.id = dbDeal.id
 				deal.shortName = dbDeal.shortName
 				deal.title = dbDeal.title
 				deal.teaser = dbDeal.teaser
@@ -45,7 +46,10 @@ class DealController {
 		
 		paymentDetails {
 			on('continue') {
-				// validate playment details
+				// this is where we validate payment details
+				// for now let's just populate a form object
+				flow.paymentDetails = [:]
+				flow.paymentDetails.properties = params.properties
 			}.to 'reviewOrder'
 			on('cancel').to 'cancelOrder'
 		}

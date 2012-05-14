@@ -62,6 +62,15 @@ div#content-main.nobg {
 	width: 40px;
 }
 
+#purchaseDeal #purchase-deal-content input.ccCvv {
+	margin: 0px 20px 0px 0px;
+	width: 40px;
+}
+
+#purchaseDeal #purchase-deal-content p {
+	margin: 20px 20px 20px 0px;
+}
+
 #purchaseDeal #purchase-deal-content select {
 	margin: 0px 20px 0px 20px;
 }
@@ -93,6 +102,12 @@ div#content-main.nobg {
 	float:left;
 	margin: 10px 0px 0px 0px;
 	width: 130px;
+}
+
+#purchaseDeal #purchase-deal-content #content-main #form-entry #form-input.cc-input {
+	float:left;
+	margin: 10px 0px 0px 0px;
+	width: 90px;
 }
 
 

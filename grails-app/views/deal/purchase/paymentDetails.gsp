@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-      <title>Deal Landing</title>
+      <title>Enter Payment Details</title>
       <g:external dir="css" file="stylesheet.css" />
       <g:external dir="css" file="stylesheet-ext.css" />
    </head>
@@ -75,16 +75,16 @@
                            <div id="form-input"><input name="ccNum" type="text" class="text-input cc" /></div>
                         </div>
                         <div id="form-entry">
-                           <div id="form-label"><label class="blue-label">Exp</label></div>
-                           <div id="form-input"><input name="ccExp" type="text" class="text-input ccExp" /></div>
+                           <div id="form-label"><label class="blue-label">Exp (mm/yy)</label></div>
+                           <div id="form-input" class="cc-input"><input name="ccExp" type="text" class="text-input ccExp" /></div>
                            <div id="form-label"><label class="blue-label">CVV2</label></div>
-                           <div id="form-input"><input name="ccCvv" type="text" class="text-input ccExp" /></div>
+                           <div id="form-input" class="cc-input"><input name="ccCvv" type="text" class="text-input ccCvv" /></div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                      </div>
                   </div>
-                  <div id="purchase-deal-content-space">&nbsp;</div>
                   <div id="purchase-deal-content">
+                     <p><span class="green-text">You will have a chance to review your order details before you are charged.</span></p>
                      <g:link event="cancel" class="round-btn">Cancel</g:link>
                      <g:link event="continue" class="round-btn">Continue</g:link>
                   </div>
