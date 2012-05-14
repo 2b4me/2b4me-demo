@@ -49,7 +49,7 @@ class DealController {
 				// this is where we validate payment details
 				// for now let's just populate a form object
 				flow.paymentDetails = [:]
-				params.each { flow.paymentDetails .put(it.key, it.value) }
+				params.each { flow.paymentDetails.put(it.key, it.value) }
 			}.to 'reviewOrder'
 			on('cancel').to 'cancelOrder'
 		}
