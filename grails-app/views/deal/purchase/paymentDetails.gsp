@@ -39,33 +39,36 @@
                         <h3>Please enter your payment information</h3>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Name</label></div>
-                           <div id="form-input"><input name="name" type="text" class="text-input" /></div>
+                           <div id="form-input"><input name="name" type="text" value="${pdc?.name}" class="text-input" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Address</label></div>
-                           <div id="form-input"><input name="address1" type="text" class="text-input" /></div>
+                           <div id="form-input"><input name="address1" type="text" value="${pdc?.address1}" class="text-input" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">&nbsp;</label></div>
-                           <div id="form-input"><input name="address2" type="text" class="text-input" /></div>
+                           <div id="form-input"><input name="address2" type="text" value="${pdc?.address2}" class="text-input" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">City</label></div>
-                           <div id="form-input"><input name="city" type="text" class="text-input" /></div>
+                           <div id="form-input"><input name="city" type="text" value="${pdc?.city}" class="text-input" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">State</label></div>
                            <div id="form-input">
+                              <g:select name="state" from="${states}" value="${pdc?.state}" noSelection="['':'Select one']" class="select-box" />
+                              <%--
                               <select name="state" class="select-box">
-                                 <option value="--">Select one</option>
+                                 <option value="">Select one</option>
                                  <option value="FL">FL</option>
                                  <option value="CA">CA</option>
                                  <option value="DC">DC</option>
                                  <option value="NY">NY</option>
                               </select>
+                               --%>
                            </div>
                            <div id="form-label"><label class="blue-label">Zip Code</label></div>
-                           <div id="form-input"><input name="zipCode" type="text" class="text-input zipCode" /></div>
+                           <div id="form-input"><input name="zipCode" type="text" value="${pdc?.zipCode}" class="text-input zipCode" /></div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                         <div id="form-entry">
@@ -74,13 +77,13 @@
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">CC #</label></div>
-                           <div id="form-input"><input name="ccNum" type="text" class="text-input cc" /></div>
+                           <div id="form-input"><input name="ccNum" type="text" value="${pdc?.ccNum}" class="text-input cc" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Exp (mm/yy)</label></div>
-                           <div id="form-input" class="cc-input"><input name="ccExp" type="text" class="text-input ccExp" /></div>
+                           <div id="form-input" class="cc-input"><input name="ccExp" type="text" value="${pdc?.ccExp}" class="text-input ccExp" /></div>
                            <div id="form-label"><label class="blue-label">CVV2</label></div>
-                           <div id="form-input" class="cc-input"><input name="ccCvv" type="text" class="text-input ccCvv" /></div>
+                           <div id="form-input" class="cc-input"><input name="ccCvv" type="text" value="${pdc?.ccCvv}" class="text-input ccCvv" /></div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                      </div>

@@ -39,17 +39,15 @@ class DealController {
 				deal.price = dbDeal.price
 				deal.discountInPct = dbDeal.discountInPct()
 				flow.deal = deal
+				flow.states = ['FL','CA','DC','NY']
 			}
 			on('success').to 'paymentDetails'
 		}
 		
 		paymentDetails {
-			on('continue') {
-				if (params.name) {
-					flow.name = params.name
-				} else {
-					flow.name = 'params.name was null'
-				}
+			on('continue') { PaymentDetailsCommand pdc ->
+				if (!pdc.validate()) return error()
+				flow.pdc = pdc
 			}.to 'reviewOrder'
 			on('cancel').to 'cancelOrder'
 		}
@@ -75,4 +73,27 @@ class DealController {
 	def confirmation() {
 		[shortName: params.id]
 	}
+}
+
+class PaymentDetailsCommand implements Serializable {
+    String name
+    String address1
+    String address2
+    String city
+    String state
+    String zipCode
+    String ccNum
+    String ccExp
+    String ccCvv
+
+    static constraints = {
+        name(blank: false)
+        address1(blank: false)
+        city(blank: false)
+        state(blank: false)
+        zipCode(blank: false)
+        ccNum(blank: false)
+        ccExp(blank: false)
+        ccCvv(blank: false)
+    }
 }
