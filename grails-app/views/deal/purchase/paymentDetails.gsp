@@ -57,15 +57,6 @@
                            <div id="form-label"><label class="blue-label">State</label></div>
                            <div id="form-input">
                               <g:select name="state" from="${states}" value="${pdc?.state}" noSelection="['':'Select one']" class="select-box" />
-                              <%--
-                              <select name="state" class="select-box">
-                                 <option value="">Select one</option>
-                                 <option value="FL">FL</option>
-                                 <option value="CA">CA</option>
-                                 <option value="DC">DC</option>
-                                 <option value="NY">NY</option>
-                              </select>
-                               --%>
                            </div>
                            <div id="form-label"><label class="blue-label">Zip Code</label></div>
                            <div id="form-input"><input name="zipCode" type="text" value="${pdc?.zipCode}" class="text-input zipCode" /></div>

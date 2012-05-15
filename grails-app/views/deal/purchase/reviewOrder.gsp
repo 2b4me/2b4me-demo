@@ -40,25 +40,25 @@
                         <h3>Your payment information</h3>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Name</label></div>
-                           <div id="form-input">${pdc.name}</div>
+                           <div id="form-input"><span class="data">${pdc.name}</span></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Address</label></div>
-                           <div id="form-input">${pdc.address1}</div>
+                           <div id="form-input"><span class="data">${pdc.address1}</span></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">&nbsp;</label></div>
-                           <div id="form-input">${pdc.address2}</div>
+                           <div id="form-input"><span class="data">${pdc.address2}</span></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">City</label></div>
-                           <div id="form-input">${pdc.city}</div>
+                           <div id="form-input"><span class="data">${pdc.city}</span></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">State</label></div>
-                           <div id="form-input">${pdc.state}</div>
-                           <div id="form-label"><label class="blue-label">Zip Code</label></div>
-                           <div id="form-input">${pdc.zipCode}</div>
+                           <div id="form-input" class="shorter"><span class="data">${pdc.state}</span></div>
+                           <div id="form-label" class="longer"><label class="blue-label">Zip Code</label></div>
+                           <div id="form-input"><span class="data">${pdc.zipCode}</span></div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                         <div id="form-entry">
@@ -67,13 +67,13 @@
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">CC #</label></div>
-                           <div id="form-input">${pdc.ccNum}</div>
+                           <div id="form-input"><span class="data">${pdc.ccNum}</span></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Exp (mm/yy)</label></div>
-                           <div id="form-input" class="cc-input">${pdc.ccExp}</div>
+                           <div id="form-input" class="cc-input"><span class="data">${pdc.ccExp}</span></div>
                            <div id="form-label"><label class="blue-label">CVV2</label></div>
-                           <div id="form-input" class="cc-input">${pdc.ccCvv}</div>
+                           <div id="form-input" class="cc-input"><span class="data">${pdc.ccCvv}</span></div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                      </div>

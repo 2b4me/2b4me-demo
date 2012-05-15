@@ -104,16 +104,29 @@ div#content-main.nobg {
 	width: 50px;
 }
 
+#purchaseDeal #purchase-deal-content #content-main #form-entry #form-label.longer {
+	width: 60px;
+}
+
 #purchaseDeal #purchase-deal-content #content-main #form-entry #form-input {
 	float:left;
 	margin: 10px 0px 0px 0px;
 	width: 130px;
 }
 
+#purchaseDeal #purchase-deal-content #content-main #form-entry #form-input.shorter {
+	width: 45px;
+}
+
 #purchaseDeal #purchase-deal-content #content-main #form-entry #form-input.cc-input {
 	float:left;
 	margin: 10px 0px 0px 0px;
 	width: 90px;
+}
+
+#purchaseDeal #purchase-deal-content #content-main #form-entry #form-input .data {
+	margin: 8px 0px 0px 2px;
+	display: block;
 }
 
 
