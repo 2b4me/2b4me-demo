@@ -21,6 +21,9 @@
             <div id="content-main" class="nobg">
                <h2>Review Order</h2>
                <g:form name="purchaseDeal" controller="deal" action="purchase" id="${deal.shortName}">
+                  <g:submitButton name="cancel" value="Cancel" class="hidden" />
+                  <g:submitButton name="back" value="Edit Payment Details" class="hidden" />
+                  <g:submitButton name="continue" value="Confirm Order" class="hidden" />
                   <div id="purchase-deal-content">
                      <h3>You are almost there! Please review your order.</h3>
                      <div id="content-main">
@@ -77,9 +80,9 @@
                   </div>
                   <div id="purchase-deal-content">
                      <p><span class="green-text">Please review the order above. By clicking Confirm Order, you are authorizing 2b4me to charge your credit card for $XX for the ${deal.shortName} deal.</span></p>
-                     <g:link event="cancel" class="round-btn">Cancel</g:link>
-                     <g:link event="back" class="round-btn">Edit Payment Details</g:link>
-                     <g:link event="continue" class="round-btn">Confirm Order</g:link>
+                     <a id="ro-cancel-link" href="${deal.shortName}/cancel" class="round-btn">Cancel</a>
+                     <a id="ro-back-link" href="${deal.shortName}/edit-details" class="round-btn">Edit Payment Details</a>
+                     <a id="ro-continue-link" href="${deal.shortName}/confirm" class="round-btn">Confirm Order</a>
                   </div>
                </g:form>
             </div>
@@ -104,5 +107,6 @@
       <!--PAGE SCRIPT -->
       <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
       <g:external dir="js" file="custom-ui.js" />
+      <g:external dir="js" file="review-order.js" />
    </body>
 </html>
