@@ -20,7 +20,7 @@
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main" class="nobg">
                <h2>Review Order</h2>
-               <g:form name="purchaseDeal" controller="deal" action="purchase" id="${shortName}">
+               <g:form name="purchaseDeal" controller="deal" action="purchase" id="${deal.shortName}">
                   <div id="purchase-deal-content">
                      <h3>You are almost there! Please review your order.</h3>
                      <div id="content-main">

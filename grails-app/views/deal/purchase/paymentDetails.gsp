@@ -20,8 +20,9 @@
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main" class="nobg">
                <h2>Payment details</h2>
-               <g:form name="purchaseDeal" controller="deal" action="purchase" id="${shortName}">
+               <g:form name="purchaseDeal" controller="deal" action="purchase" id="${deal.shortName}">
                   <g:submitButton name="continue" value="Continue" class="hidden" />
+                  <g:submitButton name="cancel" value="Cancel" class="hidden" />
                   <div id="purchase-deal-content">
                      <h3>You are buying</h3>
                      <div id="content-main">
@@ -86,8 +87,8 @@
                   </div>
                   <div id="purchase-deal-content">
                      <p><span class="green-text">You will have a chance to review your order details before you are charged.</span></p>
-                     <g:link event="cancel" class="round-btn">Cancel</g:link>
-                     <g:link event="continue" class="round-btn">Continue</g:link>
+                     <a id="pd-cancel-link" href="${deal.shortName}/cancel" class="round-btn">Cancel</a>
+                     <a id="pd-continue-link" href="${deal.shortName}/continue" class="round-btn">Continue</a>
                   </div>
                </g:form>
             </div>
