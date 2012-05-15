@@ -87,7 +87,6 @@
             <!-- END RELATED DEALS -->
          </div>
          <!--START CONTAINER-INNER-->
-         <!-- InstanceEndEditable -->
          <!--START FOOTER-->
          <div id="footer">
             <g:include controller="featured" action="bottom" />
