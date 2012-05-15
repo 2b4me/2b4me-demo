@@ -21,6 +21,7 @@
             <div id="content-main" class="nobg">
                <h2>Payment details</h2>
                <g:form name="purchaseDeal" controller="deal" action="purchase" id="${shortName}">
+                  <g:submitButton name="continue" value="Continue" class="hidden" />
                   <div id="purchase-deal-content">
                      <h3>You are buying</h3>
                      <div id="content-main">
@@ -86,8 +87,7 @@
                   <div id="purchase-deal-content">
                      <p><span class="green-text">You will have a chance to review your order details before you are charged.</span></p>
                      <g:link event="cancel" class="round-btn">Cancel</g:link>
-                     <g:submitButton name="continue" value="Continue" class="round-btn" />
-                     <%-- <g:link event="continue" class="round-btn">Continue</g:link> --%>
+                     <g:link event="continue" class="round-btn">Continue</g:link>
                   </div>
                </g:form>
             </div>
@@ -112,5 +112,6 @@
       <!--PAGE SCRIPT -->
       <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
       <g:external dir="js" file="custom-ui.js" />
+      <g:external dir="js" file="payment-details.js" />
    </body>
 </html>

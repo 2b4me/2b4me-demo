@@ -1,4 +1,8 @@
 /********************************** CUSTOMIZATION *****************************************/
+.hidden {
+	display: none;
+}
+
 .error {
 	min-width: 313px;  height: 49px;
 }
