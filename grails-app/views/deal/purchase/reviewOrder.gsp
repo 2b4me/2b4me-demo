@@ -37,7 +37,7 @@
                         <h3>Your payment information</h3>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Name</label></div>
-                           <div id="form-input">${paymentDetails.name}</div>
+                           <div id="form-input">${name}</div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Address</label></div>

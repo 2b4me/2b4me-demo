@@ -86,7 +86,8 @@
                   <div id="purchase-deal-content">
                      <p><span class="green-text">You will have a chance to review your order details before you are charged.</span></p>
                      <g:link event="cancel" class="round-btn">Cancel</g:link>
-                     <g:link event="continue" class="round-btn">Continue</g:link>
+                     <g:submitButton name="continue" value="Continue" class="round-btn" />
+                     <%-- <g:link event="continue" class="round-btn">Continue</g:link> --%>
                   </div>
                </g:form>
             </div>

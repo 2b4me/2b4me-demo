@@ -45,9 +45,11 @@ class DealController {
 		
 		paymentDetails {
 			on('continue') {
-				def pd = [:]
-				pd.name = params.name
-				flow.paymentDetails = pd
+				if (params.name) {
+					flow.name = params.name
+				} else {
+					flow.name = 'params.name was null'
+				}
 			}.to 'reviewOrder'
 			on('cancel').to 'cancelOrder'
 		}
