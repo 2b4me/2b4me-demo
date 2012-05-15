@@ -1,6 +1,6 @@
 package com.tobeforme.domain
 
-class Deal {
+class Deal implements Serializable {
 
 	String shortName
 	String hoverTitle

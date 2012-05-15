@@ -39,23 +39,22 @@ class DealController {
 				deal.price = dbDeal.price
 				deal.discountInPct = dbDeal.discountInPct()
 				flow.deal = deal
-				sessionFactory.currentSession.clear() // to clear the session of hibernate objects
 			}
 			on('success').to 'paymentDetails'
 		}
 		
 		paymentDetails {
 			on('continue') {
-				// this is where we validate payment details
-				// for now let's just populate a form object
-				flow.name = params.name
+				def pd = [:]
+				pd.name = params.name
+				flow.paymentDetails = pd
 			}.to 'reviewOrder'
 			on('cancel').to 'cancelOrder'
 		}
 		
 		reviewOrder {
 			on('continue') {
-				// process order
+				
 			}.to 'confirmation'
 			on('back').to 'paymentDetails'
 			on('cancel').to 'cancelOrder'
