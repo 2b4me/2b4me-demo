@@ -37,29 +37,39 @@
                   <div id="purchase-deal-content">
                      <div id="content-main">
                         <h3>Please enter your payment information</h3>
+                        <g:if test="${pdc?.hasErrors()}">
+                           <div class="error"><span>Please fix the errors below</span></div>
+                        </g:if>
+                        <g:hasErrors bean="${pdc}">
+                          <ul>
+                           <g:eachError var="err" bean="${pdc}">
+                               <li>${err}</li>
+                           </g:eachError>
+                          </ul>
+                        </g:hasErrors>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Name</label></div>
-                           <div id="form-input"><input name="name" type="text" value="${pdc?.name}" class="text-input" /></div>
+                           <div id="form-input"><input name="name" type="text" value="${pdc?.name}" class="text-input ${hasErrors(bean:pdc,field:'name','input-error')}" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Address</label></div>
-                           <div id="form-input"><input name="address1" type="text" value="${pdc?.address1}" class="text-input" /></div>
+                           <div id="form-input"><input name="address1" type="text" value="${pdc?.address1}" class="text-input ${hasErrors(bean:pdc,field:'address1','input-error')}" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">&nbsp;</label></div>
-                           <div id="form-input"><input name="address2" type="text" value="${pdc?.address2}" class="text-input" /></div>
+                           <div id="form-input"><input name="address2" type="text" value="${pdc?.address2}" class="text-input ${hasErrors(bean:pdc,field:'address2','input-error')}" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">City</label></div>
-                           <div id="form-input"><input name="city" type="text" value="${pdc?.city}" class="text-input" /></div>
+                           <div id="form-input"><input name="city" type="text" value="${pdc?.city}" class="text-input ${hasErrors(bean:pdc,field:'city','input-error')}" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">State</label></div>
                            <div id="form-input">
-                              <g:select name="state" from="${states}" value="${pdc?.state}" noSelection="['':'Select one']" class="select-box" />
+                              <g:select name="state" from="${states}" value="${pdc?.state}" noSelection="['':'Select one']" class="select-box ${hasErrors(bean:pdc,field:'state','input-error')}" />
                            </div>
                            <div id="form-label"><label class="blue-label">Zip Code</label></div>
-                           <div id="form-input"><input name="zipCode" type="text" value="${pdc?.zipCode}" class="text-input zipCode" /></div>
+                           <div id="form-input"><input name="zipCode" type="text" value="${pdc?.zipCode}" class="text-input zipCode ${hasErrors(bean:pdc,field:'zipCode','input-error')}" /></div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                         <div id="form-entry">
@@ -68,13 +78,13 @@
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">CC #</label></div>
-                           <div id="form-input"><input name="ccNum" type="text" value="${pdc?.ccNum}" class="text-input cc" /></div>
+                           <div id="form-input"><input name="ccNum" type="text" value="${pdc?.ccNum}" class="text-input cc ${hasErrors(bean:pdc,field:'ccNum','input-error')}" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">Exp (mm/yy)</label></div>
-                           <div id="form-input" class="cc-input"><input name="ccExp" type="text" value="${pdc?.ccExp}" class="text-input ccExp" /></div>
+                           <div id="form-input" class="cc-input"><input name="ccExp" type="text" value="${pdc?.ccExp}" class="text-input ccExp ${hasErrors(bean:pdc,field:'ccExp','input-error')}" /></div>
                            <div id="form-label"><label class="blue-label">CVV2</label></div>
-                           <div id="form-input" class="cc-input"><input name="ccCvv" type="text" value="${pdc?.ccCvv}" class="text-input ccCvv" /></div>
+                           <div id="form-input" class="cc-input"><input name="ccCvv" type="text" value="${pdc?.ccCvv}" class="text-input ccCvv ${hasErrors(bean:pdc,field:'ccCvv','input-error')}" /></div>
                         </div>
                         <div id="form-space">&nbsp;</div>
                      </div>

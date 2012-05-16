@@ -46,8 +46,10 @@ class DealController {
 		
 		paymentDetails {
 			on('continue') { PaymentDetailsCommand pdc ->
-				if (!pdc.validate()) return error()
 				flow.pdc = pdc
+				if (pdc.hasErrors()) {
+					return error()
+				}
 			}.to 'reviewOrder'
 			on('cancel').to 'cancelOrder'
 		}

@@ -4,11 +4,11 @@
 }
 
 .error {
-	min-width: 313px;  height: 49px;
+	margin: 0px 0px 20px 0px;
 }
 
 .error span {
-	padding: 0 0 0 60px;
+	/* empty for now */
 }
 
 div#content-main.nobg {
@@ -127,6 +127,12 @@ div#content-main.nobg {
 #purchaseDeal #purchase-deal-content #content-main #form-entry #form-input .data {
 	margin: 8px 0px 0px 2px;
 	display: block;
+}
+
+.input-error { 
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
 
