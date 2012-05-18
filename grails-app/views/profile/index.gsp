@@ -32,12 +32,10 @@
                         <dt>Name:</dt>
                         <dd id="user-name">${user.firstName} ${user.lastName}</dd>
                      </li>
-                     <%--
                      <li>
                         <dt>Address:</dt>
                         <dd id="user-address">${user.address.address1}, ${user.address.city}, ${user.address.state}, ${user.address.postalCode}</dd>
                      </li>
-                      --%>
                      <li>
                         <dt>Email:</dt>
                         <dd id="user-email">${user.emailAddress}</dd>

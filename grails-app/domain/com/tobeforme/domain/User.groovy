@@ -7,11 +7,11 @@ class User {
 	String firstName
 	String lastName
 	
-	//static hasOne = [address: Address]
+	static hasOne = [address: Address]
 	
 	static hasMany = [subscriptions: Subscription]
 
     static constraints = {
-		//address unique: true
+		address unique: true
     }
 }

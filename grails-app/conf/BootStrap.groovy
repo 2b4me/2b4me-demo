@@ -67,7 +67,6 @@ class BootStrap {
 			password: 'XXXXXXXXXXXX',
 			firstName: 'Daniel',
 			lastName: 'Silva',
-			/*
 			address: new Address(
 				address1: '20752 SW 87th Court',
 				address2: '',
@@ -76,7 +75,6 @@ class BootStrap {
 				postalCode: '33189',
 				countryCode: 'US'
 			),
-			 */
 			subscriptions: [dailyDeals, travelDeals]
 		).save()
 

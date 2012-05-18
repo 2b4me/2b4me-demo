@@ -8,8 +8,7 @@ class Address {
 	String state
 	String postalCode
 	String countryCode
-	
-	static belongsTo = [user: User]
+	User user
 
     static constraints = {
     }
