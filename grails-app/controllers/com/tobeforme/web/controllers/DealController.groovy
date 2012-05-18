@@ -59,11 +59,11 @@ class DealController {
 		}
 		
 		cancelOrder {
-			redirect(action: 'index', id: flow.shortName)
+			redirect(action: 'index', id: flow.deal.shortName)
 		}
 		
 		confirmation {
-			redirect(action: 'confirmation', id: flow.shortName)
+			redirect(action: 'confirmation', id: flow.deal.shortName)
 		}
 		
 	}
