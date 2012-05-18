@@ -18,27 +18,23 @@ class DealController {
 		}
 	
 		def deal = Deal.findByShortName(params.id)
+		[deal: deal]
+	}
+	
+	def relatedDeals() {
+		def deal = Deal.get(params.id)
 		def relatedDeals = []
 		Deal.list().each {
 			if (it.id != deal.id) relatedDeals << it
 		}
-		[deal: deal, relatedDeals: relatedDeals]
+		[relatedDeals: relatedDeals]
 	}
 	
 	def purchaseFlow = {
 		
 		startFlow {
 			action {
-				flow.shortName = params.id
-				def dbDeal = Deal.findByShortName(params.id)
-				def deal = [:]
-				deal.id = dbDeal.id
-				deal.shortName = dbDeal.shortName
-				deal.title = dbDeal.title
-				deal.teaser = dbDeal.teaser
-				deal.price = dbDeal.price
-				deal.discountInPct = dbDeal.discountInPct()
-				flow.deal = deal
+				flow.deal = Deal.findByShortName(params.id)
 				flow.states = ['FL','CA','DC','NY']
 			}
 			on('success').to 'paymentDetails'
@@ -73,7 +69,8 @@ class DealController {
 	}
 	
 	def confirmation() {
-		[shortName: params.id]
+		def deal = Deal.findByShortName(params.id)
+		[deal: deal, date: new java.util.Date()]
 	}
 }
 

@@ -23,18 +23,18 @@
                <div id="congrats"></div>
                <div id="msg-info">
                   <p id="advice">You have purchased this deal on:</p>
-                  <span id="msg-date">Dec. 1, 2011</span>
+                  <span id="msg-date"><g:formatDate format="MMM dd, yyyy" date="${date}"/></span>
                   <span id="msg-for">for</span>
-                  <span id="msg-price">$399</span>
+                  <span id="msg-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
                </div>
             </div>
             <!--END MSG-->
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main">
-               <r:img uri="/images/landing-main-photo.jpg" id="main-photo" />
+               <r:img uri="/images/deals/${deal.shortName}-detail-photo.jpg" id="main-photo" />
                <div id="deal-info">
-                  <h1>Hilton Head Island Villas</h1>
-                  <p id="add-line">Optional extra line for additional details or information</p>
+                  <h1>${deal.title}</h1>
+                  <p id="add-line">${deal.teaser}</p>
                   <p id="reference">Reference: 123244549773</p>
                   <div id="redeem" class="deal-date">
                      <p>Redeem by:</p>
@@ -51,9 +51,9 @@
                   </div>
                   <div id="sharing">
                      <span>Share this Deal</span>
-                     <div id="share-fb"><a href="#"><r:img uri="/images/share-fb.png" /></a></div>
-                     <div id="share-tweet"><a href="#"><r:img uri="/images/share-tweet.png" /></a></div>
-                     <a href="#" id="share-email">Email</a>
+                     <div id="share-fb"><a href="#" class="nyi"><r:img uri="/images/share-fb.png" /></a></div>
+                     <div id="share-tweet"><a href="#" class="nyi"><r:img uri="/images/share-tweet.png" /></a></div>
+                     <a href="#" id="share-email" class="nyi">Email</a>
                   </div>
                </div>
                <div id="details">
@@ -72,45 +72,7 @@
             </div>
             <!-- END MAIN CONTENT (the deal info.) -->
             <!-- START RELATED DEALS -->
-            <div id="related">
-               <div id="related-head">
-                  <a href="#" class="biglink" id="seerel">See more related deals</a>
-                  <a href="#" class="biglink" id="browserel">Browse all deals</a>
-               </div>
-               <div class="relblocks" id="relblock1">
-                  <r:img uri="/images/landing-deal-photo1.jpg" class="deal-photos" />
-                  <h4 class="dealnames"><a href="#">Full Body Massage</a></h4>
-                  <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. <a href="#">Read More</a></p>
-                  <div class="deals-price">
-                     <span class="nowonly">Now Only</span>
-                     <span class="actual-price">$30</span>
-                     <span class="prev-price">$69</span>
-                     <a href="#" class="green-btn buynow">Buy now</a>
-                  </div>
-               </div>
-               <div class="relblocks" id="relblock2">
-                  <r:img uri="/images/landing-deal-photo2.jpg" class="deal-photos" />
-                  <h4 class="dealnames"><a href="#">2 for 1 Dining on Tuesdays</a></h4>
-                  <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. <a href="#">Read More</a></p>
-                  <div class="deals-price">
-                     <span class="nowonly">Now Only</span>
-                     <span class="actual-price">$10</span>
-                     <span class="prev-price">$16</span>
-                     <a href="#" class="green-btn buynow">buy now</a>
-                  </div>
-               </div>
-               <div class="relblocks" id="relblock3">
-                  <r:img uri="/images/landing-deal-photo3.jpg" class="deal-photos" />
-                  <h4 class="dealnames"><a href="#">Cocktail Specials</a></h4>
-                  <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a risus elit, ut sodales elit. <a href="#">Read More</a></p>
-                  <div class="deals-price">
-                     <span class="nowonly">Now Only</span>
-                     <span class="actual-price">$4</span>
-                     <span class="prev-price">$8</span>
-                     <a href="#" class="green-btn buynow">Buy now</a>
-                  </div>
-               </div>
-            </div>
+            <g:include action="relatedDeals" id="${deal.id}" />
             <!-- END RELATED DEALS -->
          </div>
          <!--START CONTAINER-INNER-->
