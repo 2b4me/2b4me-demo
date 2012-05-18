@@ -2,7 +2,11 @@ $(document).ready(function(){
 
 //************************************ START SELECT BOX ****************************************//
 		$('.select-box').each(function(){
-			$(this).after('<div class="sel2"><div class="sel2-bg"></div>  <div class="chosen"></div> <span class="arrow"></span>                  <ul></ul></div>');
+			if ($(this).hasClass('input-error')) {
+				$(this).after('<div class="sel2"><div class="sel2-bg input-error"></div>  <div class="chosen"></div> <span class="arrow input-error"></span>                  <ul></ul></div>');
+			} else {
+				$(this).after('<div class="sel2"><div class="sel2-bg"></div>  <div class="chosen"></div> <span class="arrow"></span>                  <ul></ul></div>');
+			}
 		});
 			$('.sel2').each(function(){
 				$(this).addClass('hide');

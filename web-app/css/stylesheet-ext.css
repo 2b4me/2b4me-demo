@@ -133,6 +133,7 @@ div#content-main.nobg {
     outline: none;
     border-color: red;
     box-shadow: 0 0 10px #9ecaed;
+	border: 1px solid red ! important;
 }
 
 
