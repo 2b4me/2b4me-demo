@@ -16,6 +16,10 @@ class DealController {
 		if (id == 'confirmation') {
 			forward(action: 'confirmation')
 		}
+
+		if (id == 'deletePurchase') {
+			forward(action: 'deletePurchase')
+		}
 	
 		def deal = Deal.findByShortName(params.id)
 		[deal: deal]

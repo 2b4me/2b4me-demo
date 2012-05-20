@@ -58,7 +58,7 @@
                         <li class="first-row">Deal Name <span class="right">Expiration</span></li>
                         <g:each status="i" in="${purchases}" var="p">
                            <g:if test="${i < 2}">
-                              <li><g:link controller="deal" action="confirmation" id="${p.deal.shortName}">${p.deal.title}</g:link> <span class="right"><g:formatDate format="MM/dd/yy" date="${p.bought}"/></span></li>
+                              <li><g:link controller="deal" action="confirmation" id="${p.deal.shortName}"><!-- ${p.id} -->${p.deal.title}</g:link> <span class="right"><g:formatDate format="MM/dd/yy" date="${p.bought}"/></span></li>
                            </g:if>
                         </g:each>
                      </ul>
