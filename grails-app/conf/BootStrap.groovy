@@ -12,6 +12,9 @@ class BootStrap {
 		Category entertainment = new Category(name: 'Entertainment', prio: 6, deals: []).save()
 		Category salon = new Category(name: 'Salon', prio: 7, deals: []).save()
 		
+		def effective = new GregorianCalendar(2012, Calendar.MAY, 20).getTime()
+		def expiration = new GregorianCalendar(2012, Calendar.NOVEMBER, 30).getTime()
+		
 		Deal sobe = new Deal(
 			shortName: 'sobe',
 			hoverTitle: 'Lavish, All-Inclusive South Beach Resort',
@@ -20,7 +23,9 @@ class BootStrap {
 			teaser: 'Take a breather from the every day routine with a 5 day and 4 night all-inclusive stay at the famous Sands Hotel, located directly on the beach.',
 			originalPrice: 800,
 			price: 400,
-			category: wedding
+			category: wedding,
+			effective: effective,
+			expiration: expiration
 		).save()		
 		Deal oneBurger = new Deal(
 			shortName: 'oneburger',
@@ -30,7 +35,9 @@ class BootStrap {
 			teaser: 'Enjoy \$10 worth of juicy burgers and delicious fries for \$5 at One Burger located in the heart of Coral Gables!',
 			originalPrice: 10,
 			price: 5,
-			category: dining
+			category: dining,
+			effective: effective,
+			expiration: expiration
 		).save()
 		Deal spaRetreat = new Deal(
 			shortName: 'sparetreat',
@@ -40,7 +47,9 @@ class BootStrap {
 			teaser: 'Giving yourself a massage is a surefire disappointment. Leave kneading to the knowledgeable with today\'s 2B4ME special.',
 			originalPrice: 300,
 			price: 150,
-			category: salon
+			category: salon,
+			effective: effective,
+			expiration: expiration
 		).save()
 		Deal openBar = new Deal(
 			shortName: 'openbar',
@@ -50,7 +59,9 @@ class BootStrap {
 			teaser: 'Bar Hopper’s party-savvy guides steer revelers through lively city neighborhoods, stopping at esteemed watering holes along the way.',
 			originalPrice: 150,
 			price: 100,
-			category: entertainment
+			category: entertainment,
+			effective: effective,
+			expiration: expiration
 		).save()
 		
 		FeaturedDeal fSobe = new FeaturedDeal(deal: sobe, prio: 1).save()

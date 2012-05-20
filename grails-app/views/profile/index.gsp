@@ -50,13 +50,20 @@
                <!--END USER INFO-->
                <!--START PURCHASED DEALS-->
                <div class="blocks" id="purchased">
-                  <p id="no-deals-purchased" style="display:none;">You haven't made a purchase yet!</p>
-                  <ul class="list">
-                     <li class="first-row">Deal Name <span class="right">Expiration</span></li>
-                     <li>Hilton Head Vacation Villas <span class="right">12/01/12</span></li>
-                     <li>Olive Garden <span class="right">12/01/12</span></li>
-                  </ul>
-                  <a href="#" class="b-link nyi">See More</a>
+                  <g:if test="${purchases.size() == 0}">
+                     <p id="no-deals-purchased">You haven't made a purchase yet!</p>
+                  </g:if>
+                  <g:else>
+                     <ul class="list">
+                        <li class="first-row">Deal Name <span class="right">Expiration</span></li>
+                        <g:each status="i" in="${purchases}" var="p">
+                           <g:if test="${i < 2}">
+                              <li><g:link controller="deal" action="confirmation" id="${p.deal.shortName}">${p.deal.title}</g:link> <span class="right"><g:formatDate format="MM/dd/yy" date="${p.bought}"/></span></li>
+                           </g:if>
+                        </g:each>
+                     </ul>
+                     <a href="#" class="b-link nyi">See More</a>
+                  </g:else>
                </div>
                <!--END PURCHASED DEALS-->
                <!--START SUBSCRIPTIONS-->
@@ -67,10 +74,10 @@
                      <li id="subs-label">Select the 2b4me email alerts you want:</li>
                      <g:each var="sub" in="${subscriptions}" status="i">
                         <g:if test="${user.subscriptions.contains(sub)}">
-                        <li><input type="checkbox" class="checkbox sub" id="check${i}" name="${sub.name}" checked="true"/><label for="check${i}">${sub.name}</label></li>
+                           <li><input type="checkbox" class="checkbox sub" id="check${i}" name="${sub.name}" checked="true"/><label for="check${i}">${sub.name}</label></li>
                         </g:if>
                         <g:else>
-                        <li><input type="checkbox" class="checkbox sub" id="check${i}" name="${sub.name}" /><label for="check${i}">${sub.name}</label></li>
+                           <li><input type="checkbox" class="checkbox sub" id="check${i}" name="${sub.name}" /><label for="check${i}">${sub.name}</label></li>
                         </g:else>
                      </g:each>
                   </ul>

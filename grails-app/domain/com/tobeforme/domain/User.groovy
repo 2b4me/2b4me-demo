@@ -1,6 +1,6 @@
 package com.tobeforme.domain
 
-class User {
+class User implements Serializable {
 	
 	String emailAddress
 	String password
@@ -12,6 +12,5 @@ class User {
 	static hasMany = [subscriptions: Subscription]
 
     static constraints = {
-		address unique: true
     }
 }

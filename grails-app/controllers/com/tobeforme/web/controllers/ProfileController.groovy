@@ -7,7 +7,8 @@ class ProfileController {
     def index() {
 		def user = User.findByEmailAddress('daniel@silvanolte.com') // this should come from session
 		def subscriptions = Subscription.list()
-		[user:user, subscriptions:subscriptions]
+		def purchases = Purchase.findAllByBuyer(user)
+		[user: user, subscriptions: subscriptions, purchases: purchases]
 	}
 	
 	def updateSub() {

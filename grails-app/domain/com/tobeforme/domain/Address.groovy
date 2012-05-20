@@ -1,6 +1,6 @@
 package com.tobeforme.domain
 
-class Address {
+class Address implements Serializable {
 	
 	String address1
 	String address2

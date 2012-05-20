@@ -10,6 +10,8 @@ class Deal implements Serializable {
 	double originalPrice
 	double price
 	Category category
+	Date effective
+	Date expiration
 	
 	static constraints = {
     }

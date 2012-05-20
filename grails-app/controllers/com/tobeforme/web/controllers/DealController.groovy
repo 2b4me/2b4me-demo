@@ -34,6 +34,7 @@ class DealController {
 		
 		startFlow {
 			action {
+				flow.user = User.findByEmailAddress('daniel@silvanolte.com') // this should come from session
 				flow.deal = Deal.findByShortName(params.id)
 				flow.states = ['FL','CA','DC','NY']
 			}
@@ -52,7 +53,18 @@ class DealController {
 		
 		reviewOrder {
 			on('continue') {
-				
+				def p = new Purchase()
+				p.bought = new Date()
+				p.deal = flow.deal
+				p.buyer = flow.user
+				p.voucher = '124938573'
+				p.price = flow.deal.price
+				try {
+				    p.save(flush: true, failOnError: true)
+				} catch (Exception e) {
+				    flash.message = "Could not complete the purchase: ${e.message}"
+					return error()
+				}
 			}.to 'confirmation'
 			on('back').to 'paymentDetails'
 			on('cancel').to 'cancelOrder'
@@ -71,6 +83,17 @@ class DealController {
 	def confirmation() {
 		def deal = Deal.findByShortName(params.id)
 		[deal: deal, date: new java.util.Date()]
+	}
+	
+	def deletePurchase() {
+		// temporary action to delete a specific deal
+		def p = Purchase.get(params.purchaseId)
+		try {
+		    p.delete(flush: true)
+			render "Deleted"
+		} catch (org.springframework.dao.DataIntegrityViolationException e) {
+		    render "Could not delete person ${p.name}"
+		}
 	}
 }
 

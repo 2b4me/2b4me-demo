@@ -1,6 +1,6 @@
 package com.tobeforme.domain
 
-class Subscription {
+class Subscription implements Serializable {
 	
 	String name
 
