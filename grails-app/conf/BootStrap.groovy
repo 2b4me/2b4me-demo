@@ -75,7 +75,7 @@ class BootStrap {
 		
 		User user = new User(
 			emailAddress: 'daniel@silvanolte.com',
-			password: 'XXXXXXXXXXXX',
+			password: 'hello123',
 			firstName: 'Daniel',
 			lastName: 'Silva',
 			address: new Address(

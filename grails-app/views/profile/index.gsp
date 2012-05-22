@@ -20,7 +20,7 @@
             <div id="head">
                <r:img uri="/images/profile-photo.jpg" />
                <h1>${user.firstName} ${user.lastName}</h1>
-               <p>${user.emailAddress} <a href="#">Update</a></p>
+               <p>${user.emailAddress} <a href="#" class="nyi">Update</a></p>
             </div>
             <!--END TITLE PROFILE-->
             <!--START INFO BLOCKS-->
@@ -117,6 +117,7 @@
       <!--PAGE SCRIPT -->
       <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
       <g:external dir="js" file="custom-ui.js" />
+      <g:external dir="js" file="custom-ui-ext.js" />
       <g:external dir="js" file="profile.js" />
    </body>
 </html>

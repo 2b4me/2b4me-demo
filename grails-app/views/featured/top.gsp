@@ -3,13 +3,14 @@
 	<li id="home-link"><g:link controller="featured"></g:link></li>
 	<li id="featured-link"><g:link controller="featured">Featured</g:link></li>
 	<li id="browse-link"><g:link controller="browse">Browse</g:link></li>
-	<g:if test="${false}">
-   	<li id="sign-link"><a href="#">Sign up</a></li>
-   	<li id="login-link"><a href="login.html">Login</a></li>
-	</g:if>
-	<g:else>
+	<%-- <g:if test="${session.user}"> --%>
+	<g:if test="${true}">
    	<li id="sign-link"><g:link controller="profile">Profile</g:link></li>
    	<li id="login-link"><a href="#" class="nyi">Logout</a></li>
+	</g:if>
+	<g:else>
+	   <li id="sign-link"><a href="#">Sign up</a></li>
+   	<li id="login-link"><a href="login.html">Login</a></li>
 	</g:else>
 </ul>
 <div id="search-form">
