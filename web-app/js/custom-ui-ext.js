@@ -13,7 +13,6 @@ $('#ext-fade, a#close-btn, a#cancel').live('click', function(event){
 //******************************* END CUSTOM LOGIN MODAL **********************************//
 
 //********************************** START AUTH CHECK *************************************//
-/*
 $.ajax({
 	url: "featured/isAuthenticated",
 	cache: false
@@ -51,7 +50,6 @@ $.ajax({
 		$('#demo-login').fadeIn();
 	}
 });
- */
 //********************************** END AUTH CHECK *************************************//
 
 $(".nyi").click(function() {
