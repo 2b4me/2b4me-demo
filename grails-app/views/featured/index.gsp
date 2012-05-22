@@ -50,6 +50,9 @@
          </div>
       </div>
       <!-- END CONTAINER -->
+      <!-- START LOGIN FORM -->
+      <g:include controller="user" action="index" />
+      <!-- END LOGIN FORM -->
       <!--PAGE SCRIPT -->
       <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
       <g:external dir="js" file="custom-ui.js" />

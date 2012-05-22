@@ -137,7 +137,7 @@ div#content-main.nobg {
 }
 
 
-/************************************** LOGIN *********************************************/
+/************************************** DEMO LOGIN *********************************************/
 #demo-login {
 	width: 603px;  min-height: 370px;
 	background: #fff;
@@ -198,3 +198,76 @@ div#content-main.nobg {
 #demo-login #close-btn:active { background-position: left bottom; }
 
 .demo-hide { display: none; }
+/************************************ END DEMO LOGIN *******************************************/
+
+/************************************** LOGIN *********************************************/
+#ext-login {
+	width: 603px;  min-height: 370px;
+	background: #fff;
+	border-radius: 5px;
+	padding: 47px 0 0;
+	position:absolute; top: 50%;  left: 50%;
+	margin: -185px 0 0 -301.5px;
+}
+#ext-login h2 {
+	margin: 0 19px 42px 18px;   padding: 0 0 15px 2px;
+	color: #256080;
+	font:bold 25px Arial, sans-serif;
+	letter-spacing: -1px;
+	border-bottom: 4px solid #acc8d8;
+}
+#ext-login .login-input {
+	float: left;
+	margin:0 0 33px;  padding: 0 0 0 84px;
+}
+#ext-login label {
+	float: left;
+	margin: 11px 22px 0 0;
+}
+#ext-login input {
+	padding: 0 0 0 10px;
+	float: left;
+}
+
+#ext-login-pass { margin: 0 0 0 8px; }
+
+#ext-login-actions {
+	padding: 23px 0 0 184px;
+	float: left;
+}
+#ext-login #cancel {
+	margin: 10px 74px 0 0;
+	float: left;
+	color: #256080;
+}
+#ext-login #cancel:hover { color: #f00; }
+#ext-login #cancel:focus { outline: 1px solid #8dd2f9; }
+
+#ext-login #submit { 
+	float: left;
+	width: 193px;
+	padding: 0;
+	margin: -3px 0 0;
+}
+#ext-login #submit:focus {
+	background-color: #8dd2f9;
+	outline: 2px solid #8dd2f9;
+}
+#ext-login #close-btn {
+	position: absolute;  top:7px;  right:6px;
+	width: 28px;  height: 28px;
+	background: url(../images/close-btn.png) no-repeat;
+}
+#ext-login #close-btn:active { background-position: left bottom; }
+
+#ext-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+/************************************ END LOGIN *******************************************/

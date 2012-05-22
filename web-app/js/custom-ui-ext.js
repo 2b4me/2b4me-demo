@@ -1,8 +1,19 @@
 //********************************* CUSTOM LOGIN MODAL ************************************//
+$('#signin').click(function(event){
+	event.preventDefault();
+	$('#ext-fade').fadeTo('normal', 0.70);
+	$('#ext-login').fadeIn();
+});
 
+$('#ext-fade, a#close-btn, a#cancel').live('click', function(event){
+	$('#ext-fade').stop().fadeOut(300);
+	$('#ext-login').stop().fadeOut(300);
+	event.preventDefault();
+});
 //******************************* END CUSTOM LOGIN MODAL **********************************//
 
 //********************************** START AUTH CHECK *************************************//
+/*
 $.ajax({
 	url: "featured/isAuthenticated",
 	cache: false
@@ -40,6 +51,7 @@ $.ajax({
 		$('#demo-login').fadeIn();
 	}
 });
+ */
 //********************************** END AUTH CHECK *************************************//
 
 $(".nyi").click(function() {
