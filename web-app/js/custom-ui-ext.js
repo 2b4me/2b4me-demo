@@ -10,9 +10,48 @@ $('#ext-fade, a#close-btn, a#cancel').live('click', function(event){
 	$('#ext-login').stop().fadeOut(300);
 	event.preventDefault();
 });
+
+$('#ext-login #login-actions button').click(function(event) {
+    var username = $('#ext-login .login-input input[type=text]').val();
+	var password = $('#ext-login .login-input input[type=password]').val();
+	$.ajax({
+	    type: 'post',
+	    url: 'user/login',
+		data: {
+		    username: username,
+		    password: password
+		},
+		cache: false
+	}).done(function(html) {
+	    if (html == 'Error') {
+	        alert('Username and/or Password Incorrect');
+	    } else {
+	        $('#ext-fade').stop().fadeOut(300);
+        	$('#ext-login').stop().fadeOut(300);
+        	$('#nav.logged-off').fadeToggle(100, 'linear', function() {
+    	        $('#nav.logged-on').fadeIn(100);
+    	    });
+	    }
+		
+	});
+});
+
+$('#logout-link').click(function(event) {
+    $.ajax({
+	    type: 'post',
+	    url: 'user/logout',
+		cache: false
+	}).done(function(html) {
+	    $('#nav.logged-on').fadeToggle(100, 'linear', function() {
+	        $('#nav.logged-off').fadeIn(100);
+	    });
+	});
+	event.preventDefault();
+});
 //******************************* END CUSTOM LOGIN MODAL **********************************//
 
 //********************************** START AUTH CHECK *************************************//
+/*
 $.ajax({
 	url: "featured/isAuthenticated",
 	cache: false
@@ -50,9 +89,10 @@ $.ajax({
 		$('#demo-login').fadeIn();
 	}
 });
+ */
 //********************************** END AUTH CHECK *************************************//
 
-$(".nyi").click(function() {
+$(".nyi").click(function(event) {
 	alert("Not yet implemented");
-	return false;
+	event.preventDefault();
 });
