@@ -2,7 +2,7 @@
 <div id="ext-login" class="modal-box hidden">
    <h2>2b4me Login:</h2>
    <div class="login-input">
-       <label for="login-user" class="blue-label">User Name:</label>
+       <label for="login-user" class="blue-label">E-mail address:</label>
        <input type="text" value="User Name Here..." class="text-input lvl2" id="login-user" />
    </div>
    <div class="login-input">

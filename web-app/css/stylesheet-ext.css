@@ -136,6 +136,111 @@ div#content-main.nobg {
 	border: 1px solid red ! important;
 }
 
+#registration #registration-content-space {
+	min-height: 30px;
+}
+
+#registration #registration-content #content-main  {
+	padding: 0 13px 0 12px;
+	overflow: hidden;
+	background: none;
+	min-height: 0px;
+}
+
+#registration #registration-content .round-btn {
+	margin: 0px 20px 0px 20px;
+}
+
+#registration #registration-content input {
+	margin: 0px 20px 0px 20px;
+	color: black;
+}
+
+#registration #registration-content img {
+	margin: 0px 20px 0px 20px;
+}
+
+#registration #registration-content input.zipCode {
+	margin: 0px 20px 0px 20px;
+	width: 100px;
+}
+
+#registration #registration-content input.cc {
+	margin: 0px 20px 0px 20px;
+	width: 200px;
+}
+
+#registration #registration-content input.ccExp {
+	margin: 0px 20px 0px 20px;
+	width: 40px;
+}
+
+#registration #registration-content input.ccCvv {
+	margin: 0px 20px 0px 0px;
+	width: 40px;
+}
+
+#registration #registration-content p {
+	margin: 20px 20px 20px 0px;
+}
+
+#registration #registration-content select {
+	margin: 0px 20px 0px 20px;
+}
+
+#registration #registration-content .sel2 {
+	margin: 0px 20px 0px 20px;
+	width: 80px ! important;
+	color: black;
+}
+
+#registration #registration-content #content-main #form-entry {
+	width: 600px;
+	clear: both;
+}
+
+#registration #registration-content #content-main #form-space {
+	width: 600px;
+	clear: both;
+	min-height: 45px;
+	clear: both;
+}
+
+#registration #registration-content #content-main #form-entry #form-label {
+	float: left;
+	margin: 17px 4px 7px 15px;
+	width: 100px;
+}
+
+#registration #registration-content #content-main #form-entry #form-input {
+	float:left;
+	margin: 10px 0px 0px 0px;
+	width: 130px;
+}
+
+#registration #registration-content #content-main #form-entry #form-input.longer input {
+	width: 220px;
+}
+
+#registration #registration-content #content-main #form-entry #form-input.cc-input {
+	float:left;
+	margin: 10px 0px 0px 0px;
+	width: 90px;
+}
+
+#registration #registration-content #content-main #form-entry #form-input .data {
+	margin: 8px 0px 0px 2px;
+	display: block;
+}
+
+#registration-loading {
+    margin: 93px 0px 93px 200px;
+}
+
+.block {
+   display: block;
+}
+
 
 /************************************** DEMO LOGIN *********************************************/
 #demo-login {
