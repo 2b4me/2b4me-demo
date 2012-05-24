@@ -1,3 +1,12 @@
+function toBeForMeOrigin() {
+    var origin = window.location.origin
+    if (origin.indexOf('localhost') > 0) {
+        return origin + '/2b4me-demo';
+    } else {
+        return origin;
+    }
+}
+
 //********************************* CUSTOM LOGIN MODAL ************************************//
 $('#signin').click(function(event){
     event.preventDefault();
@@ -16,7 +25,7 @@ $('#ext-login #login-actions button').click(function(event) {
     var password = $('#ext-login .login-input input[type=password]').val();
     $.ajax({
         type: 'post',
-        url: 'user/login',
+        url: toBeForMeOrigin() + '/user/login',
         data: {
             username: username,
             password: password
@@ -42,17 +51,7 @@ $('#logout-link').click(function(event) {
             url: 'user/logout',
             cache: false
         }).done(function(html) {
-            /*
-            $('#nav.logged-on').fadeToggle(100, 'linear', function() {
-                $('#nav.logged-off').fadeIn(100);
-            });
-             */
-            var origin = window.location.origin
-            if (origin.indexOf('localhost') > 0) {
-                window.location.replace(origin + '/2b4me-demo');
-            } else {
-                window.location.replace(origin);
-            }
+            window.location.replace(toBeForMeOrigin());
         });
     }
     event.preventDefault();
