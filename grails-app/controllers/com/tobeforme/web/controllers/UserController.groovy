@@ -6,6 +6,8 @@ class UserController {
     
     def index() { }
     
+    def loginForm() { }
+    
     def login() {
         def u = User.findByEmailAddress(params.username)
         if (u) {

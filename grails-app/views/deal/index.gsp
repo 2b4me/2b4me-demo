@@ -79,6 +79,9 @@
       <div id="shadow-bottom">
          <!--required--> 
       </div>
+      <!-- START LOGIN FORM -->
+      <g:include controller="user" action="loginForm" />
+      <!-- END LOGIN FORM -->
       <!--PAGE SCRIPT -->
       <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
       <g:external dir="js" file="custom-ui.js" />
