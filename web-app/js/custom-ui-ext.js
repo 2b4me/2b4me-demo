@@ -37,15 +37,25 @@ $('#ext-login #login-actions button').click(function(event) {
 });
 
 $('#logout-link').click(function(event) {
-    $.ajax({
-	    type: 'post',
-	    url: 'user/logout',
-		cache: false
-	}).done(function(html) {
-	    $('#nav.logged-on').fadeToggle(100, 'linear', function() {
-	        $('#nav.logged-off').fadeIn(100);
-	    });
-	});
+    if (confirm('Do you really want to log out?')) {
+        $.ajax({
+    	    type: 'post',
+    	    url: 'user/logout',
+    		cache: false
+    	}).done(function(html) {
+    	    /*
+    	    $('#nav.logged-on').fadeToggle(100, 'linear', function() {
+    	        $('#nav.logged-off').fadeIn(100);
+    	    });
+    	     */
+    	    var origin = window.location.origin
+    	    if (origin.indexOf('localhost') > 0) {
+    	        window.location.replace(origin + '/2b4me-demo');
+    	    } else {
+    	        window.location.replace(origin);
+    	    }
+    	});
+	}
 	event.preventDefault();
 });
 //******************************* END CUSTOM LOGIN MODAL **********************************//
