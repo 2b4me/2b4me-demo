@@ -32,7 +32,6 @@ $('#ext-login #login-actions button').click(function(event) {
                 $('#nav.logged-on').fadeIn(100);
             });
         }
-        
     });
 });
 
