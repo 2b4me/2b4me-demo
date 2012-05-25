@@ -12,7 +12,8 @@ class ProfileController {
 		}
 		def subscriptions = Subscription.list()
 		def purchases = Purchase.findAllByBuyer(user, [sort: 'bought', order: 'desc', max: 2])
-		[user: user, subscriptions: subscriptions, purchases: purchases]
+		def profilePhoto = user.emailAddress.replace('@','+')
+		[user: user, subscriptions: subscriptions, purchases: purchases, profilePhoto: profilePhoto]
 	}
 	
 	def purchasedDeals() {

@@ -241,6 +241,17 @@ div#content-main.nobg {
    display: block;
 }
 
+#profile #head p {
+    clear: both;
+    margin: -65px 0px 0px 198px;
+}
+
+/* 126 x 128 */
+
+#profile #head img {
+    height: 128px;
+    width: 126px;
+}
 
 /************************************** DEMO LOGIN *********************************************/
 #demo-login {

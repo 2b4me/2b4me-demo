@@ -18,8 +18,13 @@
          <div id="container-inner">
             <!--START TITLE PROFILE-->
             <div id="head">
-               <r:img uri="/images/profile-photo.jpg" />
-               <h1>${user.firstName} ${user.lastName}</h1>
+               <r:img uri="/images/users/${profilePhoto}.jpg" />
+               <g:if test="${user.firstName || user.lastName}">
+                  <h1>${user.firstName} ${user.lastName}</h1>
+               </g:if>
+               <g:else>
+                  <h1>Welcome, 2b4me user!</h1>
+               </g:else>
                <p>${user.emailAddress} <a href="#" class="nyi">Update</a></p>
             </div>
             <!--END TITLE PROFILE-->
@@ -30,11 +35,21 @@
                   <dl>
                      <li>
                         <dt>Name:</dt>
-                        <dd id="user-name">${user.firstName} ${user.lastName}</dd>
+                        <g:if test="${user.firstName || user.lastName}">
+                           <dd id="user-name">${user.firstName} ${user.lastName}</dd>
+                        </g:if>
+                        <g:else>
+                           <dd id="user-name">N/A (<a href="update" class="nyi">update</a>)</dd>
+                        </g:else>
                      </li>
                      <li>
                         <dt>Address:</dt>
-                        <dd id="user-address">${user.address?.address1}, ${user.address?.city}, ${user.address?.state}, ${user.address?.postalCode}</dd>
+                        <g:if test="${user.address}">
+                           <dd id="user-address">${user.address?.address1}, ${user.address?.city}, ${user.address?.state}, ${user.address?.postalCode}</dd>
+                        </g:if>
+                        <g:else>
+                           <dd id="user-address">N/A (<a href="update" class="nyi">update</a>)</dd>
+                        </g:else>
                      </li>
                      <li>
                         <dt>Email:</dt>
