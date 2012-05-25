@@ -6,4 +6,15 @@ class Subscription implements Serializable {
 
     static constraints = {
     }
+    
+    boolean equals(Object obj) {
+        // if (this == obj) return true
+        if (!(obj instanceof Subscription)) return false
+        def otherSub = (Subscription)obj
+        return (this.id == null ? otherSub.id == null : this.id == otherSub.id)
+    }
+    
+    int hashCode() {
+        return 37*17 + (int)(id ^ (id >>> 32))
+    }
 }

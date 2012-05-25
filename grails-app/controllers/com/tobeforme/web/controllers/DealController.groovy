@@ -38,7 +38,7 @@ class DealController {
 		
 		startFlow {
 			action {
-				flow.user = User.findByEmailAddress('daniel@silvanolte.com') // this should come from session
+				flow.user = User.get(session.user)
 				flow.deal = Deal.findByShortName(params.id)
 				flow.states = ['FL','CA','DC','NY']
 			}

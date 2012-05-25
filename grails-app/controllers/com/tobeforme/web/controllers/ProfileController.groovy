@@ -5,20 +5,32 @@ import com.tobeforme.domain.*
 class ProfileController {
 
     def index() {
-		def user = User.findByEmailAddress('daniel@silvanolte.com') // this should come from session
+		def user = User.get(session.user)
+		if (user == null) {
+		    redirect controller: 'featured', action: 'index'
+		    return
+		}
 		def subscriptions = Subscription.list()
 		def purchases = Purchase.findAllByBuyer(user, [sort: 'bought', order: 'desc', max: 2])
 		[user: user, subscriptions: subscriptions, purchases: purchases]
 	}
 	
 	def purchasedDeals() {
-		def user = User.findByEmailAddress('daniel@silvanolte.com') // this should come from session
-		def purchases = Purchase.findAllByBuyer(user, [sort: 'bought', order: 'desc'])
+		def user = User.get(session.user)
+		if (user == null) {
+		    redirect controller: 'featured', action: 'index'
+		    return
+		}
+        def purchases = Purchase.findAllByBuyer(user, [sort: 'bought', order: 'desc'])
 		[user: user, purchases: purchases]
 	}
 	
 	def updateSub() {
-		def user = User.findByEmailAddress('daniel@silvanolte.com') // this should come from session
+	    def user = User.get(session.user)
+	    if (user == null) {
+		    render 'Error: user not logged in'
+		    return
+		}
 		def sub = Subscription.findByName(params.name)
 		def checked = params.checked
 		if (checked == 'false') {
@@ -26,7 +38,8 @@ class ProfileController {
 		} else {
 			user.subscriptions << sub
 		}
-		user.save()
+		user.save(flush: true)
 		render 'Subscription updated'
 	}
+	
 }

@@ -12,5 +12,15 @@ class User implements Serializable {
 	static hasMany = [subscriptions: Subscription]
 
     static constraints = {
+        firstName nullable: true
+        lastName nullable: true
+        address nullable: true
+        subscriptions nullable: true
+        password size: 8..14, blank: false
+        emailAddress  email: true, blank: false, unique: true
+    }
+    
+    static mapping = {
+        subscriptions lazy: false
     }
 }

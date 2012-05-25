@@ -34,7 +34,7 @@
                      </li>
                      <li>
                         <dt>Address:</dt>
-                        <dd id="user-address">${user.address.address1}, ${user.address.city}, ${user.address.state}, ${user.address.postalCode}</dd>
+                        <dd id="user-address">${user.address?.address1}, ${user.address?.city}, ${user.address?.state}, ${user.address?.postalCode}</dd>
                      </li>
                      <li>
                         <dt>Email:</dt>

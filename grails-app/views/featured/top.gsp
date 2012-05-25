@@ -11,7 +11,7 @@
       <li id="home-link"><g:link controller="featured"></g:link></li>
       <li id="featured-link"><g:link controller="featured">Featured</g:link></li>
       <li id="browse-link"><g:link controller="browse">Browse</g:link></li>
-      <li id="sign-link"><g:link controller="user">Sign up</g:link></li>
+      <li id="sign-link"><g:link controller="user" action="signup">Sign up</g:link></li>
       <li id="login-link"><a id="signin" href="sign-in.html">Login</a></li>
    </ul>
 </g:if>
@@ -27,7 +27,7 @@
       <li id="home-link"><g:link controller="featured"></g:link></li>
       <li id="featured-link"><g:link controller="featured">Featured</g:link></li>
       <li id="browse-link"><g:link controller="browse">Browse</g:link></li>
-      <li id="sign-link"><g:link controller="user">Sign up</g:link></li>
+      <li id="sign-link"><g:link controller="user" action="signup">Sign up</g:link></li>
       <li id="login-link"><a id="signin" href="sign-in.html">Login</a></li>
    </ul>
 </g:else>
