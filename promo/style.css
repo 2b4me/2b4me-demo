@@ -1,0 +1,434 @@
+* { margin:0; padding:0;  border:none; list-style:none; position: relative; z-index:5; }
+#html { 	background: url(images/bg2.png) center top no-repeat; }
+
+body {
+	padding: 155px 0 0;
+	font: normal 13px Arial, sans-serif;
+}
+
+a:link { color: #0e71a8; }  
+a:visited { color: #7298ae; }
+a:hover { color: #5f9458; }
+
+p.small, #dlg-box p.small, #lastblock p.small { 
+	font-size: 11px; 
+	line-height: 18px; 
+	color: #666;
+}
+
+h2 {
+	color: #49791f;
+	font: bold 37px "Trebuchet MS", Arial, sans-serif;
+}
+
+h3 {
+	color: #055984;
+	font-size: 17px;
+}
+
+
+#bg {
+	position:absolute; z-index:1;
+	top:0;
+	width: 100%;
+	min-width: 1000px;
+	min-height: 730px;
+}
+
+#header {
+	height: 129px;
+	background: url(images/header-bg.png) repeat-x;
+	position: fixed; top: 0; z-index:99999;
+	width: 100%;
+}
+
+#header-inner {
+	width: 960px;
+	margin: auto;
+	position: relative;
+}
+#header #logo { 
+	position: absolute; top: 6px; left: 40px;
+}
+#nav {
+	float: right;
+	margin: 19px -2px 0 0;
+	color: #fff;
+	font: normal 19px "Trebuchet MS", Arial, sans-serif;
+	text-transform: uppercase;  text-shadow: 0 0 1px #fff;
+}
+#nav li {
+	float: left;
+	height: 18px;
+	padding: 0 16px 0 16px;
+	margin: 5px 0 0;
+	border-right: 2px solid #fff;
+}
+#nav li#contact {
+	border: none;
+	padding-right: 0;
+}
+#nav a  {
+	float: left;
+	margin: -4px 0 0;
+	color: #fff;   text-decoration: none;
+} 
+#nav a:hover, #subnav a:hover { color: #93d4f8; }
+
+/*#container-inner {
+	height: 1000px;
+	margin: auto;
+	width: 960px;
+}
+*/
+#countdown {
+	width: 778px;
+	height: 472px;
+	margin: 0 auto;
+	padding: 30px 0 0;
+	background: url(images/1px-countbox.png);
+	border-radius: 5px;
+}
+
+#countxt {
+	width: 689px;
+	height: 95px;
+	margin:  0 0 0 53px;
+	background: url(images/countdown-text.png) no-repeat;
+}
+
+#counter {
+	font: 600 64px Arial, sans-serif;
+	color: #3ba1b6;
+	width: 405px;
+	margin: 14px auto 0 auto;
+	overflow: hidden;
+}
+
+
+
+#circle {
+	float: left;
+	width: 133px;
+	height: 135px;
+	background: url(images/circle.png) no-repeat;
+	color: #fff;
+	text-align: center;
+	margin: 0 20px 0 0;
+}
+#d { 
+	font-size: 76px;
+	letter-spacing: -5px;
+	display:block;
+	margin: 20px 0 0;
+}
+.labeltime {
+	font-size: 11px;
+	margin: -10px 0 0;
+}
+
+#timer { 
+	float: left;
+	margin: 30px 0 0 10px;
+}
+#timer div span { letter-spacing: -4px; }
+
+.colon { float: left; }
+.time {
+	float:left;
+	text-align: center;
+}
+#timer p.labeltime { color: #003c57; margin-top: -5px; }
+
+#formfeed {
+	background: #a4a6a7;
+	border-radius: 8px;
+	padding: 15px 0 25px;
+	width: 690px;
+	margin: 23px auto 0 auto;
+	text-align: center;
+}
+
+#formfeed p {
+	font: 600 18px "Trebuchet MS", Arial, sans-serif;
+	color: #fff;
+	word-spacing: -2px;
+}
+#formfeed p strong { font-size: 1.4em; letter-spacing: -1px; }
+
+
+
+#formfeed form {
+	margin: 13px 0 0;
+}
+
+
+#formfeed .text-input {
+	width: 375px;
+	display: inline-block;
+	margin: 0 13px 0 0;
+}
+
+#formfeed .green-btn {
+	padding: 0 20px;
+}
+
+
+.text-input {
+	display: inline-block;
+	width:173px;  height: 26px;
+	padding: 0 0 0 10px;
+	border: 1px solid #c8c9ca;
+	border-radius: 3px;
+	background: #f3f3f3 url(images/text-input-bg.png) repeat-x;
+	color: #a0a0a0;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	line-height: 26px;
+}
+
+.green-btn { 
+	display: inline-block;  
+	height: 42px; 
+	padding: 0 12px;
+	position: relative;
+	color: #fff;   
+	font: 500 19px/42px "Trebuchet MS", Arial, sans-serif;
+	text-align: center;   text-decoration: none;   text-transform: uppercase;
+	background: #528656 url(images/2b4me-btn-gradient.png) left top repeat-x;
+	//border: 1px solid #4a762f;//border-width: 0 1px 0;
+}
+a.green-btn { color: #fff; }
+a.green-btn:hover {  background-position: left -42px;     //border-color: #016fab; }
+a.green-btn:active { background-position: bottom;         //border-color: #016fab; }
+a.green-btn:before,
+a.green-btn:after {
+ 	content:""; 
+	width: 5px;  height: 42px;
+	position: absolute;
+	background: url(images/2b4me-btn-sides.png) left top no-repeat;
+}
+a.green-btn:before { top: 0;   left: -5px;  }
+a.green-btn:after {  bottom: 0; right: -5px; background-position: right top;  }
+a.green-btn:hover:before { background-position: left -43px; }
+a.green-btn:hover:after { background-position: right -43px; }
+a.green-btn:active:before { background-position: left bottom; }
+a.green-btn:active:after { background-position: right bottom; }
+
+.green-btn.lvl2 {
+	font-weight: 600; font-size: 24px;
+	padding: 0 27px;
+}
+
+button.green-btn {
+	padding: 0 16px;
+	line-height: 40px;
+	border: 1px solid #4a762f;   border-radius: 4px;
+	background: url(images/2b4me-btn-input-gradients.png) repeat-x;
+	cursor: pointer;
+	//padding:0;
+}
+button.green-btn:hover { background-position: left -40px; border-color: #016fab; }
+button.green-btn:active { background-position: left bottom; border-color: #016fab; }
+
+#terms {
+	padding: 15px 70px 0;
+}
+
+#savewed {
+	text-align: center;
+	margin: 100px auto 0;
+	min-height: 450px;
+	background: url(images/grdnt.png) center bottom  no-repeat;
+	width: 1000px;
+	position: relative;
+}
+
+#savewed h2 { margin-bottom: 42px; }
+
+.col { text-align: left; width: 200px; }
+#savewed .col.left { position: absolute; left: 100px; top: 95px }
+.col.left .second { margin: 95px 0 0; }
+
+#savewed .col.right {
+	position: absolute; right: 110px;  top: 95px;
+}
+.col.right .second {
+	margin: 95px 0 0;
+}
+
+.blocks { 
+	width: 928px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 50px 0 80px;
+	border-bottom: 3px solid #cbd3d8;
+}
+.subblocks {
+	width: 630px;
+	overflow: hidden;
+}
+.blocks h2 {
+	font-size: 34px;
+}
+.blocks p { 
+	font-size: 13px;
+	color: #828080;
+	line-height: 27px;
+}
+.smallimage { float: right; margin-top: 50px; }
+
+
+.list { float:left; margin-right: 100px; }
+.list li {
+	height: 16px;
+	padding: 0 0 0 25px;
+	background: url(images/list-bullet.png) no-repeat;
+	font: 600 13px Arial, sans-serif;
+	line-height:16px;
+	color: #0e71a8;
+	margin: 15px 0;					
+}
+
+
+#expop {
+	padding: 70px 0 75px;
+}
+#expop .block1 { float: left; }
+#expop .block2 { 
+	float: left;
+	margin: 10px 0 0 50px;
+}
+
+
+#expop .block1 h2 {
+	margin-bottom: 10px;
+}
+#expop .block2 h4 {
+	color: #666;
+	font: normal 17px "Trebuchet MS", Arial, sans-serif;
+	margin-bottom: 5px;
+}
+#expop .block2 .list.list2 {
+	margin: 0;
+}
+
+#dlg-box {
+	width: 400px;
+	height: 157px;
+	background:url(images/dialogue-box.png) no-repeat;
+}
+#dlg-box img {
+	float: left;
+	margin: 23px;
+}
+#dlg-box a {color: inherit; }
+#dlg-box h3 {
+	letter-spacing: -1px;
+	padding: 23px 0 7px;
+}
+#dlg-box p {
+	padding: 0 20px 0 0;
+}
+
+#lastblock {
+	background: url(images/bttm-grdnt.png) left bottom repeat-x;
+}
+#lastblock h2 {
+	padding: 0 0 0 40px;
+}
+
+#lastblock .block1 {
+	width: 350px;
+	margin: 30px 0 0 40px;
+	float: left;
+}
+#lastblock  h3 {
+	font: bolder 29px Arial;
+	margin: 0 0 5px;
+}
+
+#lastblock h4 {
+	font-size: 17px;
+	color: #055984;
+}
+
+.deal {
+	overflow: hidden;
+	margin: 10px 0 20px;
+}
+
+.deal h4 { 
+	float: left;
+	margin: 20px 0 0;
+}
+
+.deal .save {
+	float: right;
+	text-align: center;
+}
+
+.green {
+	font-size: 13px;
+	color: #6f9f57;
+	font-weight: bold;
+}
+.percent {
+	color: #666;
+	font-size: 40px;
+	font-weight: 600;
+	display:block;
+	letter-spacing: -2px;
+	margin: -5px 0 0;
+}
+
+#lastblock .block2 {
+	float: left;
+	width: 350px;
+	margin: 30px 0 0 70px;
+}
+
+#footer {
+	width: 928px;  height: 43px;
+	padding-bottom: 9px;
+	color: #fff;
+	background: url(images/footer-rounded-corners.png) center bottom no-repeat;
+	box-shadow: 0 0 7px #b2cede;
+	margin: -20px auto 0;
+} 
+#footer a { color: #fff; text-decoration: none; } 
+#footer-inner {  background: #545251;  height: 100%; }
+#copyright-2b4me {
+	float: left;
+	font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+	margin: 18px 0 0 23px;
+}
+#copyright-2b4me span { margin-right: 10px; }
+#subnav {
+	float: right;
+	margin: 18px 189px 0 0;
+	font: bold 14px "Trebuchet MS", Arial, sans-serif;
+	text-transform: uppercase;    word-spacing: 3px;
+}
+#social {
+	position: absolute;  top: 17px;  left: 774px;
+	font-size: 11px;
+	text-shadow: 0 0 1px #fff;
+}
+
+.social-btns { position: absolute; width: 27px; height: 27px; }
+#fb-btn { 
+	background: url(images/social-sprites.png) left top no-repeat;
+	right: -41px; top: -4px;
+}
+#twitter-btn { 
+	background: url(images/social-sprites.png) right top no-repeat; 
+	right: -78px; top: -4px;
+}
+#shadow-bottom {
+	width: 1010px;   height: 50px;
+	background: url(images/shadow-bottom.png) center top no-repeat;
+	margin: -25px auto 25px;
+	position: relative;
+	left: -5px;
+}
+#shadow-bottom { z-index: -1; }

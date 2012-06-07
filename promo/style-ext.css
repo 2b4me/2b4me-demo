@@ -1,0 +1,73 @@
+div.blocks {
+    padding-bottom: 30px;
+}
+
+#dlg-box {
+    margin-top: 20px;
+}
+
+#expop .block2 {
+    margin-top: 60px;
+}
+
+.col.left .second {
+    margin-top: 75px;
+}
+
+.col.right .second {
+    margin-top: 75px;
+}
+
+#fb {
+    position: fixed;
+    margin-top: 70px;
+    margin-left: 864px;
+    background-color:white;
+}
+
+#formfeed .text-input {
+    border:2px solid #dadada;
+    border-radius:7px;
+    font-size:20px;
+    padding:5px; 
+}
+
+#formfeed .error {
+    border:2px solid red;
+    border-radius:7px;
+    font-size:20px;
+    padding:5px; 
+}
+
+#formfeed .text-input:focus { 
+    outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 10px #9ecaed;
+}
+
+.modal.fade.in {
+    top: 60%;
+}
+
+#savewed {
+	background-color:#FFFFFF;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding-top:40px;
+}
+
+#savewed .col.left {
+    top: 120px
+}
+
+#savewed .col.right {
+	top: 120px;
+}
+
+#timer {
+    width: 240px;
+}
