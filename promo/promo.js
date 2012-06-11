@@ -149,16 +149,18 @@ $(document).ready(function() {
             return;
         }
         
+        var dataString = 'merchantContactName='+merchantName+'&merchantCompanyName='+merchantCompany+'&merchantContactInfo='+merchantContactInfo+'&merchantTypeOfBusiness='+merchantBusinessType;
         $.ajax({
     		type: "POST",
     		url: "http://2b4me.com/cgi-bin/FormMail.merchantsignup.pl",
-    		data: 'merchantContactName='+merchantName+'&merchantCompanyName='+merchantCompany+'&merchantContactInfo='+merchantContactInfo+'&merchantTypeOfBusiness='+merchantBusinessType,
+    		data: dataString,
     		success: function() {
     		    $('#merchantCancel').fadeOut();
     		    $('#merchantSubmit').fadeOut();
     			$('#merchantSignupCopy').fadeOut();
     			$('#merchantSignupForm').fadeOut(400, function() {
     			    $('#merchantThankYou').fadeIn();
+    			    $('#merchantClose').fadeIn();
     			    setTimeout(function() {
             		    $("#merchantSignup").modal('hide');
             		}, 3000);
