@@ -14,7 +14,7 @@
          <div id="header-inner">
             <a href="index.html" id="logo"><img src="images/2b4me-logo.png" /></a>
             <ul id="nav">
-               <!-- <li><a href="#">merchant sign up</a></li> -->
+               <li><a href="#" id="merchantSignupLinkHeader">merchant sign up</a></li>
                <li><a href="http://demo.2b4me.com">view demo</a></li>
                <li id="contact"><a href="mailto:info@2b4me.com?subject=Tell me more about 2b4me!">contact</a></li>
             </ul>
@@ -132,6 +132,23 @@
             </ul>
          </div>
       </div>
+      <div class="blocks">
+         <img src="images/deals.png" class="smallimage" />
+         <div class="subblocks">
+            <h2>Connecting Customers and Businesses</h2>
+            <p>We pride ourselves on connecting customers with the best Miami has to offer. So it makes sense for businesses to consider promoting their brand, goods and services on 2b4me.com. We work with merchants to help create useful promotions that will be compelling for consumers and generate more business. Fill out our <a id="merchantSignupLink" href="#">Merchant Form</a> and we'll let you know how 2b4me can serve you.</p>
+            <ul class="list">
+               <li>No upfront costs</li>
+               <li>Only pay for deals sold</li>
+               <li>Promotion statistics</li>
+            </ul>
+            <ul class="list">
+               <li>Quick turnaround</li>
+               <li>POS <strong>and</strong> Online validation</li>
+               <li>Promotion advice</li>
+            </ul>
+         </div>
+      </div>
       <div class="blocks" id="expop">
          <div class="block1">
             <h2>Expert Opinions &amp; Reviews</h2>
@@ -188,7 +205,7 @@
       <!--START FOOTER-->
       <div id="footer">
          <div id="footer-inner">
-            <p id="copyright-2b4me">Copyright © 2011 - <span>2012</span> 2b4me, Inc</p>
+            <p id="copyright-2b4me">Copyright &copy; 2011 - <span>2012</span> 2b4me, Inc</p>
             <p id="subnav"><a href="http://www.facebook.com/2b4me/posts/320871854654031">Our Story</a></p>
             <p id="social">Follow Us<a href="http://www.facebook.com/2b4me" class="social-btns" id="fb-btn"></a> <a href="https://twitter.com/2b4me_deals" class="social-btns" id="twitter-btn"></a></p>
          </div>
@@ -210,6 +227,40 @@
          </div>
       </div>
       <!-- END Email signup success modal -->
+      <!-- START Merchant signup modal -->
+      <div class="modal hide fade" id="merchantSignup">
+         <div class="modal-header">
+            <h3>Merchant Signup Form</h3>
+         </div>
+         <div class="modal-body">
+            <div id="merchantSignupCopy">
+               <p>You are just <strong>moments away</strong> from connecting with the future of online promotions in South Florida! Please fill out the form below, and we will send get in touch to discuss how <strong>2b4me can make a difference in your business</strong>.</p>
+               <img id="merchantSignupLogo" src="images/time-is-ticking.png" />
+            </div>
+            <div id="merchantSignupForm">
+               <div id="merchantContactName" class="control-group"><label>Contact name:</label><input type="text" /></div>
+               <div id="merchantCompanyName" class="control-group"><label>Company name:</label><input  type="text" /></div>
+               <div id="merchantContactInfo" class="control-group"><label>Email address (or Phone Number):</label><input type="text" /></div>
+               <div id="merchantBusiness" class="control-group"><label>Type of business:</label><input type="text" /></div>
+            </div>
+            <div id="merchantClearLeft"></div>
+            <div id="merchantThankYou" class="hide">
+               <div id="merchantThankYouLogo">
+                  <img src="images/2b4me-logo-blue-2.png" />
+               </div>
+               <div id="merchantThankYouMessage">
+                  <h3>Thank you for your interest.</h3>
+                  <h3>Someone will contact you soon!</h3>
+               </div>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <span class="help-inline hide">Oops... something went wrong. Please try again.</span>
+            <a id="merchantCancel" href="#" class="btn" data-dismiss="modal">Cancel</a>
+            <a id="merchantSubmit" href="#" class="btn btn-primary">Submit information</a>
+         </div>
+      </div>
+      <!-- END Merchant signup modal -->
       <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
       <script type="text/javascript" src="bootstrap.js"></script>
       <script type="text/javascript" src="promo.js"></script>

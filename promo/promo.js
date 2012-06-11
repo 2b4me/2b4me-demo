@@ -29,15 +29,20 @@ $(document).ready(function() {
     $('#formfeed .green-btn').click(function(event) {
         event.preventDefault();
         
+        if ($('#formfeed .green-btn').attr('disabled')) {
+            return;
+        }
+        
+        $('#formfeed .green-btn').attr("disabled", "disabled");s
+        
         var email = $('#formfeed .text-input').val();
     	
     	if (!emailCheck(email)) {
     		$('#formfeed .text-input').addClass("error");
     		$('#formfeed .text-input').tooltip('show');
+    		$('#formfeed .green-btn').removeAttr("disabled");
     		return;
     	}
-    	
-    	$('#formfeed .green-btn').attr("disabled", "disabled");
     	
     	var dataString = "Name=&formmail_mail_email=" + email;
     	$.ajax({
@@ -56,6 +61,122 @@ $(document).ready(function() {
     		}
     	});
     });
+    
+    $('#merchantSignupLink').click(function(event) {
+        event.preventDefault();
+        handleMerchantSignupLink(event);
+    });
+    
+    $('#merchantSignupLinkHeader').click(function(event) {
+       event.preventDefault();
+       handleMerchantSignupLink(event);
+    });
+
+    $('#merchantSignupForm div input').tooltip({
+        placement: 'right',
+        title: 'Can\'t be blank',
+        trigger: 'manual'
+   	});
+
+   	$('#merchantContactName input').focus(function(event) {
+   	    $('#merchantContactName input').tooltip('hide');
+   	    $('#merchantContactName').removeClass("error");
+   	});
+
+   	$('#merchantCompanyName input').focus(function(event) {
+   	    $('#merchantCompanyName input').tooltip('hide');
+   	    $('#merchantCompanyName').removeClass("error");
+   	});
+   	
+   	$('#merchantContactInfo input').focus(function(event) {
+   	    $('#merchantContactInfo input').tooltip('hide');
+   	    $('#merchantContactInfo').removeClass("error");
+   	});
+   	
+   	$('#merchantBusiness input').focus(function(event) {
+   	    $('#merchantBusiness input').tooltip('hide');
+   	    $('#merchantBusiness').removeClass("error");
+   	});
+   	
+   	$('#merchantBusiness input').keypress(function(event) {
+   	    if (event.which == 13) {
+   	        $('#merchantSubmit').trigger('click');
+   	    }
+   	});
+    
+    $('#merchantSubmit').click(function(event) {
+        event.preventDefault();
+        
+        if ($('#merchantSubmit').attr('disabled')) {
+            return;
+        }
+        
+        $('#merchantSubmit').attr("disabled", "disabled");
+        
+        var merchantName = $('#merchantContactName input').val();
+        var merchantCompany = $('#merchantCompanyName input').val();
+        var merchantContactInfo = $('#merchantContactInfo input').val();
+        var merchantBusinessType = $('#merchantBusiness input').val();
+        
+        var valid = true;
+        
+        if (merchantName == '') {
+            valid = false;
+            $('#merchantContactName').addClass("error");
+    		$('#merchantContactName input').tooltip('show');
+        }
+        
+        if (merchantCompany == '') {
+            valid = false;
+            $('#merchantCompanyName').addClass("error");
+    		$('#merchantCompanyName input').tooltip('show');
+        }
+        
+        if (merchantContactInfo == '') {
+            valid = false;
+            $('#merchantContactInfo').addClass("error");
+    		$('#merchantContactInfo input').tooltip('show');
+        }
+        
+        if (merchantBusinessType == '') {
+            valid = false;
+            $('#merchantBusiness').addClass("error");
+    		$('#merchantBusiness input').tooltip('show');
+        }
+        
+        if (!valid) {
+            $('#merchantSubmit').removeAttr("disabled");
+            return;
+        }
+        
+        $.ajax({
+    		type: "POST",
+    		url: "http://2b4me.com/cgi-bin/FormMail.merchantsignup.pl",
+    		data: 'merchantContactName='+merchantName+'&merchantCompanyName='+merchantCompany+'&merchantContactInfo='+merchantContactInfo+'&merchantTypeOfBusiness='+merchantBusinessType,
+    		success: function() {
+    		    $('#merchantCancel').fadeOut();
+    		    $('#merchantSubmit').fadeOut();
+    			$('#merchantSignupCopy').fadeOut();
+    			$('#merchantSignupForm').fadeOut(400, function() {
+    			    $('#merchantThankYou').fadeIn();
+    			    setTimeout(function() {
+            		    $("#merchantSignup").modal('hide');
+            		}, 3000);
+    			});
+    		},
+    		error: function(request, status, err) {
+    			$('#merchantSignup div span.help-inline').fadeIn();
+                setTimeout(function(){
+                    $('#merchantSignup div span.help-inline').fadeOut(400, function() {
+                        $('#merchantSubmit').removeAttr("disabled");
+                    });
+                }, 6000);
+                return;
+    		}
+    	});
+        
+    });
+    
 });
 
 function emailCheck(emailStr) {
@@ -162,4 +283,10 @@ function countdown(yr, m, d) {
         // exit the countdown
         return;
     }
+}
+
+function handleMerchantSignupLink(event) {
+    $("#merchantSignup").modal({
+        keyboard: true
+    });
 }
