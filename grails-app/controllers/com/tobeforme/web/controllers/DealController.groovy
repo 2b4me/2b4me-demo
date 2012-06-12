@@ -41,8 +41,14 @@ class DealController {
 				flow.user = User.get(session.user)
 				flow.deal = Deal.findByShortName(params.id)
 				flow.states = ['FL','CA','DC','NY']
+				if (!flow.user) {
+				    return login()
+			    } else {
+    				return success()
+			    }
 			}
 			on('success').to 'paymentDetails'
+			on('login').to 'login'
 		}
 		
 		paymentDetails {
@@ -80,6 +86,31 @@ class DealController {
 		
 		confirmation {
 			redirect(action: 'confirmation', id: flow.deal.shortName)
+		}
+		
+		login {
+		    on('login') { PurchaseLoginCommand cmd ->
+		        flow.pld = cmd
+		        def valid = flow.pld.validate()
+		        
+		        if (valid) {
+		            def user = User.findByEmailAddress(flow.pld.emailAddress)
+		            if (user?.password == flow.pld.password) {
+		                session.user = user.id
+		            } else {
+		                flow.pld.errors.rejectValue('emailAddress',
+		                    'purchaseLoginCommand.emailAddress.wrongCreds.error')
+	                    flow.pld.errors.rejectValue('password',
+		                    'purchaseLoginCommand.emailAddress.wrongCreds.error')
+		                valid = false
+		            }
+		        }
+		         
+		        if (!valid) {
+		            return error()
+		        }
+		    }.to 'paymentDetails'
+		    on('cancel').to 'cancelOrder'
 		}
 		
 	}
@@ -121,5 +152,15 @@ class PaymentDetailsCommand implements Serializable {
         ccNum(blank: false)
         ccExp(blank: false)
         ccCvv(blank: false)
+    }
+}
+
+class PurchaseLoginCommand implements Serializable {
+    String emailAddress
+    String password
+    
+    static constraints = {
+        emailAddress blank: false, email: true
+        password blank: false
     }
 }
