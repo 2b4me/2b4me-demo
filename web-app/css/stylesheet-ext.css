@@ -136,6 +136,40 @@ div#content-main.nobg {
 	border: 1px solid red ! important;
 }
 
+#registration-content-main {
+    min-height: 365px;
+}
+
+#registration-content-main.complete {
+    width: 575px;
+}
+
+#registration-content-main.complete img {
+    width: 100px;
+    height: 100px;
+}
+
+#registration-content-main.complete h2 {
+    margin: 0px;
+    padding-top: 15px;
+}
+
+#registration-content-main.complete p {
+    margin: 0px;
+    padding-top: 15px;
+    font-size: 120%;
+    color: #0f5173;
+}
+
+#registration-content-main.complete p.important {
+    color: red;
+}
+
+#registration-content-main.complete ul li {
+    font-size: 120%;
+    margin: 10px;
+}
+
 #registration #registration-content-space {
 	min-height: 30px;
 }
@@ -235,6 +269,17 @@ div#content-main.nobg {
 
 #registration-loading {
     margin: 93px 0px 93px 200px;
+}
+
+#registration #registration-content #content-main #form-entry #form-input-error {
+    float: left;
+    margin-left: 385px;
+    margin-top: -22px;
+}
+
+#registration #registration-content #content-main #form-entry #form-input-error ul li {
+    color: red;
+    width: 450px;
 }
 
 .block {

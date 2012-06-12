@@ -12,17 +12,24 @@ class UserController {
     
     def loginForm() { }
     
-    def registration() {
-        def user = new User(params)
-        if (user.hasErrors()) {
-            flash.user = user
-            redirect action: 'signup'
+    def registration(SignupCommand cmd) {
+        if (User.findByEmailAddress(cmd.emailAddress)) {
+            cmd.errors.rejectValue('emailAddress', 'signupCommand.emailAddress.unique.error')
         }
-        if (user.save()) { 
+        
+        if (cmd.hasErrors()) {
+            flash.user = cmd
+            redirect action: 'signup'
+            return
+        }
+        
+        def user = new User(emailAddress: cmd.emailAddress, password: cmd.password)
+        if (user.save()) {
             flash.user = user
             redirect action: 'registrationComplete'
         } else {
-            flash.user = user
+            flash.user = cmd
+            flash.message = 'Oops... there was a problem creating your account. Please try again in a few minutes.'
             redirect action: 'signup'
         }
     }
@@ -31,6 +38,7 @@ class UserController {
         if (flash.user == null) {
             redirect controller: 'featured', action: 'index'
         }
+        session.user = flash.user.id
     }
     
     def login() {
@@ -52,4 +60,15 @@ class UserController {
         render('Success')
     }
 
+}
+
+class SignupCommand {
+    String emailAddress
+    String password
+    String password2
+
+    static constraints = {
+        importFrom User
+        password2 size: 8..14, blank: false, validator: { val, obj -> obj.password == val }
+    }
 }
