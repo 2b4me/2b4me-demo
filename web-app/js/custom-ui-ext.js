@@ -51,10 +51,11 @@ $('#ext-login #login-actions button').click(function(event) {
 });
 
 $('#logout-link').click(function(event) {
+    var origin = toBeForMeOrigin();
     if (confirm('Do you really want to log out?')) {
         $.ajax({
             type: 'post',
-            url: 'user/logout',
+            url: origin + '/user/logout',
             cache: false
         }).done(function(html) {
             window.location.replace(toBeForMeOrigin());
