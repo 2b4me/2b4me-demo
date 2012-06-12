@@ -370,6 +370,7 @@ div#content-main.nobg {
 	position:absolute; top: 50%;  left: 50%;
 	margin: -185px 0 0 -301.5px;
 }
+
 #ext-login h2 {
 	margin: 0 19px 42px 18px;   padding: 0 0 15px 2px;
 	color: #256080;
@@ -377,20 +378,30 @@ div#content-main.nobg {
 	letter-spacing: -1px;
 	border-bottom: 4px solid #acc8d8;
 }
+
 #ext-login .login-input {
 	float: left;
-	margin:0 0 33px;  padding: 0 0 0 84px;
+	margin: 0 0 33px;
+	padding: 0 0 0 70px;
 }
+
 #ext-login label {
 	float: left;
 	margin: 11px 22px 0 0;
 }
+
 #ext-login input {
 	padding: 0 0 0 10px;
 	float: left;
 }
 
-#ext-login-pass { margin: 0 0 0 8px; }
+#ext-login-pass {
+    margin: 0 0 0 8px;
+}
+
+#login-pass-label {
+    padding-left: 22px;
+}
 
 #ext-login-actions {
 	padding: 23px 0 0 184px;

@@ -14,6 +14,12 @@ $('#signin').click(function(event){
     $('#ext-login').fadeIn();
 });
 
+$('#ext-login .login-input').keypress(function(event) {
+    if (event.which == 13) {
+        $('#ext-login #login-actions button').trigger('click');
+    }
+});
+
 $('#ext-fade, a#close-btn, a#cancel').live('click', function(event){
     $('#ext-fade').stop().fadeOut(300);
     $('#ext-login').stop().fadeOut(300);
