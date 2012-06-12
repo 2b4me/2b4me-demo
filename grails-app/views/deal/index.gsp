@@ -50,7 +50,7 @@
                <div id="details">
                   <div id="location-box">
                      <p class="small" id="address">
-                        <strong>Hilton Head Island Villas</strong> 7600 Sunny Lane Rd. #802 Hilton Head Island, SC 22980 <a href="#">Map It</a><br /><br />P: (342) 654-8977 <br /> F: (342) 654-8900
+                        <strong>2b4me</strong> 333 Aragon Ave. Coral Gables, FL 33134 <a href="#" class="nyi">Map It</a><br /><br />P: (305) 555-1212 <br /> F: (305) 555-1213
                      </p>
                   </div>
                   <div id="more-details">
