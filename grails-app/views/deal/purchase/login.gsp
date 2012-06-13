@@ -25,7 +25,7 @@
                   <g:if test="${flash.message}">
                      <div class="alert alert-error">${flash.error}</div>
                   </g:if>
-                  <g:form name="purchaseDeal" controller="deal" action="purchase" id="${deal.shortName}">
+                  <g:form name="registration" controller="deal" action="purchase" id="${deal.shortName}">
                      <g:submitButton name="login" value="Login" class="hidden" />
                      <g:submitButton name="cancel" value="Cancel" class="hidden" />
                      <div id="registration-content">
@@ -43,6 +43,7 @@
                         </div>
                      </div>
                      <div id="registration-content">
+                        <p>&nbsp;</p>
                         <a id="li-cancel-link" href="${deal.shortName}/cancel" class="round-btn">Cancel</a>
                         <a id="li-login-link" href="${deal.shortName}/login" class="round-btn">Login</a>
                      </div>
