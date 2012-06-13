@@ -129,6 +129,21 @@ div#content-main.nobg {
 	display: block;
 }
 
+#purchaseDeal #purchase-deal-content #content-main #form-entry #form-input-error {
+    float: left;
+    margin-left: 285px;
+    margin-top: -22px;
+}
+
+#purchaseDeal #purchase-deal-content #content-main #form-entry #form-input-error.state {
+    margin-left: 415px;
+}
+
+#purchaseDeal #purchase-deal-content #content-main #form-entry #form-input-error ul li {
+    color: red;
+    width: 450px;
+}
+
 .input-error { 
     outline: none;
     border-color: red;

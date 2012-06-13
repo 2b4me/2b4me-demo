@@ -20,6 +20,9 @@
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main" class="nobg">
                <h2>Review Order</h2>
+               <g:if test="${flash.message}">
+                  <p>${flash.message}</p>
+               </g:if>
                <g:form name="purchaseDeal" controller="deal" action="purchase" id="${deal.shortName}">
                   <g:submitButton name="cancel" value="Cancel" class="hidden" />
                   <g:submitButton name="back" value="Edit Payment Details" class="hidden" />
