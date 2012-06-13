@@ -18,7 +18,8 @@
          <div id="container-inner">
             <!--START TITLE PROFILE-->
             <div id="head">
-               <r:img uri="/images/users/${profilePhoto}.jpg" />
+               <%-- <r:img uri="/images/users/${profilePhoto}.jpg" /> --%>
+               <r:img uri="/images/users/no-avatar.png" />
                <g:if test="${user.firstName || user.lastName}">
                   <h1>${user.firstName} ${user.lastName}</h1>
                </g:if>

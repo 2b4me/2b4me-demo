@@ -45,9 +45,9 @@
                      <span>12/31/12</span>
                   </div>
                   <div id="actions">
-                     <a href="#" class="biglink" id="view">View receipt</a>
-                     <a href="#" class="biglink" id="print">Print voucher</a>
-                     <a href="#" class="biglink" id="help">Need help?</a>
+                     <a href="#" class="biglink nyi" id="view">View receipt</a>
+                     <a href="#" class="biglink nyi" id="print">Print voucher</a>
+                     <a href="#" class="biglink nyi" id="help">Need help?</a>
                   </div>
                   <div id="sharing">
                      <span>Share this Deal</span>
@@ -58,15 +58,17 @@
                </div>
                <div id="details">
                   <div id="location-box">
-                     <p class="small" id="address"><strong>Hilton Head Island Villas</strong> 7600 Sunny Lane Rd. #802 Hilton Head Island, SC 22980 <a href="#">Map It</a><br /><br />P: (342) 654-8977 <br /> F: (342) 654-8900</p>
+                     <p class="small" id="address">
+                        <strong>2b4me</strong> 333 Aragon Ave. Coral Gables, FL 33134 <a href="#" class="nyi">Map It</a><br /><br />P: (305) 555-1212 <br /> F: (305) 555-1213
+                     </p>
                   </div>
                   <div id="more-details">
                      <h3>More details</h3>
-                     <p class="details-p">Morbi condimentum tincidunt metus, in euismod quam congue vitae. Duis euismod lectus vitae lectus lacinia fringilla. Nam sed massa ut dui pellentesque tristique a ut risus. Proin vulputate quam sed quam imperdiet a laoreet tortor pretium. Curabitur dui ante, condimentum ac consectetur nec, <a href="#">Some Link</a> consectetur non leo. </p>
+                     <p class="details-p">Morbi condimentum tincidunt metus, in euismod quam congue vitae. Duis euismod lectus vitae lectus lacinia fringilla. Nam sed massa ut dui pellentesque tristique a ut risus. Proin vulputate quam sed quam imperdiet a laoreet tortor pretium. Curabitur dui ante, condimentum ac consectetur nec, <a href="#" class="nyi">Some Link</a> consectetur non leo. </p>
                      <p class="details-p">Ut laoreet est vitae lacus imperdiet mollis fermentum nunc tempus.Nam fermentum sem vel eros ullamcorper iaculis. Maecenas facilisis gravida gravida. Quisque augue odio, suscipit in euismod a, faucibus eu orci.</p>
                      <h5 id="terms">Terms &amp; Conditions</h5>
                      <p class="terms-p small">Nulla lacus velit, scelerisque eu pharetra id, interdum vel massa. Duis suscipit, quam at auctor iaculis, mi justo dictum magna, at venenatis lacus nisi id dui. Nullam eu velit ac sapien porttitor placerat. </p>
-                     <p class="terms-p small">In hac habitasse platea dictumst. Praesent porta, lorem ut tincidunt cursus, risus risus rutrum metus, vitae viverra tellus mi nec urna. Nulla facilisi. Nullam vel nisl a lorem pretium commodo non semper nulla. <a href="#">Other Conditions Apply</a> Paid value does not expire - promotional value expires December 14, 2012</p>
+                     <p class="terms-p small">In hac habitasse platea dictumst. Praesent porta, lorem ut tincidunt cursus, risus risus rutrum metus, vitae viverra tellus mi nec urna. Nulla facilisi. Nullam vel nisl a lorem pretium commodo non semper nulla. <a href="#" class="nyi">Other Conditions Apply</a> Paid value does not expire - promotional value expires December 14, 2012</p>
                   </div>
                </div>
             </div>

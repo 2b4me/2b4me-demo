@@ -1,7 +1,7 @@
 <div id="related">
    <div id="related-head">
-      <a href="#" class="biglink" id="seerel">See more related deals</a>
-      <a href="#" class="biglink" id="browserel">Browse all deals</a>
+      <a href="#" class="biglink nyi" id="seerel">See more related deals</a>
+      <a href="#" class="biglink nyi" id="browserel">Browse all deals</a>
    </div>
    <g:each var="relatedDeal" in="${relatedDeals}" status="i">
       <div class="relblocks" id="relblock${i+1}">
