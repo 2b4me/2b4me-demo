@@ -7,6 +7,7 @@
       <g:external dir="css" file="stylesheet-ext.css" />
    </head>
    <body>
+      <r:img uri="/images/only-a-demo-1.png" id="only-a-demo-1" />
       <!--START HEADER-->
       <div id="header">
          <g:include controller="featured" action="top" />
@@ -21,7 +22,7 @@
             <div id="content-main" class="nobg">
                <div id="registration-content-main">
                   <h2>Please log in to 2b4me</h2>
-                  <h3>Don't have an account yet? Click <g:link controller="user" action="signup">here</g:link></h3>
+                  <p>An account is required to purchase deals. Don't have an account yet? Click <g:link controller="user" action="signup">here</g:link></p>
                   <g:if test="${flash.message}">
                      <div class="alert alert-error">${flash.error}</div>
                   </g:if>

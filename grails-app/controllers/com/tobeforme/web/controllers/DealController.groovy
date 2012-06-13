@@ -97,6 +97,7 @@ class DealController {
 		            def user = User.findByEmailAddress(flow.pld.emailAddress)
 		            if (user?.password == flow.pld.password) {
 		                session.user = user.id
+		                flow.user = user
 		            } else {
 		                flow.pld.errors.rejectValue('emailAddress',
 		                    'purchaseLoginCommand.emailAddress.wrongCreds.error')

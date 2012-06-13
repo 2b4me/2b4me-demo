@@ -14,4 +14,10 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	$('#purchaseDeal #purchase-deal-content input.zipCode').keypress(function(event) {
+        if (event.which == 13) {
+            $('#_eventId_continue').trigger('click');
+        }
+    });
+	
 });

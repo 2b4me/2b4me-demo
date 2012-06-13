@@ -7,6 +7,7 @@
       <g:external dir="css" file="stylesheet-ext.css" />
    </head>
    <body>
+      <r:img uri="/images/only-a-demo-1.png" id="only-a-demo-1" />
       <!--START HEADER-->
       <div id="header">
          <g:include controller="featured" action="top" />
