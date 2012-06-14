@@ -21,6 +21,9 @@ class User implements Serializable {
     }
     
     static mapping = {
-        subscriptions lazy: false
+        table '"user"'
+        subscriptions lazy: false, joinTable: [name: '"user_subscriptions"',
+                                               key: 'user_id',
+                                               column: 'subscription_id']
     }
 }
