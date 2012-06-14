@@ -27,12 +27,12 @@ class BootStrap {
 			effective: effective,
 			expiration: expiration
 		).save()		
-		Deal oneBurger = new Deal(
-			shortName: 'oneburger',
-			hoverTitle: 'OneBurger Meal for \$5',
+		Deal burgerTown = new Deal(
+			shortName: 'burgertown',
+			hoverTitle: 'Burger Town Meal for \$5',
 			hoverTeaser: 'The best burgers in Miami at 50% off',
 			title: '\$10 for \$5 at One Burger',
-			teaser: 'Enjoy \$10 worth of juicy burgers and delicious fries for \$5 at One Burger located in the heart of Coral Gables!',
+			teaser: 'Enjoy \$10 worth of juicy burgers and delicious fries for \$5 at Burger Town located in the heart of Coconut Grove!',
 			originalPrice: 10,
 			price: 5,
 			category: dining,
@@ -65,7 +65,7 @@ class BootStrap {
 		).save()
 		
 		FeaturedDeal fSobe = new FeaturedDeal(deal: sobe, prio: 1).save()
-		FeaturedDeal fOneBurger = new FeaturedDeal(deal: oneBurger, prio: 2).save()
+		FeaturedDeal fBurgerTown = new FeaturedDeal(deal: burgerTown, prio: 2).save()
 		FeaturedDeal fSpaRetreat = new FeaturedDeal(deal: spaRetreat, prio: 3).save()
 		FeaturedDeal fOpenBar = new FeaturedDeal(deal: openBar, prio: 4).save()
 		
