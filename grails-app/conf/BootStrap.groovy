@@ -31,7 +31,7 @@ class BootStrap {
 			shortName: 'burgertown',
 			hoverTitle: 'Burger Town Meal for \$5',
 			hoverTeaser: 'The best burgers in Miami at 50% off',
-			title: '\$10 for \$5 at One Burger',
+			title: '\$10 for \$5 at Burger Town',
 			teaser: 'Enjoy \$10 worth of juicy burgers and delicious fries for \$5 at Burger Town located in the heart of Coconut Grove!',
 			originalPrice: 10,
 			price: 5,
