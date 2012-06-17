@@ -2,9 +2,11 @@ package com.tobeforme.domain
 
 class Subscription implements Serializable {
 	
+	String code
 	String name
 
     static constraints = {
+        code unique: true
     }
     
     boolean equals(Object obj) {

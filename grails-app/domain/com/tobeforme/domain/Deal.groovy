@@ -13,7 +13,10 @@ class Deal implements Serializable {
 	Date effective
 	Date expiration
 	
+	static belongsTo = [vendor: Vendor]
+	
 	static constraints = {
+	    shortName unique: true
     }
 
 	static mapping = {

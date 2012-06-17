@@ -8,5 +8,7 @@ class Category {
 	static hasMany = [deals: Deal]
 
     static constraints = {
+        name unique: true
+        prio unique: true
     }
 }

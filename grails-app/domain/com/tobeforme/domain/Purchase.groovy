@@ -9,5 +9,6 @@ class Purchase implements Serializable {
 	double price
 
     static constraints = {
+        voucher unique: true
     }
 }

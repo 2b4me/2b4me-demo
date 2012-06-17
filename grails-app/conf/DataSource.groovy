@@ -13,20 +13,18 @@ hibernate {
 environments {
     development {
         dataSource {
-            /*
-            dbCreate = "update"
+            dbCreate = "create-drop" // "update"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 
-            uri = new URI("postgres://postgres:password@localhost/test")
+            uri = new URI("postgres://postgres:7fe9123a@localhost/test")
 
             url = "jdbc:postgresql://"+uri.host+uri.path
             username = uri.userInfo.split(":")[0]
             password = uri.userInfo.split(":")[1]
-             */
              
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE"
+            // dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            // url = "jdbc:h2:mem:devDb;MVCC=TRUE"
         }
     }
     test {
@@ -37,7 +35,7 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop" // "update"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 

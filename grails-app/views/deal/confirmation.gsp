@@ -35,7 +35,7 @@
                <div id="deal-info">
                   <h1>${deal.title}</h1>
                   <p id="add-line">${deal.teaser}</p>
-                  <p id="reference">Reference: 123244549773</p>
+                  <p id="reference">Reference: ${purchase.voucher}</p>
                   <div id="redeem" class="deal-date">
                      <p>Redeem by:</p>
                      <span>12/31/11</span>

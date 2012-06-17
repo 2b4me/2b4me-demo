@@ -3,6 +3,17 @@ import com.tobeforme.domain.*
 class BootStrap {
 
     def init = { servletContext ->
+        
+        Address vendorAddress = new Address(
+            address1: '333 Aragon Avenue',
+			address2: '',
+			city: 'Coral Gables',
+			state: 'FL',
+			postalCode: '33134',
+			countryCode: 'US'
+        ).save()
+        
+        Vendor vendor = new Vendor(code: '2B', name: '2b4me', address: vendorAddress).save()
 	
 		Category wedding = new Category(name: 'Wedding', prio: 1, deals: []).save()
 		Category dining = new Category(name: 'Dining', prio: 2, deals: []).save()
@@ -25,7 +36,8 @@ class BootStrap {
 			price: 400,
 			category: wedding,
 			effective: effective,
-			expiration: expiration
+			expiration: expiration,
+			vendor: vendor
 		).save()		
 		Deal burgerTown = new Deal(
 			shortName: 'burgertown',
@@ -37,7 +49,8 @@ class BootStrap {
 			price: 5,
 			category: dining,
 			effective: effective,
-			expiration: expiration
+			expiration: expiration,
+			vendor: vendor
 		).save()
 		Deal spaRetreat = new Deal(
 			shortName: 'sparetreat',
@@ -49,7 +62,8 @@ class BootStrap {
 			price: 150,
 			category: salon,
 			effective: effective,
-			expiration: expiration
+			expiration: expiration,
+			vendor: vendor
 		).save()
 		Deal openBar = new Deal(
 			shortName: 'openbar',
@@ -61,7 +75,8 @@ class BootStrap {
 			price: 100,
 			category: entertainment,
 			effective: effective,
-			expiration: expiration
+			expiration: expiration,
+			vendor: vendor
 		).save()
 		
 		FeaturedDeal fSobe = new FeaturedDeal(deal: sobe, prio: 1).save()
@@ -73,19 +88,21 @@ class BootStrap {
 		Subscription weddingDeals = new Subscription(name: 'Wedding Deals').save()
 		Subscription travelDeals = new Subscription(name: 'Travel Deals').save()
 		
+		Address userAddress = new Address(
+			address1: '20752 SW 87th Court',
+			address2: '',
+			city: 'Miami',
+			state: 'FL',
+			postalCode: '33189',
+			countryCode: 'US'
+		).save()
+		
 		User user = new User(
 			emailAddress: 'daniel@silvanolte.com',
 			password: 'hello123',
 			firstName: 'Daniel',
 			lastName: 'Silva',
-			address: new Address(
-				address1: '20752 SW 87th Court',
-				address2: '',
-				city: 'Miami',
-				state: 'FL',
-				postalCode: '33189',
-				countryCode: 'US'
-			),
+			address: userAddress,
 			subscriptions: [dailyDeals, travelDeals]
 		).save()
 

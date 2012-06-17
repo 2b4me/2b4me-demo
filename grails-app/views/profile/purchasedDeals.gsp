@@ -35,7 +35,7 @@
                         <li class="first-row">Deal Name <span class="right">Expiration</span></li>
                         <g:each status="i" in="${purchases}" var="p">
                            <li>
-                              <g:link controller="deal" action="confirmation" id="${p.deal.shortName}"><!-- ${p.id} -->${p.deal.title}</g:link>
+                              <g:link controller="deal" action="confirmation" id="${p.deal.shortName}" params="[purchaseId: p.id]">${p.deal.title}</g:link>
                               <span class="right"><g:formatDate format="MM/dd/yy" date="${p.deal.expiration}"/></span>
                            </li>
                         </g:each>

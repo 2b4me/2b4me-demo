@@ -6,8 +6,7 @@ class User implements Serializable {
 	String password
 	String firstName
 	String lastName
-	
-	static hasOne = [address: Address]
+	Address address
 	
 	static hasMany = [subscriptions: Subscription]
 
@@ -25,5 +24,9 @@ class User implements Serializable {
         subscriptions lazy: false, joinTable: [name: '"user_subscriptions"',
                                                key: 'user_id',
                                                column: 'subscription_id']
+    }
+    
+    def code() {
+        emailAddress.substring(0,2)
     }
 }

@@ -8,7 +8,6 @@ class Address implements Serializable {
 	String state
 	String postalCode
 	String countryCode
-	User user
 
     static constraints = {
     }
