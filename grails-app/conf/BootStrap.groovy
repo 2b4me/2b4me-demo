@@ -84,9 +84,9 @@ class BootStrap {
 		FeaturedDeal fSpaRetreat = new FeaturedDeal(deal: spaRetreat, prio: 3).save()
 		FeaturedDeal fOpenBar = new FeaturedDeal(deal: openBar, prio: 4).save()
 		
-		Subscription dailyDeals = new Subscription(name: 'Daily Deals').save()
-		Subscription weddingDeals = new Subscription(name: 'Wedding Deals').save()
-		Subscription travelDeals = new Subscription(name: 'Travel Deals').save()
+		Subscription dailyDeals = new Subscription(code: 'DD', name: 'Daily Deals').save()
+		Subscription weddingDeals = new Subscription(code: 'WD', name: 'Wedding Deals').save()
+		Subscription travelDeals = new Subscription(code: 'TD', name: 'Travel Deals').save()
 		
 		Address userAddress = new Address(
 			address1: '20752 SW 87th Court',
