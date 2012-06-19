@@ -129,6 +129,10 @@ dd {
     margin-bottom: 15px;
 }
 
+.modal-footer .btn + .btn {
+    color: white;
+}
+
 #terms-and-conditions {
     margin: 0px 200px 50px;
 }
