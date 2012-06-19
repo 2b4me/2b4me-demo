@@ -7,10 +7,10 @@ $(document).ready(function() {
     });
     
     $('#formfeed .text-input').tooltip({
-	    placement: 'bottom',
-	    title: 'Something went wrong, please try again',
-	    trigger: 'manual'
-	});
+        placement: 'bottom',
+        title: 'Something went wrong, please try again',
+        trigger: 'manual'
+    });
     
     $('#formfeed .text-input').focus(function(event) {
         if ($('#formfeed .text-input').val() == 'Enter email') {
@@ -36,30 +36,30 @@ $(document).ready(function() {
         $('#formfeed .green-btn').attr("disabled", "disabled");s
         
         var email = $('#formfeed .text-input').val();
-    	
-    	if (!emailCheck(email)) {
-    		$('#formfeed .text-input').addClass("error");
-    		$('#formfeed .text-input').tooltip('show');
-    		$('#formfeed .green-btn').removeAttr("disabled");
-    		return;
-    	}
-    	
-    	var dataString = "Name=&formmail_mail_email=" + email;
-    	$.ajax({
-    		type: "POST",
-    		url: "http://2b4me.com/cgi-bin/FormMail.signup.pl",
-    		data: dataString,
-    		success: function() {
-    			$("#emailSuccess").modal({
-    		        keyboard: true
-    		    });
-    		},
-    		error: function(request, status, err) {
-    			$('#formfeed .text-input').addClass("error");
-        		$('#formfeed .text-input').tooltip('show');
-        		$('#formfeed .green-btn').removeAttr("disabled");
-    		}
-    	});
+        
+        if (!emailCheck(email)) {
+            $('#formfeed .text-input').addClass("error");
+            $('#formfeed .text-input').tooltip('show');
+            $('#formfeed .green-btn').removeAttr("disabled");
+            return;
+        }
+        
+        var dataString = "Name=&formmail_mail_email=" + email;
+        $.ajax({
+            type: "POST",
+            url: "http://2b4me.com/cgi-bin/FormMail.signup.pl",
+            data: dataString,
+            success: function() {
+                $("#emailSuccess").modal({
+                    keyboard: true
+                });
+            },
+            error: function(request, status, err) {
+                $('#formfeed .text-input').addClass("error");
+                $('#formfeed .text-input').tooltip('show');
+                $('#formfeed .green-btn').removeAttr("disabled");
+            }
+        });
     });
     
     $('#merchantSignupLink').click(function(event) {
@@ -76,33 +76,33 @@ $(document).ready(function() {
         placement: 'right',
         title: 'Can\'t be blank',
         trigger: 'manual'
-   	});
+       });
 
-   	$('#merchantContactName input').focus(function(event) {
-   	    $('#merchantContactName input').tooltip('hide');
-   	    $('#merchantContactName').removeClass("error");
-   	});
+       $('#merchantContactName input').focus(function(event) {
+           $('#merchantContactName input').tooltip('hide');
+           $('#merchantContactName').removeClass("error");
+       });
 
-   	$('#merchantCompanyName input').focus(function(event) {
-   	    $('#merchantCompanyName input').tooltip('hide');
-   	    $('#merchantCompanyName').removeClass("error");
-   	});
-   	
-   	$('#merchantContactInfo input').focus(function(event) {
-   	    $('#merchantContactInfo input').tooltip('hide');
-   	    $('#merchantContactInfo').removeClass("error");
-   	});
-   	
-   	$('#merchantBusiness input').focus(function(event) {
-   	    $('#merchantBusiness input').tooltip('hide');
-   	    $('#merchantBusiness').removeClass("error");
-   	});
-   	
-   	$('#merchantBusiness input').keypress(function(event) {
-   	    if (event.which == 13) {
-   	        $('#merchantSubmit').trigger('click');
-   	    }
-   	});
+       $('#merchantCompanyName input').focus(function(event) {
+           $('#merchantCompanyName input').tooltip('hide');
+           $('#merchantCompanyName').removeClass("error");
+       });
+       
+       $('#merchantContactInfo input').focus(function(event) {
+           $('#merchantContactInfo input').tooltip('hide');
+           $('#merchantContactInfo').removeClass("error");
+       });
+       
+       $('#merchantBusiness input').focus(function(event) {
+           $('#merchantBusiness input').tooltip('hide');
+           $('#merchantBusiness').removeClass("error");
+       });
+       
+       $('#merchantBusiness input').keypress(function(event) {
+           if (event.which == 13) {
+               $('#merchantSubmit').trigger('click');
+           }
+       });
     
     $('#merchantSubmit').click(function(event) {
         event.preventDefault();
@@ -123,25 +123,25 @@ $(document).ready(function() {
         if (merchantName == '') {
             valid = false;
             $('#merchantContactName').addClass("error");
-    		$('#merchantContactName input').tooltip('show');
+            $('#merchantContactName input').tooltip('show');
         }
         
         if (merchantCompany == '') {
             valid = false;
             $('#merchantCompanyName').addClass("error");
-    		$('#merchantCompanyName input').tooltip('show');
+            $('#merchantCompanyName input').tooltip('show');
         }
         
         if (merchantContactInfo == '') {
             valid = false;
             $('#merchantContactInfo').addClass("error");
-    		$('#merchantContactInfo input').tooltip('show');
+            $('#merchantContactInfo input').tooltip('show');
         }
         
         if (merchantBusinessType == '') {
             valid = false;
             $('#merchantBusiness').addClass("error");
-    		$('#merchantBusiness input').tooltip('show');
+            $('#merchantBusiness input').tooltip('show');
         }
         
         if (!valid) {
@@ -151,31 +151,31 @@ $(document).ready(function() {
         
         var dataString = 'merchantContactName='+merchantName+'&merchantCompanyName='+merchantCompany+'&merchantContactInfo='+merchantContactInfo+'&merchantTypeOfBusiness='+merchantBusinessType;
         $.ajax({
-    		type: "POST",
-    		url: "http://2b4me.com/cgi-bin/FormMail.merchantsignup.pl",
-    		data: dataString,
-    		success: function() {
-    		    $('#merchantCancel').fadeOut();
-    		    $('#merchantSubmit').fadeOut();
-    			$('#merchantSignupCopy').fadeOut();
-    			$('#merchantSignupForm').fadeOut(400, function() {
-    			    $('#merchantThankYou').fadeIn();
-    			    $('#merchantClose').fadeIn();
-    			    setTimeout(function() {
-            		    $("#merchantSignup").modal('hide');
-            		}, 3000);
-    			});
-    		},
-    		error: function(request, status, err) {
-    			$('#merchantSignup div span.help-inline').fadeIn();
+            type: "POST",
+            url: "http://2b4me.com/cgi-bin/FormMail.merchantsignup.pl",
+            data: dataString,
+            success: function() {
+                $('#merchantCancel').fadeOut();
+                $('#merchantSubmit').fadeOut();
+                $('#merchantSignupCopy').fadeOut();
+                $('#merchantSignupForm').fadeOut(400, function() {
+                    $('#merchantThankYou').fadeIn();
+                    $('#merchantClose').fadeIn();
+                    setTimeout(function() {
+                        $("#merchantSignup").modal('hide');
+                    }, 3000);
+                });
+            },
+            error: function(request, status, err) {
+                $('#merchantSignup div span.help-inline').fadeIn();
                 setTimeout(function(){
                     $('#merchantSignup div span.help-inline').fadeOut(400, function() {
                         $('#merchantSubmit').removeAttr("disabled");
                     });
                 }, 6000);
                 return;
-    		}
-    	});
+            }
+        });
         
     });
     

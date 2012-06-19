@@ -46,7 +46,8 @@ div.blocks {
 }
 
 .modal.fade.in {
-    top: 60%;
+    /* top: 60%; */
+    z-index: 999999;
 }
 
 .modal-body {
@@ -122,4 +123,18 @@ div.blocks {
     font-size: 200%;
     text-align: center;
     margin: 10px;
+}
+
+dd {
+    margin-bottom: 15px;
+}
+
+#terms-and-conditions {
+    margin: 0px 200px 50px;
+}
+
+#terms-and-conditions h3 {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 200%;
 }
