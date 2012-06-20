@@ -15,6 +15,7 @@ class SecurityFilters {
             }
         }
 		
+		/*
 		loginCheck(controller: 'admin', action: '*') {
 			before = {
 				if (!session.admin && actionName != "login") {
@@ -23,6 +24,7 @@ class SecurityFilters {
                 }
             }
 		}
+		 */
     }
 
 }
