@@ -2,22 +2,27 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>2b4me.com - Admin</title>
       <g:external dir="css" file="bootstrap.css" />
       <g:external dir="css" file="boostrap-ext.css" />
    </head>
    <body>
-      <div class="container">
+      <div class="container-2">
          <g:include action="topMenu" />
          <div class="row second-row">
-            <div class="span3 sidebar">
+            <div class="span2 sidebar">
                <g:include action="sidebarMenu" />
             </div>
             <div class="span9">
-               <h3>2b4me Admin Site</h3>
-               <p>This site is here for 2b4me.com administrators to manage the site's users and deals.</p>
+               <form class="form-horizontal">
+                  <fieldset>
+                     <legend>2b4me Admin Site</legend>
+                     <p>This site is here for 2b4me.com administrators to manage the site's users and deals.</p>
+                  </fieldset>
+               </form>
             </div>
+            <div class="span1">&nbsp;</div>
          </div>
       </div>
    </body>

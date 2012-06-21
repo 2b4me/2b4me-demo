@@ -4,3 +4,9 @@
 .second-row {
     margin-top: 20px;
 }
+.container-2 {
+    margin: 30px 0px 30px 50px; 
+}
+fieldset p {
+    padding-top: 10px;
+}
