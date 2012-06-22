@@ -9,6 +9,6 @@ class Vendor implements Serializable {
     static hasMany = [deals: Deal]
     
     static constraints = {
-        code matches: '([A-Z]|[0-9])([A-Z]|[0-9])'
+        code matches: '([A-Z]|[0-9])([A-Z]|[0-9])', unique: true
     }
 }

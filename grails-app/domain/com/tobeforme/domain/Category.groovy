@@ -1,6 +1,6 @@
 package com.tobeforme.domain
 
-class Category {
+class Category implements Serializable {
 	
 	String name
 	int prio
