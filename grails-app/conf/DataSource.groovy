@@ -13,7 +13,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop"
+            dbCreate = "update"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 
@@ -29,7 +29,7 @@ environments {
     }
     test {
         dataSource {
-            dbCreate = "create-drop"
+            dbCreate = "update"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 
@@ -45,7 +45,7 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "create-drop"
+            dbCreate = "update"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 
