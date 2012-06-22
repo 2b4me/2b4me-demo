@@ -1,3 +1,19 @@
-$(document).ready(function(){
-	// do stuff on load
+$('#continueBtn').click(function(event) {
+    event.preventDefault();
+    $('#_eventId_continue').trigger('click');
+});
+
+$('#backBtn').click(function(event) {
+    event.preventDefault();
+    $('#_eventId_back').trigger('click');
+});
+
+$('#detailsBtn').click(function(event) {
+    event.preventDefault();
+    $('#_eventId_details').trigger('click');
+});
+
+$('#imagesBtn').click(function(event) {
+    event.preventDefault();
+    $('#_eventId_images').trigger('click');
 });
