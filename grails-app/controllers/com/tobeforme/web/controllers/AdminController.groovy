@@ -4,7 +4,9 @@ import com.tobeforme.domain.*
 
 class AdminController {
 
-    def index() { }
+    def index() {
+        render status: 403, text: 'Not authorized'
+    }
     
     def addDealFlow = {
         
@@ -12,7 +14,7 @@ class AdminController {
             action {
                 [categories: Category.list()]
             }
-            on('success').to 'details'
+            on('success').to 'disabled'
         }
         
         details {
@@ -46,9 +48,13 @@ class AdminController {
         
         confirmation()
         
+        disabled()
+        
     }
     
-    def addVendor() { }
+    def addVendor() {
+        render status: 403, text: 'Not authorized'
+    }
     
     def topMenu() { }
     
@@ -56,3 +62,15 @@ class AdminController {
     
 }
 
+class DealDetailsCommand {
+    String shortName
+    
+}
+
+class DealImagesCommand {
+    
+}
+
+class DealVendorCommand {
+    
+}
