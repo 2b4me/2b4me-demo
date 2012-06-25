@@ -142,3 +142,36 @@ dd {
     margin-bottom: 40px;
     font-size: 200%;
 }
+
+.expert-opinion {
+    position: relative;
+}
+
+.expert-opinion div {
+    margin: 10px;
+}
+
+.expert-opinion .left {
+    float: left;
+}
+
+.expert-opinion .right {
+    float: left;
+}
+
+.expert-opinion .right .dishes {
+    width: 400px;
+}
+
+.expert-opinion .right .dishes .description {
+    float: left;
+    /*width: 400px;*/
+}
+
+.expert-opinion .right .dishes .picture {
+    float: right;
+}
+
+.clear-both {
+    clear: both;
+}
