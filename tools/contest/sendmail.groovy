@@ -2,7 +2,8 @@ import javax.mail.internet.*
 import javax.mail.*
 
 def host = 'mail.2b4me.com'
-def port = '25'
+def method = 'smtps'
+def port = '465'
 def user = 'info@2b4me.com'
 def passwd = 'Giorgio!@!Daniel'
 
@@ -25,13 +26,13 @@ msg.setSubject(subject)
 msg.setFrom(new InternetAddress(user))
 msg.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to))
 
-def transport = session.getTransport("smtp")
+def transport = session.getTransport(method)
 
-println ("Connecting to Gmail")
+println ("Connecting to ${host}:${port} over ${method} as ${user}")
 transport.connect(host, port.toInteger(), user, passwd)
 
-println ("Sending message")
+println ('Sending message')
 transport.sendMessage(msg, msg.getAllRecipients())
 
-println ("Closing connection to Gmail")
+println ("Closing connection to ${host}:${port}")
 transport.close()
