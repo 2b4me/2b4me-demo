@@ -24,8 +24,11 @@ def contestants = readIn('input/contestants.txt')
 def prizes = readIn('input/prizes.txt')
 
 if (prizes.size() * 10 > contestants.size()) {
-    throw new IllegalStateException('The number of contestants should ' +
-            'never exceed the number of prizes ten times over.')
+    println "The number of contestants (${contestants.size()}) exceeded " +
+            "the number of prizes times ten (${prizes.size() * 10}). " +
+            "Reduce the number of prizes to " +
+            (int)Math.floor(contestants.size()/10) + " or less."
+    System.exit(0)
 }
 
 def winners = []
