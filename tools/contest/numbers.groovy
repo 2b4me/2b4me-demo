@@ -4,7 +4,7 @@ def r = new Random(2746);
 
 def printed = []
 
-new File('numbers.txt').withWriter { out ->
+new File('output/numbers.txt').withWriter { out ->
     while ( printed.size() < 10000 ) {
         def num = String.format("%05d", r.nextInt(10000));
         if (!printed.contains(num)) {

@@ -42,7 +42,7 @@ while (winners.size() < limit) {
     if (!winners.contains(w)) winners << w
 }
 
-new File('winners.txt').withWriter { out ->
+new File('output/winners.txt').withWriter { out ->
     out.writeLine("Drawing ran on ${datetime}")
     out.writeLine("Randomizer seed was ${seed}")
     out.writeLine('----------------------------------------------')
