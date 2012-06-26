@@ -179,6 +179,11 @@ $(document).ready(function() {
         
     });
     
+    $('#show-winners').click(function(event) {
+        event.preventDefault();
+        $('#countdown2-inner').slideDown();
+    });
+    
 });
 
 function emailCheck(emailStr) {
