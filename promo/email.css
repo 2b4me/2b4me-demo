@@ -1,0 +1,63 @@
+div {
+    border: 1px solid white;
+    margin: 10px;
+}
+
+.email-container {
+    width: 550px;
+    /*
+    margin-left: auto;
+    margin-right: auto;
+     */
+    margin-top: 10px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.headline {
+    height: 100px;
+    margin-top: -112px;
+    margin-left: 120px;
+    border-bottom: 1px solid black;
+    width: 415px;
+}
+
+.headline h1 {
+    margin-top: 68px;
+}
+
+.content {
+    padding: 10px;
+    width: 505px;
+}
+
+.content h2 {
+    margin-bottom: 8px;
+    color: red;
+    font-size: 180%;
+}
+
+.footer {
+    padding: 10px;
+    width: 505px;
+    border-top: 1px solid black;
+}
+
+#copyright-2b4me {
+    width: 218px;
+}
+
+#subnav {
+    width: 130px;
+    margin-top: -27px;
+    margin-left: 315px;
+}
+
+#social {
+    width: 60px;
+    margin-top: -32px;
+    margin-left: 445px;
+}
