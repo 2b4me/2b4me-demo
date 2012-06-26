@@ -1,0 +1,2 @@
+#!/bin/bash
+groovy -cp lib/mail.jar sendmail.groovy $1
