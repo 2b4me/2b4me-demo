@@ -1,12 +1,19 @@
 import javax.mail.internet.*
 import javax.mail.*
 
+def currentDate = new java.util.Date()
+def log = []
+
+log << "Email sent to the following users on ${currentDate}"
+log << ''
+
 def host = 'mail.2b4me.com'
 def method = 'smtp'
 def port = '25'
 def user = 'info@2b4me.com'
 def userName = '2b4me Launch Promotion'
 def passwd = 'Giorgio!@!Daniel'
+def template = 'email-template2.html'
 
 def props = new Properties()
 props.put('mail.smtp.host', host)
@@ -23,10 +30,10 @@ new File('input/contestants-for-email.txt').withReader { reader ->
         def cnum = tokens[1]
         def date = tokens[2]
         def time = tokens[3]
-        def subject = 'Your 2b4me Contest Number'
+        def subject = '2b4me Contest Winners Published!'
         def buffer = new StringBuffer()
 
-        new File('email-template.html').withReader { reader2 ->
+        new File(template).withReader { reader2 ->
             def y
             while ((y = reader2.readLine()) != null) {
                 y = y.replace('#date', "${date} at ${time}")
@@ -49,13 +56,35 @@ new File('input/contestants-for-email.txt').withReader { reader ->
         println ("\nConnecting to ${host}:${port} over ${method} as ${user}")
         transport.connect(host, port.toInteger(), user, passwd)
 
-        println ('Sending message')
+        println ("Sending message to ${to}, subject ${subject}")
         transport.sendMessage(msg, msg.getAllRecipients())
 
         println ("Closing connection to ${host}:${port}")
         transport.close()
         
-        this.sleep(5000)
+        log << to
+        
+        this.sleep(1500)
     }
     
+}
+
+println 'Writing log'
+
+log << ''
+log << '--'
+log << 'This was the email sent:'
+log << ''
+
+new File(template).withReader { reader2 ->
+    def y
+    while ((y = reader2.readLine()) != null) {
+        log << y
+    }
+}
+
+new File("output/email-campaign-${currentDate.getTime()}.txt").withWriter { out ->
+    log.each {
+        out.writeLine(it)
+    }
 }
