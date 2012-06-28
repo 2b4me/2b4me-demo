@@ -1,3 +1,21 @@
+/*
+ * Before running this file, make sure that you have set the following files properly in the ./input
+ * directory:
+ * 
+ * contestants-for-email.txt
+ * This is a list of the contestants that have signed up. This should be a straight copy/paste from the
+ * 2b4me Launch Promotion Google Docs of the contestants that need to be contacted.
+ * 
+ * This script takes one runtime parameter to indicate the communication to send. Here are the values
+ * this script supports:
+ * 
+ * welcome - Sends a welcome e-mail to the listed contestants
+ * winners - New winners have been published on the web site
+ * 
+ * The email template used is determined by the parameter and can be found in the ./templates
+ * directory.
+ */
+
 import javax.mail.internet.*
 import javax.mail.*
 
@@ -18,13 +36,11 @@ def port = '25'
 def user = 'info@2b4me.com'
 def userName = '2b4me Launch Promotion'
 def passwd = 'Giorgio!@!Daniel'
-def template
+def template = "templates/${args[0]}.html"
 def subject
 if (args[0] == 'welcome') {
-    template = 'email-template.html'
     subject = 'Welcome to the 2b4me Contest'
 } else if (args[0] == 'winners') {
-    template = 'email-template2.html'
     subject = '2b4me Contest Winners Published'
 }
 
@@ -44,7 +60,7 @@ new File('input/contestants-for-email.txt').withReader { reader ->
         def date = tokens[2]
         def time = tokens[3]
         def buffer = new StringBuffer()
-
+        
         new File(template).withReader { reader2 ->
             def y
             while ((y = reader2.readLine()) != null) {
@@ -54,7 +70,7 @@ new File('input/contestants-for-email.txt').withReader { reader ->
                 buffer.append('\n')
             }
         }
-
+        
         def body = buffer.toString()
         def session = Session.getInstance(props, null)
         def msg = new MimeMessage(session)
@@ -62,15 +78,15 @@ new File('input/contestants-for-email.txt').withReader { reader ->
         msg.setSubject(subject)
         msg.setFrom(new InternetAddress(user, userName))
         msg.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to))
-
+        
         def transport = session.getTransport(method)
-
+        
         println ("Connecting to ${host}:${port} over ${method} as ${user}")
         transport.connect(host, port.toInteger(), user, passwd)
-
+        
         println ("Sending message to ${to}, subject ${subject}")
         transport.sendMessage(msg, msg.getAllRecipients())
-
+        
         println ("Closing connection to ${host}:${port}")
         transport.close()
         
