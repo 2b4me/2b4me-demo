@@ -177,7 +177,7 @@ dd {
     clear: both;
 }
 
-#countdown2 {
+#contest-winners {
     width: 778px;
     margin: 0 auto;
     padding: 30px 0 0;
@@ -186,54 +186,50 @@ dd {
     list-style: none;
     position: relative;
     z-index: 5;
-}
-
-#countdown2.winnerscircle {
     border-bottom: 3px solid #CBD3D8;
 }
 
-#countdown2.winnerscircle h2 {
-    width: 62%;
-    margin: 0px auto;
+#contest-winners p {
+   margin: 5px;
 }
 
-#countdown2.winnerscircle p {
-    width: 21%;
-    margin: 0px auto;
+#contest-winners .red {
+   color: red;
 }
 
-#countdown2.winnerscircle div.winners div.winner {
-    margin: 20px;
-    margin-left: 180px;
+#contest-winners .headline {
+   margin-bottom: 30px;
 }
 
-#countdown2.winnerscircle div.winners div.winner h3.prize {
-    margin-top: -27px;
-    margin-left: 270px
+#contest-winners .headline h2 {
+   text-align: center;
 }
 
-#countdown2.winnerscircle div.winners div.winner h3 span.em {
-    color: red;
+#contest-winners .headline p {
+   text-align: center;
 }
 
-#countdown2.winnerscircle div.instructions {
-    width: 575px;
-    margin: 0px auto;
-    margin-bottom: 20px;
+#contest-winners .content .winners {
+   margin-left: auto;
+   margin-right: auto;
 }
 
-#countdown2.winnerscircle div.teaser {
-    margin-left: 100px;
-    margin-bottom: 20px;
-    width: 575px;
+#contest-winners .content .winners h3 {
+   text-align: center;
+   margin-bottom: 5px;
 }
 
-#countdown2.winnerscircle div.teaser p {
-    width: 100%;
-    margin: 0px auto;
+#contest-winners .content .sub {
+   width: 450px;
+   margin-top: 20px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
-#countdown2.winnerscircle div.bottom {
-    margin-left: 100px;
-    margin-bottom: 20px;
+#contest-winners .content .sub p, #contest-winners .content .sub h4 {
+   text-align: center;
+}
+
+#contest-winners .content .last {
+   margin-bottom: 35px;
 }
