@@ -173,6 +173,14 @@ dd {
     float: right;
 }
 
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
 .clear-both {
     clear: both;
 }
@@ -190,46 +198,74 @@ dd {
 }
 
 #contest-winners p {
-   margin: 5px;
+    margin: 5px;
 }
 
 #contest-winners .red {
-   color: red;
+    color: red;
 }
 
 #contest-winners .headline {
-   margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 #contest-winners .headline h2 {
-   text-align: center;
+    text-align: center;
 }
 
 #contest-winners .headline p {
-   text-align: center;
+    text-align: center;
 }
 
 #contest-winners .content .winners {
-   margin-left: auto;
-   margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #contest-winners .content .winners h3 {
-   text-align: center;
-   margin-bottom: 5px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 #contest-winners .content .sub {
-   width: 450px;
-   margin-top: 20px;
-   margin-left: auto;
-   margin-right: auto;
+     width: 450px;
+     margin-top: 20px;
+     margin-left: auto;
+     margin-right: auto;
 }
 
-#contest-winners .content .sub p, #contest-winners .content .sub h4 {
-   text-align: center;
+#contest-winners .content .sub p,
+#contest-winners .content .sub h4,
+#contest-winners .content .sub h3 {
+     text-align: center;
 }
 
 #contest-winners .content .last {
-   margin-bottom: 35px;
+     margin-bottom: 35px;
+}
+
+#contest-winners .content .previous-winners {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 440px;
+}
+
+#contest-winners .content .previous-winners h3 {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 110%;  
+}
+
+#contest-winners .content .previous-winners .previous-winner {
+    /* border: 1px solid black; */
+}
+
+#contest-winners .content .previous-winners .previous-winner p {
+    text-align: center;
+    font-style: italic;
+}
+
+#contest-winners .content .previous-winners .previous-winner ul {
+    margin: 0;
 }
