@@ -123,7 +123,7 @@
          <!--required--> 
       </div>
       <!--PAGE SCRIPT -->
-      <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+      <g:external dir="js" file="jquery-1.7.2.js" />
       <g:external dir="js" file="custom-ui.js" />
       <g:external dir="js" file="custom-ui-ext.js" />
       <g:external dir="js" file="payment-details.js" />
