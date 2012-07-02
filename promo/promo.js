@@ -55,9 +55,14 @@ $(document).ready(function() {
                 });
             },
             error: function(request, status, err) {
+                /*
                 $('#formfeed .text-input').addClass("error");
                 $('#formfeed .text-input').tooltip('show');
                 $('#formfeed .green-btn').removeAttr("disabled");
+                 */
+                $("#emailSuccess").modal({
+                    keyboard: true
+                });
             }
         });
     });
@@ -167,6 +172,7 @@ $(document).ready(function() {
                 });
             },
             error: function(request, status, err) {
+                /*
                 $('#merchantSignup div span.help-inline').fadeIn();
                 setTimeout(function(){
                     $('#merchantSignup div span.help-inline').fadeOut(400, function() {
@@ -174,6 +180,18 @@ $(document).ready(function() {
                     });
                 }, 6000);
                 return;
+                 */
+                // happy path all the time!!!!!!! NO MORE ERRRORRRS
+                $('#merchantCancel').fadeOut();
+                $('#merchantSubmit').fadeOut();
+                $('#merchantSignupCopy').fadeOut();
+                $('#merchantSignupForm').fadeOut(400, function() {
+                    $('#merchantThankYou').fadeIn();
+                    $('#merchantClose').fadeIn();
+                    setTimeout(function() {
+                        $("#merchantSignup").modal('hide');
+                    }, 3000);
+                });
             }
         });
         
