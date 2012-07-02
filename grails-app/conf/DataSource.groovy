@@ -49,7 +49,7 @@ environments {
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 
-            uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
+            uri = new URI(System.env.DATABASE_URL?:"postgres://postgres:7fe9123a@localhost/prod")
 
             url = "jdbc:postgresql://"+uri.host+uri.path
             username = uri.userInfo.split(":")[0]
