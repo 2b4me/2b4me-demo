@@ -20,7 +20,7 @@
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main" class="nobg">
                <div id="registration-content-main" class="complete">
-                  <r:img uri="/static/images/registration-complete.png"/>
+                  <r:img uri="/images/registration-complete.png"/>
                   <h2>Registration complete</h2>
                   <p>To get started you can:<p>
                   <ul>

@@ -7,7 +7,7 @@
       <g:external dir="css" file="stylesheet-ext.css" />
    </head>
    <body>
-      <r:img uri="/static/images/only-a-demo-1.png" id="only-a-demo-1" />
+      <r:img uri="/images/only-a-demo-1.png" id="only-a-demo-1" />
       <!--START HEADER-->
       <div id="header">
          <g:include controller="featured" action="top" />
@@ -30,7 +30,7 @@
                   <div id="purchase-deal-content">
                      <h3>You are buying</h3>
                      <div id="content-main">
-                        <r:img uri="/static/images/deals/${deal.shortName}-related-deal-photo.jpg" id="main-photo" />
+                        <r:img uri="/images/deals/${deal.shortName}-related-deal-photo.jpg" id="main-photo" />
                         <div id="deal-info">
                            <h1>${deal.title}</h1>
                            <p id="deal-desc">${deal.teaser}</p>
@@ -73,7 +73,7 @@
                         <div id="form-space">&nbsp;</div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">&nbsp;</label></div>
-                           <div id="form-input"><r:img uri="/static/images/cc-logos.jpg" id="main-photo" /></div>
+                           <div id="form-input"><r:img uri="/images/cc-logos.jpg" id="main-photo" /></div>
                         </div>
                         <div id="form-entry">
                            <div id="form-label"><label class="blue-label">CC #</label></div>

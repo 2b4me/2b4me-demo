@@ -31,7 +31,7 @@
             <!--END MSG-->
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main">
-               <r:img uri="/static/images/deals/${deal.shortName}-detail-photo.jpg" id="main-photo" />
+               <r:img uri="/images/deals/${deal.shortName}-detail-photo.jpg" id="main-photo" />
                <div id="deal-info">
                   <h1>${deal.title}</h1>
                   <p id="add-line">${deal.teaser}</p>
@@ -51,8 +51,8 @@
                   </div>
                   <div id="sharing">
                      <span>Share this Deal</span>
-                     <div id="share-fb"><a href="#" class="nyi"><r:img uri="/static/images/share-fb.png" /></a></div>
-                     <div id="share-tweet"><a href="#" class="nyi"><r:img uri="/static/images/share-tweet.png" /></a></div>
+                     <div id="share-fb"><a href="#" class="nyi"><r:img uri="/images/share-fb.png" /></a></div>
+                     <div id="share-tweet"><a href="#" class="nyi"><r:img uri="/images/share-tweet.png" /></a></div>
                      <a href="#" id="share-email" class="nyi">Email</a>
                   </div>
                </div>
