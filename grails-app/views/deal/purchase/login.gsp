@@ -7,7 +7,7 @@
       <g:external dir="css" file="stylesheet-ext.css" />
    </head>
    <body>
-      <r:img uri="/images/only-a-demo-1.png" id="only-a-demo-1" />
+      <r:img uri="/static/images/only-a-demo-1.png" id="only-a-demo-1" />
       <!--START HEADER-->
       <div id="header">
          <g:include controller="featured" action="top" />
@@ -49,7 +49,7 @@
                         <a id="li-login-link" href="${deal.shortName}/login" class="round-btn">Login</a>
                      </div>
                   </g:form>
-                  <r:img uri="/images/extras/loading.gif" id="registration-loading" class="hidden" />
+                  <r:img uri="/static/images/extras/loading.gif" id="registration-loading" class="hidden" />
                </div>
             </div>
             <!-- END MAIN CONTENT (the deal info.) -->

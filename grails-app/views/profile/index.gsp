@@ -18,8 +18,8 @@
          <div id="container-inner">
             <!--START TITLE PROFILE-->
             <div id="head">
-               <%-- <r:img uri="/images/users/${profilePhoto}.jpg" /> --%>
-               <r:img uri="/images/users/no-avatar.png" />
+               <%-- <r:img uri="/static/images/users/${profilePhoto}.jpg" /> --%>
+               <r:img uri="/static/images/users/no-avatar.png" />
                <g:if test="${user.firstName || user.lastName}">
                   <h1>${user.firstName} ${user.lastName}</h1>
                </g:if>
@@ -106,11 +106,11 @@
                   <ul class="list">
                      <li class="first-row">Card name <span class="right">Actions</span></li>
                      <li>
-                        <r:img uri="/images/master-card.jpg" />
+                        <r:img uri="/static/images/master-card.jpg" />
                         Master Card - ending in 1234 <span class="right"><a href="#" class="nyi">Remove</a></span>
                      </li>
                      <li>
-                        <r:img uri="/images/visa-card.jpg" />
+                        <r:img uri="/static/images/visa-card.jpg" />
                         Visa - ending in 7898 <span class="right"><a href="#" class="nyi">Remove</a></span>
                      </li>
                   </ul>
