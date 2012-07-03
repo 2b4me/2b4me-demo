@@ -18,7 +18,7 @@
          <div id="container-inner">
             <!--START TITLE PROFILE-->
             <div id="head">
-               <r:img uri="/images/profile-photo.jpg" />
+               <g:img dir="images" file="profile-photo.jpg" />
                <h1>${user.firstName} ${user.lastName}</h1>
                <p>${user.emailAddress} <a href="#">Update</a></p>
             </div>

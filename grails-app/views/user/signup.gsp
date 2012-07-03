@@ -51,7 +51,7 @@
                         <a id="registration-link" href="register" class="round-btn">Register</a>
                      </div>
                   </g:form>
-                  <r:img uri="/images/extras/loading.gif" id="registration-loading" class="hidden" />
+                  <g:img dir="images/extras" file="loading.gif" id="registration-loading" class="hidden" />
                </div>
             </div>
             <!-- END MAIN CONTENT (the deal info.) -->

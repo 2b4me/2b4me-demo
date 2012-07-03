@@ -19,7 +19,7 @@
             <!--do not remove this div-->
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main">
-               <r:img uri="/images/deals/${deal.shortName}-detail-photo.jpg" id="main-photo" />
+               <g:img dir="images/deals" file="${deal.shortName}-detail-photo.jpg" id="main-photo" />
                <div id="deal-info">
                   <h1>${deal.title}</h1>
                   <p id="deal-desc">${deal.teaser}</p>
@@ -36,12 +36,12 @@
                      <span>Share this Deal</span>
                      <div id="share-fb">
                         <a href="#" class="nyi">
-                           <r:img uri="/images/share-fb.png" />
+                           <g:img dir="images" file="share-fb.png" />
                         </a>
                      </div>
                      <div id="share-tweet">
                         <a href="#" class="nyi">
-                           <r:img uri="/images/share-tweet.png" />
+                           <g:img dir="images" file="share-tweet.png" />
                         </a>
                      </div>
                      <a href="#" class="nyi" id="share-email">Email</a>
