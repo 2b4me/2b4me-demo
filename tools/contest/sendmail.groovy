@@ -78,6 +78,7 @@ new File('input/contestants-for-email.txt').withReader { reader ->
         msg.setSubject(subject)
         msg.setFrom(new InternetAddress(user, userName))
         msg.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to))
+        msg.addRecipient(MimeMessage.RecipientType.BCC, new InternetAddress('info@2b4me.com'))
         
         def transport = session.getTransport(method)
         
