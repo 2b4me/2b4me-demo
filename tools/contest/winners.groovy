@@ -2,8 +2,9 @@
  * Before running this file, make sure that you have set the following files properly in the ./input directory:
  * 
  * contestants.txt
- * This is a list of the contestants at the time of the drawing; each number should be on its own line and in
- * the order specific in the 2b4me Launch Promotion spreadsheet in Google Drive.
+ * This is a list of the contestants that have signed up at the time of the drawing. This should be a
+ * straight copy/paste from the 2b4me Launch Promotion Google Docs of the contestants that signed up. The
+ * order must be kept intact.
  *
  * prizes.txt
  * This is a list of the prizes being given out at the time of the drawing; each contest should be on its own
@@ -49,10 +50,17 @@ new File('output/winners.txt').withWriter { out ->
     out.writeLine('')
     def i = 0
     prizes.each { p ->
+        def cleanup = {
+            def tokens = winners.get(i++).tokenize('\t')
+            return tokens[1] + ' (' + tokens[0] + ')'
+        }
+        def w1 = cleanup()
+        def w2 = cleanup()
+        def w3 = cleanup()
         out.writeLine("Winners for prize: ${p}")
-        out.writeLine("First place: ${winners.get(i++)}")
-        out.writeLine("Second place: ${winners.get(i++)}")
-        out.writeLine("Third place: ${winners.get(i++)}")
+        out.writeLine("First place:\t${w1}")
+        out.writeLine("Second place:\t${w2}")
+        out.writeLine("Third place:\t${w3}")
         out.writeLine('')
     }
 }

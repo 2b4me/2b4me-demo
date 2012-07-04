@@ -2,7 +2,7 @@
  * Before running this file, make sure that you have set the following files properly in the ./input
  * directory:
  * 
- * contestants-for-email.txt
+ * contestants.txt
  * This is a list of the contestants that have signed up. This should be a straight copy/paste from the
  * 2b4me Launch Promotion Google Docs of the contestants that need to be contacted.
  * 
@@ -50,7 +50,7 @@ props.put('mail.smtp.user', user)
 props.put('mail.smtp.port', port)
 props.put('mail.smtp.auth', 'true')
 
-new File('input/contestants-for-email.txt').withReader { reader ->
+new File('input/contestants.txt').withReader { reader ->
     
     def x
     while ((x = reader.readLine()) != null) {
