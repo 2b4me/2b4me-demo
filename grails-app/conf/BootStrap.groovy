@@ -105,6 +105,135 @@ class BootStrap {
             address: userAddress,
             subscriptions: [dailyDeals, travelDeals]
         ).save()
+        
+        def welcomeContent = '''\
+<html>
+
+<body> <!--  style="font-family: arial,sans-serif; font-size: 12px" -->
+
+<p>Thank you for signing up at 2b4me.com. We are very excited to launch this company and
+   to connect people with some of the really cool stuff South Florida has to offer.</p>
+<p>In our ramp up to launch we are running a promotion to help spread the word on our
+   company AND give you a chance to win some major cash and prizes in the process.</p>
+<p>You signed up on #var and your contest number is:</p>
+<h1>#var</h1>
+<p>Keep this number safe. Whenever we run a contest drawing, we will publish the winners
+   on the website <a href="http://2b4me.com">http://2b4me.com</a>, so check back often.
+   We will be notifying on our <a href="http://facebook.com/2b4me">Facebook</a> page when
+   new winners are published.</p>
+<p>Thank you again for your participation. And remember to please tell your friends!</p>
+
+<p>&nbsp;</p>
+
+<p>Love,<br/>
+<strong>Team 2b4me</strong></p>
+
+<p>Like us on Facebook: <a href="http://facebook.com/2b4me">facebook.com/2b4me</a><br/>
+   Follow us on Twitter: <a href="http://twitter.com/2b4me_deals">@2b4me_deals</a></p>
+
+<!--
+Don't care for these emails?
+You can personalize your notification settings, or click here to unsubscribe from all emails with no fuss.
+ -->
+
+</body>
+
+</html>'''
+        
+        def winnersContent = '''\
+<html>
+
+<body> <!--  style="font-family: arial,sans-serif; font-size: 12px" -->
+
+<p>We have published the winners that were selected in today's drawing on the
+   website! Go to <a href="http://2b4me.com">http://2b4me.com</a> to see if you've
+   won!</p>
+
+<p>We've given away several cash prizes thus far, and we're going to do it
+   again on #var! You've already signed up so there's nothing more for you to do.
+   Just check back to see if your number was drawn.</p>
+
+<p>If you have any questions, please send them to
+   <a href="mailto:info@2b4me.com">info@2b4me.com</a> and we'll be more than happy to assist.</p>
+
+<p>Thank you again for your participation. And remember to please tell your friends!</p>
+
+<p>&nbsp;</p>
+
+<p>Love,<br/>
+<strong>Team 2b4me</strong></p>
+
+<p>Like us on Facebook: <a href="http://facebook.com/2b4me">facebook.com/2b4me</a><br/>
+   Follow us on Twitter: <a href="http://twitter.com/2b4me_deals">@2b4me_deals</a></p>
+
+<!--
+Don't care for these emails?
+You can personalize your notification settings, or click here to unsubscribe from all emails with no fuss.
+ -->
+
+</body>
+
+</html>'''
+        
+        def claimContent = '''\
+<html>
+
+<body> <!--  style="font-family: arial,sans-serif; font-size: 12px" -->
+
+<p>Hi #var,</p>
+
+<p>Congratulations on winning the #var prize from the #var drawing! We're excited to spread the word around on 2b4me and what we want to offer the South Florida market (and beyond)! Please allow up to two weeks for your prize to arrive. And because this is an on-going promotion, you are eligible to win at every drawing until the end of the contest! So keep checking back to see if your contest number is drawn in a future drawing.</p>
+
+<p>Thank you for participating, good luck in future drawings and please remember to tell your friends!</p>
+
+<p>&nbsp;</p>
+
+<p>Love,<br/>
+<strong>Team 2b4me</strong></p>
+
+<p>Like us on Facebook: <a href="http://facebook.com/2b4me">facebook.com/2b4me</a><br/>
+   Follow us on Twitter: <a href="http://twitter.com/2b4me_deals">@2b4me_deals</a></p>
+
+<!--
+Don't care for these emails?
+You can personalize your notification settings, or click here to unsubscribe from all emails with no fuss.
+ -->
+
+</body>
+
+</html>'''
+        
+        def messageContent = '''\
+<html>
+
+<body> <!--  style="font-family: arial,sans-serif; font-size: 12px" -->
+
+<p>Hi there,</p>
+
+<p>#var</p>
+
+<p>&nbsp;</p>
+
+<p>Love,<br/>
+<strong>Team 2b4me</strong></p>
+
+<p>Like us on Facebook: <a href="http://facebook.com/2b4me">facebook.com/2b4me</a><br/>
+   Follow us on Twitter: <a href="http://twitter.com/2b4me_deals">@2b4me_deals</a></p>
+
+<!--
+Don't care for these emails?
+You can personalize your notification settings, or click here to unsubscribe from all emails with no fuss.
+ -->
+
+</body>
+
+</html>'''
+        
+        def emt
+        emt = new EmailTemplate(name: 'welcome', content: welcomeContent).save()
+        emt = new EmailTemplate(name: 'winners', content: winnersContent).save()
+        emt = new EmailTemplate(name: 'claim', content: claimContent).save()
+        emt = new EmailTemplate(name: 'message', content: messageContent).save()
 
     }
 
