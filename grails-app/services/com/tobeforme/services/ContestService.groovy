@@ -20,7 +20,7 @@ class ContestService {
         }
         
         def emt = EmailTemplate.findByName('welcome')
-        def content = setupVars(emt.content, [c.signupDate, c.entry])
+        def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
         mailService.sendMail(c.email, 'Thank you for signing up!', content)
     }
     
@@ -32,7 +32,7 @@ class ContestService {
     def synchronized getNextEntry() {
         def r = new Random(2746);
         def entry
-        for (i in 0..Contestant.count()) {
+        for (i in 0..Contestant.count()+1) {
             entry = String.format("%05d", r.nextInt(10000))
             if (entry == '00000') nextNum = '10000'
         }
