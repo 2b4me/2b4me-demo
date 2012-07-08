@@ -15,8 +15,7 @@ class ContestController {
             contestService.processSignup(params.email.toLowerCase())
             render 'success ' + new Date()
         } catch (Exception e) {
-            log.debug e
-            render 'error, check logs: ' + e
+            render 'error: ' + e
         }
     }
     
