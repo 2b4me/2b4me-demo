@@ -44,10 +44,12 @@ $(document).ready(function() {
             return;
         }
         
-        var dataString = "Name=&formmail_mail_email=" + email;
+        // var dataString = "Name=&formmail_mail_email=" + email;
+        var dataString = "email=" + email;
         $.ajax({
             type: "POST",
-            url: "http://2b4me.com/cgi-bin/FormMail.signup.pl",
+            // url: "http://2b4me.com/cgi-bin/FormMail.signup.pl",
+            url: "http://demo.2b4me.com/contest/signup",
             data: dataString,
             success: function() {
                 $("#emailSuccess").modal({
