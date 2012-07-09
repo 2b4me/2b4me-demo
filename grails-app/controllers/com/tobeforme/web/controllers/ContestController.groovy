@@ -22,4 +22,8 @@ class ContestController {
     def list() {
         [contestants: Contestant.list()]
     }
+    
+    def markIneligible() {
+        
+    }
 }

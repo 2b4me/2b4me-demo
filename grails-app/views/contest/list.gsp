@@ -40,14 +40,15 @@
                            <g:else>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
-                              <td><g:link action="markIneligible" params="[email: c.email]" class="nyi">Mark ineligible</g:link></td>
+                              <td><g:link action="markIneligible" params="[email: c.email]">Mark ineligible</g:link></td>
                            </g:else>
                         </tr>
                      </g:each>
-                  </tbody>
                   <tr>
                      <td colspan="7">End of file.</td>
-                  </tr>
+                  </tr>   
+                  </tbody>
+               </table>
             </div>
             <div class="span1">&nbsp;</div>
          </div>
