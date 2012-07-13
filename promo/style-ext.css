@@ -257,7 +257,7 @@ dd {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    width: 480px;
+    width: 520px;
 }
 
 #contest-winners .content .previous-winners h3 {
@@ -278,4 +278,8 @@ dd {
 #contest-winners .content .previous-winners .previous-winner ul {
     margin: 0;
     text-align: center;
+}
+
+.exp {
+    color:red;
 }
