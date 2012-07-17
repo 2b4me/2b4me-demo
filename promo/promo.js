@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    countdown(2012, 8, 1); // kick off the countdown
+    countdown(2012, 8, 15); // kick off the countdown
     
     $('.nyi').click(function(event){
        alert('not yet implemented');
@@ -202,6 +202,17 @@ $(document).ready(function() {
     $('#show-winners').click(function(event) {
         event.preventDefault();
         $('#contest-winners .content').slideDown();
+        $('#show-winners').fadeOut(function(e) {
+            $('#hide-winners').fadeIn();
+        });
+    });
+    
+    $('#hide-winners').click(function(event) {
+        event.preventDefault();
+        $('#contest-winners .content').slideUp();
+        $('#hide-winners').fadeOut(function(e) {
+            $('#show-winners').fadeIn();
+        });
     });
     
 });

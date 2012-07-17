@@ -25,6 +25,16 @@ div.blocks {
     background-color:white;
 }
 
+#countdown {
+    height: 520px;
+}
+
+#formfeed .signup-subtext {
+    font-size: 16px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
 #formfeed .text-input {
     border:2px solid #dadada;
     border-radius:7px;
@@ -257,7 +267,7 @@ dd {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    width: 520px;
+    width: 600px;
 }
 
 #contest-winners .content .previous-winners h3 {
