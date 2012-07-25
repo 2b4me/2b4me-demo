@@ -144,11 +144,11 @@ dd {
     color: white;
 }
 
-#terms-and-conditions {
+#terms-and-conditions, #privacy {
     margin: 0px 200px 50px;
 }
 
-#terms-and-conditions h3 {
+#terms-and-conditions h3, #privacy h3 {
     margin-top: 20px;
     margin-bottom: 40px;
     font-size: 200%;
