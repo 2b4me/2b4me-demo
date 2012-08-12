@@ -13,6 +13,7 @@ class ContestController {
     }
     
     def signup() {
+        response.setHeader("Access-Control-Allow-Origin", "*")
         try {
             contestService.processSignup(params.email.toLowerCase())
             render 'success ' + new Date()
