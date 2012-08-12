@@ -1,6 +1,8 @@
 package com.tobeforme.web.controllers
 
 import com.tobeforme.domain.*
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class ContestController {
     
@@ -23,7 +25,31 @@ class ContestController {
         [contestants: Contestant.list()]
     }
     
-    def markIneligible() {
-        
+    def eligible() {
+        def c = Contestant.get(params.id)
+        c.ineligible = false
+        c.ineligibilityReason = ''
+        c.save()
+        render 'success'
+    }
+    
+    def ineligible() {
+        def c = Contestant.get(params.id)
+        c.ineligible = true
+        c.ineligibilityReason = params.reason
+        c.save()
+        render 'success'
+    }
+    
+    def changeNumber() {
+        def validator = ~/[0-9][0-9][0-9][0-9][0-9]/
+        if (validator.matcher(params.entry).matches()) {
+            def c = Contestant.get(params.id)
+            c.entry = params.entry
+            c.save()
+            render 'success'
+        } else {
+            render 'error'
+        }
     }
 }

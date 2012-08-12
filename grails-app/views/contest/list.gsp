@@ -28,19 +28,19 @@
                   <tbody>
                      <g:each in="${contestants}" var="c" status="i">
                         <tr>
-                           <td>${i+1}</td>
+                           <td>${c.id}</td>
                            <td>${c.email}</td>
-                           <td>${c.entry}</td>
+                           <td><a href="#" id="entry" contestantId="${c.id}">${c.entry}</a></td>
                            <td>${new Date(c.signupDate.time)}</td>
                            <g:if test="${c.ineligible}">
-                              <td>Yes</td>
-                              <td>${c.ineligibilityReason}</td>
-                              <td><g:link action="markEligible" params="[email: c.email]" class="nyi">Mark eligible</g:link></td>
+                              <td id="eligibility">Yes</td>
+                              <td id="eligibilityReason">${c.ineligibilityReason}</td>
+                              <td id="eligibilityLink"><a href="#" id="eligible" contestantId="${c.id}">Mark eligible</a></td>
                            </g:if>
                            <g:else>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td><g:link action="markIneligible" params="[email: c.email]">Mark ineligible</g:link></td>
+                              <td id="eligibility">&nbsp;</td>
+                              <td id="eligibilityReason">&nbsp;</td>
+                              <td id="eligibilityLink"><a href="#" id="ineligible" contestantId="${c.id}">Mark ineligible</a></td>
                            </g:else>
                         </tr>
                      </g:each>
@@ -57,4 +57,5 @@
    <g:external dir="js" file="jquery-1.7.2.js" />
    <g:external dir="js" file="bootstrap.js" />
    <g:external dir="js" file="bootstrap-ext.js" />
+   <g:external dir="js" file="contest-list.js" />
 </html>
