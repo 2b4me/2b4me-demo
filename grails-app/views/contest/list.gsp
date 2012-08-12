@@ -28,7 +28,7 @@
                   <tbody>
                      <g:each in="${contestants}" var="c" status="i">
                         <tr>
-                           <td>${c.id}</td>
+                           <td>${i+1}</td>
                            <td>${c.email}</td>
                            <td><a href="#" id="entry" contestantId="${c.id}">${c.entry}</a></td>
                            <td>${new Date(c.signupDate.time)}</td>
