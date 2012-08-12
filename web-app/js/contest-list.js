@@ -1,4 +1,4 @@
-$('#entry').click(function(e) {
+$('.entry').click(function(e) {
     event.preventDefault();
     var id = this.getAttribute('contestantId');
     var entry = prompt('If you would like to assign a new number, type it in. Otherwise, cancel.','00000');
@@ -6,30 +6,32 @@ $('#entry').click(function(e) {
         alert('Value of 00000 is not valid.');
         return;
     }
-    
-    $.ajax('changeNumber', {
-        cache: false,
-        data: {
-            id: id,
-            entry: entry
-        },
-        error: function(request, status, error) {
-            alert('There was an error processing your request: ' + error);
-        }
-    }).done(function(data) {
-        if (data == 'success') {
-            $('#entry').html(entry);
-        }
+    if (entry != null && entry != "") {    
+        $.ajax('changeNumber', {
+            cache: false,
+            data: {
+                id: id,
+                entry: entry
+            },
+            error: function(request, status, error) {
+                alert('There was an error processing your request: ' + error);
+            }
+        }).done(function(data) {
+            if (data == 'success') {
+                $('#entry'+id).html(entry);
+            }
         
-        if (data == 'error') {
-            alert('There was an error processing your request');
-        }
-    });
+            if (data == 'error') {
+                alert('There was an error processing your request');
+            }
+        });
+    }
 });
 
-$('#eligible').live('click', function(e) {
+$('.eligible').live('click', function(e) {
     event.preventDefault();
-    var id = this.getAttribute('contestantId');
+    var targetElement = this
+    var id = targetElement.getAttribute('contestantId');
     var r = confirm('Are you sure you want to mark this contestant eligible?');
     if (r) {
         $.ajax('eligible', {
@@ -42,15 +44,15 @@ $('#eligible').live('click', function(e) {
             }
         }).done(function(data) {
             if (data == 'success') {
-                $('#eligibility').html('&nbsp;');
-                $('#eligibilityReason').html('&nbsp;');
-                $('#eligibilityLink').html('<a href="#" id="ineligible" contestantId="'+id+'">Mark ineligible</a>');
+                $('#eligibility'+id).html('&nbsp;');
+                $('#eligibilityReason'+id).html('&nbsp;');
+                $('#eligibilityLink'+id).html('<a href="#" class="ineligible" id="ineligible'+id+'" contestantId="'+id+'">Mark ineligible</a>');
             } 
         });
     }
 });
 
-$('#ineligible').live('click', function(e) {
+$('.ineligible').live('click', function(e) {
     event.preventDefault();
     var id = this.getAttribute('contestantId');
     var reason = prompt('Enter the inegibility reason (or you can cancel)','Not eligible');
@@ -65,9 +67,9 @@ $('#ineligible').live('click', function(e) {
         }
     }).done(function(data) {
         if (data == 'success') {
-            $('#eligibility').html('Yes');
-            $('#eligibilityReason').html(reason);
-            $('#eligibilityLink').html('<a href="#" id="eligible" contestantId="'+id+'">Mark eligible</a>');
+            $('#eligibility'+id).html('Yes');
+            $('#eligibilityReason'+id).html(reason);
+            $('#eligibilityLink'+id).html('<a href="#" class="eligible" id="eligible'+id+'" contestantId="'+id+'">Mark eligible</a>');
         }
     });
 });

@@ -30,17 +30,17 @@
                         <tr>
                            <td>${i+1}</td>
                            <td>${c.email}</td>
-                           <td><a href="#" id="entry" contestantId="${c.id}">${c.entry}</a></td>
+                           <td><a href="#" class="entry" id="entry${c.id}" contestantId="${c.id}">${c.entry}</a></td>
                            <td>${new Date(c.signupDate.time)}</td>
                            <g:if test="${c.ineligible}">
-                              <td id="eligibility">Yes</td>
-                              <td id="eligibilityReason">${c.ineligibilityReason}</td>
-                              <td id="eligibilityLink"><a href="#" id="eligible" contestantId="${c.id}">Mark eligible</a></td>
+                              <td id="eligibility${c.id}">Yes</td>
+                              <td id="eligibilityReason${c.id}">${c.ineligibilityReason}</td>
+                              <td id="eligibilityLink${c.id}"><a href="#" class="eligible" id="elibible${c.id}" contestantId="${c.id}">Mark eligible</a></td>
                            </g:if>
                            <g:else>
-                              <td id="eligibility">&nbsp;</td>
-                              <td id="eligibilityReason">&nbsp;</td>
-                              <td id="eligibilityLink"><a href="#" id="ineligible" contestantId="${c.id}">Mark ineligible</a></td>
+                              <td id="eligibility${c.id}">&nbsp;</td>
+                              <td id="eligibilityReason${c.id}">&nbsp;</td>
+                              <td id="eligibilityLink${c.id}"><a href="#" class="ineligible" id="ineligible${c.id}" contestantId="${c.id}">Mark ineligible</a></td>
                            </g:else>
                         </tr>
                      </g:each>
