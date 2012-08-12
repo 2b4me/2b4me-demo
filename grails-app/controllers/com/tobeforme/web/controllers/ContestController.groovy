@@ -53,4 +53,18 @@ class ContestController {
             render 'error'
         }
     }
+    
+    def deleteContestant() {
+        if (params.password != 'CasaLarios2012!') {
+            render 'not allowed'
+            return
+        }
+        def c = Contestant.get(params.id)
+        if (c) {
+            c.delete()
+            render 'it is done'
+        } else {
+            render 'id not found'
+        }
+    }
 }
