@@ -13,7 +13,10 @@ class ContestController {
     }
     
     def signup() {
-        response.setHeader('Access-Control-Allow-Origin', '*')
+        response.setHeader('Access-Control-Allow-Origin', '*'); 
+        response.setHeader('Access-Control-Allow-Methods', request.getHeader('Access-Control-Request-Methods')); 
+        response.setHeader('Access-Control-Allow-Headers', request.getHeader('Access-Control-Request-Headers')); 
+        response.setHeader('Access-Control-Max-Age', '3628800');
         try {
             contestService.processSignup(params.email.toLowerCase())
             render 'success ' + new Date()
@@ -65,6 +68,14 @@ class ContestController {
             render 'it is done'
         } else {
             render 'id not found'
+        }
+    }
+    
+    def nextEntry() {
+        if (params.cnum) {
+            render contestService.getNextEntry(new Integer(params.cnum))
+        } else {
+            render contestService.getNextEntry()
         }
     }
 }

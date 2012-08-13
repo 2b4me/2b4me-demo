@@ -2,10 +2,13 @@ package com.tobeforme.services
 
 import com.tobeforme.domain.*
 import java.util.regex.*
+import org.springframework.beans.factory.InitializingBean
 
-class ContestService {
+class ContestService implements InitializingBean {
     
     def mailService
+    
+    def numbers
     
     def processSignup(email) {
         def c = Contestant.findByEmail(email)
@@ -29,14 +32,26 @@ class ContestService {
         return content.replaceAll(/#var/, { vars.get(i++) })
     }
     
-    def synchronized getNextEntry() {
-        def r = new Random(2746);
-        def entry
-        for (i in 0..Contestant.count()+1) {
-            entry = String.format("%05d", r.nextInt(10000))
-            if (entry == '00000') nextNum = '10000'
+    def getNextEntry() {
+        return getNextEntry(null)
+    }
+    
+    def getNextEntry(cnum) {
+        if (cnum) {
+            return numbers.get(cnum)
+        } else {
+            return numbers.get(Contestant.count())
         }
-        return entry
+    }
+    
+    void afterPropertiesSet() {
+        numbers = []
+        def r = new Random(2746);
+        while (numbers.size() < 10000) {
+            def entry = String.format("%05d", r.nextInt(10000))
+            if (entry == '00000') entry = '10000'
+            if (!numbers.contains(entry)) { numbers << entry }
+        }
     }
     
 }
