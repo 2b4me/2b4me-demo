@@ -22,10 +22,14 @@ class ContestService implements InitializingBean {
             c.save()
         }
         
+        def id = new Date().time
+        println "[${id}] Starting async process to send mail"
         runAsync {
+            println "[${id}] Start"
             def emt = EmailTemplate.findByName('welcome')
             def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
             mailService.sendMail(c.email, 'Thank you for signing up!', content)
+            println "[${id}] End"
         }
     }
     
