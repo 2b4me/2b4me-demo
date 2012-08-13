@@ -3,7 +3,6 @@ package com.tobeforme.services
 import com.tobeforme.domain.*
 import java.util.regex.*
 import org.springframework.beans.factory.InitializingBean
-import java.lang.reflect.UndeclaredThrowableException
 
 class ContestService implements InitializingBean {
     
@@ -23,31 +22,13 @@ class ContestService implements InitializingBean {
             c.save()
         }
         
-        def id = new Date().time
-        println "[${id}] Starting async process to send mail"
+        log.debug 'Starting async process to send mail'
         runAsync {
-            println "[${id}] Start"
-            try {
-                def emt = EmailTemplate.findByName('welcome')
-                def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
-                mailService.sendMail(c.email, 'Thank you for signing up!', content)
-            } catch (UndeclaredThrowableException e) {
-                def f = e.getUndeclaredThrowable()
-                println "There was an exception trying to send mail: ${f}"
-                /*
-                f.getStackTrace().each {
-                    println it
-                }
-                 */
-            } catch (Exception e) {
-                println "There was an exception trying to send mail: ${e}"
-                /*
-                e.getStackTrace().each {
-                    println it
-                }
-                 */
-            }
-            println "[${id}] End"
+            log.debug 'Start'
+            def emt = EmailTemplate.findByName('welcome')
+            def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
+            mailService.sendMail(c.email, 'Thank you for signing up!', content)
+            log.debug 'End'
         }
     }
     
