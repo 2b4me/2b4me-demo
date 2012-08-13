@@ -13,7 +13,7 @@ class ContestController {
     }
     
     def signup() {
-        response.setHeader('Access-Control-Allow-Origin', '*'); 
+        response.setHeader('Access-Control-Allow-Origin', '*');
         response.setHeader('Access-Control-Allow-Methods', request.getHeader('Access-Control-Request-Methods')); 
         response.setHeader('Access-Control-Allow-Headers', request.getHeader('Access-Control-Request-Headers')); 
         response.setHeader('Access-Control-Max-Age', '0');
@@ -72,6 +72,7 @@ class ContestController {
     }
     
     def nextEntry() {
+        response.setHeader('Access-Control-Allow-Origin', '*');
         if (params.cnum) {
             render contestService.getNextEntry(new Integer(params.cnum))
         } else {
