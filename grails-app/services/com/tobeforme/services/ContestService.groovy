@@ -34,14 +34,18 @@ class ContestService implements InitializingBean {
             } catch (UndeclaredThrowableException e) {
                 def f = e.getUndeclaredThrowable()
                 println "There was an exception trying to send mail: ${f}"
+                /*
                 f.getStackTrace().each {
                     println it
                 }
+                 */
             } catch (Exception e) {
                 println "There was an exception trying to send mail: ${e}"
+                /*
                 e.getStackTrace().each {
                     println it
                 }
+                 */
             }
             println "[${id}] End"
         }
