@@ -22,6 +22,7 @@ class ContestController {
     }
     
     def signupProxy() {
+        response.setHeader("Access-Control-Allow-Origin", "*")
         [email: params.email]
     }
     
@@ -72,6 +73,7 @@ class ContestController {
     }
     
     def nextEntry() {
+        response.setHeader("Access-Control-Allow-Origin", "*")
         if (params.cnum) {
             render contestService.getNextEntry(new Integer(params.cnum))
         } else {
