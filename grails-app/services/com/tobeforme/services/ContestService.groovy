@@ -3,6 +3,7 @@ package com.tobeforme.services
 import com.tobeforme.domain.*
 import java.util.regex.*
 import org.springframework.beans.factory.InitializingBean
+import java.lang.reflect.UndeclaredThrowableException
 
 class ContestService implements InitializingBean {
     
