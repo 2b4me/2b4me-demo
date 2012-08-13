@@ -81,8 +81,12 @@ class ContestController {
     }
     
     def testMail() {
-        mailService.sendMail('daniel@silvanolte.com', 'test email', 'this is a test email')
-        render 'done'
+        def success = mailService.sendMail('daniel@silvanolte.com', 'test email', 'this is a test email')
+        if (success) {
+            render 'success'
+        } else {
+            render 'error'
+        }
     }
     
 }

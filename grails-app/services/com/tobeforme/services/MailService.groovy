@@ -5,9 +5,9 @@ import javax.mail.*
 
 class MailService {
     
-    def host = 'mail.2b4me.com'
+    def host = 'smtp.gmail.com'
     def user = 'info@2b4me.com'
-    def port = '25'
+    def port = '587'
     def method = 'smtp'
     def userName = '2b4me.com'
     def passwd = 'Testing@123'
@@ -15,11 +15,15 @@ class MailService {
     def sendMail(to, subject, body) {
         def props = new Properties()
         props.put('mail.smtp.host', host)
-        props.put('mail.smtp.user', user)
         props.put('mail.smtp.port', port)
         props.put('mail.smtp.auth', 'true')
+        props.put('mail.smtp.starttls.enable', 'true')
         
-        def session = Session.getInstance(props, null)
+        def session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, passwd);
+            }
+        })
         def msg = new MimeMessage(session)
         msg.setContent(body, 'text/html')
         msg.setSubject(subject)
@@ -27,18 +31,16 @@ class MailService {
         msg.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to))
         msg.addRecipient(MimeMessage.RecipientType.BCC, new InternetAddress('info@2b4me.com'))
         
-        log.debug 'Defining transport'
-        def transport = session.getTransport(method)
+        def success = false
         try {
-            log.debug 'Attempting a connection'
-            transport.connect(host, port.toInteger(), user, passwd)
             log.debug 'Sending Message'
-            transport.sendMessage(msg, msg.getAllRecipients())
+            Transport.send(msg)
+            log.debug 'Done'
+            success = true
         } catch (Exception e) {
             log.error "Exception trying to send mail: ${e}"
-        } finally {
-            log.debug 'Closing transport'
-            transport.close()
         }
+        
+        return success
     }
 }
