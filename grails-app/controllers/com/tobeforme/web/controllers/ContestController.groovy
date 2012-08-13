@@ -78,6 +78,7 @@ class ContestController {
     
     def signup2() {
         response.setHeader('Access-Control-Allow-Origin', '*')
-        render 'hello, ' + params.email
+        // render 'hello, ' + params.email
+        signup()
     }
 }
