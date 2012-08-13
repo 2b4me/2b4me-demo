@@ -7,6 +7,7 @@ import java.util.regex.Pattern
 class ContestController {
     
     def contestService
+    def mailService
 
     def index() {
         render new Date()
@@ -77,6 +78,11 @@ class ContestController {
         } else {
             render contestService.getNextEntry()
         }
+    }
+    
+    def testMail() {
+        mailService.sendMail('daniel@silvanolte.com', 'test email', 'this is a test email')
+        render 'done'
     }
     
 }

@@ -10,7 +10,7 @@ class MailService {
     def port = '25'
     def method = 'smtp'
     def userName = '2b4me.com'
-    def passwd = 'Giorgio!@!Daniel'
+    def passwd = 'Testing@123'
 
     def sendMail(to, subject, body) {
         def props = new Properties()
