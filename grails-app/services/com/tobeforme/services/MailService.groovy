@@ -27,14 +27,9 @@ class MailService {
         msg.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to))
         msg.addRecipient(MimeMessage.RecipientType.BCC, new InternetAddress('info@2b4me.com'))
         
-        try {
-            def transport = session.getTransport(method)
-            transport.connect(host, port.toInteger(), user, passwd)
-            transport.sendMessage(msg, msg.getAllRecipients())
-            transport.close()
-        } catch (Exception e) {
-            println e
-            throw e
-        }
+        def transport = session.getTransport(method)
+        transport.connect(host, port.toInteger(), user, passwd)
+        transport.sendMessage(msg, msg.getAllRecipients())
+        transport.close()
     }
 }

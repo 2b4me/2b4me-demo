@@ -26,9 +26,17 @@ class ContestService implements InitializingBean {
         println "[${id}] Starting async process to send mail"
         runAsync {
             println "[${id}] Start"
-            def emt = EmailTemplate.findByName('welcome')
-            def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
-            mailService.sendMail(c.email, 'Thank you for signing up!', content)
+            try {
+                def emt = EmailTemplate.findByName('welcome')
+                def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
+                mailService.sendMail(c.email, 'Thank you for signing up!', content)
+            } catch (Exception e) {
+                println "There was an exception trying to send mail: ${e}"
+                Thread.currentThread().getStackTrace().each {
+                    println it
+                }
+                
+            }
             println "[${id}] End"
         }
     }
