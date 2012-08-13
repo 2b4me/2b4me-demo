@@ -26,7 +26,7 @@ class ContestController {
     }
     
     def list() {
-        [contestants: Contestant.list()]
+        [contestants: Contestant.list(sort: 'signupDate', order: 'asc')]
     }
     
     def eligible() {
