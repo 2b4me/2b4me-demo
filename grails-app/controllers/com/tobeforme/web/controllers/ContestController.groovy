@@ -13,13 +13,16 @@ class ContestController {
     }
     
     def signup() {
-        response.setHeader('Access-Control-Allow-Origin', '*')
         try {
             contestService.processSignup(params.email.toLowerCase())
             render 'success ' + new Date()
         } catch (Exception e) {
             render 'error: ' + e
         }
+    }
+    
+    def signupProxy() {
+        [email: params.email]
     }
     
     def list() {
@@ -76,9 +79,4 @@ class ContestController {
         }
     }
     
-    def signup2() {
-        response.setHeader('Access-Control-Allow-Origin', '*')
-        // render 'hello, ' + params.email
-        signup()
-    }
 }

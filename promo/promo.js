@@ -44,26 +44,15 @@ $(document).ready(function() {
             return;
         }
         
-        // var dataString = "Name=&formmail_mail_email=" + email;
-        $.ajax('http://demo.2b4me.com/contest/signup', {
+        $.ajax('http://demo.2b4me.com/contest/signupProxy', {
             data: {
                 email: email
-            },
-            success: function() {
-                $("#emailSuccess").modal({
-                    keyboard: true
-                });
-            },
-            error: function(request, status, err) {
-                /*
-                $('#formfeed .text-input').addClass("error");
-                $('#formfeed .text-input').tooltip('show');
-                $('#formfeed .green-btn').removeAttr("disabled");
-                 */
-                $("#emailSuccess").modal({
-                    keyboard: true
-                });
             }
+        });
+        
+        // show success no matter what
+        $("#emailSuccess").modal({
+            keyboard: true
         });
     });
     
