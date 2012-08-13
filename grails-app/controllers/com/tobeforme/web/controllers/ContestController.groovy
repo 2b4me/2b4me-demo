@@ -14,9 +14,6 @@ class ContestController {
     
     def signup() {
         response.setHeader('Access-Control-Allow-Origin', '*');
-        response.setHeader('Access-Control-Allow-Methods', request.getHeader('Access-Control-Request-Methods')); 
-        response.setHeader('Access-Control-Allow-Headers', request.getHeader('Access-Control-Request-Headers')); 
-        response.setHeader('Access-Control-Max-Age', '0');
         try {
             contestService.processSignup(params.email.toLowerCase())
             render 'success ' + new Date()
