@@ -13,7 +13,7 @@ class ContestController {
     }
     
     def signup() {
-        response.setHeader('Access-Control-Allow-Origin', '*');
+        response.setHeader('Access-Control-Allow-Origin', '*')
         try {
             contestService.processSignup(params.email.toLowerCase())
             render 'success ' + new Date()
@@ -69,11 +69,15 @@ class ContestController {
     }
     
     def nextEntry() {
-        response.setHeader('Access-Control-Allow-Origin', '*');
         if (params.cnum) {
             render contestService.getNextEntry(new Integer(params.cnum))
         } else {
             render contestService.getNextEntry()
         }
+    }
+    
+    def signup2() {
+        response.setHeader('Access-Control-Allow-Origin', '*')
+        render 'hello, ' + params.email
     }
 }

@@ -1,0 +1,19 @@
+<html>
+
+<body>
+   <script type="text/javascript" src="jquery-1.7.2.js"></script>
+   <script type="text/javascript">
+      // $.ajax('http://demo.2b4me.com/contest/signup2', {
+      $.ajax('http://localhost:8080/2b4me-demo/contest/signup2', {   
+         cache: false,
+         data: {
+            email: 'daniel@silvanolte.com'
+         },
+         success: function(data) {
+            alert(data);
+         }
+      });
+   </script>
+</body>
+
+</html>
