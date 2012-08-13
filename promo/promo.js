@@ -44,7 +44,7 @@ $(document).ready(function() {
             return;
         }
         
-        $.ajax('http://demo.2b4me.com/contest/signupProxy', {
+        $.ajax('http://demo.2b4me.com/contest/signup', {
             data: {
                 email: email
             }

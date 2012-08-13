@@ -22,9 +22,11 @@ class ContestService implements InitializingBean {
             c.save()
         }
         
+        /*
         def emt = EmailTemplate.findByName('welcome')
         def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
         mailService.sendMail(c.email, 'Thank you for signing up!', content)
+         */
     }
     
     def setupVars(content, vars) {
