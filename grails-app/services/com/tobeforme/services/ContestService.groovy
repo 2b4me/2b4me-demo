@@ -11,22 +11,22 @@ class ContestService implements InitializingBean {
     def numbers
     
     def processSignup(email) {
-        def c = Contestant.findByEmail(email)
+        runAsync {
+            def c = Contestant.findByEmail(email)
         
-        if (!c) {
-            c = new Contestant()
-            c.email = email
-            c.signupDate = new Date()
-            c.ineligible = false
-            c.entry = getNextEntry()
-            c.save()
+            if (!c) {
+                c = new Contestant()
+                c.email = email
+                c.signupDate = new Date()
+                c.ineligible = false
+                c.entry = getNextEntry()
+                c.save()
+            }
+            
+            def emt = EmailTemplate.findByName('welcome')
+            def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
+            mailService.sendMail(c.email, 'Thank you for signing up!', content)
         }
-        
-        /*
-        def emt = EmailTemplate.findByName('welcome')
-        def content = setupVars(emt.content, [new Date(c.signupDate.time), c.entry])
-        mailService.sendMail(c.email, 'Thank you for signing up!', content)
-         */
     }
     
     def setupVars(content, vars) {
