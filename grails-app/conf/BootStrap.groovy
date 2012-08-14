@@ -277,7 +277,7 @@ class BootStrap {
 </body>
 
 </html>'''
-        
+
         def emt
         emt = new EmailTemplate(name: 'welcome', content: welcomeContent).save()
         emt = new EmailTemplate(name: 'winners', content: winnersContent).save()

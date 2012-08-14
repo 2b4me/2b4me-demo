@@ -13,16 +13,17 @@ $('.entry').click(function(e) {
                 id: id,
                 entry: entry
             },
+            success: function(data) {
+                if (data == 'success') {
+                    $('#entry'+id).html(entry);
+                }
+
+                if (data == 'error') {
+                    alert('There was an error processing your request');
+                }
+            },
             error: function(request, status, error) {
                 alert('There was an error processing your request: ' + error);
-            }
-        }).done(function(data) {
-            if (data == 'success') {
-                $('#entry'+id).html(entry);
-            }
-        
-            if (data == 'error') {
-                alert('There was an error processing your request');
             }
         });
     }
@@ -39,15 +40,16 @@ $('.eligible').live('click', function(e) {
             data: {
                 id: id
             },
+            success: function(data) {
+                if (data == 'success') {
+                    $('#eligibility'+id).html('&nbsp;');
+                    $('#eligibilityReason'+id).html('&nbsp;');
+                    $('#eligibilityLink'+id).html('<a href="#" class="ineligible" id="ineligible'+id+'" contestantId="'+id+'">Mark ineligible</a>');
+                }
+            },
             error: function(request, status, error) {
                 alert('There was an error processing your request: ' + error);
             }
-        }).done(function(data) {
-            if (data == 'success') {
-                $('#eligibility'+id).html('&nbsp;');
-                $('#eligibilityReason'+id).html('&nbsp;');
-                $('#eligibilityLink'+id).html('<a href="#" class="ineligible" id="ineligible'+id+'" contestantId="'+id+'">Mark ineligible</a>');
-            } 
         });
     }
 });
@@ -62,14 +64,15 @@ $('.ineligible').live('click', function(e) {
             id: id,
             reason: reason
         },
+        success: function(data) {
+            if (data == 'success') {
+                $('#eligibility'+id).html('Yes');
+                $('#eligibilityReason'+id).html(reason);
+                $('#eligibilityLink'+id).html('<a href="#" class="eligible" id="eligible'+id+'" contestantId="'+id+'">Mark eligible</a>');
+            }
+        },
         error: function(request, status, error) {
             alert('There was an error processing your request: ' + error);
-        }
-    }).done(function(data) {
-        if (data == 'success') {
-            $('#eligibility'+id).html('Yes');
-            $('#eligibilityReason'+id).html(reason);
-            $('#eligibilityLink'+id).html('<a href="#" class="eligible" id="eligible'+id+'" contestantId="'+id+'">Mark eligible</a>');
         }
     });
 });

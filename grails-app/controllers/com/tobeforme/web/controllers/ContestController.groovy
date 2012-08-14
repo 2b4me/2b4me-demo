@@ -89,4 +89,32 @@ class ContestController {
         }
     }
     
+    def templates() {
+        [templates: EmailTemplate.list()]
+    }
+    
+    def templateContent() {
+        def e = EmailTemplate.get(params.id)
+        if (!e) {
+            throw new IllegalStateException('None found by id: ' + params.id)
+        } else {
+            render e.content
+        }
+    }
+    
+    def saveTemplateContent() {
+        def e = EmailTemplate.get(params.id)
+        if (!e) {
+            throw new IllegalStateException('None found by id: ' + params.id)
+        } else {
+            def unescapedContent = params.content
+                .replace('&lt;','<')
+                .replace('&gt;','>')
+                .replace('&amp;','&')
+            e.content = unescapedContent
+            e.save()
+            render e.content
+        }
+    }
+    
 }
