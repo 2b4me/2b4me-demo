@@ -103,6 +103,9 @@ class ContestController {
     }
     
     def saveTemplateContent() {
+        if (params.content.length() == 0) {
+            throw new IllegalStateException('Template content cannot be empty')
+        }
         def e = EmailTemplate.get(params.id)
         if (!e) {
             throw new IllegalStateException('None found by id: ' + params.id)

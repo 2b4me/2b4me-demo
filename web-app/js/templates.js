@@ -1,6 +1,10 @@
 $('.templateLink').click(function(e) {
     e.preventDefault();
     if (!this.hasAttribute('href')) return;
+    if ($('#editSelectedTemplate').attr('href') == undefined && $('#saveSelectedTemplate').attr('href') != undefined) {
+        toggleAnchor($('#editSelectedTemplate'));
+        toggleAnchor($('#saveSelectedTemplate'));
+    }
     var templateId = this.getAttribute('templateId');
     $.ajax('templateContent', {
         cache: false,
@@ -36,6 +40,7 @@ $('#editSelectedTemplate').click(function(e) {
             toggleAnchor($('#editSelectedTemplate'));
             toggleAnchor($('#saveSelectedTemplate'));
             toggleAnchor($('#deleteSelectedTemplate'));
+            toggleAnchor($('#addNewTemplate'));
         },
         error: function(request, status, error) {
             $('#selectedTemplate').html(error);
@@ -59,6 +64,7 @@ $('#viewSelectedTemplate').click(function(e) {
             toggleAnchor($('#editSelectedTemplate'));
             toggleAnchor($('#saveSelectedTemplate'));
             toggleAnchor($('#deleteSelectedTemplate'));
+            toggleAnchor($('#addNewTemplate'));
         },
         error: function(request, status, error) {
             $('#selectedTemplate').html(error);
@@ -86,11 +92,24 @@ $('#saveSelectedTemplate').click(function(e) {
             toggleAnchor($('#editSelectedTemplate'));
             toggleAnchor($('#saveSelectedTemplate'));
             toggleAnchor($('#deleteSelectedTemplate'));
+            toggleAnchor($('#addNewTemplate'));
         },
         error: function(request, status, error) {
             $('#selectedTemplate').html(error);
         }
     });
+});
+
+$('#addNewTemplate').click(function(e) {
+    e.preventDefault();
+    if ($('#editSelectedTemplate').attr('href') == undefined && $('#saveSelectedTemplate').attr('href') != undefined) return;
+    $('#selectedTemplate').html(
+        '<label>Name</label> <input type="text" id="newTemplateName" /> ' +
+        '<label>Content</label> <textarea style="width: 500px; height: 500px;"></textarea>'
+    );
+    toggleAnchor($('#editSelectedTemplate'));
+    toggleAnchor($('#saveSelectedTemplate'));
+    $('#selectedTemplateControls').show();
 });
 
 function toggleAnchor(anchor) {
