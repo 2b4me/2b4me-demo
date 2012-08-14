@@ -33,7 +33,7 @@ class MailService {
         
         def success = false
         try {
-            log.debug 'Sending Message'
+            log.debug 'Sending message'
             Transport.send(msg)
             log.debug 'Done'
             success = true

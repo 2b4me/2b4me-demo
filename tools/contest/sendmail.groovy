@@ -30,25 +30,30 @@ def log = []
 log << "Email sent to the following users on ${currentDate}"
 log << ''
 
-def host = 'mail.2b4me.com'
-def method = 'smtp'
-def port = '25'
+def host = 'smtp.gmail.com'
 def user = 'info@2b4me.com'
-def userName = '2b4me Launch Promotion'
-def passwd = 'Giorgio!@!Daniel'
+def port = '587'
+def method = 'smtp'
+def userName = '2b4me.com'
+def passwd = 'Testing@123'
 def template = "templates/${args[0]}.html"
 def subject
-if (args[0] == 'welcome') {
-    subject = 'Welcome to the 2b4me Contest'
-} else if (args[0] == 'winners') {
-    subject = '2b4me Contest Winners Published'
+switch (args[0]) {
+    case 'welcome':
+        subject = 'Welcome to the 2b4me Contest'
+        break
+    case 'winners':
+        subject = '2b4me Contest Winners Published'
+        break
+    default:
+        throw new IllegalStateException()
 }
 
 def props = new Properties()
 props.put('mail.smtp.host', host)
-props.put('mail.smtp.user', user)
 props.put('mail.smtp.port', port)
 props.put('mail.smtp.auth', 'true')
+props.put('mail.smtp.starttls.enable', 'true')
 
 new File('input/contestants.txt').withReader { reader ->
     
@@ -71,27 +76,26 @@ new File('input/contestants.txt').withReader { reader ->
             }
         }
         
-        def body = buffer.toString()
-        def session = Session.getInstance(props, null)
+        def session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, passwd);
+            }
+        })
         def msg = new MimeMessage(session)
-        msg.setContent(body, 'text/html')
+        msg.setContent(buffer.toString(), 'text/html')
         msg.setSubject(subject)
         msg.setFrom(new InternetAddress(user, userName))
         msg.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to))
-        msg.addRecipient(MimeMessage.RecipientType.BCC, new InternetAddress('info@2b4me.com'))
         
-        def transport = session.getTransport(method)
-        
-        println ("Connecting to ${host}:${port} over ${method} as ${user}")
-        transport.connect(host, port.toInteger(), user, passwd)
-        
-        println ("Sending message to ${to}, subject ${subject}")
-        transport.sendMessage(msg, msg.getAllRecipients())
-        
-        println ("Closing connection to ${host}:${port}")
-        transport.close()
-        
-        println ('')
+        try {
+            println 'Sending message'
+            Transport.send(msg)
+            println 'Done'
+        } catch (Exception e) {
+            println "Exception trying to send mail: ${e}"
+        } finally {
+            println ''
+        }
         
         log << to
         
