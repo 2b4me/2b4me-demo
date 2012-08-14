@@ -1,5 +1,6 @@
 $('.templateLink').click(function(e) {
     e.preventDefault();
+    if (!this.hasAttribute('href')) return;
     var templateId = this.getAttribute('templateId');
     $.ajax('templateContent', {
         cache: false,
@@ -19,6 +20,7 @@ $('.templateLink').click(function(e) {
 
 $('#editSelectedTemplate').click(function(e) {
     e.preventDefault();
+    if (!this.hasAttribute('href')) return;
     var templateId = $('#selectedTemplate').attr('templateId');
     $.ajax('templateContent', {
         cache: false,
@@ -30,6 +32,10 @@ $('#editSelectedTemplate').click(function(e) {
                 '<textarea style="width: 500px; height: 500px;">' +
                 data + '</textarea>'
             );
+            toggleAnchor($('#viewSelectedTemplate'));
+            toggleAnchor($('#editSelectedTemplate'));
+            toggleAnchor($('#saveSelectedTemplate'));
+            toggleAnchor($('#deleteSelectedTemplate'));
         },
         error: function(request, status, error) {
             $('#selectedTemplate').html(error);
@@ -40,6 +46,7 @@ $('#editSelectedTemplate').click(function(e) {
 
 $('#viewSelectedTemplate').click(function(e) {
     e.preventDefault();
+    if (!this.hasAttribute('href')) return;
     var templateId = $('#selectedTemplate').attr('templateId');
     $.ajax('templateContent', {
         cache: false,
@@ -48,6 +55,10 @@ $('#viewSelectedTemplate').click(function(e) {
         },
         success: function(data) {
             $('#selectedTemplate').html(data);
+            toggleAnchor($('#viewSelectedTemplate'));
+            toggleAnchor($('#editSelectedTemplate'));
+            toggleAnchor($('#saveSelectedTemplate'));
+            toggleAnchor($('#deleteSelectedTemplate'));
         },
         error: function(request, status, error) {
             $('#selectedTemplate').html(error);
@@ -57,6 +68,7 @@ $('#viewSelectedTemplate').click(function(e) {
 
 $('#saveSelectedTemplate').click(function(e) {
     e.preventDefault();
+    if (!this.hasAttribute('href')) return;
     var content = $('#selectedTemplate textarea').val();
     if (content == null) {
         return;
@@ -70,9 +82,23 @@ $('#saveSelectedTemplate').click(function(e) {
         },
         success: function(data) {
             $('#selectedTemplate').html(data);
+            toggleAnchor($('#viewSelectedTemplate'));
+            toggleAnchor($('#editSelectedTemplate'));
+            toggleAnchor($('#saveSelectedTemplate'));
+            toggleAnchor($('#deleteSelectedTemplate'));
         },
         error: function(request, status, error) {
             $('#selectedTemplate').html(error);
         }
     });
 });
+
+function toggleAnchor(anchor) {
+    if (anchor.attr('href') == undefined) {
+        anchor.attr('href','#');
+        anchor.removeAttr('style');
+    } else {
+        anchor.removeAttr('href');
+        anchor.attr('style', 'color: grey; text-decoration: none;');
+    }
+}

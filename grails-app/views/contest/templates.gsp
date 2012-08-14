@@ -17,9 +17,10 @@
       <p>&nbsp;</p>
       <hr/>
       <p id="selectedTemplateControls" style="width: 500px; display: none;">
-         <a href="#" id="viewSelectedTemplate">View</a> |
+         <a id="viewSelectedTemplate" style="color: grey; text-decoration: none;">View</a> |
          <a href="#" id="editSelectedTemplate">Edit</a> |
-         <a href="#" id="saveSelectedTemplate">Save</a>
+         <a id="saveSelectedTemplate" style="color: grey; text-decoration: none;">Save</a> <!-- |
+         <a id="deleteSelectedTemplate" style="color: grey; text-decoration: none;">Delete</a> -->
          <br/>&nbsp;
       </p>
       <p id="selectedTemplate" style="width: 500px;"></p>
