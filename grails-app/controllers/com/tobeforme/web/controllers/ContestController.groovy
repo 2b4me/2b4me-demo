@@ -120,4 +120,25 @@ class ContestController {
         }
     }
     
+    def newTemplate() {
+        if (params.name.length() == 0 || params.content.length() == 0) {
+            throw new IllegalStateException('Template content cannot be empty')
+        }
+        def unescapedName = params.name
+            .replace('&lt;','<')
+            .replace('&gt;','>')
+            .replace('&amp;','&')
+        def unescapedContent = params.content
+            .replace('&lt;','<')
+            .replace('&gt;','>')
+            .replace('&amp;','&')
+            
+        EmailTemplate e = new EmailTemplate();
+        e.name = unescapedName
+        e.content = unescapedContent
+        e.save()
+        
+        render e.id
+    }
+    
 }

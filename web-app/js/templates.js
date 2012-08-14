@@ -75,29 +75,47 @@ $('#viewSelectedTemplate').click(function(e) {
 $('#saveSelectedTemplate').click(function(e) {
     e.preventDefault();
     if (!this.hasAttribute('href')) return;
+    
+    var name = $('#selectedTemplate input').val();
     var content = $('#selectedTemplate textarea').val();
-    if (content == null) {
-        return;
-    }
+    if (name == '' || content == '') return;
+    
     var templateId = $('#selectedTemplate').attr('templateId');
-    $.ajax('saveTemplateContent', {
-        cache: false,
-        data: {
-            id: templateId,
-            content: content
-        },
-        success: function(data) {
-            $('#selectedTemplate').html(data);
-            toggleAnchor($('#viewSelectedTemplate'));
-            toggleAnchor($('#editSelectedTemplate'));
-            toggleAnchor($('#saveSelectedTemplate'));
-            toggleAnchor($('#deleteSelectedTemplate'));
-            toggleAnchor($('#addNewTemplate'));
-        },
-        error: function(request, status, error) {
-            $('#selectedTemplate').html(error);
-        }
-    });
+    if (templateId != undefined) { // <--- need to figure out right way to do this
+        $.ajax('saveTemplateContent', {
+            cache: false,
+            data: {
+                id: templateId,
+                content: content
+            },
+            success: function(data) {
+                $('#selectedTemplate').html(data);
+                toggleAnchor($('#viewSelectedTemplate'));
+                toggleAnchor($('#editSelectedTemplate'));
+                toggleAnchor($('#saveSelectedTemplate'));
+                toggleAnchor($('#deleteSelectedTemplate'));
+                toggleAnchor($('#addNewTemplate'));
+            },
+            error: function(request, status, error) {
+                $('#selectedTemplate').html(error);
+            }
+        });
+    } else {
+        $.ajax('newTemplate', {
+            cache: false,
+            data: {
+                name: name
+                content: content
+            },
+            success: function(data) {
+                // update the lower area (back to blank?)
+                // add the new template to the list of templates at the top
+            },
+            error: function(request, status, error) {
+                // report the error somehow
+            }
+        });
+    }
 });
 
 $('#addNewTemplate').click(function(e) {
