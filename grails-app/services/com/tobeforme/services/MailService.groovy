@@ -5,7 +5,7 @@ import javax.mail.*
 
 class MailService {
     
-    def host = 'smtp.gmail.com'
+    def host = 'smtp.sendgrid.net'
     def user = 'info@2b4me.com'
     def port = '587'
     def method = 'smtp'

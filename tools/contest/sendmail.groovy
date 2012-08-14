@@ -30,7 +30,7 @@ def log = []
 log << "Email sent to the following users on ${currentDate}"
 log << ''
 
-def host = 'smtp.gmail.com'
+def host = 'smtp.sendgrid.net'
 def user = 'info@2b4me.com'
 def port = '587'
 def method = 'smtp'
@@ -100,7 +100,7 @@ new File('input/contestants.txt').withReader { reader ->
         
         log << to
         
-        this.sleep(1500)
+        this.sleep(5000) // five seconds between sending mail
     }
     
 }
