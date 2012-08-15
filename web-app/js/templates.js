@@ -104,7 +104,7 @@ $('#saveSelectedTemplate').click(function(e) {
         $.ajax('newTemplate', {
             cache: false,
             data: {
-                name: name
+                name: name,
                 content: content
             },
             success: function(data) {

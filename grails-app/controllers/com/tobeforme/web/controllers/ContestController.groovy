@@ -121,6 +121,8 @@ class ContestController {
     }
     
     def newTemplate() {
+        throw new UnsupportedOperationException(); // for now, until we're ready to finish this part
+        
         if (params.name.length() == 0 || params.content.length() == 0) {
             throw new IllegalStateException('Template content cannot be empty')
         }
@@ -139,6 +141,21 @@ class ContestController {
         e.save()
         
         render e.id
+    }
+    
+    def winnersPublished() {
+        def contestants = Contestant.list(sort: 'signupDate', order: 'asc')
+        runAsync {
+            contestants.each {
+                def content = contestService.setupVars(
+                    EmailTemplate.findByName('winners').content,
+                    [it.entry]
+                )
+                mailService.sendMail(it.email, '2b4me Contest Winners Published', content)
+                this.sleep(2000)
+            }
+        }
+        render 'Process started, check logs for details'
     }
     
 }
