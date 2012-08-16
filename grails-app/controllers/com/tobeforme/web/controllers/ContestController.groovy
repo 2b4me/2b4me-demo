@@ -158,4 +158,24 @@ class ContestController {
         render 'Process started, check logs for details'
     }
     
+    def claimPrize() {
+        if (!params.formSubmitted) return
+        
+        if (params.entry == '' || params.name == '' || params.prize == '' || params.date == '') {
+            throw new IllegalStateException('All input boxes must be filled')
+        }
+        
+        def c = Contestant.findByEntry(params.entry)
+        def content = contestService.setupVars(
+            EmailTemplate.findByName('claim').content,
+            [params.name, params.prize, params.date]
+        )
+        runAsync {
+            log.debug 'Sending claim email now to c.email...'
+            mailService.sendMail(c.email, 'Congratulations from 2b4me.com', content)
+            log.debug 'Done sending claim email'
+        }
+        render "Process started, check logs for details"
+    }
+    
 }
