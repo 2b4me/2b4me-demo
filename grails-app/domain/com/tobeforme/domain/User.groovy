@@ -7,7 +7,7 @@ class User implements Serializable {
 	String firstName
 	String lastName
 	Address address
-	boolean admin
+	boolean admin = false // default value
 	
 	static hasMany = [subscriptions: Subscription]
 
