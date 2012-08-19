@@ -3,6 +3,8 @@ package com.tobeforme.web.controllers
 import com.tobeforme.domain.*
 
 class AdminController {
+    
+    def loginService
 
     def index() { }
     
@@ -50,9 +52,34 @@ class AdminController {
     
     def addVendor() { }
     
-    def topMenu() { }
+    def topMenu() {
+        def s = Session.findBySessionId(session.id)
+        [u: User.get(s.userId)]
+    }
     
     def sidebarMenu() { }
+    
+    def login() {
+        if (params.login) {
+            try {
+                loginService.login(params.username, params.password, session.id)
+                redirect(action:'index')
+            } catch (SecurityException e) {
+                log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
+                def err = 'Username or password incorrect; please try again'
+                [err: err]
+            }
+        }
+    }
+    
+    def logout() {
+        loginService.logout(session.id)
+        redirect(action: 'login')
+    }
+    
+    def users() {
+        [users: User.list()]
+    }
     
 }
 

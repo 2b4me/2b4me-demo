@@ -7,6 +7,7 @@ class User implements Serializable {
 	String firstName
 	String lastName
 	Address address
+	boolean admin
 	
 	static hasMany = [subscriptions: Subscription]
 
@@ -15,7 +16,7 @@ class User implements Serializable {
         lastName nullable: true
         address nullable: true
         subscriptions nullable: true
-        password size: 8..14, blank: false
+        password blank: false
         emailAddress  email: true, blank: false, unique: true
     }
     

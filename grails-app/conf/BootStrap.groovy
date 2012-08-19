@@ -1,5 +1,6 @@
 import com.tobeforme.domain.*
 import java.util.*
+import com.tobeforme.services.BCryptService
 
 class BootStrap {
 
@@ -98,12 +99,14 @@ class BootStrap {
             countryCode: 'US'
         ).save()
         
+        def hash = BCryptService.hashpw('hello123', BCryptService.gensalt(4))
         User user = new User(
             emailAddress: 'daniel@silvanolte.com',
-            password: 'hello123',
+            password: hash,
             firstName: 'Daniel',
             lastName: 'Silva',
             address: userAddress,
+            admin: true,
             subscriptions: [dailyDeals, travelDeals]
         ).save()
         

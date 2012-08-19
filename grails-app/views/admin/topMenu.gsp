@@ -3,6 +3,6 @@
       <g:img dir="images" file="2b4me-logo.png" />
    </div>
    <div class="span10">
-      <p>Currently signed in as Daniel | <a href="#">Log out</a>
+      <p>Currently signed in as ${u.emailAddress} | <g:link action="logout">Log out</g:link>
    </div>
 </div>
