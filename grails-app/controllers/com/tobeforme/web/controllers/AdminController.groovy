@@ -61,13 +61,22 @@ class AdminController {
     
     def login() {
         if (params.login) {
+            log.debug "'${params.username}'"
+            log.debug "'${params.password}'"
+            
+            if (params.username == '' || params.password == '') {
+                log.debug 'Username and/or password were blank'
+                def err = 'Username and password must be supplied'
+                return [err: err]
+            }
+            
             try {
                 loginService.login(params.username, params.password, session.id)
                 redirect(action:'index')
             } catch (SecurityException e) {
                 log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
                 def err = 'Username or password incorrect; please try again'
-                [err: err]
+                return [err: err]
             }
         }
     }

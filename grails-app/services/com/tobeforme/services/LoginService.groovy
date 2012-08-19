@@ -10,7 +10,13 @@ class LoginService {
         if (!u) {
             throw new SecurityException("User not found")
         }
-        if (!BCryptService.checkpw(password, u.password)) {
+        def auth = false
+        try {
+            auth = BCryptService.checkpw(password, u.password)
+        } catch (Exception e) {
+            throw new SecurityException(e.message)
+        }
+        if (!auth) {
             throw new SecurityException("Password incorrect")
         }
         def s = new Session()
