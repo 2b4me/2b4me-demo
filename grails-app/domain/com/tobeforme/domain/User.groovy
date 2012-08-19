@@ -18,6 +18,7 @@ class User implements Serializable {
         subscriptions nullable: true
         password blank: false
         emailAddress  email: true, blank: false, unique: true
+        admin nullable: true
     }
     
     static mapping = {
