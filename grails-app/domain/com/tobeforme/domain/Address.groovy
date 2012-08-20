@@ -15,10 +15,7 @@ class Address implements Serializable {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'address_sequence', 
-                    sequenceName: 'address_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'address_id_sequence']
     }
     
 }

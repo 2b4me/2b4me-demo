@@ -12,10 +12,7 @@ class Media {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'media_sequence', 
-                    sequenceName: 'media_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'media_id_sequence']
     }
     
 }

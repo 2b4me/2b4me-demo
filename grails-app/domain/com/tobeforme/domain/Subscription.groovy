@@ -11,10 +11,7 @@ class Subscription implements Serializable {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'subscription_sequence', 
-                    sequenceName: 'subscription_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'subscription_id_sequence']
     }
     
     boolean equals(Object obj) {

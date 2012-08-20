@@ -15,10 +15,7 @@ class Contestant {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'contestant_sequence', 
-                    sequenceName: 'contestant_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'contestant_id_sequence']
     }
     
 }

@@ -21,10 +21,7 @@ class Deal implements Serializable {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'deal_sequence', 
-                    sequenceName: 'deal_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'deal_id_sequence']
         teaser sqlType: 'text'
     }
 	

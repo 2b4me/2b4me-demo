@@ -11,10 +11,7 @@ class EmailTemplate {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'email_template_sequence', 
-                    sequenceName: 'email_template_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'email_template_id_sequence']
         content sqlType: 'text'
     }
     

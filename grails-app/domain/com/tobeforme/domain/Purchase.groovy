@@ -14,10 +14,7 @@ class Purchase implements Serializable {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'purchase_sequence', 
-                    sequenceName: 'purchase_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'purchase_id_sequence']
     }
     
 }

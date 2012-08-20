@@ -14,10 +14,7 @@ class Vendor implements Serializable {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'vendor_sequence', 
-                    sequenceName: 'vendor_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'vendor_id_sequence']
     }
     
 }

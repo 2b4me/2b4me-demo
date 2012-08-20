@@ -11,10 +11,7 @@ class FeaturedDeal {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'featured_deal_sequence', 
-                    sequenceName: 'featured_deal_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'featured_deal_id_sequence']
     }
     
 }

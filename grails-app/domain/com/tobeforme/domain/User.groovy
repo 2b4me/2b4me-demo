@@ -23,10 +23,7 @@ class User implements Serializable {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'user_sequence', 
-                    sequenceName: 'user_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'user_id_sequence']
         table '"user"'
         subscriptions lazy: false, joinTable: [name: '"user_subscriptions"',
                                                key: 'user_id',

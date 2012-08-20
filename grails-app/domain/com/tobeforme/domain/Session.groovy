@@ -12,10 +12,7 @@ class Session implements Serializable {
     
     static mapping = {
         id generator: 'sequence',
-           params: [name: 'session_sequence', 
-                    sequenceName: 'session_sequence',
-                    initialValue: 1,
-                    allocationSize: 1]
+           params: [sequence: 'session_id_sequence']
     }
     
 }
