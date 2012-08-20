@@ -2,3 +2,5 @@ target
 stacktrace.log
 .eprj
 diff
+contestants.csv
+contestants.sql
