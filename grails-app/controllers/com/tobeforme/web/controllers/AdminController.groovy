@@ -53,7 +53,7 @@ class AdminController {
     def addVendor() { }
     
     def topMenu() {
-        def s = Session.findBySessionId(session.id)
+        def s = Session.findBySessionId(request.sessionId)
         [u: User.get(s.userId)]
     }
     
@@ -71,7 +71,7 @@ class AdminController {
             }
             
             try {
-                loginService.login(params.username, params.password, session.id)
+                loginService.login(params.username, params.password, request.sessionId)
                 redirect(action:'index')
             } catch (SecurityException e) {
                 log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
@@ -82,7 +82,7 @@ class AdminController {
     }
     
     def logout() {
-        loginService.logout(session.id)
+        loginService.logout(request.sessionId)
         redirect(action: 'login')
     }
     
