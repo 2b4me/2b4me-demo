@@ -9,6 +9,14 @@ class Subscription implements Serializable {
         code unique: true
     }
     
+    static mapping = {
+        id generator: 'sequence',
+           params: [name: 'subscription_sequence', 
+                    sequenceName: 'subscription_sequence',
+                    initialValue: 1,
+                    allocationSize: 1]
+    }
+    
     boolean equals(Object obj) {
         // if (this == obj) return true
         if (!(obj instanceof Subscription)) return false
@@ -19,4 +27,5 @@ class Subscription implements Serializable {
     int hashCode() {
         return 37*17 + (int)(id ^ (id >>> 32))
     }
+    
 }

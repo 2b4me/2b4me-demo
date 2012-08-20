@@ -12,4 +12,13 @@ class Address implements Serializable {
     static constraints = {
         address1 unique: ['address2','city','state','postalCode','countryCode']
     }
+    
+    static mapping = {
+        id generator: 'sequence',
+           params: [name: 'address_sequence', 
+                    sequenceName: 'address_sequence',
+                    initialValue: 1,
+                    allocationSize: 1]
+    }
+    
 }

@@ -18,10 +18,15 @@ class Deal implements Serializable {
 	static constraints = {
 	    shortName unique: true
     }
-
-	static mapping = {
-		teaser sqlType: 'text'
-	}
+    
+    static mapping = {
+        id generator: 'sequence',
+           params: [name: 'deal_sequence', 
+                    sequenceName: 'deal_sequence',
+                    initialValue: 1,
+                    allocationSize: 1]
+        teaser sqlType: 'text'
+    }
 	
 	def discountInPct() {
 		def diff = price/originalPrice

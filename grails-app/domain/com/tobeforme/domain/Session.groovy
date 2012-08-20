@@ -9,4 +9,13 @@ class Session implements Serializable {
     
     static constraints = {
     }
+    
+    static mapping = {
+        id generator: 'sequence',
+           params: [name: 'session_sequence', 
+                    sequenceName: 'session_sequence',
+                    initialValue: 1,
+                    allocationSize: 1]
+    }
+    
 }

@@ -11,4 +11,13 @@ class Vendor implements Serializable {
     static constraints = {
         code matches: '([A-Z]|[0-9])([A-Z]|[0-9])', unique: true
     }
+    
+    static mapping = {
+        id generator: 'sequence',
+           params: [name: 'vendor_sequence', 
+                    sequenceName: 'vendor_sequence',
+                    initialValue: 1,
+                    allocationSize: 1]
+    }
+    
 }

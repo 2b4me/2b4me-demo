@@ -12,4 +12,13 @@ class Contestant {
         email unique: true
         ineligibilityReason nullable: true
     }
+    
+    static mapping = {
+        id generator: 'sequence',
+           params: [name: 'contestant_sequence', 
+                    sequenceName: 'contestant_sequence',
+                    initialValue: 1,
+                    allocationSize: 1]
+    }
+    
 }
