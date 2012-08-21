@@ -147,12 +147,17 @@ class ContestController {
         def contestants = Contestant.list(sort: 'signupDate', order: 'asc')
         runAsync {
             contestants.each {
-                def content = contestService.setupVars(
-                    EmailTemplate.findByName('winners').content,
-                    [it.entry]
-                )
-                mailService.sendMail(it.email, '2b4me Contest Winners Published', content)
-                this.sleep(2000)
+                if (!it.ineligible) {
+                    def content = contestService.setupVars(
+                        EmailTemplate.findByName('winners').content,
+                        [it.entry]
+                    )
+                    mailService.sendMail(it.email, '2b4me Contest Winners Published', content)
+                    this.sleep(2000)
+                } else {
+                    log.debug "Didn't send email to ${it.email} because they are not eligible"
+                }
+                
             }
         }
         render 'Process started, check logs for details'
@@ -212,9 +217,9 @@ class ContestController {
             def w2 = winners.get(i++)
             def w3 = winners.get(i++)
             lines << "Winners for prize: ${p.name}\n"
-            lines << "First place:\t${w1.email}\t${w1.entry}\n"
-            lines << "Second place:\t${w2.email}\t${w2.entry}\n"
-            lines << "Third place:\t${w3.email}\t${w3.entry}\n"
+            lines << "First place:\t${w1.email}\t${w1.entry}\t${w1.ineligible}\n"
+            lines << "Second place:\t${w2.email}\t${w2.entry}\t${w1.ineligible}\n"
+            lines << "Third place:\t${w3.email}\t${w3.entry}\t${w1.ineligible}\n"
             lines << '\n'
         }
         
