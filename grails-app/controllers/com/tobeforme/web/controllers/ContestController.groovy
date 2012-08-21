@@ -178,4 +178,48 @@ class ContestController {
         render "Process started, check logs for details"
     }
     
+    def selectWinners() {
+        def contestants = Contestant.list()
+        def prizes = Prize.list()
+
+        if (prizes.size() * 10 > contestants.size()) {
+            throw new IllegalStateException("The number of contestants " +
+                "(${contestants.size()}) exceeded " +
+                "the number of prizes times ten (${prizes.size() * 10}). " +
+                "Reduce the number of prizes to " +
+                (int)Math.floor(contestants.size()/10) + " or less.")
+        }
+
+        def winners = []
+        def datetime = new Date()
+        def seed = datetime.getTime()
+        def r = new java.util.Random(seed)
+        def limit = prizes.size() * 3
+
+        while (winners.size() < limit) {
+            def w = contestants.get(r.nextInt(contestants.size()))
+            if (!winners.contains(w)) winners << w
+        }
+        
+        def lines = new StringBuilder()
+        lines << "Drawing ran on ${datetime}\n"
+        lines << "Randomizer seed was ${seed}\n"
+        lines << '----------------------------------------------\n'
+        lines << '\n'
+        def i = 0
+        prizes.each { p ->
+            def w1 = winners.get(i++)
+            def w2 = winners.get(i++)
+            def w3 = winners.get(i++)
+            lines << "Winners for prize: ${p.name}\n"
+            lines << "First place:\t${w1.email}\t${w1.entry}\n"
+            lines << "Second place:\t${w2.email}\t${w2.entry}\n"
+            lines << "Third place:\t${w3.email}\t${w3.entry}\n"
+            lines << '\n'
+        }
+        
+        render lines
+        
+    }
+    
 }
