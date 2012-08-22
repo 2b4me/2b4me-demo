@@ -26,7 +26,7 @@ class Drawing {
             sb << "Winners for prize: ${s.prize.name}\n"
             def x = ['First', 'Second', 'Third']
             s.winners.eachWithIndex { w, i ->
-                sb << "${sb.get(i)}:\t${w.email}\t${w.entry}\t${w.ineligible}\n"
+                sb << "${sb.get(i)} place:\t${w.email}\t${w.entry}\t${w.ineligible}\n"
                 
             }
             sb << '\n'
