@@ -281,13 +281,15 @@ class BootStrap {
 
 </html>'''
 
-        new EmailTemplate(name: 'welcome', content: welcomeContent).save()
-        new EmailTemplate(name: 'winners', content: winnersContent).save()
-        new EmailTemplate(name: 'claim', content: claimContent).save()
-        new EmailTemplate(name: 'message', content: messageContent).save()
+        def emt
+        emt = new EmailTemplate(name: 'welcome', content: welcomeContent).save()
+        emt = new EmailTemplate(name: 'winners', content: winnersContent).save()
+        emt = new EmailTemplate(name: 'claim', content: claimContent).save()
+        emt = new EmailTemplate(name: 'message', content: messageContent).save()
         
-        new Prize(name: '$50 Cash Prize').save()
-        new Prize(name: '$20 Cash Prize').save()
+        def prize
+        prize = new Prize(name: '$50 Cash Prize').save()
+        prize = new Prize(name: '$20 Cash Prize').save()
     }
 
     def destroy = {

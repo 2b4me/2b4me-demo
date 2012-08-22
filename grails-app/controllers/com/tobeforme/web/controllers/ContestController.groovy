@@ -10,7 +10,7 @@ class ContestController {
     def mailService
 
     def index() {
-        render new Date()
+        
     }
     
     def signup() {
@@ -206,24 +206,21 @@ class ContestController {
             if (!winners.contains(w)) winners << w
         }
         
-        def lines = new StringBuilder()
-        lines << "Drawing ran on ${datetime}\n"
-        lines << "Randomizer seed was ${seed}\n"
-        lines << '----------------------------------------------\n'
-        lines << '\n'
-        def i = 0
+        // save the results to the database
+        def counter = 0
+        def d  = new Drawing(drawingDate: datetime, seed: seed, winners: [])
         prizes.each { p ->
-            def w1 = winners.get(i++)
-            def w2 = winners.get(i++)
-            def w3 = winners.get(i++)
-            lines << "Winners for prize: ${p.name}\n"
-            lines << "First place:\t${w1.email}\t${w1.entry}\t${w1.ineligible}\n"
-            lines << "Second place:\t${w2.email}\t${w2.entry}\t${w1.ineligible}\n"
-            lines << "Third place:\t${w3.email}\t${w3.entry}\t${w1.ineligible}\n"
-            lines << '\n'
+            def w = new Winners(prize: p, winners: [])
+            for (i in 0..2) {
+                w.winners << winners.get(counter++)
+            }
+            def s = w.save()
+            log.debug s
+            d.winners << w
         }
+        d.save()
         
-        render lines
+        render d.toString()
         
     }
     
