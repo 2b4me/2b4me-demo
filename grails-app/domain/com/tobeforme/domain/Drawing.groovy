@@ -21,7 +21,6 @@ class Drawing {
         sb << "Randomizer seed was ${seed}\n"
         sb << '----------------------------------------------\n'
         sb << '\n'
-        def i = 0
         winners.each { s ->
             sb << "Winners for prize: ${s.prize.name}\n"
             def x = ['First', 'Second', 'Third']
