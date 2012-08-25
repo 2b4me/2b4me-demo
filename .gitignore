@@ -2,9 +2,6 @@ target
 stacktrace.log
 .eprj
 diff
-contestants.csv
-contestants.sql
-drawing.csv
-drawing_winners.csv
-winners.csv
-winners_contestant.csv
+data/*
+tools/query-builder/input/*
+tools/query-builder/output/*
