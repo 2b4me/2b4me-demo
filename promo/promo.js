@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    countdown(2012, 9, 1); // kick off the countdown
+    countdown(2012, 8, 28); // kick off the countdown
     
     $('.nyi').click(function(event){
        alert('not yet implemented');
@@ -188,7 +188,7 @@ $(document).ready(function() {
     
     $('#show-winners').click(function(event) {
         event.preventDefault();
-        $('#contest-winners .content').slideDown();
+        $('#previous-winners').slideDown();
         $('#show-winners').fadeOut(function(e) {
             $('#hide-winners').fadeIn();
         });
@@ -196,7 +196,15 @@ $(document).ready(function() {
     
     $('#hide-winners').click(function(event) {
         event.preventDefault();
-        $('#contest-winners .content').slideUp();
+        $('#previous-winners').slideUp();
+        $('#hide-winners').fadeOut(function(e) {
+            $('#show-winners').fadeIn();
+        });
+    });
+    
+    $('#hide-winners2').click(function(event) {
+        event.preventDefault();
+        $('#previous-winners').slideUp();
         $('#hide-winners').fadeOut(function(e) {
             $('#show-winners').fadeIn();
         });
@@ -293,10 +301,10 @@ function countdown(yr, m, d) {
         dsec = '0' + dsec;
     }
     
-    $('#d').html(dday);
-    $('#h').html(dhour);
-    $('#m').html(dmin);
-    $('#s').html(dsec);
+    $('#d2').html(dday);
+    $('#h2').html(dhour);
+    $('#m2').html(dmin);
+    $('#s2').html(dsec);
     
     if (!(dday == 0 && dhour == 0 && dmin == 0 && dsec == 1)) {
         // loop the countdown after 1 sec

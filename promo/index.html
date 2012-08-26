@@ -6,8 +6,10 @@
       <link rel="stylesheet" type="text/css" href="bootstrap.css" />
       <link rel="stylesheet" type="text/css" href="style.css" />
       <link rel="stylesheet" type="text/css" href="style-ext.css" />
+      <link rel="stylesheet" type="text/css" href="style2.css" />
+      <link rel="stylesheet" type="text/css" href="normalize.css" />
    </head>
-   <body>
+   <body style="background-color: white;  ">
       <img src="images/bg2.png" id="bg" />
       <!--START HEADER-->
       <div id="header">
@@ -22,139 +24,155 @@
          </div>
       </div>
       <!--END HEADER-->
-      <!-- START COUNTDOWN -->
-      <div id="countdown">
-         <div id="countxt"></div>
-         <div id="counter">
-            <div id="circle">
-               <span id="d">30</span>
-               <p class="labeltime">Days</p>
+      <div id="container">
+         <div class="headline">True local DEALS... with a TWIST</div>
+         <div class="bluebox">
+            <div class="stamps"><img src="images/stamps.png" /></div>
+            <!-- 240 x 200 -->
+            <p>
+               <span class="headline">BE PART OF OUR WEEKLY RAFFLE!</span><br />
+               <span class="sub">You could win CASH and DEALS up to $100 value!</span>
+            </p>
+            <div>
+               <form>
+                  <input class="textfieldstyle" name="textfield" type="text" size="30" value="Enter Your Email Address" />  <input class="textfieldstyle" name="textfield" type="text" size="15" value="Enter Zip Code" />  <button type="submit" class="button">Subscribe</button>
+               </form>
             </div>
-            <div id="timer">
-               <div class="time">
-                  <div><span id="h">23</span></div>
-                  <p class="labeltime">Hours</p>
+            <br /><br />
+            <span style="font-size:18px; color:#004262; letter-spacing:0.1em;">NEXT DRAWING'S PRIZES ON <span style="font-weight: bold;">08/28/2012</span></span><br />
+            <div style="display:block; margin-bottom:5px; font-size:16px; color:#004262; font-style:italic;"><img style="margin-bottom:3px; margin-right:3px;" src="images/clock.png" /><span id="d2">2</span> DAYS : <span id="h2">23</span> HOURS : <span id="m2">59</span> MINS : <span id="s2">59</span> SEC</div>
+            <!--row-->
+            <div class="row">
+               <div class="item">
+                  <img src="images/50.jpg" />
+                  <div style="padding:10px 15px 5px 15px;">
+                     <span class="prize">$50 Cash Prize</span><br />
+                     <span class="description">$50 cash to spend however you like!</span>
+                  </div>
                </div>
-               <span class="colon">:</span>
-               <div class="time">
-                  <div><span id="m">59</span></div>
-                  <p class="labeltime">Minutes</p>
+               <div class="item">
+                  <img src="images/20.jpg" />
+                  <div style="padding:10px 15px 5px 15px;">
+                     <span class="prize">$20 Cash Prize</span><br />
+                     <span class="description">$20 cash to spend however you like!</span>
+                  </div>
                </div>
-               <span class="colon">:</span>
-               <div class="time">
-                  <div><span id="s">59</span></div>
-                  <p class="labeltime">Seconds</p>
+               <div class="item">
+                  <img src="images/thumb3.jpg" />
+                  <div style="padding:10px 15px 5px 15px;">
+                     <span class="prize">$10 Gift Certificate</span><br />
+                     <span class="description">$10 to spend at One Burger!</span>
+                  </div>
                </div>
             </div>
+            <!--row ends-->
+            <br />
          </div>
-         <div id="formfeed">
-            <p>Sign up for chance to <strong>WIN</strong> a cash prize or free deal, up to a $50 value!</p>
-            <form>
-               <input type="text" class="text-input" value="Enter email" />
-               <button type="submit" class="green-btn">submit</button>
-            </form>
-            <p class="signup-subtext">Only your e-mail address is required to win!</p>
-         </div>
-         <p class="small" id="terms">Benefits of signing up getting the latest updates from 2b4me.com, early access and a chance to win a cash prize or free deal, valued at up to $50. For full contest rules, please see our <a data-toggle="modal" href="#contestModal">Terms &amp; Conditions</a>. If you lose your contest number, just submit your e-mail address again, and it will be e-mailed to you. <a data-toggle="modal" href="#privacyModal">Click here to read our privacy policy</a>.</p>
-      </div>
-      <!-- END COUNTDOWN -->
-      <p>&nbsp;</p>
-      <!-- START WINNER'S CIRCLE -->
-      <div id="contest-winners">
-         <div class="headline">
-            <h2>Our latest contest winners!</h2>
-            <p><a id="show-winners" href="see-winners">Click here to see the details</a><a id="hide-winners" style="display:none;" href="hide-winners">Click here to hide the details</a></p>
-         </div>
-         <div class="content" style="display: none;">
-            <div class="winners">
-               <h3>Drawing of August 24</h3>
-               <h3>Contest number <span class="red">00141</span> wins!
-                   Prize: <span class="red">$50</span> cash!</h3>
-               <h3>Contest number <span class="red">01181</span> wins!
-                   Prize: <span class="red">$20</span> cash!</h3>
+         <div class="greenbox">
+            <p class="green"><a id="show-winners" href="#" style="color: #437B18; font-size:16px;">Click here to see previous winners</a></p>
+            <p class="green"><a id="hide-winners" href="#" style="color: #437B18; font-size:16px; display: none;">Click here to hide previous winners</a></p>
+            <div id="previous-winners" style="display: none;">
+               &nbsp;<br />
+               <span class="headline">08/24/2012 RAFFLE WINNERS</span><br /><br />
+               <!--row-->
+               <div class="row">
+                  <div class="item" style="margin-left: 110px;">
+                     <img src="images/50.jpg" />
+                     <div style="padding:10px 15px 5px 15px;">
+                        <span class="idnumber">00141</span><br />
+                        <span class="prize">$50 GIFT CERTIFICATE</span><br />
+                        <span class="description">$50 cash to spend however you like!</span>
+                     </div>
+                     <div class="button"><a href="#">Claim Prize</a></div>
+                  </div>
+                  <div class="item">
+                     <img src="images/20.jpg" />
+                     <div style="padding:10px 15px 5px 15px;">
+                        <span class="idnumber">01181</span><br />
+                        <span class="prize">$20 GIFT CERTIFICATE</span><br />
+                        <span class="description">$20 cash to spend however you like!</span>
+                     </div>
+                     <div class="button"><a href="#">Claim Prize</a></div>
+                  </div>
+                  <!--
+                     <div class="item">
+                     	<img src="images/thumb6.jpg">
+                         <div style="padding:10px 15px 5px 15px;">
+                     	<span class="idnumber">45678</span><br>
+                         <span class="prize">$40 GIFT CERTIFICATE</span><br>
+                         <span class="description">Mirko's A Taste of Europe European Cuisine</span>
+                         </div>
+                         <div class="button"><a href="#">Claim Prize</a></div>
+                     </div>
+                     -->
+               </div>
+               <!--row ends-->
                <!--
-               <h3>Alberto from West Miami, FL won!
-                   Prize: <span class="red">$50</span> cash!</h3>
-               <h3>Lionel from Coral Gables, FL won!
-                   Prize: <span class="red">$20</span> cash!</h3>
+                  <span class="headline">07/24/2012 RAFFLE WINNERS</span><br><br>
+                   -->
+               <!--row-->
+               <!--
+                  <div class="row">
+                   	<div class="item">
+                    	<img src="images/thumb7.jpg">
+                        <div style="padding:10px 15px 5px 15px;">
+                    	<span class="idnumber">45678</span><br>
+                        <span class="prize">$40 GIFT CERTIFICATE</span><br>
+                        <span class="description">Mirko's A Taste of Europe European Cuisine</span>
+                        </div>
+                        <div class="button"><a href="#">Claim Prize</a></div>
+                    </div>
+                  
+                    <div class="item">
+                    	<img src="images/thumb8.jpg">
+                        <div style="padding:10px 15px 5px 15px;">
+                    	<span class="idnumber">45678</span><br>
+                        <span class="prize">$40 GIFT CERTIFICATE</span><br>
+                        <span class="description">Mirko's A Taste of Europe European Cuisine</span>
+                        </div>
+                        <div class="button"><a href="#">Claim Prize</a></div>
+                    </div>
+                  
+                    <div class="item">
+                    	<img src="images/thumb9.jpg">
+                        <div style="padding:10px 15px 5px 15px;">
+                    	<span class="idnumber">45678</span><br>
+                        <span class="prize">$40 GIFT CERTIFICATE</span><br>
+                        <span class="description">Mirko's A Taste of Europe European Cuisine</span>
+                        </div>
+                        <div class="button"><a href="#">Claim Prize</a></div>
+                    </div>
+                  </div>
+                  -->
+               <!--row ends-->
+               <p class="alert">Prizes expired in seven (7) days from being awarded. Don't delay!</p>
+               <div class="sub">PREVIOUS WINNERS</div>
+               <br />
+               <p class="prevwin">Drawing of 08/21/2012 <span class="prevwinid">00020</span> wins $50 Cash! <a href="#"><em>Did you win? Claim it now!</em></a></p>
+               <br />
+               <p class="prevwin">Drawing of 08/21/2012 <span class="prevwinid">01848</span> wins $20 Cash! <a href="#"><em>Did you win? Claim it now!</em></a></p>
+               <br />
+               <p class="prevwin">Drawing of 08/17/2012 <span class="prevwinid">08099</span> wins $50 Cash! <span class="expired">Expired</span></p>
+               <br />
+               <p class="prevwin">Drawing of 08/17/2012 <span class="prevwinid">Nestor, from Miami, FL</span> wins $20 Cash!</p>
+               <br />
+               <p class="prevwin">Drawing of 08/13/2012 <span class="prevwinid">Adelaida, from Hialeah, FL</span> wins $50 Cash!</p>
+               <br />
+               <p class="prevwin">Drawing of 08/13/2012 <span class="prevwinid">02012</span> wins $20 Cash! <span class="expired">Expired</span></p>
+               <br />
+               <!--
+               <br />
+               <p class="green"><a href="#" id="hide-winners2" style="color: #437B18;">Close</a></p>
                 -->
             </div>
-            <div class="sub">
-               <h4>To claim your prize, please send an email to
-                  <a href="mailto:info@2b4me.com">info@2b4me.com</a> with your
-                  legal name and address, and we will mail you a cashier's
-                  check.<br/>&nbsp;</h4>
-               <h4 class="exp">Prizes now expire in <em>seven (7)</em> days from
-                  being awarded, don't delay!</h4>
-            </div>
-            <!--
-            <div class="sub">
-               <p>Many thanks to all who participated. We will be having more
-                  drawings. If you've already signed up, you are already
-                  entered! Tell your friends, all that is required to sign up
-                  with your e-mail address to enter!</p>
-            </div>
-             -->
-            <div class="sub">
-               <h3>Next drawing is August 28!</h3>
-               <h3>Prizes: $50 and $20</h3>
-            </div>
-            <div class="previous-winners last">
-               <h3>Previous winners</h3>
-               <div class="previous-winner float-left">
-                  <p><strong>$50 cash prize winners</strong></p>
-                  <ul>
-                     <li>Alberto from West Miami, FL (6/25)</li>
-                     <li><del>Contestant 06915 (not claimed!) (6/28)</del> <em>expired</em></li>
-                     <li><del>Contestant 07535 (not claimed!) (7/1)</del> <em>expired</em></li>
-                     <li><del>Contestant 08113 (not claimed!) (7/4)</del> <em>expired</em></li>
-                     <li><del>Contestant 04873 (not claimed!) (7/7)</del> <em>expired</em></li>
-                     <li>Elizabeth from Miami, FL (7/12)</li>
-                     <li><del>Contestant 08945 (not claimed!) (7/16)</del> <em>expired</em></li>
-                     <li><del>Contestant 00896 (not claimed!) (7/20)</del> <em>expired</em></li>
-                     <li><del>Contestant 08945 (not claimed!) (7/24)</del> <em>expired</em></li>
-                     <li>Peter, from New York, NY (7/28)</li>
-                     <li>Mark, from Kendall, FL (8/1)</li>
-                     <li>Rommell, from Hialeah, FL (8/6)</li>
-                     <li><del>Contestant 06083 (not claimed!) (8/9)</del> <em>expired</em></li>
-                     <li>Adelaida, from Hialeah, FL (8/13)</li>
-                     <li><del>Contestant 08099 (not claimed!) (8/17)</del> <em>expired</em></li>
-                     <li>Contestant 00020 (not claimed!) (8/21) <strong class="exp">Exp 8/28!</strong></li>
-                     
-                     <!-- <li>Contestant ##### (not claimed!) (#/#) <strong class="exp">Exp #/#!</strong></li> -->
-                  </ul>
-               </div>
-               <div class="previous-winner float-right">
-                  <p><strong>$20 cash prize winners</strong></p>
-                  <ul>
-                     <li>Lionel from Coral Gables, FL (6/25)</li>
-                     <li>Tamara from Palmetto Bay, FL (6/28)</li>
-                     <li>Ivette from Kendall West, FL (7/1)</li>
-                     <li><del>Contestant 05884 (not claimed!) (7/4)</del> <em>expired</em></li>
-                     <li><del>Contestant 06435 (not claimed!) (7/7)</del> <em>expired</em></li>
-                     <li><del>Contestant 09536 (not claimed!) (7/12)</del> <em>expired</em></li>
-                     <li><del>Contestant 06435 (not claimed!) (7/16)</del> <em>expired</em></li>
-                     <li>Maria from Hialeah, FL (7/20)</li>
-                     <li><del>Contestant 01848 (not claimed!) (7/24)</del> <em>expired</em></li>
-                     <li>Tammy, from Miami, FL (7/28)</li>
-                     <li><del>Contestant 08945 (not claimed!) (8/1)</del> <em>expired</em></li>
-                     <li>Yanibis, from Miami, FL (8/6)</li>
-                     <li><del>Contestant 01932 (not claimed!) (8/9)</del> <em>expired</em></li>
-                     <li><del>Contestant 02012 (not claimed!) (8/13)</del> <em>expired</em></li>
-                     <li>Nestor, from Miami, FL (8/17)</li>
-                     <li>Contestant 01848 (not claimed!) (8/21) <strong class="exp">Exp 8/28!</strong></li>
-                     
-                     <!-- <li>Contestant ##### (not claimed!) (#/#) <strong class="exp">Exp #/#!</strong></li> -->
-                  </ul>
-               </div>
-               <div class="clear-both"></div>
-            </div>
          </div>
+         <!--greenbox ends-->
       </div>
-      <!-- END WINNER'S CIRCLE -->
-      <div id="savewed">
-         <h2>True local DEALS... with a TWIST</h2>
-         <div class="col left">
+      <!--! end of #container -->
+      <div id="savewed" style="height: 525px; width: 1000px; padding: 0px;">
+         <!-- <h2>True local DEALS... with a TWIST</h2> -->
+         <div id="countxt" style="margin-left: 150px;"></div>
+         <div class="col left" style="margin-top: 60px;">
             <div>
                <h3>Expert Opinions</h3>
                <p class="small">Local experts weigh in on the quality of our offers to give you confidence in the deals you buy. Not sure which deal is best for you? Trust our experts to show you the way.</p>
@@ -164,8 +182,8 @@
                <p class="small">Some deals just make sense together... and you can benefit! Buying multiple deals at once can net you some big savings ON TOP of the savings you will already have.</p>
             </div>
          </div>
-         <img src="images/image-large2.png" />
-         <div class="col right">
+         <img src="images/image-large2.png" style="margin-top: 60px;" />
+         <div class="col right" style="margin-top: 60px;">
             <div>
                <h3>Financing</h3>
                <p class="small">Make the dream a reality with available financing on our mega-deals and travel packages. Our financing packages are accessible to most consumers and open the doors to new possibilities.</p>
@@ -227,44 +245,44 @@
             </ul>
          </div>
          <!--
-         <div class="expert-opinion">
-            <div class="left">
-               <div class="portrait">
-                  <img src="images/chefs.png" />
+            <div class="expert-opinion">
+               <div class="left">
+                  <div class="portrait">
+                     <img src="images/chefs.png" />
+                  </div>
                </div>
-            </div>
-            <div class="right">
-               <div class="opinions">
-                  <h3 class="heading">Best Restaurants in Miami</h3>
-                  <p>We have expert chefs on staff to provide unbiased commentary on all of our
-                     Dining-related deals.
-                     No more wondering if a certain deal really is worth the trouble. No more
-                     surprises, as you can go confidently to your dining experience knowing what
-                     to expect. Focus on having a good time, and let us show you the way.</p>
-                  <h3><em>Bon Appetit!</em></h3>
+               <div class="right">
+                  <div class="opinions">
+                     <h3 class="heading">Best Restaurants in Miami</h3>
+                     <p>We have expert chefs on staff to provide unbiased commentary on all of our
+                        Dining-related deals.
+                        No more wondering if a certain deal really is worth the trouble. No more
+                        surprises, as you can go confidently to your dining experience knowing what
+                        to expect. Focus on having a good time, and let us show you the way.</p>
+                     <h3><em>Bon Appetit!</em></h3>
+                     <!-
+                     <ul>
+                        <li>Rest 1</li>
+                        <li>Rest 2</li>
+                        <li>Rest 3</li>
+                     </ul>
+                     ->
+                  </div>
                   <!-
-                  <ul>
-                     <li>Rest 1</li>
-                     <li>Rest 2</li>
-                     <li>Rest 3</li>
-                  </ul>
-                  ->
-               </div>
-               <!-
-               <div class="dishes">
-                  <div class="description">
-                     Lorem ipsum...
+                  <div class="dishes">
+                     <div class="description">
+                        Lorem ipsum...
+                     </div>
+                     <div class="picture">
+                        <img src="http://placehold.it/160x90" />
+                     </div>
+                     <div class="clear-both"></div>
                   </div>
-                  <div class="picture">
-                     <img src="http://placehold.it/160x90" />
-                  </div>
-                  <div class="clear-both"></div>
+                   ->
                </div>
-                ->
+               <div class="clear-both"></div>
             </div>
-            <div class="clear-both"></div>
-         </div>
-          -->
+             -->
       </div>
       <div class="blocks">
          <img src="images/deals.png" class="smallimage" />
@@ -373,7 +391,7 @@
             </div>
             <div id="merchantSignupForm">
                <div id="merchantContactName" class="control-group"><label>Contact name:</label><input type="text" /></div>
-               <div id="merchantCompanyName" class="control-group"><label>Company name:</label><input  type="text" /></div>
+               <div id="merchantCompanyName" class="control-group"><label>Company name:</label><input type="text" /></div>
                <div id="merchantContactInfo" class="control-group"><label>Email address (or Phone Number):</label><input type="text" /></div>
                <div id="merchantBusiness" class="control-group"><label>Type of business:</label><input type="text" /></div>
             </div>
@@ -427,8 +445,6 @@
          </div>
       </div>
       <!-- END contest terms and conditions modal -->
-      
-      
       <!-- START privacy modal -->
       <div class="modal hide fade" id="privacyModal">
          <div class="modal-header">
@@ -442,16 +458,21 @@
                <dt>What do we use your information for?</dt>
                <dd>Any of the information we collect from you may be used in one of the following ways:</dd>
                <dd>; To personalize your experience<br />
-                  (your information helps us to better respond to your individual needs)</dd>
+                  (your information helps us to better respond to your individual needs)
+               </dd>
                <dd>; To improve our website<br />
-                  (we continually strive to improve our website offerings based on the information and feedback we receive from you)</dd>
+                  (we continually strive to improve our website offerings based on the information and feedback we receive from you)
+               </dd>
                <dd>; To improve customer service<br />
-                  (your information helps us to more effectively respond to your customer service requests and support needs)</dd>
+                  (your information helps us to more effectively respond to your customer service requests and support needs)
+               </dd>
                <dd>; To process transactions<br />
-                  Your information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.</dd>
+                  Your information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.
+               </dd>
                <dd>; To administer a contest, promotion, survey or other site feature</dd>
                <dd>; To send periodic emails<br />
-                  The email address you provide for order processing, may be used to send you information and updates pertaining to your order, in addition to receiving occasional company news, updates, related product or service information, etc.</dd>
+                  The email address you provide for order processing, may be used to send you information and updates pertaining to your order, in addition to receiving occasional company news, updates, related product or service information, etc.
+               </dd>
                <dd>Note: If at any time you would like to unsubscribe from receiving future emails, If at any time you would like to unsubscribe from receiving future emails, please send an e-mail to info@2b4me.com with the subject line "UNSUBSCRIBE" to be immediately removed from all future communications from 2b4me.com.</dd>
                <dt>How do we protect your information?</dt>
                <dd>We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information.</dd>
@@ -477,11 +498,12 @@
                <dd>This policy was last modified on 7/24/2012</dd>
                <dt>Contacting Us</dt>
                <dd>If there are any questions regarding this privacy policy you may contact us using the information below.</dd>
-               <dd>http://www.2b4me.com<br/>
-                  55 Merrick Way<br/>
-                  Coral Gables, FL 33134<br/>
-                  United States<br/>
-                  info@2b4me.com</dd>
+               <dd>http://www.2b4me.com<br />
+                  55 Merrick Way<br />
+                  Coral Gables, FL 33134<br />
+                  United States<br />
+                  info@2b4me.com
+               </dd>
             </dl>
          </div>
          <div class="modal-footer">
@@ -490,7 +512,6 @@
          </div>
       </div>
       <!-- END privacy modal -->
-      
       <script type="text/javascript" src="jquery-1.7.2.js"></script>
       <script type="text/javascript" src="bootstrap.js"></script>
       <script type="text/javascript" src="promo.js"></script>
