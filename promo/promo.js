@@ -56,8 +56,6 @@ $(document).ready(function() {
             return;
         }
         
-        alert('success');
-        
         $.ajax('http://demo.2b4me.com/contest/signup', {
             data: {
                 email: email,
