@@ -320,7 +320,7 @@ function countdown(yr, m, d) {
         dsec = '0' + dsec;
     }
     
-    $('#d2').html(dday);
+    $('#d2').html(dday); if (dday == 1) { $('#d2desc').html('DAY'); }
     $('#h2').html(dhour);
     $('#m2').html(dmin);
     $('#s2').html(dsec);
