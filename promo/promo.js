@@ -6,47 +6,62 @@ $(document).ready(function() {
        event.preventDefault();
     });
     
-    $('#formfeed .text-input').tooltip({
-        placement: 'bottom',
-        title: 'Something went wrong, please try again',
-        trigger: 'manual'
-    });
-    
-    $('#formfeed .text-input').focus(function(event) {
-        if ($('#formfeed .text-input').val() == 'Enter email') {
-            $('#formfeed .text-input').val('');
+    $('#contest-signup-email-input').focus(function(event) {
+        if ($('#contest-signup-email-input').val() == 'Enter Your Email Address') {
+            $('#contest-signup-email-input').val('');
         }
-        $('#formfeed .text-input').tooltip('hide');
-        $('#formfeed .text-input').removeClass("error");
+        $('#contest-signup-email-input').removeClass("error");
     });
     
-    $('#formfeed .text-input').blur(function(event) {
-        if ($('#formfeed .text-input').val() == '') {
-            $('#formfeed .text-input').val('Enter email');
+    $('#contest-signup-email-input').blur(function(event) {
+        if ($('#contest-signup-email-input').val() == '') {
+            $('#contest-signup-email-input').val('Enter Your Email Address');
         }
     });
     
-    $('#formfeed .green-btn').click(function(event) {
+    $('#contest-signup-zipCode-input').focus(function(event) {
+        if ($('#contest-signup-zipCode-input').val() == 'Enter Your Zip Code') {
+            $('#contest-signup-zipCode-input').val('');
+        }
+        $('#contest-signup-zipCode-input').removeClass("error");
+    });
+    
+    $('#contest-signup-zipCode-input').blur(function(event) {
+        if ($('#contest-signup-zipCode-input').val() == '') {
+            $('#contest-signup-zipCode-input').val('Enter Your Zip Code');
+        }
+    });
+    
+    $('#contest-signup-submit-btn').click(function(event) {
         event.preventDefault();
         
-        if ($('#formfeed .green-btn').attr('disabled')) {
+        if ($('#contest-signup-submit-btn').attr('disabled')) {
             return;
         }
         
-        $('#formfeed .green-btn').attr("disabled", "disabled");s
+        $('#contest-signup-submit-btn').attr("disabled", "disabled");
         
-        var email = $('#formfeed .text-input').val();
+        var email = $('#contest-signup-email-input').val();
+        var zipCode = $('#contest-signup-zipCode-input').val();
         
         if (!emailCheck(email)) {
-            $('#formfeed .text-input').addClass("error");
-            $('#formfeed .text-input').tooltip('show');
-            $('#formfeed .green-btn').removeAttr("disabled");
+            alert('Email is not in the correct format. Please review and try again.');
+            $('#contest-signup-submit-btn').removeAttr("disabled");
             return;
         }
+        
+        if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipCode)) {
+            alert('Zip Code is not in the correct format. Please review and try again.');
+            $('#contest-signup-submit-btn').removeAttr("disabled");
+            return;
+        }
+        
+        alert('success');
         
         $.ajax('http://demo.2b4me.com/contest/signup', {
             data: {
-                email: email
+                email: email,
+                zipCode: zipCode
             }
         });
         
@@ -269,6 +284,10 @@ function emailCheck(emailStr) {
     }
 
     return true;
+}
+
+function zipCodeCheck(zipCodeStr) {
+    
 }
 
 var montharray = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
