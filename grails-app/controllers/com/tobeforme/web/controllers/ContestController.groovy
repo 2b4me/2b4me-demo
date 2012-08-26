@@ -15,7 +15,7 @@ class ContestController {
     
     def signup() {
         try {
-            contestService.processSignup(params.email.toLowerCase())
+            contestService.processSignup(params.email.toLowerCase(), params.zipCode.toLowerCase())
             render 'success ' + new Date()
         } catch (Exception e) {
             render 'error: ' + e

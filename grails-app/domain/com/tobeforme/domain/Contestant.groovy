@@ -7,10 +7,12 @@ class Contestant {
     Date signupDate
     boolean ineligible
     String ineligibilityReason
+    String zipCode
 
     static constraints = {
         email unique: true
         ineligibilityReason nullable: true
+        zipCode nullable: true
     }
     
     static mapping = {

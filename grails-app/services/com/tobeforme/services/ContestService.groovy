@@ -10,7 +10,7 @@ class ContestService implements InitializingBean {
     
     def numbers
     
-    def processSignup(email) {        
+    def processSignup(email, zipCode) {        
         def c = Contestant.findByEmail(email)
     
         if (!c) {
@@ -19,6 +19,7 @@ class ContestService implements InitializingBean {
             c.signupDate = new Date()
             c.ineligible = false
             c.entry = getNextEntry()
+            c.zipCode = zipCode
             c.save()
         }
         

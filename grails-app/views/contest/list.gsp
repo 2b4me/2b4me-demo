@@ -18,6 +18,7 @@
                      <tr>
                         <th>&nbsp;</th>
                         <th>E-mail</th>
+                        <th>Zip Code</th>
                         <th>Contest Number</th>
                         <th>Signup Date</th>
                         <th>Ineligible?</th>
@@ -30,6 +31,7 @@
                         <tr>
                            <td>${i+1}</td>
                            <td>${c.email}</td>
+                           <td>${c.zipCode}</td>
                            <td><a href="#" class="entry" id="entry${c.id}" contestantId="${c.id}">${c.entry}</a></td>
                            <td>${new Date(c.signupDate.time)}</td>
                            <g:if test="${c.ineligible}">
@@ -45,7 +47,7 @@
                         </tr>
                      </g:each>
                   <tr>
-                     <td colspan="7">End of file.</td>
+                     <td colspan="8">End of file.</td>
                   </tr>   
                   </tbody>
                </table>
