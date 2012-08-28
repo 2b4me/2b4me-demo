@@ -7,6 +7,8 @@ class DealController {
     def transient sessionFactory
     
     def voucherNumberGeneratorService
+    
+    def loginService
 
     def index() {
         def id = params.id
@@ -40,7 +42,7 @@ class DealController {
         
         startFlow {
             action {
-                flow.user = User.get(session.user)
+                flow.user = User.get(request.session2.userId)
                 flow.deal = Deal.findByShortName(params.id)
                 flow.states = ['FL','CA','DC','NY']
                 if (!flow.user) {
@@ -97,15 +99,10 @@ class DealController {
                 def valid = flow.pld.validate()
                 
                 if (valid) {
-                    def user = User.findByEmailAddress(flow.pld.emailAddress)
-                    if (user?.password == flow.pld.password) {
-                        session.user = user.id
-                        flow.user = user
-                    } else {
-                        flow.pld.errors.rejectValue('emailAddress',
-                            'purchaseLoginCommand.emailAddress.wrongCreds.error')
-                        flow.pld.errors.rejectValue('password',
-                            'purchaseLoginCommand.emailAddress.wrongCreds.error')
+                    try {
+                        loginService.login(flow.pld.emailAddress, flow.pld.password, request.sessionId)
+                    } catch (SecurityException e) {
+                        log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
                         valid = false
                     }
                 }

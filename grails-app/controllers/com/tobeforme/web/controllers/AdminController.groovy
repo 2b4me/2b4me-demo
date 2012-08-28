@@ -61,9 +61,6 @@ class AdminController {
     
     def login() {
         if (params.login) {
-            log.debug "'${params.username}'"
-            log.debug "'${params.password}'"
-            
             if (params.username == '' || params.password == '') {
                 log.debug 'Username and/or password were blank'
                 def err = 'Username and password must be supplied'

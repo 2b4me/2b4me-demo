@@ -1,8 +1,11 @@
 package com.tobeforme.web.controllers
 
 import com.tobeforme.domain.*
+import com.tobeforme.services.BCryptService
 
 class UserController {
+    
+    def loginService
     
     def index() {
         redirect action: 'signup'
@@ -12,63 +15,57 @@ class UserController {
     
     def loginForm() { }
     
-    def registration(SignupCommand cmd) {
-        if (User.findByEmailAddress(cmd.emailAddress)) {
-            cmd.errors.rejectValue('emailAddress', 'signupCommand.emailAddress.unique.error')
-        }
-        
-        if (cmd.hasErrors()) {
-            flash.user = cmd
+    def registration() {
+        if (User.findByEmailAddress(params.emailAddress)) {
+            request.session2.writeFlash([error: 'Email address already exists'])
+            request.session2.save(flush: true)
             redirect action: 'signup'
             return
         }
         
-        def user = new User(emailAddress: cmd.emailAddress, password: cmd.password)
+        def password = BCryptService.hashpw(params.password, BCryptService.gensalt(4))
+        def user = new User(emailAddress: params.emailAddress, password: password)
         if (user.save()) {
-            flash.user = user
+            request.session2.writeFlash([userId: user.id])
+            request.session2.save(flush: true)
             redirect action: 'registrationComplete'
         } else {
-            flash.user = cmd
-            flash.message = 'Oops... there was a problem creating your account. Please try again in a few minutes.'
+            def msg = 'Oops... there was a problem creating your account. ' +
+                      'Please try again in a few minutes.'
+            request.session2.writeFlash([error: msg])
+            request.session2.save(flush: true)
             redirect action: 'signup'
         }
     }
     
     def registrationComplete() {
-        if (flash.user == null) {
-            redirect controller: 'featured', action: 'index'
+        def userId = request.session2.readFlash().userId
+        if (!userId) {
+            throw new IllegalStateException('Not allowed')
         }
-        session.user = flash.user.id
+        def user = User.get(userId)
+        loginService.createSession(request.sessionId, user.id, user.admin)
     }
     
     def login() {
-        def u = User.findByEmailAddress(params.username)
-        if (u) {
-            if (u.password == params.password) {
-                session.user = u.id
-                render('Success')
-            } else {
-                render('Error')
-            }
-        } else {
+        if (params.username == '' || params.password == '') {
+            log.debug 'Username and/or password were blank'
+            def err = 'Username and password must be supplied'
+            render('Error')
+        }
+        
+        try {
+            loginService.login(params.username, params.password, request.sessionId)
+            render('Success')
+        } catch (SecurityException e) {
+            log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
             render('Error')
         }
     }
     
     def logout() {
-        session.user = null
+        loginService.logout(request.sessionId)
         render('Success')
     }
-
-}
-
-class SignupCommand {
-    String emailAddress
-    String password
-    String password2
-
-    static constraints = {
-        importFrom User
-        password2 size: 8..14, blank: false, validator: { val, obj -> obj.password == val }
-    }
+    
 }

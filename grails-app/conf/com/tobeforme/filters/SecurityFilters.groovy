@@ -10,18 +10,10 @@ class SecurityFilters {
     def filters = {
         all(controller:'*', action:'*') {
             before = {
-
-            }
-            after = { Map model ->
-
-            }
-            afterView = { Exception e ->
-
-            }
-        }
-        
-        loginCheck(controller: 'admin', action: '*') {
-            before = {
+                // invalidate the typical session, ensuring we're full on the custom
+                // persisted session I've built
+                session.invalidate()
+                
                 // get the session id, or generate one
                 def sessionId
                 request.cookies.each {
@@ -37,9 +29,28 @@ class SecurityFilters {
                 response.addCookie(c)
                 
                 // set request scope session id
-                request.sessionId = sessionId 
+                request.sessionId = sessionId
                 
-                def session = Session.findBySessionId(sessionId)
+                // set the request scope session
+                def session = Session.findBySessionId(request.sessionId)
+                if (!session) {
+                    session = new Session(sessionId: request.sessionId, sessionDate: new Date())
+                    session.save(flush: true)
+                }
+                
+                request.session2 = session
+            }
+            after = { Map model ->
+
+            }
+            afterView = { Exception e ->
+
+            }
+        }
+        
+        loginCheck(controller: 'admin', action: '*') {
+            before = {
+                def session = request.session2
                 if ((!session || !session.admin) && actionName != "login") {
                     redirect(controller: "admin", action: "login")
                     return false

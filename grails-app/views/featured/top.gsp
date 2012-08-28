@@ -1,5 +1,5 @@
 <g:link controller="featured" elementId="logo"><g:img dir="images" file="2b4me-logo.png" /></g:link>
-<g:if test="${session.user}">
+<g:if test="${request.session2?.userId}">
    <ul id="nav" class="logged-on">
       <li id="home-link"><g:link controller="featured"></g:link></li>
       <li id="featured-link"><g:link controller="featured">Featured</g:link></li>
