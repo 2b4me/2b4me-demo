@@ -295,7 +295,7 @@ td { vertical-align: top; }
 
 #container {margin: 0px auto 0 auto; width:960px;}
 .headline {font-size:49px; color:#FFF; font-weight:bold; text-align:center; text-shadow: 0.1em 0.1em 0.2em #111;}
-.bluebox { width:688px; height:460px; text-align:center; margin: 50px auto 0 auto; padding:25px; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; background-color:#c3ebf6; -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50); -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50); box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50); background-image:url(images/light.png); background-repeat:repeat-x; background-position:top;}
+.bluebox { width:688px; height:625px; text-align:center; margin: 50px auto 0 auto; padding:25px; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; background-color:#c3ebf6; -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50); -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50); box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50); background-image:url(images/light.png); background-repeat:repeat-x; background-position:top;}
 .bluebox .headline {font-size:32px; color:#004262; font-weight:bold; text-shadow:0em 0.1em 0em white;}
 .bluebox .sub{font-size:25px; color:#004262; font-weight:bold; text-shadow:0em 0.1em 0em white;}
 
@@ -312,11 +312,15 @@ td { vertical-align: top; }
 .item {font-family:Arial, Helvetica, sans-serif; width:207px; height:290px; background-color:#FFF; text-align:center;  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); float:left; margin-right:10px; margin-bottom:20px;}
 .item img {vertical-align:top;}
 .item .idnumber {color:#db1330; font-size:30px; font-weight:bold;}
+.item .prize, .ad .prize {font-size:14px; color:#111111; font-weight:bold;}
 .item .prize {font-size:14px; color:#111111; font-weight:bold;}
 .item .description {font-size:12px; color:#007cb6;}
 .item .button a { text-decoration:none; color:#FFF;}
 .item .button {line-height: 23px; color:#FFF; font-weight:bold; border: 1px solid #628f2f; border-radius: 4px; background: url(images/grad_button_green.jpg) repeat-x; background-position:top; width:35%; margin: 0px auto;}
 .item .button:hover { color:#FFF; text-decoration:none; border: 1px solid #8db65e; background: url(images/grad_button_green.jpg) repeat-x; background-position:bottom;}
+
+.ad {font-family:Arial, Helvetica, sans-serif; width:640px; height:141px; text-align:left; background-color:#FFF; line-height:1.15em;  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); float:left; margin-right:10px; margin-bottom:10px;}
+.ad img { float:left;}  
 
 .bluebox .item {font-family:Arial, Helvetica, sans-serif; width:207px; height:210px; background-color:#FFF; text-align:center;  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); float:left; margin-right:10px; margin-bottom:20px;}
 
