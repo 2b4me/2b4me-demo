@@ -17,8 +17,7 @@ class UserController {
     
     def registration() {
         if (User.findByEmailAddress(params.emailAddress)) {
-            request.session2.writeFlash([error: 'Email address already exists'])
-            request.session2.save(flush: true)
+            flash.obj = [error: 'Email address already exists']
             redirect action: 'signup'
             return
         }
@@ -26,20 +25,19 @@ class UserController {
         def password = BCryptService.hashpw(params.password, BCryptService.gensalt(4))
         def user = new User(emailAddress: params.emailAddress, password: password)
         if (user.save()) {
-            request.session2.writeFlash([userId: user.id])
-            request.session2.save(flush: true)
+            flash.obj = [userId: user.id]
+            request.sess.save()
             redirect action: 'registrationComplete'
         } else {
             def msg = 'Oops... there was a problem creating your account. ' +
                       'Please try again in a few minutes.'
-            request.session2.writeFlash([error: msg])
-            request.session2.save(flush: true)
+            flash.obj = [error: msg]
             redirect action: 'signup'
         }
     }
     
     def registrationComplete() {
-        def userId = request.session2.readFlash().userId
+        def userId = request.flash.userId
         if (!userId) {
             throw new IllegalStateException('Not allowed')
         }

@@ -5,7 +5,7 @@ import com.tobeforme.domain.*
 class ProfileController {
 
     def index() {
-		def user = User.get(request.session2.userId)
+		def user = User.get(request.sess.userId)
 		if (user == null) {
 		    redirect controller: 'featured', action: 'index'
 		    return
@@ -17,7 +17,7 @@ class ProfileController {
 	}
 	
 	def purchasedDeals() {
-		def user = User.get(request.session2.userId)
+		def user = User.get(request.sess.userId)
 		if (user == null) {
 		    redirect controller: 'featured', action: 'index'
 		    return
@@ -27,7 +27,7 @@ class ProfileController {
 	}
 	
 	def updateSub() {
-	    def user = User.get(request.session2.userId)
+	    def user = User.get(request.sess.userId)
 	    if (user == null) {
 		    render 'Error: user not logged in'
 		    return
@@ -39,7 +39,7 @@ class ProfileController {
 		} else {
 			user.subscriptions << sub
 		}
-		user.save(flush: true)
+		user.save()
 		render 'Subscription updated'
 	}
 	

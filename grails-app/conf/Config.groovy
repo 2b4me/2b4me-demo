@@ -59,6 +59,9 @@ grails.exceptionresolver.params.exclude = ['password']
 // enable query caching by default
 grails.hibernate.cache.queries = true
 
+// write database changes immediately
+grails.gorm.autoFlush = true
+
 // set per-environment serverURL stem for creating absolute links
 environments {
     development {

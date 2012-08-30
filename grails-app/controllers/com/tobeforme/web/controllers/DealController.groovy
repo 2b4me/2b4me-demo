@@ -42,7 +42,7 @@ class DealController {
         
         startFlow {
             action {
-                flow.user = User.get(request.session2.userId)
+                flow.user = User.get(request.sess.userId)
                 flow.deal = Deal.findByShortName(params.id)
                 flow.states = ['FL','CA','DC','NY']
                 if (!flow.user) {
@@ -74,7 +74,7 @@ class DealController {
                 p.voucher = voucherNumberGeneratorService.getNext(flow.deal.vendor.code, flow.user.code())
                 p.price = flow.deal.price
                 try {
-                    p.save(flush: true, failOnError: true)
+                    p.save(failOnError: true)
                     flow.purchase = p
                 } catch (Exception e) {
                     flash.message = "Could not complete the purchase: ${e.message}"
@@ -130,7 +130,7 @@ class DealController {
         // temporary action to delete a specific deal
         def p = Purchase.get(params.purchaseId)
         try {
-            p.delete(flush: true)
+            p.delete()
             render "Deleted"
         } catch (org.springframework.dao.DataIntegrityViolationException e) {
             render "Could not delete person ${p.name}"

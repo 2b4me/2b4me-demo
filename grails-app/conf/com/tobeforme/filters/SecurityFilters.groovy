@@ -10,6 +10,8 @@ class SecurityFilters {
     def filters = {
         all(controller:'*', action:'*') {
             before = {
+                log.debug request.requestURI
+                
                 // invalidate the typical session, ensuring we're full on the custom
                 // persisted session I've built
                 session.invalidate()
@@ -34,14 +36,27 @@ class SecurityFilters {
                 // set the request scope session
                 def session = Session.findBySessionId(request.sessionId)
                 if (!session) {
+                    log.debug 'Creating new session'
                     session = new Session(sessionId: request.sessionId, sessionDate: new Date())
-                    session.save(flush: true)
+                    session.save()
+                } else {
+                    log.debug 'Session already created: ' + session.sessionId
+                    
+                    // restore flash scope
+                    flash.obj = session.readFlash()
+                    log.debug 'Flash: ' + flash.obj
+                    session.flash = null
+                    session.save()
                 }
                 
-                request.session2 = session
+                request.sess = session
             }
             after = { Map model ->
-
+                // save flash scope
+                if (flash.obj) {
+                    request.sess.writeFlash(flash.obj)
+                    request.sess.save()
+                }
             }
             afterView = { Exception e ->
 
@@ -50,7 +65,7 @@ class SecurityFilters {
         
         loginCheck(controller: 'admin', action: '*') {
             before = {
-                def session = request.session2
+                def session = request.sess
                 if ((!session || !session.admin) && actionName != "login") {
                     redirect(controller: "admin", action: "login")
                     return false

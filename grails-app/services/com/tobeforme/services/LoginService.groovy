@@ -24,7 +24,7 @@ class LoginService {
     
     def logout(sessionId) {
         def s = Session.findBySessionId(sessionId)
-        s.delete(flush: true)
+        s.delete()
         return true
     }
     

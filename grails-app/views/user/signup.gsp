@@ -23,8 +23,8 @@
                   <h2>Please register or log in</h2>
                   <h3>Don't have an account yet? Registering is easy!</h3>
                   <h5>Already have an account? <a id="registration-signin" href="sign-in.html">Click here</a></h5>
-                  <g:if test="${request.session2.readFlash()?.error}">
-                     <div class="alert alert-error">${request.session2.readFlash().error}</div>
+                  <g:if test="${flash.obj?.error}">
+                     <div class="alert alert-error">${flash.obj.error}</div>
                   </g:if>
                   <g:form name="registration" controller="user" action="registration">
                      <div id="registration-content">
