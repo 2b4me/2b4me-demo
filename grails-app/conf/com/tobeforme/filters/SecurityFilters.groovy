@@ -10,8 +10,6 @@ class SecurityFilters {
     def filters = {
         all(controller:'*', action:'*') {
             before = {
-                log.debug request.requestURI
-                
                 // invalidate the typical session, ensuring we're full on the custom
                 // persisted session I've built
                 session.invalidate()
@@ -34,25 +32,20 @@ class SecurityFilters {
                 request.sessionId = sessionId
                 
                 // set the request scope session
-                def session = Session.findBySessionId(request.sessionId)
-                if (!session) {
-                    log.debug 'Creating new session'
-                    session = new Session(sessionId: request.sessionId, sessionDate: new Date())
-                    session.save()
+                def sess = Session.findBySessionId(request.sessionId)
+                if (!sess) {
+                    sess = new Session(sessionId: request.sessionId, sessionDate: new Date())
+                    sess.save()
                 } else {
-                    log.debug 'Session already created: ' + session.sessionId
-                    
-                    // restore flash scope
-                    flash.obj = session.readFlash()
-                    log.debug 'Flash: ' + flash.obj
-                    session.flash = null
-                    session.save()
+                    flash.obj = sess.readFlash()
+                    sess.flash = null
+                    sess.save()
                 }
                 
-                request.sess = session
+                request.sess = sess
             }
             after = { Map model ->
-                // save flash scope
+                // save flash scope, if present
                 if (flash.obj) {
                     request.sess.writeFlash(flash.obj)
                     request.sess.save()
@@ -63,14 +56,13 @@ class SecurityFilters {
             }
         }
         
-        loginCheck(controller: 'admin', action: '*') {
+        adminLoginCheck(controller: 'admin', action: '*') {
             before = {
                 def session = request.sess
                 if ((!session || !session.admin) && actionName != "login") {
                     redirect(controller: "admin", action: "login")
                     return false
                 } else {
-                    // we have a valid session, let the request through
                     return true
                 }
             }

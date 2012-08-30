@@ -26,7 +26,7 @@ class Session implements Serializable {
     def writeFlash(Map m) {
         def b = new JsonBuilder()
         b m
-        log.debug b.toString()
+        log.debug "Writing to flash: ${b}"
         flash = b.toString()
     }
     
