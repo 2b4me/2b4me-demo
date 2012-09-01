@@ -53,7 +53,7 @@ class AdminController {
     def addVendor() { }
     
     def topMenu() {
-        [u: User.get(request.data.userId)]
+        [u: User.get(request.userId)]
         
         /*
         def s = Session.findBySessionId(request.sessionId)
@@ -72,8 +72,10 @@ class AdminController {
             }
             
             try {
-                loginService.login(params.username, params.password, request.sessionId)
-                redirect(action:'index')
+                def u = loginService.login(params.username, params.password)
+                request.userId = u.id
+                request.admin = u.admin
+                redirect(action: 'index')
             } catch (SecurityException e) {
                 log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
                 def err = 'Username or password incorrect; please try again'
@@ -83,7 +85,8 @@ class AdminController {
     }
     
     def logout() {
-        loginService.logout(request.sessionId)
+        request.admin = false
+        request.userId = null
         redirect(action: 'login')
     }
     

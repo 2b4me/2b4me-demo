@@ -5,7 +5,7 @@ import com.tobeforme.domain.*
 class ProfileController {
 
     def index() {
-		def user = User.get(request.data.userId)
+		def user = User.get(request.userId)
 		if (user == null) {
 		    redirect controller: 'featured', action: 'index'
 		    return

@@ -10,7 +10,7 @@ class SecurityFilters {
     def filters = {
         all(controller:'*', action:'*') {
             before = {
-                log.debug "Controller: ${controllerName}, Action: ${actionName}"
+                log.debug "Before: Controller: ${controllerName}, Action: ${actionName}"
                 
                 def cookie
                 request.cookies.each {
@@ -28,21 +28,17 @@ class SecurityFilters {
                 request.userId = session.userId
                 request.admin = session.admin
                 request.data = session.readData()
+                
+                if (controllerName == 'admin') {
+                    if ((!request.userId || !request.admin) && actionName != 'login') {
+                        redirect(controller: 'admin', action: 'login')
+                        return false
+                    }
+                }
             }
             after = {
+                log.debug "After: ${controllerName}, Action: ${actionName}"
                 sessionService.updateSession(request.sid, request.userId, request.admin, request.data)
-            }
-        }
-        
-        adminLoginCheck(controller: 'admin', action: '*') {
-            before = {
-                def session = request.sess
-                if ((!session || !session.admin) && actionName != "login") {
-                    redirect(controller: "admin", action: "login")
-                    return false
-                } else {
-                    return true
-                }
             }
         }
     }

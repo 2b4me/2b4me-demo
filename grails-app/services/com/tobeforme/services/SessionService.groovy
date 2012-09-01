@@ -22,7 +22,7 @@ class SessionService {
     synchronized updateSession(sid, userId, admin, data) {
         def session = Session.findBySessionId(sid)
         session.userId = userId
-        session.admin = admin
+        session.admin = (admin == null ? false : admin)
         session.writeData(data)
         session.save()
         return session

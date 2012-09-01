@@ -82,8 +82,8 @@ class UserController {
         
         try {
             def u = loginService.login(params.username, params.password)
-            request.data.userId = u.id
-            request.data.admin= u.admin
+            request.userId = u.id
+            request.admin = u.admin
             render('Success')
         } catch (SecurityException e) {
             log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
@@ -92,8 +92,8 @@ class UserController {
     }
     
     def logout() {
-        request.data.admin = false
-        request.data.userId = null
+        request.userId = null
+        request.admin = false
         render('Success')
     }
     
