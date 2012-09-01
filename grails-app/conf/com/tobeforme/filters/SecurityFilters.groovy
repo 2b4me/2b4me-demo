@@ -19,11 +19,15 @@ class SecurityFilters {
                 }
                  */
                 
+                /*
                 log.debug "Controller: ${controllerName}, Action: ${actionName}"
                 
                 // invalidate the typical session, ensuring we're full on the custom
                 // persisted session I've built
                 session.invalidate()
+                
+                // synchronize the state of the Session
+                Session.refresh()
                 
                 // get the session id, or generate one
                 def sessionId
@@ -55,11 +59,13 @@ class SecurityFilters {
                 }
                 
                 request.sess = sess
+                 */
             }
         }
         
         cleanSession(controller: 'admin', acion: 'writeFlash') {
             afterView = { Exception e ->
+                /*
                 // save flash scope, if present, otherwise clear it
                 if (flash.out) {
                     log.debug "Flash found, writing it now: ${flash.out}"
@@ -69,6 +75,7 @@ class SecurityFilters {
                     request.sess.flash = null
                     request.sess.save()
                 }
+                 */
             }
         }
         
