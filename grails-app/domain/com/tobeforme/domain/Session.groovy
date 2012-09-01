@@ -9,13 +9,13 @@ class Session implements Serializable {
     String userId
     Date sessionDate
     boolean admin
-    String flash
+    String data
     
     static constraints = {
         sessionId unique: true
         userId nullable: true
         admin nullable: true
-        flash nullable: true
+        data nullable: true
     }
     
     static mapping = {
@@ -23,17 +23,18 @@ class Session implements Serializable {
            params: [sequence: 'session_id_sequence']
     }
     
-    def writeFlash(Map m) {
+    def writeData(Map m) {
         def b = new JsonBuilder()
-        b m
-        log.debug "Writing to flash: ${b}"
-        flash = b.toString()
+        b(m)
+        data = b.toString()
+        log.debug "Writing session data: ${data}"
     }
     
-    def readFlash() {
+    def readData() {
+        log.debug "Reading session data: ${data}"
         def s = new JsonSlurper()
-        if (flash && !flash.isEmpty()) {
-            return s.parseText(flash)
+        if (data && !data.isEmpty()) {
+            return s.parseText(data)
         } else {
             return null
         }

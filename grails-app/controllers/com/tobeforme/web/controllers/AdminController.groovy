@@ -87,10 +87,6 @@ class AdminController {
         [users: User.list()]
     }
     
-    def writeFlash() {
-        render 'write flash'
-    }
-    
 }
 
 class DealDetailsCommand {
