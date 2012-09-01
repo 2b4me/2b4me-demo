@@ -4,7 +4,7 @@ import com.tobeforme.domain.*
 
 class LoginService {
     
-    def login(username, password, sessionId) {
+    def login(username, password) {
         log.debug username
         def u = User.findByEmailAddress(username)
         if (!u) {

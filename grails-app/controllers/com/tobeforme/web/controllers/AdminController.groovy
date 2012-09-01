@@ -53,8 +53,12 @@ class AdminController {
     def addVendor() { }
     
     def topMenu() {
+        [u: User.get(request.data.userId)]
+        
+        /*
         def s = Session.findBySessionId(request.sessionId)
         [u: User.get(s.userId)]
+         */
     }
     
     def sidebarMenu() { }

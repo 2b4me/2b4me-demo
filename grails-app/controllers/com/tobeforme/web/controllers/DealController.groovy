@@ -42,7 +42,7 @@ class DealController {
         
         startFlow {
             action {
-                flow.user = User.get(request.sess.userId)
+                flow.user = User.get(request.data.userId)
                 flow.deal = Deal.findByShortName(params.id)
                 flow.states = ['FL','CA','DC','NY']
                 if (!flow.user) {
