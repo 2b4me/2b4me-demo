@@ -224,4 +224,20 @@ class ContestController {
         
     }
     
+    def prizes() {
+        [prizes: Prize.list()]
+    }
+    
+    def addPrize() {
+        if (!params.formSubmitted) return
+        
+        if (params.name == '') {
+            throw new IllegalStateException('All input boxes must be filled')
+        }
+        
+        def p = new Prize(name: params.name)
+        p.save()
+        render "Prizes added"
+    }
+    
 }

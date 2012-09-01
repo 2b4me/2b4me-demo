@@ -23,8 +23,8 @@
                   <h2>Please register or log in</h2>
                   <h3>Don't have an account yet? Registering is easy!</h3>
                   <h5>Already have an account? <a id="registration-signin" href="sign-in.html">Click here</a></h5>
-                  <g:if test="${flash.obj?.error}">
-                     <div class="alert alert-error">${flash.obj.error}</div>
+                  <g:if test="${flash.in.error}">
+                     <div class="alert alert-error">${flash.in.error}</div>
                   </g:if>
                   <g:form name="registration" controller="user" action="registration">
                      <div id="registration-content">
@@ -72,6 +72,10 @@
       <div id="shadow-bottom">
          <!--required--> 
       </div>
+      
+      <!-- persists flash scope  -->
+      <!-- <g:include controller="admin" action="writeFlash" /> -->
+      
       <!-- START LOGIN FORM -->
       <g:include controller="user" action="loginForm" />
       <!-- END LOGIN FORM -->

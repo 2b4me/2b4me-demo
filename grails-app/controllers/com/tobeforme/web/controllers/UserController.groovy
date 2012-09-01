@@ -17,7 +17,7 @@ class UserController {
     
     def registration() {
         if (User.findByEmailAddress(params.emailAddress)) {
-            flash.obj = [error: 'Email address already exists']
+            flash.out = [error: 'Email address already exists']
             redirect action: 'signup'
             return
         }
@@ -25,13 +25,13 @@ class UserController {
         def password = BCryptService.hashpw(params.password, BCryptService.gensalt(4))
         def user = new User(emailAddress: params.emailAddress, password: password)
         if (user.save()) {
-            flash.obj = [userId: user.id]
+            flash.out = [userId: user.id]
             request.sess.save()
             redirect action: 'registrationComplete'
         } else {
             def msg = 'Oops... there was a problem creating your account. ' +
                       'Please try again in a few minutes.'
-            flash.obj = [error: msg]
+            flash.out = [error: msg]
             redirect action: 'signup'
         }
     }
