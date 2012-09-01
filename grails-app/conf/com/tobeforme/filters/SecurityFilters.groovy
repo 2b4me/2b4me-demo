@@ -17,17 +17,12 @@ class SecurityFilters {
                     if (it.name == '2b4me_session') cookie = it
                 }
                 if (!cookie) {
-                    cookie = new Cookie('2b4me_session', sessionService.generateSession())
+                    cookie = new Cookie('2b4me_session', sessionService.generateSessionId())
                 }
                 cookie.maxAge = 60*15 // 15 minutes idle invalidates the cookie
                 response.addCookie(cookie)
                 
-                def session = Session.findBySessionId(cookie.value)
-                if (!session) {
-                    session = new Session(sessionId: cookie.value, sessionDate: new Date())
-                    session.writeData([:])
-                    session.save()
-                }
+                def session = sessionService.getOrCreateSession(cookie.value)
                 
                 request.sid = session.sessionId
                 request.userId = session.userId
@@ -35,11 +30,7 @@ class SecurityFilters {
                 request.data = session.readData()
             }
             after = {
-                def session = Session.findBySessionId(request.sid)
-                session.userId = request.userId
-                session.admin = request.admin
-                session.writeData(request.data)
-                session.save()
+                sessionService.updateSession(request.sid, request.userId, request.admin, request.data)
             }
         }
         

@@ -23,26 +23,29 @@
                   <h2>Please register or log in</h2>
                   <h3>Don't have an account yet? Registering is easy!</h3>
                   <h5>Already have an account? <a id="registration-signin" href="sign-in.html">Click here</a></h5>
-                  <g:if test="${flash.in.error}">
-                     <div class="alert alert-error">${flash.in.error}</div>
+                  <g:if test="${error}">
+                     <div class="alert alert-error">${error}</div>
                   </g:if>
                   <g:form name="registration" controller="user" action="registration">
                      <div id="registration-content">
                         <div id="content-main">
                            <div id="form-entry">
                               <div id="form-label"><label class="blue-label">E-mail address</label></div>
-                              <div id="form-input" class="longer email"><input name="emailAddress" type="text" value="${flash.user?.emailAddress}" class="text-input ${hasErrors(bean:flash.user,field:'emailAddress','input-error')}" /></div>
-                              <div id="form-input-error" class="email"><g:renderErrors bean="${flash.user}" field="emailAddress"/></div>
+                              <div id="form-input" class="longer email">
+                                 <input name="emailAddress" type="text" value="${email}" class="text-input" />
+                              </div>
                            </div>
                            <div id="form-entry">
                               <div id="form-label"><label class="blue-label">Password</label></div>
-                              <div id="form-input" class="longer password"><input id="registration-password" name="password" type="password" value="${flash.user?.password}" class="text-input ${hasErrors(bean:flash.user,field:'password','input-error')}" /></div>
-                              <div id="form-input-error" class="password"><g:renderErrors bean="${flash.user}" field="password"/></div>
+                              <div id="form-input" class="longer password">
+                                 <input id="registration-password" name="password" type="password" value="${pass1}" class="text-input" />
+                              </div>
                            </div>
                            <div id="form-entry">
                               <div id="form-label"><label class="blue-label">Re-type Password</label></div>
-                              <div id="form-input" class="longer password2"><input id="registration-password2" name="password2" type="password" class="text-input ${hasErrors(bean:flash.user,field:'password2','input-error')}" /></div>
-                              <div id="form-input-error" class="password2"><g:renderErrors bean="${flash.user}" field="password2"/></div>
+                              <div id="form-input" class="longer password2">
+                                 <input id="registration-password2" name="password2" type="password" value="${pass2}" class="text-input" />
+                              </div>
                            </div>
                         </div>
                      </div>

@@ -19,20 +19,7 @@ class LoginService {
         if (!auth) {
             throw new SecurityException("Password incorrect")
         }
-        return createSession(sessionId, u.id, u.admin)
+        return u
     }
     
-    def logout(sessionId) {
-        def s = Session.findBySessionId(sessionId)
-        s.delete()
-        return true
-    }
-    
-    def createSession(sessionId, userId, admin) {
-        def s = Session.get(sessionId)
-        s.userId = userId
-        s.admin = admin
-        s.save()
-        return s
-    }
 }
