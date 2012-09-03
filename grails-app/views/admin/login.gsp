@@ -9,7 +9,6 @@
    </head>
    <body>
       <div class="container-2">
-         <g:include action="topMenu" />
          <div class="row second-row">
             <div class="span2 sidebar">
                <p>&nbsp;</p>
@@ -18,16 +17,18 @@
                <g:if test="${err}">
                   <div class="alert alert-error">${err}</div>
                </g:if>
-               <form class="well" action="login" method="post">
+               <g:form class="well" controller="admin" action="login" method="post">
                   <fieldset>
                      <input type="hidden" name="login" value="true" />
+                     <input type="hidden" name="cn" value="${cn}" />
+                     <input type="hidden" name="an" value="${an}" />
                      <label>Username</label>
                      <input type="text" name="username" />
                      <label>Password</label>
                      <input type="password" name="password" />
                      <p><input type="submit" /></p>
                   </fieldset>
-               </form>
+               </g:form>
             </div>
             <div class="span1">&nbsp;</div>
          </div>

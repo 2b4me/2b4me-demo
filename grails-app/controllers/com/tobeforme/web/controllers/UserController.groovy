@@ -92,8 +92,7 @@ class UserController {
     }
     
     def logout() {
-        request.userId = null
-        request.admin = false
+        sessionService.deleteSession(request.sid)
         render('Success')
     }
     

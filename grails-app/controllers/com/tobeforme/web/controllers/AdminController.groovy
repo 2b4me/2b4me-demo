@@ -5,6 +5,7 @@ import com.tobeforme.domain.*
 class AdminController {
     
     def loginService
+    def sessionService
 
     def index() { }
     
@@ -54,39 +55,41 @@ class AdminController {
     
     def topMenu() {
         [u: User.get(request.userId)]
-        
-        /*
-        def s = Session.findBySessionId(request.sessionId)
-        [u: User.get(s.userId)]
-         */
     }
     
     def sidebarMenu() { }
     
     def login() {
+        if (!params.login) {
+            return [cn: params.cn, an: params.an]
+        }
+        
         if (params.login) {
             if (params.username == '' || params.password == '') {
                 log.debug 'Username and/or password were blank'
                 def err = 'Username and password must be supplied'
-                return [err: err]
+                return [err: err, cn: params.cn, an: params.an]
             }
             
             try {
                 def u = loginService.login(params.username, params.password)
                 request.userId = u.id
                 request.admin = u.admin
-                redirect(action: 'index')
+                if (params.cn) {
+                    redirect(controller: params.cn, action: params.an)
+                } else {
+                    redirect(action: 'index')
+                }
             } catch (SecurityException e) {
                 log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
                 def err = 'Username or password incorrect; please try again'
-                return [err: err]
+                return [err: err, cn: params.cn, an: params.an]
             }
         }
     }
     
     def logout() {
-        request.admin = false
-        request.userId = null
+        sessionService.deleteSession(request.sid)
         redirect(action: 'login')
     }
     
