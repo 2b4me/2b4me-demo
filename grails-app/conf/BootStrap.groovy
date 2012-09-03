@@ -6,6 +6,32 @@ class BootStrap {
 
     def init = { servletContext ->
         
+        Address userAddress = new Address(
+            address1: '20752 SW 87th Court',
+            address2: '',
+            city: 'Miami',
+            state: 'FL',
+            postalCode: '33189',
+            countryCode: 'US'
+        ).save()
+        
+        new User(
+            emailAddress: 'daniel@2b4me.com',
+            password: BCryptService.hashpw('$uperMan23884!', BCryptService.gensalt(4)),
+            firstName: 'Daniel',
+            lastName: 'Silva',
+            address: userAddress,
+            admin: true
+        ).save()
+        
+        new User(
+            emailAddress: 'gdrossi@2b4me.com',
+            password: BCryptService.hashpw('summer99', BCryptService.gensalt(4)),
+            firstName: 'Giorgio',
+            lastName: 'Del Rossi',
+            admin: true
+        ).save()
+        
         Address vendorAddress = new Address(
             address1: '333 Aragon Avenue',
             address2: '',
@@ -89,26 +115,6 @@ class BootStrap {
         Subscription dailyDeals = new Subscription(code: 'DD', name: 'Daily Deals').save()
         Subscription weddingDeals = new Subscription(code: 'WD', name: 'Wedding Deals').save()
         Subscription travelDeals = new Subscription(code: 'TD', name: 'Travel Deals').save()
-        
-        Address userAddress = new Address(
-            address1: '20752 SW 87th Court',
-            address2: '',
-            city: 'Miami',
-            state: 'FL',
-            postalCode: '33189',
-            countryCode: 'US'
-        ).save()
-        
-        def hash = BCryptService.hashpw('hello123', BCryptService.gensalt(4))
-        User user = new User(
-            emailAddress: 'daniel@silvanolte.com',
-            password: hash,
-            firstName: 'Daniel',
-            lastName: 'Silva',
-            address: userAddress,
-            admin: true,
-            subscriptions: [dailyDeals, travelDeals]
-        ).save()
         
         def welcomeContent = '''\
 <html>
