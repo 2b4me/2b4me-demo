@@ -7,6 +7,7 @@ class UserController {
     
     def loginService
     def validatorService
+    def sessionService
     
     def index() {
         redirect action: 'signup'
