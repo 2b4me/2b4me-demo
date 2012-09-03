@@ -1,6 +1,6 @@
 package com.tobeforme.domain
 
-class Address implements Serializable {
+class VendorAddress implements Serializable {
     
     String address1
     String address2
@@ -11,11 +11,12 @@ class Address implements Serializable {
 
     static constraints = {
         address1 unique: ['address2','city','state','postalCode','countryCode']
+        address2 blank: true
     }
     
     static mapping = {
         id generator: 'sequence',
-           params: [sequence: 'address_id_sequence']
+           params: [sequence: 'vendor_address_id_sequence']
     }
     
 }

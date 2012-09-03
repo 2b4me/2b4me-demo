@@ -4,7 +4,7 @@ class Vendor implements Serializable {
     
     String code
     String name
-    Address address
+    VendorAddress address
     
     static hasMany = [deals: Deal]
     
