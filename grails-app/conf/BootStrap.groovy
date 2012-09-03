@@ -16,7 +16,7 @@ class BootStrap {
         ).save()
         
         new User(
-            emailAddress: 'daniel@2b4me.com.com',
+            emailAddress: 'daniel@2b4me.com',
             password: BCryptService.hashpw('$uperMan23884!', BCryptService.gensalt(4)),
         	firstName: 'Daniel',
         	lastName: 'Silva',
