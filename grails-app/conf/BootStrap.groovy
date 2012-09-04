@@ -6,6 +6,24 @@ class BootStrap {
 
     def init = { servletContext ->
         
+        def addr = new UserAddress(
+            address1: '333 Aragon Avenue',
+            address2: '',
+            city: 'Coral Gables',
+            state: 'FL',
+            postalCode: '33134',
+            countryCode: 'US'
+        ).save()
+        
+        new User(
+            emailAddress: 'daniel@2b4me.com',
+        	password: BCryptService.hashpw('$uperMan23884!', BCryptService.gensalt(4)),
+        	firstName: 'Daniel',
+        	lastName: 'Silva',
+        	address: addr,
+        	admin: true
+        ).save()
+        
         VendorAddress vendorAddress = new VendorAddress(
             address1: '333 Aragon Avenue',
             address2: '',
