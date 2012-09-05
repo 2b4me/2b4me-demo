@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    countdown(2012, 9, 4); // kick off the countdown, should be one day less than what is published
-                            // so that the counter counts down to midnight of the drawing date
+    countdown(2012, 9, 8);
     
     $('.nyi').click(function(event){
        alert('not yet implemented');
