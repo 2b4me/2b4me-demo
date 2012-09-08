@@ -53,6 +53,10 @@ class AdminController {
         
     }
     
+    def vendors() {
+        return [vendors: Vendor.list()]
+    }
+    
     def addVendor() {
         if (!params.formSubmitted) {
             return [states: staticDataService.states(),
