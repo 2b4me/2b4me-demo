@@ -6,6 +6,8 @@ class AdminController {
     
     def loginService
     def sessionService
+    def vendorService
+    def staticDataService
 
     def index() { }
     
@@ -51,7 +53,55 @@ class AdminController {
         
     }
     
-    def addVendor() { }
+    def addVendor() {
+        if (!params.formSubmitted) {
+            return [states: staticDataService.states(),
+                    countries: staticDataService.countries()]
+        }
+        
+        // binding
+        def data = [:]
+        data.vendorCode = params.vendorCode
+        data.vendorName = params.vendorName
+        data.vendorAddress1 = params.vendorAddress1
+        data.vendorAddress2 = params.vendorAddress2
+        data.vendorCity = params.vendorCity
+        data.vendorState = params.vendorState
+        data.vendorZipCode = params.vendorZipCode
+        data.vendorCountry = params.vendorCountry
+        
+        // binding cleanup
+        if (data.vendorAddress2 == '') data.vendorAddress2 = ' '
+        
+        // validation
+        def error
+        data.values().each {
+            if (it == '' && !error) {
+                error = 'All fields must be filled'
+            }
+        }
+        if (!error) {
+            if (!(data.vendorCode =~ /[A-Z][A-Z]/) || data.vendorCode.size() != 2) {
+                error = 'Vendor code must be two capital letters'
+            }
+        }
+        if (error) return [states: staticDataService.states(),
+                           countries: staticDataService.countries(),
+                           data: data, error: error]
+        
+        // do the work
+        try {
+            vendorService.saveVendor(data)
+        } catch (Exception e) {
+            log.debug "There was an exeption trying to add the vendor: ${e}"
+            error = 'There was a problem saving the vendor; please try again in a few minutes'
+            return [states: staticDataService.states(),
+                    countries: staticDataService.countries(),
+                    data: data, error: error]
+        }
+        
+        render 'Success<br /><a href="./">Back to Admin Central</a>'
+    }
     
     def topMenu() {
         [u: User.get(request.userId)]
