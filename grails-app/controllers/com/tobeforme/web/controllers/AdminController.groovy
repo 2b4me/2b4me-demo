@@ -20,6 +20,54 @@ class AdminController {
         return [deals: Deal.list(), dealAdded: dealAdded]
     }
     
+    def addDeal() {
+        if (!params.formSubmitted) {
+            return [vendors: Vendor.list(),
+                    categories: Category.list()]
+        }
+        
+        // binding
+        def data = [:]
+        data.vendorId = params.vendorId
+        data.shortName = params.shortName
+        data.hoverTitle = params.hoverTitle
+        data.teaser = params.teaser
+    	data.originalPrice = params.originalPrice
+    	data.price = params.price
+    	data.categoryId = params.categoryId
+    	data.effectiveDate = params.effectiveDate
+    	data.expirationDate = params.expirationDate
+        
+        // validation
+        def error
+        data.values().each {
+            if (it == '' && !error) {
+                error = 'All fields must be filled'
+            }
+        }
+        if (!error) {
+            
+        }
+        if (error) return [vendors: Vendor.list(),
+                           categories: Category.list(),
+                           data: data, error: error]
+        
+        // do the work
+        try {
+            vendorService.saveVendor(data)
+        } catch (Exception e) {
+            log.debug "There was an exeption trying to add the vendor: ${e}"
+            error = 'There was a problem saving the vendor; please try again in a few minutes'
+            return [vendors: Vendor.list(),
+                    categories: Category.list(),
+                    data: data, error: error]
+        }
+        
+        request.data.dealAdded = true
+        redirect action: 'deals'
+    }
+    
+    /*   
     def addDealFlow = {
         
         start {
@@ -61,6 +109,7 @@ class AdminController {
         confirmation()
         
     }
+     */
     
     def vendors() {
         def vendorAdded = false
