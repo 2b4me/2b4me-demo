@@ -10,3 +10,9 @@
 fieldset p {
     padding-top: 10px;
 }
+input.short-width {
+    width: 60px;
+}
+input.medium-width {
+    width: 100px;
+}

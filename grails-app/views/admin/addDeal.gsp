@@ -15,10 +15,14 @@
                <g:include action="sidebarMenu" />
             </div>
             <div class="span9">
-               <g:if test="${error}">
-                  <div class="alert alert-error">${error}</div>
+               <g:if test="${!errors.isEmpty()}">
+                  <div class="alert alert-error">
+                     <g:each in="${errors}" var="errorMessage">
+                     ${errorMessage}<br />
+                     </g:each>
+                  </div>
                </g:if>
-               <g:form class="form-horizontal" action="addVendor" method="post">
+               <g:form class="form-horizontal" action="addDeal" method="post">
                   <fieldset>
                      <legend>Add a Deal</legend>
                      
@@ -30,7 +34,7 @@
                            <select name="vendorId" id="vendorId" class="input-medium">
                               <option value="">--</option>
                               <g:each in="${vendors}">
-                                 <g:if test="${it.id == data.vendorId}">
+                                 <g:if test="${it.id.toString() == data.vendorId}">
                                     <option value="${it.id}" selected="true">${it.name}</option>
                                  </g:if>
                                  <g:else>
@@ -47,7 +51,7 @@
                            <select name="categoryId" id="categoryId" class="input-medium">
                               <option value="">--</option>
                               <g:each in="${categories}">
-                                 <g:if test="${it.id == data.categoryId}">
+                                 <g:if test="${it.id.toString() == data.categoryId}">
                                     <option value="${it.id}" selected="true">${it.name}</option>
                                  </g:if>
                                  <g:else>
@@ -61,8 +65,24 @@
                      <div class="control-group">
                         <label class="control-label" for="shortName">Short Name</label>
                         <div class="controls">
-                           <input type="text" class="input-xlarge" id="shortName" name="shortName" value="${data.shortName}" />
+                           <input type="text" class="input-xlarge short-width" id="shortName" name="shortName" value="${data.shortName}" />
                            <p class="help-block">Deal short name, to uniquely identify it and to build the related URLs.</p>
+                        </div>
+                     </div>
+
+                     <div class="control-group">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                           <input type="text" class="input-xlarge" id="title" name="title" value="${data.title}" />
+                           <p class="help-block">The title of the deal.</p>
+                        </div>
+                     </div>
+
+                     <div class="control-group">
+                        <label class="control-label" for="teaser">Teaser</label>
+                        <div class="controls">
+                           <input type="text" class="input-xlarge" id="teaser" name="teaser" value="${data.teaser}" />
+                           <p class="help-block">The teaser for the deal.</p>
                         </div>
                      </div>
                      
@@ -75,33 +95,37 @@
                      </div>
                      
                      <div class="control-group">
-                        <label class="control-label" for="teaser">Teaser</label>
+                        <label class="control-label" for="hoverTeaser">Hover Teaser</label>
                         <div class="controls">
-                           <input type="text" class="input-xlarge" id="teaser" name="teaser" value="${data.teaser}" />
-                           <p class="help-block">A small blurb that describes the deal.</p>
+                           <input type="text" class="input-xlarge" id="hoverTeaser" name="hoverTeaser" value="${data.hoverTeaser}" />
+                           <p class="help-block">The teaser of the deal when text is rendered hovered over a related illustration.</p>
                         </div>
                      </div>
                      
                      <div class="control-group">
                         <label class="control-label" for="originalPrice">Original Value</label>
                         <div class="controls">
-                           <input type="text" class="input-xlarge" id="originalPrice" name="originalPrice" value="${data.originalPrice}" />
-                           <p class="help-block">The original value of the deal.</p>
+                           <div class="input-prepend">
+                              <span class="add-on">$</span><input type="text" class="input-xlarge medium-width" id="originalPrice" name="originalPrice" value="${data.originalPrice}" />
+                           </div>
+                           <p class="help-block">The original value of the deal. Use XXX.XX format.</p>
                         </div>
                      </div>
                      
                      <div class="control-group">
                         <label class="control-label" for="price">Deal Sale Price</label>
                         <div class="controls">
-                           <input type="text" class="input-xlarge" id="price" name="price" value="${data.price}" />
-                           <p class="help-block">The sale price of the deal.</p>
+                           <div class="input-prepend">
+                              <span class="add-on">$</span><input type="text" class="input-xlarge medium-width" id="price" name="price" value="${data.price}" />
+                           </div>
+                           <p class="help-block">The sale price of the deal. Use XXX.XX format.</p>
                         </div>
                      </div>
                      
                      <div class="control-group">
                         <label class="control-label" for="effectiveDate">Deal Start Date</label>
                         <div class="controls">
-                           <input type="text" class="input-xlarge" id="effectiveDate" name="effectiveDate" value="${data.effectiveDate}" />
+                           <input type="text" class="input-xlarge medium-width" id="effectiveDate" name="effectiveDate" value="${data.effectiveDate}" />
                            <p class="help-block">The deal effective date. Use MM/DD/YYYY format.</p>
                         </div>
                      </div>
@@ -109,7 +133,7 @@
                      <div class="control-group">
                         <label class="control-label" for="expirationDate">Deal End Date</label>
                         <div class="controls">
-                           <input type="text" class="input-xlarge" id="expirationDate" name="expirationDate" value="${data.expirationDate}" />
+                           <input type="text" class="input-xlarge medium-width" id="expirationDate" name="expirationDate" value="${data.expirationDate}" />
                            <p class="help-block">The deal expiration date. Use MM/DD/YYYY format.</p>
                         </div>
                      </div>

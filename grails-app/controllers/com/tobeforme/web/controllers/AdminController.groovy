@@ -29,9 +29,11 @@ class AdminController {
         // binding
         def data = [:]
         data.vendorId = params.vendorId
-        data.shortName = params.shortName
-        data.hoverTitle = params.hoverTitle
+        data.shortName = params.shortName?.toLowerCase()
+        data.title = params.title
         data.teaser = params.teaser
+        data.hoverTitle = params.hoverTitle
+        data.hoverTeaser = params.hoverTeaser
     	data.originalPrice = params.originalPrice
     	data.price = params.price
     	data.categoryId = params.categoryId
@@ -39,28 +41,22 @@ class AdminController {
     	data.expirationDate = params.expirationDate
         
         // validation
-        def error
-        data.values().each {
-            if (it == '' && !error) {
-                error = 'All fields must be filled'
-            }
-        }
-        if (!error) {
-            
-        }
-        if (error) return [vendors: Vendor.list(),
-                           categories: Category.list(),
-                           data: data, error: error]
+        def errors = [] as Set
+        data.values().each { if (it == '') errors << 'All fields must be filled' }
+        if (data.shortName.indexOf(' ') != -1) errors << 'Short name cannot have any spaces'
+        if (errors) return [vendors: Vendor.list(),
+                            categories: Category.list(),
+                            data: data, errors: errors]
         
         // do the work
         try {
             vendorService.saveVendor(data)
         } catch (Exception e) {
             log.debug "There was an exeption trying to add the vendor: ${e}"
-            error = 'There was a problem saving the vendor; please try again in a few minutes'
+            errors << 'There was a problem saving the vendor; please try again in a few minutes'
             return [vendors: Vendor.list(),
                     categories: Category.list(),
-                    data: data, error: error]
+                    data: data, errors: errors]
         }
         
         request.data.dealAdded = true
