@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>2b4me.com - Admin - Claim a prize</title>
       <g:external dir="css" file="bootstrap.css" />
-      <g:external dir="css" file="boostrap-ext.css" />
+      <g:external dir="css" file="bootstrap-ext.css" />
    </head>
    <body style="margin: 15px;">
       <h3>Claim a prize</h3>
