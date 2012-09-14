@@ -11,6 +11,15 @@ class AdminController {
 
     def index() { }
     
+    def deals() {
+        def dealAdded = false
+        if (request.data.dealAdded) {
+            request.data.dealAdded = null
+            dealAdded = true
+        }
+        return [deals: Deal.list(), dealAdded: dealAdded]
+    }
+    
     def addDealFlow = {
         
         start {
@@ -54,7 +63,12 @@ class AdminController {
     }
     
     def vendors() {
-        return [vendors: Vendor.list()]
+        def vendorAdded = false
+        if (request.data.vendorAdded) {
+            request.data.vendorAdded = null
+            vendorAdded = true
+        }
+        return [vendors: Vendor.list(), vendorAdded: vendorAdded]
     }
     
     def addVendor() {
@@ -85,7 +99,7 @@ class AdminController {
             }
         }
         if (!error) {
-            if (!(data.vendorCode =~ /[A-Z][A-Z]/) || data.vendorCode.size() != 2) {
+            if (!(data.vendorCode =~ /[A-Z0-9][A-Z0-9]/) || data.vendorCode.size() != 2) {
                 error = 'Vendor code must be two capital letters'
             }
         }
@@ -104,7 +118,8 @@ class AdminController {
                     data: data, error: error]
         }
         
-        render 'Success<br /><a href="./">Back to Admin Central</a>'
+        request.data.vendorAdded = true
+        redirect action: 'vendors'
     }
     
     def topMenu() {

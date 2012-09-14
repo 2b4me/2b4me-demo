@@ -3,7 +3,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>2b4me.com - Admin - Vendors</title>
+      <title>2b4me.com - Admin - Deals</title>
       <g:external dir="css" file="bootstrap.css" />
       <g:external dir="css" file="boostrap-ext.css" />
    </head>
@@ -15,13 +15,13 @@
                <g:include action="sidebarMenu" />
             </div>
             <div class="span9">
-               <g:if test="${vendorAdded}">
+               <g:if test="${dealAdded}">
                <div class="alert alert-success">
-                  Vendor added successfully
+                  Deal added successfully
                </div>
                </g:if>
                <table class="table table-bordered table-hover">
-                  <caption>The list of vendors registered with 2b4me.com</caption>
+                  <caption>The list of deals registered with 2b4me.com</caption>
                   <thead>
                      <tr>
                         <th>#</th>
@@ -31,11 +31,11 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <g:each in="${vendors}" var="v" status="i">
+                     <g:each in="${deals}" var="d" status="i">
                         <tr class="">
                            <td>${i+1}</td>
-                           <td>${v.code}</td>
-                           <td>${v.name}</td>
+                           <td>${d.shortName}</td>
+                           <td>${d.title}</td>
                            <td>No actions</td>
                         </tr>
                      </g:each>

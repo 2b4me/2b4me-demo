@@ -24,6 +24,9 @@ class Session implements Serializable {
     }
     
     def writeData(Map m) {
+        def keys = m.keySet()
+        m.keySet().each { if (m.get(it) == null) m.remove(it) }
+        
         def b = new JsonBuilder()
         b(m)
         data = b.toString()
