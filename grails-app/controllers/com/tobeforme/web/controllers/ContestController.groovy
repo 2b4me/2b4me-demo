@@ -220,8 +220,27 @@ class ContestController {
         }
         d.save()
         
-        render d.toString()
+        render d.toString()   
+    }
+    
+    def promoUpdate() {
+        if (!params.formSubmit) {
+            return [renderForm: true]
+        }
         
+        def drawings = Drawing.list(sort: 'drawingDate', order: 'desc')
+        
+        def currentWinners = [:]
+        def cd = drawings.get(0)
+        currentWinners.date = cd.drawingDate
+        currentWinners.winners = [:]
+        cd.winners.each {
+            def prizeName = it.prize.name
+            def winningEntry = it.winners.iterator().next().entry // first place winner
+            currentWinners.winners.add(prizeName, winningEntry)
+        }
+        
+        return [upcomingDate: params.upcomingDate, currentWinners: currentWinners]
     }
     
     def prizes() {

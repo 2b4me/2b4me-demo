@@ -19,6 +19,7 @@
                <ul>
                   <li><g:link action="list">Contestants</g:link></li>
                   <li><g:link action="selectWinners">Select Winners</g:link></li>
+                  <!-- <li><g:link action="promoUpdate">Update Promo</g:link></li> -->
                   <li><g:link action="claimPrize">Claim Prize</g:link></li>
                   <li><g:link action="winnersPublished">Winners Published</g:link></li>
                   <li><g:link action="templates">Mail Templates</g:link></li>
