@@ -44,7 +44,7 @@ class AdminController {
         def errors = [] as Set
         data.values().each { if (it == '') errors << 'All fields must be filled' }
         if (data.shortName.indexOf(' ') != -1) errors << 'Short name cannot have any spaces'
-        if (errors) return [vendors: Vendor.list(),
+        if (!errors.isEmpty()) return [vendors: Vendor.list(),
                             categories: Category.list(),
                             data: data, errors: errors]
         
