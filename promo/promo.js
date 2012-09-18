@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    countdown(2012, 9, 18);
+    countdown(2012, 9, 22);
     
     $('.nyi').click(function(event){
        alert('not yet implemented');
