@@ -101,6 +101,14 @@
                            <p class="help-block">The teaser of the deal when text is rendered hovered over a related illustration.</p>
                         </div>
                      </div>
+
+                     <div class="control-group">
+                        <label class="control-label" for="fullDescription">Full Description</label>
+                        <div class="controls">
+                           <textarea style="resize: none; width: 400px;" id="fullDescription" name="fullDescription" rows="5">${data.fullDescription}</textarea>
+                           <p class="help-block">The full description of the deal, printed on the deal detail page.</p>
+                        </div>
+                     </div>
                      
                      <div class="control-group">
                         <label class="control-label" for="originalPrice">Original Value</label>

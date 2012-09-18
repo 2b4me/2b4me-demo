@@ -18,5 +18,6 @@ class VendorService {
             name: data.vendorName,
             address: va
         ).save(failOnError: true)
+        return v
     }
 }

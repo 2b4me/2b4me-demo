@@ -1,12 +1,15 @@
 package com.tobeforme.web.controllers
 
 import com.tobeforme.domain.*
+import java.text.SimpleDateFormat
+import java.text.ParseException
 
 class AdminController {
     
     def loginService
     def sessionService
     def vendorService
+    def dealService
     def staticDataService
 
     def index() { }
@@ -23,7 +26,8 @@ class AdminController {
     def addDeal() {
         if (!params.formSubmitted) {
             return [vendors: Vendor.list(),
-                    categories: Category.list()]
+                    categories: Category.list(),
+                    errors: []]
         }
         
         // binding
@@ -34,6 +38,7 @@ class AdminController {
         data.teaser = params.teaser
         data.hoverTitle = params.hoverTitle
         data.hoverTeaser = params.hoverTeaser
+        data.fullDescription = params.fullDescription
     	data.originalPrice = params.originalPrice
     	data.price = params.price
     	data.categoryId = params.categoryId
@@ -44,16 +49,32 @@ class AdminController {
         def errors = [] as Set
         data.values().each { if (it == '') errors << 'All fields must be filled' }
         if (data.shortName.indexOf(' ') != -1) errors << 'Short name cannot have any spaces'
+        def validPrice = { price ->
+            try {
+                new Double(price)
+                return true
+            } catch (NumberFormatException e) { return false }
+        }
+        if (!validPrice(data.originalPrice)) errors << 'Original Price field must be in the XXX.XX format'
+        if (!validPrice(data.price)) errors << 'Price field must be in the XXX.XX format'
+        def validDate = { date ->
+            try {
+                new SimpleDateFormat('MM/dd/yyyy').parse(date)
+                return true
+            } catch (ParseException e) { return false }
+        }
+        if (!validDate(params.effectiveDate)) errors << 'Effective date must be of the format MM/DD/YYYY'
+        if (!validDate(params.expirationDate)) errors << 'Expiration date must be of the format MM/DD/YYYY'
         if (!errors.isEmpty()) return [vendors: Vendor.list(),
                             categories: Category.list(),
                             data: data, errors: errors]
         
         // do the work
         try {
-            vendorService.saveVendor(data)
+            dealService.saveDeal(data)
         } catch (Exception e) {
-            log.debug "There was an exeption trying to add the vendor: ${e}"
-            errors << 'There was a problem saving the vendor; please try again in a few minutes'
+            log.debug "There was an exeption trying to add the deal: ${e}"
+            errors << 'There was a problem saving the deal; please try again in a few minutes'
             return [vendors: Vendor.list(),
                     categories: Category.list(),
                     data: data, errors: errors]
