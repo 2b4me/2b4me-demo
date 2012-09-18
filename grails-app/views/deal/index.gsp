@@ -50,13 +50,23 @@
                <div id="details">
                   <div id="location-box">
                      <p class="small" id="address">
-                        <strong>2b4me</strong> 333 Aragon Ave. Coral Gables, FL 33134 <a href="#" class="nyi">Map It</a><br /><br />P: (305) 555-1212 <br /> F: (305) 555-1213
+                        <strong>${deal.vendor.name}</strong>
+                        ${deal.vendor.address.address1}<br />
+                        ${deal.vendor.address.city}, ${deal.vendor.address.state} ${deal.vendor.address.postalCode}<br />
+                        <a href="#" class="nyi">Map It</a>
+                        <br /><br />
+                        P: (305) 555-1212
+                        <br />
+                        F: (305) 555-1213
                      </p>
                   </div>
                   <div id="more-details">
                      <h3>More details</h3>
+                     <p class="details-p">${deal.fullDescription}</p>
+                     <!--
                      <p class="details-p">Morbi condimentum tincidunt metus, in euismod quam congue vitae. Duis euismod lectus vitae lectus lacinia fringilla. Nam sed massa ut dui pellentesque tristique a ut risus. Proin vulputate quam sed quam imperdiet a laoreet tortor pretium. Curabitur dui ante, condimentum ac consectetur nec, <a href="#">Some Link</a> consectetur non leo. </p>
                      <p class="details-p">Ut laoreet est vitae lacus imperdiet mollis fermentum nunc tempus.Nam fermentum sem vel eros ullamcorper iaculis. Maecenas facilisis gravida gravida. Quisque augue odio, suscipit in euismod a, faucibus eu orci.</p>
+                     -->
                      <h5 id="terms">Terms &amp; Conditions</h5>
                      <p class="small terms-p">Nulla lacus velit, scelerisque eu pharetra id, interdum vel massa. Duis suscipit, quam at auctor iaculis, mi justo dictum magna, at venenatis lacus nisi id dui. Nullam eu velit ac sapien porttitor placerat. </p>
                      <p class="small terms-p">In hac habitasse platea dictumst. Praesent porta, lorem ut tincidunt cursus, risus risus rutrum metus, vitae viverra tellus mi nec urna. Nulla facilisi. Nullam vel nisl a lorem pretium commodo non semper nulla. <a href="#">Other Conditions Apply</a> Paid value does not expire - promotional value expires December 14, 2012</p>

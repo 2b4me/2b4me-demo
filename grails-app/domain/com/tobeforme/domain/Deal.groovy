@@ -12,6 +12,7 @@ class Deal implements Serializable {
 	Category category
 	Date effective
 	Date expiration
+	String fullDescription
 	
 	static belongsTo = [vendor: Vendor]
 	
@@ -23,6 +24,7 @@ class Deal implements Serializable {
         id generator: 'sequence',
            params: [sequence: 'deal_id_sequence']
         teaser sqlType: 'text'
+        fullDescription sqlType: 'text'
     }
 	
 	def discountInPct() {

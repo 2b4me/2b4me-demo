@@ -26,6 +26,14 @@ class DealController {
         }
     
         def deal = Deal.findByShortName(params.id)
+        // bring some properties into memory form the db
+        deal.vendor.name
+        deal.vendor.address.address1
+        deal.vendor.address.address2
+        deal.vendor.address.city
+        deal.vendor.address.state
+        deal.vendor.address.postalCode
+        deal.vendor.address.countryCode
         [deal: deal]
     }
     
