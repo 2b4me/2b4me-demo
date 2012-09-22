@@ -62,6 +62,10 @@ grails.hibernate.cache.queries = true
 // write database changes immediately
 grails.gorm.autoFlush = true
 
+// aws s3
+grails.plugin.awssdk.accessKey = 'AKIAITF6E4NWZ52ADOQQ'
+grails.plugin.awssdk.secretKey = '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'
+
 // set per-environment serverURL stem for creating absolute links
 environments {
     development {

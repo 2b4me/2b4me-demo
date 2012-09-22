@@ -79,7 +79,7 @@
                   <g:if test="${i == 0}">
                      <div class="deal-blocks left-block" id="first-deal">
                         <!--the first deal of the result must have this ID-->
-                        <g:img dir="images/deals" file="${deal.shortName}-browse-photo.jpg" alt="" class="deal-img" />
+                        <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-browse-photo.jpg" class="deal-img" />
                         <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
                         <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
                         <div class="deal-price">
@@ -93,7 +93,7 @@
                   <g:elseif test="${i == 1}">
                      <div class="deal-blocks" id="second-deal">
                         <!--the second deal of the result must have this ID-->
-                        <g:img dir="images/deals" file="${deal.shortName}-browse-photo.jpg" alt="" class="deal-img" />
+                        <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-browse-photo.jpg" class="deal-img" />
                         <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
                         <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
                         <div class="deal-price">
@@ -107,7 +107,7 @@
                   <g:elseif test="${i % 2 != 0}">
                      <div class="deal-blocks left-block">
                         <!--each first block must have the left-block class-->
-                        <g:img dir="images/deals" file="${deal.shortName}-browse-photo.jpg" alt="" class="deal-img" />
+                        <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-browse-photo.jpg" class="deal-img" />
                         <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
                         <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
                         <div class="deal-price">
@@ -120,7 +120,7 @@
                   </g:elseif>
                   <g:else>
                      <div class="deal-blocks">
-                        <g:img dir="images/deals" file="${deal.shortName}-browse-photo.jpg" alt="" class="deal-img" />
+                        <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-browse-photo.jpg" class="deal-img" />
                         <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
                         <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
                         <div class="deal-price">

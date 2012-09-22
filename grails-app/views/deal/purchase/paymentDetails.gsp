@@ -30,7 +30,7 @@
                   <div id="purchase-deal-content">
                      <h3>You are buying</h3>
                      <div id="content-main">
-                        <g:img dir="images/deals" file="${deal.shortName}-related-deal-photo.jpg" id="main-photo" />
+                        <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-related-deal-photo.jpg" id="main-photo" />
                         <div id="deal-info">
                            <h1>${deal.title}</h1>
                            <p id="deal-desc">${deal.teaser}</p>

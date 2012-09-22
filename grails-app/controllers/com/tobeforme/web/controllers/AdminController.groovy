@@ -44,6 +44,11 @@ class AdminController {
     	data.categoryId = params.categoryId
     	data.effectiveDate = params.effectiveDate
     	data.expirationDate = params.expirationDate
+    	data.detailPhoto = params.detailPhoto
+    	data.sliderMainPhoto = params.sliderMainPhoto
+    	data.sliderPhoto = params.sliderPhoto
+    	data.browseDealsPhoto = params.browseDealsPhoto
+    	data.relatedDealPhoto = params.relatedDealPhoto
         
         // validation
         def errors = [] as Set

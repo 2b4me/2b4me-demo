@@ -1,7 +1,7 @@
 <div id="slider">
    <div id="slider-inner">
       <div id="slider-main">
-         <g:img dir="images/deals" file="${featuredDeal.shortName}-slider-main-photo.jpg" />
+         <img src="https://s3.amazonaws.com/2b4me-deals/${featuredDeal.shortName}-slider-main-photo.jpg" />
          <div id="slider-desc">
             <h4>${featuredDeal.hoverTitle}</h4>
             <p class="small">${featuredDeal.hoverTeaser}</p>
@@ -20,7 +20,7 @@
       <div id="slider-reel">
          <g:each var="otherDeal" in="${otherDeals}">
             <div id="slider-image${sliderIndex++}" class="reel-img">
-               <g:link controller="deal" action="index" id="${otherDeal.shortName}"><g:img dir="images/deals" file="${otherDeal.shortName}-slider-photo.jpg" border="0" /></g:link>
+               <g:link controller="deal" action="index" id="${otherDeal.shortName}"><img src="https://s3.amazonaws.com/2b4me-deals/${otherDeal.shortName}-slider-photo.jpg" border="0" /></g:link>
             </div>
          </g:each>
       </div>

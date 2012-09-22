@@ -3,6 +3,7 @@ package com.tobeforme.domain
 class Media {
     
     String name
+    String contentType
     byte[] data
 
     static constraints = {

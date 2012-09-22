@@ -31,7 +31,7 @@
             <!--END MSG-->
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main">
-               <g:img dir="images/deals" file="${deal.shortName}-detail-photo.jpg" id="main-photo" />
+               <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-detail-photo.jpg" id="main-photo" />
                <div id="deal-info">
                   <h1>${deal.title}</h1>
                   <p id="add-line">${deal.teaser}</p>

@@ -22,7 +22,7 @@
                      </g:each>
                   </div>
                </g:if>
-               <g:form class="form-horizontal" action="addDeal" method="post">
+               <g:uploadForm class="form-horizontal" action="addDeal" method="post">
                   <fieldset>
                      <legend>Add a Deal</legend>
                      
@@ -146,11 +146,51 @@
                         </div>
                      </div>
                      
+                     <div class="control-group">
+                        <label class="control-label" for="detailPhoto"></label>
+                        <div class="controls">
+                           <input type="file" class="" id="detailPhoto" name="detailPhoto" /> 
+                           <p class="help-block">This is the photo used on the detail page. Must be a jpg (*.jpg) file.</p>
+                        </div>
+                     </div>
+
+                     <div class="control-group">
+                        <label class="control-label" for="sliderMainPhoto"></label>
+                        <div class="controls">
+                           <input type="file" class="" id="sliderMainPhoto" name="sliderMainPhoto" /> 
+                           <p class="help-block">This is the photo used on the home page if it's a featured deal. Must be a jpg (*.jpg) file.</p>
+                        </div>
+                     </div>
+                     
+                     <div class="control-group">
+                        <label class="control-label" for="sliderPhoto"></label>
+                        <div class="controls">
+                           <input type="file" class="" id="sliderPhoto" name="sliderPhoto" /> 
+                           <p class="help-block">This is the preview photo used on the home page if it's a featured deal. Must be a jpg (*.jpg) file.</p>
+                        </div>
+                     </div>
+                     
+                     <div class="control-group">
+                        <label class="control-label" for="browseDealsPhoto"></label>
+                        <div class="controls">
+                           <input type="file" class="" id="browseDealsPhoto" name="browseDealsPhoto" /> 
+                           <p class="help-block">This is the photo used on the browse deals page. Must be a jpg (*.jpg) file.</p>
+                        </div>
+                     </div>
+                     
+                     <div class="control-group">
+                        <label class="control-label" for="relatedDealPhoto"></label>
+                        <div class="controls">
+                           <input type="file" class="" id="relatedDealPhoto" name="relatedDealPhoto" /> 
+                           <p class="help-block">This is the photo used on the related deals section. Must be a jpg (*.jpg) file.</p>
+                        </div>
+                     </div>
+                     
                      <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Continue</button>
                      </div>
                   </fieldset>
-               </g:form>
+               </g:uploadForm>
             </div>
             <div class="span1">&nbsp;</div>
          </div>
