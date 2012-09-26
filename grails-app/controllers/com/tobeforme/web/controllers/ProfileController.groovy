@@ -3,6 +3,8 @@ package com.tobeforme.web.controllers
 import com.tobeforme.domain.*
 
 class ProfileController {
+    
+    def validatorService
 
     def index() {
 		def user = User.get(request.userId)
@@ -41,6 +43,44 @@ class ProfileController {
 		}
 		user.save()
 		render 'Subscription updated'
+	}
+	
+	def emailAddress() {
+	    def user = User.get(request.userId)
+	    if (!user) {
+	        log.debug "Couldn't find a user with user id ${request.userId}"
+	        render 'error'
+	    } else {
+	        render user.emailAddress
+	    }
+	}
+	
+	def updateEmailAddress() {
+	    if (!params.emailAddress) {
+	        log.debug "updateEmailAddress error: Email address not passed in"
+	        render 'error'
+	        return
+	    }
+	    if (!validatorService.validateEmailAddress(params.emailAddress)) {
+	        log.debug "updateEmailAddress error: Email address not valid"
+	        render 'error'
+	        return
+	    }
+	    def user = User.get(request.userId)
+	    if (!user) {
+	        log.debug "updateEmailAddress error: Couldn't find a user with user id ${request.userId}"
+	        render 'error'
+	    } else {
+	        user.emailAddress = params.emailAddress
+	        try {
+	            user.save(failOnError: true)
+	        } catch (Exception e) {
+	            log.debug "updateEmailAddress error: Error trying to update email address: ${e}"
+	            render error
+	            return
+	        }
+	        render 'success'
+	    }
 	}
 	
 }

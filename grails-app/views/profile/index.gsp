@@ -26,7 +26,7 @@
                <g:else>
                   <h1>Welcome, 2b4me user!</h1>
                </g:else>
-               <p>${user.emailAddress} <a href="#" class="nyi">Update</a></p>
+               <p><span id="profile-email-address-1">${user.emailAddress}</span> <a href="#" id="profile-email-address-1-update-link">Update</a><a href="#" id="profile-email-address-1-cancel-link" style="display:none;">Cancel</a></p>
             </div>
             <!--END TITLE PROFILE-->
             <!--START INFO BLOCKS-->
@@ -54,7 +54,7 @@
                      </li>
                      <li>
                         <dt>Email:</dt>
-                        <dd id="user-email">${user.emailAddress}</dd>
+                        <dd id="user-email"><span id="profile-email-address-2">${user.emailAddress}</span> (<a href="#" id="profile-email-address-2-update-link">update</a><a href="#" style="display:none;" id="profile-email-address-2-cancel-link">cancel</a>)</dd>
                      </li>
                      <li>
                         <dt>Password:</dt>
@@ -101,6 +101,7 @@
                </div>
                <!--END SUBSCRIPTIONS-->
                <!--START CREDIT CARDS-->
+               <!--
                <div class="blocks" id="cards">
                   <p id="no-cc" style="display:none;">You haven't saved a credit card yet!</p>
                   <ul class="list">
@@ -116,6 +117,7 @@
                   </ul>
                   <a href="#" class="b-link nyi">Add Card</a>
                </div>
+                -->
                <!--START CREDIT CARDS-->
             </div>
             <!--END INFO BLOCKS-->
