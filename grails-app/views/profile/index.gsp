@@ -24,7 +24,7 @@
                   <h1>${user.firstName} ${user.lastName}</h1>
                </g:if>
                <g:else>
-                  <h1>Welcome, 2b4me user!</h1>
+                  <h1><span id="profile-name-big">Welcome, 2b4me user!</span></h1>
                </g:else>
                <p><span id="profile-email-address-1">${user.emailAddress}</span> <a href="#" id="profile-email-address-1-update-link">Update</a><a href="#" id="profile-email-address-1-cancel-link" style="display:none;">Cancel</a></p>
             </div>
@@ -40,21 +40,37 @@
                            <dd id="user-name">${user.firstName} ${user.lastName}</dd>
                         </g:if>
                         <g:else>
-                           <dd id="user-name">N/A (<a href="update" class="nyi">update</a>)</dd>
+                           <dd id="user-name"><span id="profile-name">N/A</span> <span id="profile-name-options">(<a href="#" id="profile-name-update-link">update</a><a href="#" style="display:none;" id="profile-name-cancel-link">cancel</a>)</span></dd>
                         </g:else>
                      </li>
-                     <li>
-                        <dt>Address:</dt>
-                        <g:if test="${user.address}">
-                           <dd id="user-address">${user.address?.address1}, ${user.address?.city}, ${user.address?.state}, ${user.address?.postalCode}</dd>
+                     <g:if test="${user.address}">
+                        <li>
+                           <dt>Address:</dt>
+                           <dd id="user-address">${user.address?.address1}</dd>
+                        </li>
+                        <g:if test="${user.address?.address2 && user.address?.address2 != ''}">
+                           <li>
+                              <dt>&nbsp;</dt>
+                              <dd id="user-address">${user.address?.address2}</dd>
+                           </li>
                         </g:if>
-                        <g:else>
+                        <li>
+                           <dt>&nbsp;</dt>
+                           <dd id="user-address">
+                              ${user.address?.city}, ${user.address?.state}
+                              ${user.address?.postalCode}
+                           </dd>
+                        </li>
+                     </g:if>
+                     <g:else> 
+                        <li>
+                           <dt>Address:</dt>
                            <dd id="user-address">N/A (<a href="update" class="nyi">update</a>)</dd>
-                        </g:else>
-                     </li>
+                        </li>
+                     </g:else>
                      <li>
                         <dt>Email:</dt>
-                        <dd id="user-email"><span id="profile-email-address-2">${user.emailAddress}</span> (<a href="#" id="profile-email-address-2-update-link">update</a><a href="#" style="display:none;" id="profile-email-address-2-cancel-link">cancel</a>)</dd>
+                        <dd id="user-email"><span id="profile-email-address-2">${user.emailAddress}</span> <!-- (<a href="#" id="profile-email-address-2-update-link">update</a><a href="#" style="display:none;" id="profile-email-address-2-cancel-link">cancel</a>) --></dd>
                      </li>
                      <li>
                         <dt>Password:</dt>

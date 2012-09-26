@@ -97,5 +97,48 @@ $(document).ready(function(){
 	    }
 	});
 	
+	$('#profile-name-update-link').click(function(event) {
+	    event.preventDefault();
+        $('#profile-name').html('<input type="text" id="profile-first-name-input" style="border: 1px solid gray;" /> <input type="text" id="profile-last-name-input" style="border: 1px solid gray;" />');
+        $('#profile-name-update-link').hide();
+        $('#profile-name-cancel-link').show();
+	});
 	
+	$('#profile-name-cancel-link').click(function(event) {
+	    event.preventDefault();
+	    $.ajax('profile/name', {
+            success: function(data) {
+                $('#profile-name').html(data);
+                $('#profile-name-cancel-link').hide();
+                $('#profile-name-update-link').show();
+            }
+        });
+	});
+	
+	$('#profile-last-name-input').live("keypress", function(event) {
+	    if (event.which == 13) {
+            event.preventDefault();
+            $('#profile-first-name-input').prop('disabled', true);
+            $('#profile-last-name-input').prop('disabled', true);
+            var firstName = $('#profile-first-name-input').val();
+            var lastName = $('#profile-last-name-input').val();
+            $.ajax('profile/updateName', {
+                data: {
+                    firstName: firstName,
+                    lastName: lastName
+                },
+                success: function(data) {
+                    if (data == 'success') {
+                        $('#profile-name').html(firstName + ' ' + lastName);
+                        $('#profile-name-big').html(firstName + ' ' + lastName);
+                        $('#profile-name-options').hide();
+                    } else {
+                        alert("Error trying to update the name");
+                        $('#profile-first-name-input').prop('disabled', false);
+                        $('#profile-last-name-input').prop('disabled', false);
+                    }
+                }
+            });
+        }
+	});
 });

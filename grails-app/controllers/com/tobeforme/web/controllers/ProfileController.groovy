@@ -82,5 +82,48 @@ class ProfileController {
 	        render 'success'
 	    }
 	}
+
+	def name() {
+	    def user = User.get(request.userId)
+	    if (!user) {
+	        log.debug "Couldn't find a user with user id ${request.userId}"
+	        render 'N/A'
+	    } else {
+	        if (user.firstName) {
+	            render user.firstName + ' ' + user.lastName
+	        } else {
+	            render 'N/A'
+	        }
+	    }
+	}
+	
+	def updateName() {
+	    if (!params.firstName || !params.lastName) {
+	        log.debug "updateName error: First name or Last name not provided"
+	        render 'error'
+	        return
+	    }
+	    if (!validatorService.validateName(params.firstName, params.lastName)) {
+	        log.debug "updateName error: Name not valid"
+	        render 'error'
+	        return
+	    }
+	    def user = User.get(request.userId)
+	    if (!user) {
+	        log.debug "updateName error: Couldn't find a user with user id ${request.userId}"
+	        render 'error'
+	    } else {
+	        user.firstName = params.firstName
+	        user.lastName = params.lastName
+	        try {
+	            user.save(failOnError: true)
+	        } catch (Exception e) {
+	            log.debug "updateName error: Error trying to update name: ${e}"
+	            render error
+	            return
+	        }
+	        render 'success'
+	    }
+	}
 	
 }

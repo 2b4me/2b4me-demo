@@ -21,6 +21,13 @@ class ValidatorService {
                tokens[1] != ''
     }
     
+    def validateName(firstName, lastName) {
+        return firstName &&
+               lastName &&
+               !firstName.isEmpty() &&
+               !lastName.isEmpty()
+    }
+    
     def validate() { return true }
 
 }
