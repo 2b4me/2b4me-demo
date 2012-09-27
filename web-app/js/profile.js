@@ -46,8 +46,9 @@ function refreshEmailData(control, emailAddress) {
     $('#'+control).html(emailAddress);
 }
 
-$(document).ready(function(){
-	$('.sub').click(function(){
+$(document).ready(function() {
+    
+	$('.sub').click(function() {
 		this.disabled = true;
     	$("#subUpdating").slideDown();
     	var checked = this.checked;
@@ -99,7 +100,10 @@ $(document).ready(function(){
 	
 	$('#profile-name-update-link').click(function(event) {
 	    event.preventDefault();
-        $('#profile-name').html('<input type="text" id="profile-first-name-input" style="border: 1px solid gray;" /> <input type="text" id="profile-last-name-input" style="border: 1px solid gray;" />');
+        $('#profile-name').html(
+            '<input type="text" id="profile-first-name-input" value="First name" style="border: 1px solid gray; color: #D3D3D3;" /> ' +
+            '<input type="text" id="profile-last-name-input" style="border: 1px solid gray; color: #D3D3D3;" value="Last name" />'
+        );
         $('#profile-name-update-link').hide();
         $('#profile-name-cancel-link').show();
 	});
@@ -114,6 +118,34 @@ $(document).ready(function(){
             }
         });
 	});
+	
+	$('#profile-first-name-input').live("focusin", function(event) {
+	    if ($('#profile-first-name-input').val() == 'First name') {
+	        $('#profile-first-name-input').val('');
+	        $('#profile-first-name-input').css('color', 'black');
+        }
+    });
+
+	$('#profile-first-name-input').live("focusout", function(event) {
+	    if ($('#profile-first-name-input').val() == '') {
+	        $('#profile-first-name-input').val('First name');
+	        $('#profile-first-name-input').css('color', '#D3D3D3');
+        }
+    });
+	
+	$('#profile-last-name-input').live("focusin", function(event) {
+	    if ($('#profile-last-name-input').val() == 'Last name') {
+	        $('#profile-last-name-input').val('');
+	        $('#profile-last-name-input').css('color', 'black');
+        }
+    });
+    
+    $('#profile-last-name-input').live("focusout", function(event) {
+	    if ($('#profile-last-name-input').val() == '') {
+	        $('#profile-last-name-input').val('Last name');
+	        $('#profile-last-name-input').css('color', '#D3D3D3');
+        }
+    });
 	
 	$('#profile-last-name-input').live("keypress", function(event) {
 	    if (event.which == 13) {
@@ -141,4 +173,5 @@ $(document).ready(function(){
             });
         }
 	});
+	
 });

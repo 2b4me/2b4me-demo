@@ -72,10 +72,6 @@
                         <dt>Email:</dt>
                         <dd id="user-email"><span id="profile-email-address-2">${user.emailAddress}</span> <!-- (<a href="#" id="profile-email-address-2-update-link">update</a><a href="#" style="display:none;" id="profile-email-address-2-cancel-link">cancel</a>) --></dd>
                      </li>
-                     <li>
-                        <dt>Password:</dt>
-                        <dd id="user-pass">XXXXXXXXXXXXX</dd>
-                     </li>
                   </dl>
                   <a href="#" class="b-link nyi">Update</a>
                </div>
@@ -150,6 +146,7 @@
       </div>
       <!--PAGE SCRIPT -->
       <g:external dir="js" file="jquery-1.7.2.js" />
+      <g:external dir="js" file="jquery.watermark.js" />
       <g:external dir="js" file="custom-ui.js" />
       <g:external dir="js" file="custom-ui-ext.js" />
       <g:external dir="js" file="profile.js" />
