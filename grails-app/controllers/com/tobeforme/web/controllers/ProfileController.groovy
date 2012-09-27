@@ -19,7 +19,7 @@ class ProfileController {
 	}
 	
 	def purchasedDeals() {
-		def user = User.get(request.data.userId)
+		def user = User.get(request.userId)
 		if (user == null) {
 		    redirect controller: 'featured', action: 'index'
 		    return
@@ -29,7 +29,7 @@ class ProfileController {
 	}
 	
 	def updateSub() {
-	    def user = User.get(request.data.userId)
+	    def user = User.get(request.userId)
 	    if (user == null) {
 		    render 'Error: user not logged in'
 		    return
