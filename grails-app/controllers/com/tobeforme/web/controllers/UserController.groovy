@@ -69,6 +69,7 @@ class UserController {
     
     def registrationComplete() {
         def userId = request.data.userId
+        request.userId = request.data.userId
         if (!userId) {
             throw new IllegalStateException('Not allowed')
         }
