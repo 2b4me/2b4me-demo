@@ -7,6 +7,7 @@ class BootStrap {
     def init = { servletContext ->
         
         def addr = new UserAddress(
+            code: 'daniel@2b4me.com',
             address1: '333 Aragon Avenue',
             address2: '',
             city: 'Coral Gables',
@@ -25,6 +26,7 @@ class BootStrap {
         ).save()
         
         VendorAddress vendorAddress = new VendorAddress(
+            code: '2B',
             address1: '333 Aragon Avenue',
             address2: '',
             city: 'Coral Gables',

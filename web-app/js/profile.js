@@ -46,6 +46,41 @@ function refreshEmailData(control, emailAddress) {
     $('#'+control).html(emailAddress);
 }
 
+function saveAddress() {
+    $('#profile-address-1-input').prop('disabled', true);
+    $('#profile-city-input').prop('disabled', true);
+    $('#profile-state-input').prop('disabled', true);
+    $('#profile-zipcode-input').prop('disabled', true);
+    var address = $('#profile-address-1-input').val();
+    var city = $('#profile-city-input').val();
+    var state = $('#profile-state-input').val();
+    var zipcode = $('#profile-zipcode-input').val();
+    $.ajax('profile/updateAddress', {
+        data: {
+            address: address,
+            city: city,
+            state: state,
+            zipcode: zipcode
+        },
+        success: function(data) {
+            if (data == 'success') {
+                $('#user-address-1').html(address);
+                $('#user-address-2').html(city + ',&nbsp;' + state + '&nbsp;&nbsp;' + zipcode);
+                $('#profile-address-section-form').hide();
+                $('#profile-address-section-data').show();
+                $('#profile-email-section').show();
+                $('#master-profile-update-link').show();
+            } else {
+                alert("Error trying to update the name");
+                $('#profile-address-1-input').prop('disabled', false);
+                $('#profile-city-input').prop('disabled', false);
+                $('#profile-state-input').prop('disabled', false);
+                $('#profile-zipcode-input').prop('disabled', false);
+            }
+        }
+    });
+}
+
 $(document).ready(function() {
     
 	$('.sub').click(function() {
@@ -171,6 +206,34 @@ $(document).ready(function() {
                     }
                 }
             });
+        }
+	});
+	
+	$('#profile-address-update-link').click(function(event) {
+	    event.preventDefault();
+	    $('#profile-email-section').hide();
+	    $('#master-profile-update-link').hide();
+	    $('#profile-address-section').hide();
+	    $('#profile-address-section-form').show();
+	});
+	
+	$('#profile-address-cancel-link').click(function(event) {
+	    event.preventDefault();
+	    $('#profile-address-section-form').hide();
+	    $('#profile-address-section').show();
+	    $('#master-profile-update-link').show();
+	    $('#profile-email-section').show();
+	});
+	
+	$('#profile-address-save-link').click(function(event) {
+	    event.preventDefault();
+	    saveAddress();
+	});
+	
+	$('#profile-zipcode-input').keypress(function(event) {
+	    if (event.which == 13) {
+            event.preventDefault();
+            saveAddress();
         }
 	});
 	

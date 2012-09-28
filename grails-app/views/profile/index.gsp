@@ -50,30 +50,72 @@
                         </li>
                         <g:if test="${user.address?.address2 && user.address?.address2 != ''}">
                            <li>
-                              <dt>&nbsp;</dt>
+                              <dt style="width: 56px;">&nbsp;</dt>
                               <dd id="user-address">${user.address?.address2}</dd>
                            </li>
                         </g:if>
                         <li>
-                           <dt>&nbsp;</dt>
+                           <dt style="width: 56px;">&nbsp;</dt>
                            <dd id="user-address">
-                              ${user.address?.city}, ${user.address?.state}
-                              ${user.address?.postalCode}
+                              ${user.address?.city},&nbsp;${user.address?.state}&nbsp;&nbsp;${user.address?.postalCode}
                            </dd>
                         </li>
                      </g:if>
-                     <g:else> 
-                        <li>
-                           <dt>Address:</dt>
-                           <dd id="user-address">N/A (<a href="update" class="nyi">update</a>)</dd>
-                        </li>
+                     <g:else>
+                        <div id="profile-address-section">
+                           <li>
+                              <dt>Address:</dt>
+                              <dd id="user-address">N/A (<a href="#" id="profile-address-update-link">update</a>)</dd>
+                           </li>
+                        </div>
+                        <div id="profile-address-section-form" style="display: none;">
+                           <li>
+                              <dt>Address:</dt>
+                              <dd id="user-address"><input type="text" id="profile-address-1-input" value="Address" style="border: 1px solid gray; color: #D3D3D3; width: 150px;" /></dd>
+                           </li>
+                           <li>
+                              <dt style="width: 56px;">City</dt>
+                              <dd id="user-address"><input type="text" id="profile-city-input" value="City" style="border: 1px solid gray; color: #D3D3D3; width: 150px;" /></dd>
+                           </li>
+                           <li>
+                              <dt style="width: 56px;">State</dt>
+                              <dd id="user-address">
+                                 <select id="profile-state-input">
+                                    <option value="">--</option>
+                                    <g:each in="${states}">
+                                       <option value="${it.key}">${it.value}</option>
+                                    </g:each>
+                                 </select>
+                              </dd>
+                           </li>
+                           <li>
+                              <dt style="width: 56px;">Zip</dt>
+                              <dd id="user-address"><input type="text" id="profile-zipcode-input" value="Zipcode" style="border: 1px solid gray; color: #D3D3D3;" /></dd>
+                           </li>
+                           <li>
+                              <dt style="width: 1px;">&nbsp;</dt>
+                              <dd id="user-address"><a href="#" id="profile-address-save-link">save</a> | <a href="#" id="profile-address-cancel-link">cancel</a></dd>
+                           </li>
+                        </div>
+                        <div id="profile-address-section-data" style="display: none;">
+                           <li>
+                              <dt>Address:</dt>
+                              <dd id="user-address-1">...</dd>
+                           </li>
+                           <li>
+                              <dt style="width: 56px;">&nbsp;</dt>
+                              <dd id="user-address-2">...</dd>
+                           </li>
+                        </div>
                      </g:else>
-                     <li>
-                        <dt>Email:</dt>
-                        <dd id="user-email"><span id="profile-email-address-2">${user.emailAddress}</span> <!-- (<a href="#" id="profile-email-address-2-update-link">update</a><a href="#" style="display:none;" id="profile-email-address-2-cancel-link">cancel</a>) --></dd>
-                     </li>
+                     <div id="profile-email-section">
+                        <li>
+                           <dt>Email:</dt>
+                           <dd id="user-email"><span id="profile-email-address-2">${user.emailAddress}</span> <!-- (<a href="#" id="profile-email-address-2-update-link">update</a><a href="#" style="display:none;" id="profile-email-address-2-cancel-link">cancel</a>) --></dd>
+                        </li>
+                     </div>
                   </dl>
-                  <a href="#" class="b-link nyi">Update</a>
+                  <a href="#" id="master-profile-update-link" class="b-link nyi">Update</a>
                </div>
                <!--END USER INFO-->
                <!--START PURCHASED DEALS-->
@@ -146,7 +188,6 @@
       </div>
       <!--PAGE SCRIPT -->
       <g:external dir="js" file="jquery-1.7.2.js" />
-      <g:external dir="js" file="jquery.watermark.js" />
       <g:external dir="js" file="custom-ui.js" />
       <g:external dir="js" file="custom-ui-ext.js" />
       <g:external dir="js" file="profile.js" />

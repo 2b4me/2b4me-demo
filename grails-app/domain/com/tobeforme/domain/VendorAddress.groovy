@@ -2,6 +2,7 @@ package com.tobeforme.domain
 
 class VendorAddress implements Serializable {
     
+    String code
     String address1
     String address2
     String city
@@ -10,7 +11,7 @@ class VendorAddress implements Serializable {
     String countryCode
 
     static constraints = {
-        address1 unique: ['address2','city','state','postalCode','countryCode']
+        code unique: true
         address2 blank: true
     }
     

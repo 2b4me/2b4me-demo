@@ -5,6 +5,7 @@ import com.tobeforme.domain.*
 class ProfileController {
     
     def validatorService
+    def staticDataService
 
     def index() {
 		def user = User.get(request.userId)
@@ -15,7 +16,8 @@ class ProfileController {
 		def subscriptions = Subscription.list()
 		def purchases = Purchase.findAllByBuyer(user, [sort: 'bought', order: 'desc', max: 2])
 		def profilePhoto = user.emailAddress.replace('@','+')
-		[user: user, subscriptions: subscriptions, purchases: purchases, profilePhoto: profilePhoto]
+		[ user: user, subscriptions: subscriptions, purchases: purchases, 
+		  profilePhoto: profilePhoto, states: staticDataService.states() ]
 	}
 	
 	def purchasedDeals() {
@@ -81,6 +83,50 @@ class ProfileController {
 	        }
 	        render 'success'
 	    }
+	}
+	
+	def updateAddress() {
+	    if (!params.address || !params.city || !params.state || !params.zipcode) {
+	        log.debug 'updateAddress error: Not all fields were filled'
+	        render 'error'
+	        return
+        }
+        def user  = User.get(request.userId)
+        if (!user) {
+            log.debug "updateAddress error: Couldn't find a user with user id ${request.userId}"
+	        render 'error'
+        } else {
+            def address = user.address
+            if (!address) {
+                address = new UserAddress()
+            }
+            address.code = user.emailAddress
+            address.address1 = params.address
+            address.address2 = ''
+            address.city = params.city
+            address.state = params.state
+            address.postalCode = params.zipcode
+            address.countryCode = 'US'
+            try {
+                address.save(failOnError: true)
+            } catch (Exception e) {
+                log.debug "updateAddress error: Error trying to save user address: ${e}"
+	            render error
+	            return
+	        }
+	        if (!user.address) {
+	            user.address = address
+	            try {
+                    user.save(failOnError: true)
+                } catch (Exception e) {
+                    address.delete()
+                    log.debug "updateAddress error: Error trying to save user address: ${e}"
+    	            render error
+    	            return
+    	        }
+	        }
+	        render 'success'
+        }
 	}
 
 	def name() {
