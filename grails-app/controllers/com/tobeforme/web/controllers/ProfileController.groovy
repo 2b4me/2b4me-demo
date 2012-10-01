@@ -9,10 +9,6 @@ class ProfileController {
 
     def index() {
 		def user = User.get(request.userId)
-		if (user == null) {
-		    redirect controller: 'featured', action: 'index'
-		    return
-		}
 		def subscriptions = Subscription.list()
 		def purchases = Purchase.findAllByBuyer(user, [sort: 'bought', order: 'desc', max: 2])
 		def profilePhoto = user.emailAddress.replace('@','+')
@@ -22,10 +18,6 @@ class ProfileController {
 	
 	def purchasedDeals() {
 		def user = User.get(request.userId)
-		if (user == null) {
-		    redirect controller: 'featured', action: 'index'
-		    return
-		}
         def purchases = Purchase.findAllByBuyer(user, [sort: 'bought', order: 'desc'])
 		[user: user, purchases: purchases]
 	}
@@ -173,13 +165,7 @@ class ProfileController {
 	}
 	
 	def updateProfileInfo() {
-	    if (!request.userId) {
-	        redirect controller: 'featured', action: 'index'
-	        return
-	    }
-	    
-	    def user = User.get(request.userId)
-	    
+	    def user = User.get(request.userId)	    
 	    if (!params.submit) {
 	        def profilePhoto = user.emailAddress.replace('@','+')
     		return [ user: user, profilePhoto: profilePhoto,

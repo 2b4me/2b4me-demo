@@ -49,6 +49,18 @@ class SecurityFilters {
                 sessionService.updateSession(request.sid, request.userId, request.admin, request.data)
             }
         }
+        
+        secure(controller:'*', action:'*') {
+            before = {
+                if (controllerName == 'profile' && actionName in ['index','purchasedDeals','updateProfileInfo']) {
+                    if (!request.userId) {
+                        redirect controller: 'featured', action: 'index'
+            		    return false
+            		}
+                }
+            }
+        }
+        
     }
 
 }
