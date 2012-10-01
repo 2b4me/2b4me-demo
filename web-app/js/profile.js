@@ -81,6 +81,13 @@ function saveAddress() {
     });
 }
 
+function watermark(field, conditionalValue, newValue, targetColor) {
+    if ($(field).val() == conditionalValue) {
+        $(field).val(newValue);
+        $(field).css('color', targetColor);
+    }
+}
+
 $(document).ready(function() {
     
 	$('.sub').click(function() {
@@ -154,32 +161,44 @@ $(document).ready(function() {
         });
 	});
 	
-	$('#profile-first-name-input').live("focusin", function(event) {
-	    if ($('#profile-first-name-input').val() == 'First name') {
-	        $('#profile-first-name-input').val('');
-	        $('#profile-first-name-input').css('color', 'black');
-        }
+	$('#profile-first-name-input').live("focus", function(event) {
+	    watermark('#profile-first-name-input',
+	              'First name', '', 'black');
     });
 
-	$('#profile-first-name-input').live("focusout", function(event) {
-	    if ($('#profile-first-name-input').val() == '') {
-	        $('#profile-first-name-input').val('First name');
-	        $('#profile-first-name-input').css('color', '#D3D3D3');
-        }
+	$('#profile-first-name-input').live("blur", function(event) {
+	    watermark('#profile-first-name-input',
+	              '', 'First name', '#D3D3D3');
     });
 	
-	$('#profile-last-name-input').live("focusin", function(event) {
-	    if ($('#profile-last-name-input').val() == 'Last name') {
-	        $('#profile-last-name-input').val('');
-	        $('#profile-last-name-input').css('color', 'black');
-        }
+	$('#profile-last-name-input').live("focus", function(event) {
+	    watermark('#profile-last-name-input',
+	              'Last name', '', 'black');
     });
     
-    $('#profile-last-name-input').live("focusout", function(event) {
-	    if ($('#profile-last-name-input').val() == '') {
-	        $('#profile-last-name-input').val('Last name');
-	        $('#profile-last-name-input').css('color', '#D3D3D3');
-        }
+    $('#profile-last-name-input').live("blur", function(event) {
+        watermark('#profile-last-name-input',
+	              '', 'Last name', '#D3D3D3');
+    });
+    
+    $('#update-profile-first-name-input').focus(function(event) {
+        watermark('#update-profile-first-name-input',
+	              'First name', '', 'black');
+    });
+
+	$('#update-profile-first-name-input').blur(function(event) {
+	    watermark('#update-profile-first-name-input',
+	              '', 'First name', '#D3D3D3');
+    });
+    
+    $('#update-profile-last-name-input').focus(function(event) {
+        watermark('#update-profile-last-name-input',
+	              'Last name', '', 'black');
+    });
+
+	$('#update-profile-last-name-input').blur(function(event) {
+	    watermark('#update-profile-last-name-input',
+	              '', 'Last name', '#D3D3D3');
     });
 	
 	$('#profile-last-name-input').live("keypress", function(event) {
@@ -235,6 +254,42 @@ $(document).ready(function() {
             event.preventDefault();
             saveAddress();
         }
+	});
+	
+	$('#update-profile-state-input').change(function(event) {
+	    if ($('#update-profile-state-input').val() != '') {
+	        $('#update-profile-state-input').css('color', 'black');
+	    } else {
+	        $('#update-profile-state-input').css('color', '#D3D3D3');
+	    }
+	});
+	
+	$('#update-profile-cancel-changes').click(function(event) {
+	    event.preventDefault();
+	    window.location = './';
+	});
+	
+	$('#update-profile-save-changes').click(function(event) {
+	    event.preventDefault();
+	    $.ajax('saveProfileInfo', {
+            data: {
+                firstName: $('#update-profile-first-name-input').val(),
+                lastName: $('#update-profile-last-name-input').val(),
+                address: $('#update-profile-address-1-input').val(),
+                city: $('#update-profile-city-input').val(),
+                state: $('#update-profile-state-input').val(),
+                zipcode: $('#update-profile-zipcode-input').val(),
+                email: $('#update-profile-email-input').val()
+            },
+            success: function(data) {
+                if (data == 'success') {
+                    window.location = './';
+                } else {
+                    $('#update-profile-error-message p').html(data);
+                    $('#update-profile-error-message').show();
+                }
+            }
+        });
 	});
 	
 });

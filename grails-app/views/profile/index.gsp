@@ -115,7 +115,7 @@
                         </li>
                      </div>
                   </dl>
-                  <a href="#" id="master-profile-update-link" class="b-link nyi">Update</a>
+                  <g:link elementId="master-profile-update-link" class="b-link" action="updateProfileInfo">Update</g:link>
                </div>
                <!--END USER INFO-->
                <!--START PURCHASED DEALS-->

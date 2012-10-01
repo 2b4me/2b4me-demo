@@ -172,4 +172,77 @@ class ProfileController {
 	    }
 	}
 	
+	def updateProfileInfo() {
+	    if (!request.userId) {
+	        redirect controller: 'featured', action: 'index'
+	        return
+	    }
+	    
+	    def user = User.get(request.userId)
+	    
+	    if (!params.submit) {
+	        def profilePhoto = user.emailAddress.replace('@','+')
+    		return [ user: user, profilePhoto: profilePhoto,
+    		         states: staticDataService.states() ]
+	    }
+	}
+	
+	def saveProfileInfo() {
+	    if (params.firstName == null || params.lastName == null ||
+	        params.address == null || params.city == null ||
+	        params.state == null || params.zipcode == null ||
+	        params.email == null) {
+	        log.debug 'One or more fields were null'
+	        render "Error: All fields must be filled"
+	        return
+	    }
+	    
+	    if (params.firstName == 'First name' || params.lastName == 'Last name' ||
+	        params.address == 'Address' || params.city == 'City' ||
+	        params.state == '' || params.zipcode == 'Zip code' ||
+	        params.email == '') {
+	        log.debug 'One ore more fields had a default or blank value'
+	        render "Error: All fields must be filled"
+	        return
+	    }
+	    
+	    if (!validatorService.validateEmailAddress(params.email)) {
+	        render 'Error: Email address invalid'
+	        return
+	    }
+	    
+	    def user = User.get(request.userId)
+	    if (!user) {
+	        render "Error: Login session expired; please log in and try again."
+	        return
+	    }
+	    
+	    def address = user.address
+        if (!address) {
+            address = new UserAddress()
+        }
+        address.code = user.emailAddress
+        address.address1 = params.address
+        address.address2 = ''
+        address.city = params.city
+        address.state = params.state
+        address.postalCode = params.zipcode
+        address.countryCode = 'US'
+        try {
+            address.save(failOnError: true)
+        } catch (Exception e) {
+            log.debug e
+            render "Error: Update failed; please try again in a few minutes"
+            return
+        }
+        
+        user.firstName = params.firstName
+        user.lastName = params.lastName
+        user.emailAddress = params.email
+        if (!user.address) user.address = address
+        user.save()
+        
+        render 'success'
+	}
+	
 }

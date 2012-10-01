@@ -20,9 +20,9 @@
             <!-- START MAIN CONTENT (the deal info.) -->
             <div id="content-main" class="nobg">
                <div id="registration-content-main">
-                  <h2>Please register or log in</h2>
-                  <h3>Don't have an account yet? Registering is easy!</h3>
-                  <h5>Already have an account? <a id="registration-signin" href="sign-in.html">Click here</a></h5>
+                  <h2>User Sign-up</h2>
+                  <h3>Sign up for access to some of the hottest deals of South Florida</h3>
+                  <h5>Already have an account? <a id="registration-signin" href="sign-in.html">Click here instead to log in   </a></h5>
                   <g:if test="${error}">
                      <div class="alert alert-error">${error}</div>
                   </g:if>
