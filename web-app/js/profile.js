@@ -1,3 +1,7 @@
+function getPrefix() {
+    return window.document.location.protocol+'//'+window.document.location.host+window.document.location.pathname+'/';
+}
+
 function showUpdateEmailForm(control, event) {
     event.preventDefault();
     $('#'+control).html('<input type="text" id="'+control+'-input" style="border: 1px solid gray;" value="'+$('#'+control).html()+'" />');
@@ -7,7 +11,7 @@ function showUpdateEmailForm(control, event) {
 
 function cancelUpdateEmail(control, event) {
     event.preventDefault();
-    $.ajax('profile/emailAddress', {
+    $.ajax(getPrefix()+'emailAddress', {
         success: function(data) {
             $('#'+control).html(data);
             $('#'+control+'-cancel-link').hide();
@@ -21,7 +25,7 @@ function updateEmail(control, event) {
         event.preventDefault();
         $('#'+control+'-input').prop('disabled', true);
         var newEmailAddress = $('#'+control+'-input').val()
-        $.ajax('profile/updateEmailAddress', {
+        $.ajax(getPrefix()+'updateEmailAddress', {
             data: {
                 emailAddress: newEmailAddress
             },
@@ -55,7 +59,7 @@ function saveAddress() {
     var city = $('#profile-city-input').val();
     var state = $('#profile-state-input').val();
     var zipcode = $('#profile-zipcode-input').val();
-    $.ajax('profile/updateAddress', {
+    $.ajax(getPrefix()+'updateAddress', {
         data: {
             address: address,
             city: city,
@@ -96,7 +100,7 @@ $(document).ready(function() {
     	var checked = this.checked;
     	var name = this.name;
     	$.ajax({
-    		url: "profile/updateSub?name="+name+"&checked="+checked,
+    		url: getPrefix()+"updateSub?name="+name+"&checked="+checked,
     		cache: false
     	}).done(function( html ) {
     		setTimeout(function() {
@@ -152,7 +156,7 @@ $(document).ready(function() {
 	
 	$('#profile-name-cancel-link').click(function(event) {
 	    event.preventDefault();
-	    $.ajax('profile/name', {
+	    $.ajax(getPrefix()+'name', {
             success: function(data) {
                 $('#profile-name').html(data);
                 $('#profile-name-cancel-link').hide();
@@ -208,7 +212,7 @@ $(document).ready(function() {
             $('#profile-last-name-input').prop('disabled', true);
             var firstName = $('#profile-first-name-input').val();
             var lastName = $('#profile-last-name-input').val();
-            $.ajax('profile/updateName', {
+            $.ajax(getPrefix()+'updateName', {
                 data: {
                     firstName: firstName,
                     lastName: lastName
@@ -271,7 +275,7 @@ $(document).ready(function() {
 	
 	$('#update-profile-save-changes').click(function(event) {
 	    event.preventDefault();
-	    $.ajax('saveProfileInfo', {
+	    $.ajax(getPrefix()+'../saveProfileInfo', {
             data: {
                 firstName: $('#update-profile-first-name-input').val(),
                 lastName: $('#update-profile-last-name-input').val(),

@@ -242,6 +242,7 @@ class ProfileController {
         if (!user.address) user.address = address
         user.save()
         
+        log.debug "Success!"
         render 'success'
 	}
 	
