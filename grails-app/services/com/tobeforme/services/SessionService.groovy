@@ -10,13 +10,14 @@ class SessionService {
         if (!sid) {
             session = createSession()
         } else {
-            // log.debug 'Grabbing an already created session using sid ' + sid
-            session = Session.findBySessionId(sid)
+            try {
+                session = Session.findBySessionId(sid)
+            } catch (Exception e) {
+                log.debug "Caught an exception trying to find a session by session ID ${sid}: ${e}"
+                session = null
+            }
             if (!session) {
-                // log.debug 'Could not find the session'
                 session = createSession(sid)
-            } else {
-                // log.debug 'Session found'
             }
         }
         return session
