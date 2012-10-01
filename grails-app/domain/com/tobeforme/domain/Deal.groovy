@@ -14,6 +14,8 @@ class Deal implements Serializable {
 	Date expiration
 	String fullDescription
 	
+	static hasMany = [terms: String]
+	
 	static belongsTo = [vendor: Vendor]
 	
 	static constraints = {
@@ -25,6 +27,10 @@ class Deal implements Serializable {
            params: [sequence: 'deal_id_sequence']
         teaser sqlType: 'text'
         fullDescription sqlType: 'text'
+        hasMany joinTable: [name: 'deal_terms',
+                            key: 'deal_id',
+                            column: 'term',
+                            type: "text"]
     }
 	
 	def discountInPct() {

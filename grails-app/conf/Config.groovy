@@ -66,6 +66,9 @@ grails.gorm.autoFlush = true
 grails.plugin.awssdk.accessKey = 'AKIAITF6E4NWZ52ADOQQ'
 grails.plugin.awssdk.secretKey = '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'
 
+// google static maps api key
+grails.google.staticmapsapi.key = 'AIzaSyB2TybU9pWsfBKj-tsGv-Eg4kOZf31RECE'
+
 // set per-environment serverURL stem for creating absolute links
 environments {
     development {

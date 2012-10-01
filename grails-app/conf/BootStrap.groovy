@@ -60,7 +60,13 @@ class BootStrap {
             category: wedding,
             effective: effective,
             expiration: expiration,
-            vendor: vendor
+            vendor: vendor,
+            terms: [
+                'Limit 1 per purchaser, additional as gifts.',
+                'Limit 1 voucher per customer per redemption.',
+                'Must be 18 years or older.',
+                'All services must be redeemed within 8 weeks from initial redemption by same customer.'
+            ]
         ).save()        
         Deal burgerTown = new Deal(
             shortName: 'burgertown',
@@ -74,7 +80,13 @@ class BootStrap {
             category: dining,
             effective: effective,
             expiration: expiration,
-            vendor: vendor
+            vendor: vendor,
+            terms: [
+                'Limit 1 per purchaser, additional as gifts.',
+                'Limit 1 voucher per customer per redemption.',
+                'Must be 18 years or older.',
+                'All services must be redeemed within 8 weeks from initial redemption by same customer.'
+            ]
         ).save()
         Deal spaRetreat = new Deal(
             shortName: 'sparetreat',
@@ -88,7 +100,13 @@ class BootStrap {
             category: salon,
             effective: effective,
             expiration: expiration,
-            vendor: vendor
+            vendor: vendor,
+            terms: [
+                'Limit 1 per purchaser, additional as gifts.',
+                'Limit 1 voucher per customer per redemption.',
+                'Must be 18 years or older.',
+                'All services must be redeemed within 8 weeks from initial redemption by same customer.'
+            ]
         ).save()
         Deal openBar = new Deal(
             shortName: 'openbar',
@@ -102,7 +120,13 @@ class BootStrap {
             category: entertainment,
             effective: effective,
             expiration: expiration,
-            vendor: vendor
+            vendor: vendor,
+            terms: [
+                'Limit 1 per purchaser, additional as gifts.',
+                'Limit 1 voucher per customer per redemption.',
+                'Must be 21 years or older.',
+                'All services must be redeemed within 8 weeks from initial redemption by same customer.'
+            ]
         ).save()
         
         FeaturedDeal fSobe = new FeaturedDeal(deal: sobe, prio: 1).save()

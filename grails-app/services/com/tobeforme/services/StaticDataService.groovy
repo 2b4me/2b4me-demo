@@ -58,4 +58,5 @@ class StaticDataService {
                 WI: 'Wisconsin', 
                 WY: 'Wyoming']
     }
+    
 }

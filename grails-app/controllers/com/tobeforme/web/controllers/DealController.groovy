@@ -144,6 +144,32 @@ class DealController {
             render "Could not delete person ${p.name}"
         }
     }
+    
+    def mapImage() {
+        def address = Deal.get(params.id).vendor.address
+        def apikey = grailsApplication.config.grails.google.staticmapsapi.key
+        
+        def encodedAddress = (address.address1+', '+address.city+', '+address.state+' '+address.postalCode).replace(' ','+')
+        log.debug encodedAddress
+        
+        render '<img src="http://maps.googleapis.com/maps/api/staticmap?'+
+               'center='+encodedAddress+'&'+
+               'zoom=13&'+
+               'size='+params.w+'x'+params.h+'&'+
+               'maptype=roadmap&'+
+               'markers=size%3Amid%7Ccolor%3Ared%7C'+encodedAddress+'&'+
+               'sensor=false&'+
+               'key='+apikey+
+               '" />'
+    }
+    
+    def mapLink() {
+        def address = Deal.get(params.id).vendor.address
+        def encodedAddress = (address.address1+', '+address.city+', '+address.state+' '+address.postalCode).replace(' ','+')
+        def link = 'https://maps.google.com/maps?q='+encodedAddress+'&z=16'
+        
+        render '<a target="new" href="'+link+'">Map and Directions</a>'
+    }
 }
 
 class PaymentDetailsCommand implements Serializable {
