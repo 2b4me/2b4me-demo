@@ -32,22 +32,17 @@
                      <span id="remain">${daysRemaining} days remaining</span>
                      <!-- <a href="#" id="get-yours" class="nyi">Get yours free</a> -->
                   </div>
-                  <!--
-                  <div id="sharing">
-                     <span>Share this Deal</span>
-                     <div id="share-fb">
-                        <a href="#" class="nyi">
-                           <g:img dir="images" file="share-fb.png" />
-                        </a>
-                     </div>
+                  <div id="sharing" style="margin-top: 25px; width: 500px;">
                      <div id="share-tweet">
-                        <a href="#" class="nyi">
-                           <g:img dir="images" file="share-tweet.png" />
-                        </a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
                      </div>
+                     <div id="share-fb" style="margin-top: -2px; margin-left: -30px;">
+                        <div class="fb-like" data-send="false" data-show-faces="false" data-width="250"></div>
+                     </div>
+                     <!--
                      <a href="#" class="nyi" id="share-email">Email</a>
+                      -->
                   </div>
-                   -->
                </div>
                <div id="details">
                   <div id="location-box">
@@ -106,5 +101,22 @@
       <g:external dir="js" file="jquery-1.7.2.js" />
       <g:external dir="js" file="custom-ui.js" />
       <g:external dir="js" file="custom-ui-ext.js" />
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=151231185021518";
+         fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      <script>!function(d,s,id){
+         var js,fjs=d.getElementsByTagName(s)[0];
+         if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src="https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js,fjs);
+         }
+      }(document,"script","twitter-wjs");</script>
    </body>
 </html>
