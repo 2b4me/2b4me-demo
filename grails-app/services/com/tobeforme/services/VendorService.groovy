@@ -6,6 +6,7 @@ class VendorService {
 
     def saveVendor(data) {
         def va = new VendorAddress(
+            code: data.vendorAddressCode,
             address1: data.vendorAddress1,
             address2: data.vendorAddress2,
             city: data.vendorCity,

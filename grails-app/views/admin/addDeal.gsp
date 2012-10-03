@@ -147,42 +147,42 @@
                      </div>
                      
                      <div class="control-group">
-                        <label class="control-label" for="detailPhoto"></label>
+                           <label class="control-label" for="detailPhoto">Detail Photo</label>
                         <div class="controls">
                            <input type="file" class="" id="detailPhoto" name="detailPhoto" /> 
-                           <p class="help-block">This is the photo used on the detail page. Must be a jpg (*.jpg) file.</p>
+                           <p class="help-block">This is the photo used on the detail page. Must be a jpg (*.jpg) file with 452 × 289 dimensions.</p>
                         </div>
                      </div>
 
                      <div class="control-group">
-                        <label class="control-label" for="sliderMainPhoto"></label>
+                        <label class="control-label" for="sliderMainPhoto">Featured Deals Main Photo</label>
                         <div class="controls">
                            <input type="file" class="" id="sliderMainPhoto" name="sliderMainPhoto" /> 
-                           <p class="help-block">This is the photo used on the home page if it's a featured deal. Must be a jpg (*.jpg) file.</p>
+                           <p class="help-block">This is the photo used on the home page if it's a featured deal. Must be a jpg (*.jpg) file with 602 × 289 dimensions.</p>
                         </div>
                      </div>
                      
                      <div class="control-group">
-                        <label class="control-label" for="sliderPhoto"></label>
+                        <label class="control-label" for="sliderPhoto">Featured Deals Small Photo</label>
                         <div class="controls">
                            <input type="file" class="" id="sliderPhoto" name="sliderPhoto" /> 
-                           <p class="help-block">This is the preview photo used on the home page if it's a featured deal. Must be a jpg (*.jpg) file.</p>
+                           <p class="help-block">This is the preview photo used on the home page if it's a featured deal. Must be a jpg (*.jpg) file with 296 × 144 dimensions.</p>
                         </div>
                      </div>
                      
                      <div class="control-group">
-                        <label class="control-label" for="browseDealsPhoto"></label>
+                        <label class="control-label" for="browseDealsPhoto">Browse Deals Photo</label>
                         <div class="controls">
                            <input type="file" class="" id="browseDealsPhoto" name="browseDealsPhoto" /> 
-                           <p class="help-block">This is the photo used on the browse deals page. Must be a jpg (*.jpg) file.</p>
+                           <p class="help-block">This is the photo used on the browse deals page. Must be a jpg (*.jpg) file with 288 × 136 dimensions.</p>
                         </div>
                      </div>
                      
                      <div class="control-group">
-                        <label class="control-label" for="relatedDealPhoto"></label>
+                        <label class="control-label" for="relatedDealPhoto">Related Deals Photo </label>
                         <div class="controls">
                            <input type="file" class="" id="relatedDealPhoto" name="relatedDealPhoto" /> 
-                           <p class="help-block">This is the photo used on the related deals section. Must be a jpg (*.jpg) file.</p>
+                           <p class="help-block">This is the photo used on the related deals section. Must be a jpg (*.jpg) file with 259 × 136 dimensions.</p>
                         </div>
                      </div>
                      
