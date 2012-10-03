@@ -59,4 +59,10 @@ class StaticDataService {
                 WY: 'Wyoming']
     }
     
+    def daysBetween(startDate, endDate) {
+        use(groovy.time.TimeCategory) {
+            def duration = endDate - startDate
+            duration.days
+        }
+    }
 }

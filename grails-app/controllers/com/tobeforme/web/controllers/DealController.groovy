@@ -9,6 +9,8 @@ class DealController {
     def voucherNumberGeneratorService
     
     def loginService
+    
+    def staticDataService
 
     def index() {
         def id = params.id
@@ -34,7 +36,10 @@ class DealController {
         deal.vendor.address.state
         deal.vendor.address.postalCode
         deal.vendor.address.countryCode
-        [deal: deal]
+        
+        def daysRemaining = staticDataService.daysBetween(new Date(), deal.expiration)
+        
+        [deal: deal, daysRemaining: daysRemaining]
     }
     
     def relatedDeals() {

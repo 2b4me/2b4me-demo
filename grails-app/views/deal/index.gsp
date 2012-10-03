@@ -27,13 +27,12 @@
                      <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
                      <g:link controller="deal" action="purchase" id="${deal.shortName}" class="green-btn lvl2" elementId="buynow-deal">buy now</g:link>
                   </div>
-                  <!--
                   <div id="deal-off">
                      <span id="off">${deal.discountInPct()}%</span><small>off</small>
-                     <span id="remain">5 days remaining</span>
-                     <a href="#" id="get-yours" class="nyi">Get yours free</a>
+                     <span id="remain">${daysRemaining} days remaining</span>
+                     <!-- <a href="#" id="get-yours" class="nyi">Get yours free</a> -->
                   </div>
-                  -->
+                  <!--
                   <div id="sharing">
                      <span>Share this Deal</span>
                      <div id="share-fb">
@@ -48,6 +47,7 @@
                      </div>
                      <a href="#" class="nyi" id="share-email">Email</a>
                   </div>
+                   -->
                </div>
                <div id="details">
                   <div id="location-box">
@@ -79,7 +79,7 @@
                         ${t}
                         </g:each>
                      </p>
-                     <p class="small terms-p">Except where noted in the above terms, this deal cannot be combined with any other offer or promotion. Tax and gratuity are not included. See the full 2b4me conditions by clicking <a href="#">here</a>. Paid value does not expire but promotional value expires <g:formatDate format="MMMM d, yyyy" date="${deal.expiration}"/>.</p>
+                     <p class="small terms-p">Except where noted in the above terms, this deal cannot be combined with any other offer or promotion. Tax and gratuity are not included. <!-- See the full 2b4me conditions by clicking <a href="#">here</a>. -->Paid value does not expire but promotional value expires <g:formatDate format="MMMM d, yyyy" date="${deal.expiration}"/>.</p>
                   </div>
                </div>
             </div>
