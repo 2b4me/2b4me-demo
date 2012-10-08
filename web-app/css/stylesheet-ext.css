@@ -338,6 +338,178 @@ div#content-main.nobg {
   color: #b94a48;
 }
 
+.company-section-spacer {
+   position: relative;
+   margin: 0px auto;
+   width: 600px;
+   border-top: 3px solid #CBD3D8;
+}
+
+#company-page-top-image {
+   display: block;
+   margin: auto;
+   margin-top: 10px;
+   margin-bottom: 30px;
+}
+
+#company-highlights {
+   position: relative;
+   margin: 20px;
+   margin-bottom: 30px;
+}
+
+.company-highlghts-segment {
+   padding: 10px;
+   margin: 10px;
+   position: absolute;
+   width: 250px;
+}
+
+.company-highlghts-segment h3 {
+   margin-bottom: 10px;
+}
+
+#company-highlights-top-left {
+   left: 40px;
+   top: 0px;
+}
+
+#company-highlights-top-right {
+   right: 40px;
+   top: 0px;
+}
+
+#company-highlights-bottom-left {
+   left: 40px;
+   bottom: 0px;
+}
+
+#company-highlights-bottom-right {
+   right: 40px;
+   bottom: 0px;
+}
+
+#company-highlights-image {
+   padding: 10px;
+   margin: 10px;  
+}
+
+#company-highlights-image img {
+   display: block;
+   margin: auto;
+}
+
+.company-feature {
+   position: relative;
+   width: 780px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 20px;
+   margin-bottom: 160px;
+}
+
+.company-feature-description {
+   
+}
+
+.company-feature-description h2 {
+   color: #49791F;
+   font: bold 34px "Trebuchet MS", Arial, sans-serif;
+   margin-bottom: 10px;
+}
+
+.company-feature-description p {
+   width: 500px;
+}
+
+.company-feature-description ul {
+   float: left;
+   margin-right: 100px;
+}
+
+.company-feature-description ul li {
+   height: 16px;
+   padding: 0 0 0 25px;
+   background: url(../images/list-bullet-2.png) no-repeat;
+   font: 600 13px Arial, sans-serif;
+   line-height: 16px;
+   color: #0E71A8;
+   margin: 15px 0;
+}
+
+.company-feature-image {
+   position: absolute;
+   right: 0px;
+   top: 20px;
+}
+
+#company-expert-opinions {
+   position: relative;
+   width: 780px;
+   margin: 20px auto;
+   margin-bottom: 40px;
+}
+
+#company-expert-opinions h2 {
+   
+}
+
+#company-expert-opinions-description {
+   width: 400px;
+   height: 157px;
+   background: url(../images/dialogue-box.png) no-repeat;
+}
+
+#company-expert-opinions-description img {
+   position: absolute;
+   left: 20px;
+   top: 90px;
+}
+
+#company-expert-opinions-description h3 {
+   position: absolute;
+   left: 110px;
+   top: 90px;
+}
+
+#company-expert-opinions-description p {
+   position: absolute;
+   left: 110px;
+   top: 120px;
+   width: 240px;
+}
+
+#company-expert-opinions-benefits {
+   position: absolute;
+   right: 70px;
+   top: 70px;
+}
+
+#company-expert-opinions-benefits h4 {
+   margin-bottom: 0px;
+}
+
+#company-expert-opinions-benefits ul {
+   float: left;
+   margin-right: 25px;
+}
+
+#company-expert-opinions-benefits li {
+   height: 16px;
+   padding: 0 0 0 25px;
+   background: url(../images/list-bullet-2.png) no-repeat;
+   font: 600 13px Arial, sans-serif;
+   line-height: 16px;
+   color: #0E71A8;
+   margin: 15px 0;
+}
+
+#company-what-makes-us-different {
+   position: relative;
+   width: 780px;
+   margin: 20px auto;
+}
+
 /************************************** DEMO LOGIN *********************************************/
 #demo-login {
 	width: 603px;  min-height: 370px;
