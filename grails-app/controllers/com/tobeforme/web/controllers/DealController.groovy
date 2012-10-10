@@ -51,6 +51,7 @@ class DealController {
         [relatedDeals: relatedDeals]
     }
     
+    /*
     def purchaseFlow = {
         
         startFlow {
@@ -128,6 +129,7 @@ class DealController {
         }
         
     }
+    */
     
     def confirmation() {
         if (params.purchaseId) {

@@ -80,55 +80,55 @@
                      <div class="deal-blocks left-block" id="first-deal">
                         <!--the first deal of the result must have this ID-->
                         <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-browse-photo.jpg" class="deal-img" />
-                        <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
-                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
+                        <h4 class="deal-name"><g:link controller="deal" action="index" id="${deal.shortName}">${deal.title}</g:link></h4>
+                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" action="index" id="${deal.shortName}">Read More</g:link></p>
                         <div class="deal-price">
                            <span class="nowonly">Now Only</span>
                            <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
                         </div>
                         <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
-                        <g:link controller="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
+                        <g:link controller="purchase" action="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
                      </div>
                   </g:if>
                   <g:elseif test="${i == 1}">
                      <div class="deal-blocks" id="second-deal">
                         <!--the second deal of the result must have this ID-->
                         <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-browse-photo.jpg" class="deal-img" />
-                        <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
-                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
+                        <h4 class="deal-name"><g:link controller="deal" action="index" id="${deal.shortName}">${deal.title}</g:link></h4>
+                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" action="index" id="${deal.shortName}">Read More</g:link></p>
                         <div class="deal-price">
                            <span class="nowonly">Now Only</span>
                            <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
                         </div>
                         <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
-                        <g:link controller="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
+                        <g:link controller="purchase" action="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
                      </div>
                   </g:elseif>
                   <g:elseif test="${i % 2 != 0}">
                      <div class="deal-blocks left-block">
                         <!--each first block must have the left-block class-->
                         <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-browse-photo.jpg" class="deal-img" />
-                        <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
-                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
+                        <h4 class="deal-name"><g:link controller="deal" action="index" id="${deal.shortName}">${deal.title}</g:link></h4>
+                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" action="index" id="${deal.shortName}">Read More</g:link></p>
                         <div class="deal-price">
                            <span class="nowonly">Now Only</span>
                            <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
                         </div>
                         <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
-                        <g:link controller="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
+                        <g:link controller="purchase" action="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
                      </div>
                   </g:elseif>
                   <g:else>
                      <div class="deal-blocks">
                         <img src="https://s3.amazonaws.com/2b4me-deals/${deal.shortName}-browse-photo.jpg" class="deal-img" />
-                        <h4 class="deal-name"><g:link controller="deal" id="${deal.shortName}">${deal.title}</g:link></h4>
-                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" id="${deal.shortName}">Read More</g:link></p>
+                        <h4 class="deal-name"><g:link controller="deal" action="index" id="${deal.shortName}">${deal.title}</g:link></h4>
+                        <p class="small">${deal.hoverTeaser} <g:link controller="deal" action="index" id="${deal.shortName}">Read More</g:link></p>
                         <div class="deal-price">
                            <span class="nowonly">Now Only</span>
                            <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
                         </div>
                         <span class="prev-price"><g:formatNumber number="${deal.originalPrice}" format="\$###,##0" /></span>
-                        <g:link controller="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
+                        <g:link controller="purchase" action="deal" id="${deal.shortName}" class="green-btn buynow">Buy Now</g:link>
                      </div>
                   </g:else>
                </g:each>

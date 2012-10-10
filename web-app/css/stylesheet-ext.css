@@ -77,8 +77,8 @@ div#content-main.nobg {
 }
 
 #purchaseDeal #purchase-deal-content select {
-	margin: 5px 20px 0px 20px;
-    min-width: 20px ! important;
+	margin: 0px 20px 0px 20px;
+    min-width: 60px ! important;
     color: black;
     line-height: 26px;
 }
