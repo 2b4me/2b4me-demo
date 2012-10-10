@@ -139,33 +139,32 @@
                      </ul>
                   </div>
                </div>
-               <div class="company-section-spacer">&nbsp;</div>
                <div id="company-what-makes-us-different">
                   <h2>What make us different?</h2>
-                  <div id="company-what-makes-us-different-top-left" class="company-what-makes-us-different-section">
-                     <h3>Mega Deals</h3>
-                     <p>Combine deals or buy pre-packaged deals, the result is the same: <strong>More savings for you!</strong> With our Mega Deals, you will save even more when you buy two more qualifying deals together.</p>
-                  </div>
-                  <div id="company-what-makes-us-different-top-right" class="company-what-makes-us-different-section">
-                     <h4>Hotel + Flight + Meals</h4>
-                     <div>
-                        <span class="company-save-up-to">Save up to</span>
-                        <span class="company-save-up-to-pct">40%</span>
+                     <div id="company-what-makes-us-different-top-left" class="company-what-makes-us-different-section">
+                        <h3>Mega Deals</h3>
+                        <p>Combine deals or buy pre-packaged deals, the result is the same: <strong>More savings for you!</strong> With our Mega Deals, you will save even more when you buy two more qualifying deals together.</p>
                      </div>
-                     <h4>Wedding Rings + Honeymoon</h4>
-                     <div>
-                        <span class="company-save-up-to">Save up to</span>
-                        <span class="company-save-up-to-pct">50%</span>
+                     <div id="company-what-makes-us-different-bottom-left" class="company-what-makes-us-different-section">
+                        <h4>Hotel + Flight + Meals</h4>
+                        <div>
+                           <span class="company-save-up-to">Save up to</span>
+                           <span class="company-save-up-to-pct">40%</span>
+                        </div>
+                        <h4>Wedding Rings + Honeymoon</h4>
+                        <div>
+                           <span class="company-save-up-to">Save up to</span>
+                           <span class="company-save-up-to-pct">50%</span>
+                        </div>
                      </div>
-                  </div>
-                  <div id="company-what-makes-us-different-bottom-left" class="company-what-makes-us-different-section">
-                     <h3>Truly Local</h3>
-                     <p>We don't use the word "Local" lightly. To us, "Local" means offering you deals that make the city you live in unique and special. With our deals you will have access to the best Miami has to offer, in terms of quality and uniqueness. We want you to live and play in the city you love!</p>
-                  </div>
-                  <div id="company-what-makes-us-different-bottom-right" class="company-what-makes-us-different-section">
-                     <h3>Financing Available</h3>
-                     <p>Our financing options, available on most deals, will give you unprecedented access to most exciting deals. Let us help you enjoy the vacation of your dreams.</p>
-                  </div>
+                     <div id="company-what-makes-us-different-top-right" class="company-what-makes-us-different-section">
+                        <h3>Truly Local</h3>
+                        <p>We don't use the word "Local" lightly. To us, "Local" means offering you deals that make the city you live in unique and special. With our deals you will have access to the best Miami has to offer, in terms of quality and uniqueness. We want you to live and play in the city you love!</p>
+                     </div>
+                     <div id="company-what-makes-us-different-bottom-right" class="company-what-makes-us-different-section">
+                        <h3>Financing Available</h3>
+                        <p>Our financing options, available on most deals, will give you unprecedented access to most exciting deals. Let us help you enjoy the vacation of your dreams.</p>
+                     </div>
                </div>
             </div>
          </div>

@@ -13,6 +13,7 @@ class UrlMappings {
 		"/deal/purchase/$id"(controller: "deal", action: "purchase")
 		"/profile"(controller: "profile", action: "index")
 		"/admin"(controller: "admin", action: "index")
+		"/company"(controller: "company", action: "index")
 		"/controllers"(view:"/index")
 		"500"(view:'/error')
 	}

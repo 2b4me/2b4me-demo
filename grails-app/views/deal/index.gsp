@@ -25,7 +25,7 @@
                   <p id="deal-desc">${deal.teaser}</p>
                   <div id="deal-price">
                      <span class="actual-price"><g:formatNumber number="${deal.price}" format="\$###,##0" /></span>
-                     <g:link controller="deal" action="purchase" id="${deal.shortName}" class="green-btn lvl2" elementId="buynow-deal">buy now</g:link>
+                     <g:link controller="purchase" action="deal" id="${deal.shortName}" class="green-btn lvl2" elementId="buynow-deal">buy now</g:link>
                   </div>
                   <div id="deal-off">
                      <span id="off">${deal.discountInPct()}%</span><small>off</small>

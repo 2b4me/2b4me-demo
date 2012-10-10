@@ -61,6 +61,17 @@ class SecurityFilters {
             }
         }
         
+        cleanSession(controller:'*', action:'*') {
+            after = {
+                /*
+                 * Finish implementing this later
+                 *
+                sessionService.cleanSession(request.sid)
+                 *
+                 */
+            }
+        }
+        
     }
 
 }

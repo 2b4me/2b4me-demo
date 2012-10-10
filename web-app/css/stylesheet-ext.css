@@ -77,7 +77,10 @@ div#content-main.nobg {
 }
 
 #purchaseDeal #purchase-deal-content select {
-	margin: 0px 20px 0px 20px;
+	margin: 5px 20px 0px 20px;
+    min-width: 20px ! important;
+    color: black;
+    line-height: 26px;
 }
 
 #purchaseDeal #purchase-deal-content .sel2 {
@@ -111,7 +114,7 @@ div#content-main.nobg {
 #purchaseDeal #purchase-deal-content #content-main #form-entry #form-input {
 	float:left;
 	margin: 10px 0px 0px 0px;
-	width: 130px;
+	width: 88px;
 }
 
 #purchaseDeal #purchase-deal-content #content-main #form-entry #form-input.shorter {
@@ -447,11 +450,12 @@ div#content-main.nobg {
    position: relative;
    width: 780px;
    margin: 20px auto;
-   margin-bottom: 40px;
+   margin-bottom: 30px;
 }
 
 #company-expert-opinions h2 {
-   
+    color: #49791F;
+    font: bold 34px "Trebuchet MS", Arial, sans-serif;
 }
 
 #company-expert-opinions-description {
@@ -507,7 +511,316 @@ div#content-main.nobg {
 #company-what-makes-us-different {
    position: relative;
    width: 780px;
+   height: 375px;
    margin: 20px auto;
+   background: url(../images/bttm-grdnt.png) left bottom repeat-x;
+}
+
+#company-what-makes-us-different h2 {
+    color: #49791F;
+    font: bold 34px "Trebuchet MS", Arial, sans-serif;
+}
+
+.company-what-makes-us-different-section {
+    height: 150px;
+    width: 350px;
+    margin: 10px;
+}
+
+.company-what-makes-us-different-section h3 {
+    color: #055984;
+    font: bolder 29px Arial;
+    margin: 0 0 5px;
+    text-transform: none;
+}
+
+.company-what-makes-us-different-section h4 {
+    font-size: 17px;
+    color: #055984;
+}
+
+.company-what-makes-us-different-section p {
+    
+}
+
+.company-what-makes-us-different-section div {
+    margin-left: 270px;
+    margin-top: -65px;
+    margin-bottom: 25px;
+}
+
+.company-what-makes-us-different-section div span.company-save-up-to {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #437B18;
+}
+
+.company-what-makes-us-different-section div span.company-save-up-to-pct {
+    color: #666;
+    font-size: 40px;
+    font-weight: 600;
+    display: block;
+    letter-spacing: -2px;
+    margin: -5px 0 0;
+}
+
+#company-what-makes-us-different-top-left {
+    position: absolute;
+    top: 50px;
+    left: 15px;
+}
+
+#company-what-makes-us-different-top-right {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+}
+
+#company-what-makes-us-different-bottom-left {
+    position: absolute;
+    bottom: -30px;
+    left: 15px;
+}
+
+#company-what-makes-us-different-bottom-right {
+    position: absolute;
+    bottom: -30px;
+    right: 15px;
+}
+
+#contest-area {
+    width: 688px;
+    height: 625px;
+    text-align: center;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    background-color: #C3EBF6;
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50);
+    background-image: url(../images/light.png);
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+#stamps {
+    position: absolute;
+    float: right;
+    clear: both;
+    margin-left: 580px;
+    margin-top: -70px;
+}
+
+#contest-area .headline {
+    display: block;
+    font-size: 32px;
+    color: #004262;
+    font-weight: bold;
+    text-shadow: 0em 0.1em 0em white;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#contest-area .sub {
+    display: block;
+    font-size: 25px;
+    color: #004262;
+    font-weight: bold;
+    text-shadow: 0em 0.1em 0em white;
+}
+
+#contest-area .textfieldstyle {
+    background-color: white;
+    border: 1px solid #97D2E2;
+    padding: 5px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    height: 24px;
+    padding-top: 2px;
+    padding-left: 10px;
+}
+
+#contest-area .button {
+    padding: 0 14px;
+    line-height: 28px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #008CB8;
+    border-radius: 4px;
+    background: url(../images/grad_button_blue.jpg) repeat-x;
+    background-position: top;
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+#contest-area #terms {
+    width: 500px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contest-area #next-drawing {
+    font-size: 18px;
+    color: #004262;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+
+#contest-area #next-drawing-countdown {
+    font-size: 18px;
+    color: #004262;
+    letter-spacing: 0.1em;
+}
+
+#contest-area #next-drawing-countdown img {
+    vertical-align: middle;
+}
+
+.row {
+    margin: 0px 0px 20px 23px;
+}
+
+.row .item {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 207px;
+    height: 210px;
+    background-color: white;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.item .idnumber {
+    color: #DB1330;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.item .prize {
+    font-size: 14px;
+    color: #111;
+    font-weight: bold;
+}
+
+.item .description {
+    font-size: 12px;
+    color: #007CB6;
+}
+
+.item .button {
+    line-height: 23px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #628F2F;
+    border-radius: 4px;
+    background: url(../images/grad_button_green.jpg) repeat-x;
+    background-position: top;
+    width: 45%;
+    margin: 0px auto;
+}
+
+.item .button a {
+    text-decoration: none;
+    color: white;
+}
+
+#contest-area .ad {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 640px;
+    height: 141px;
+    text-align: left;
+    background-color: white;
+    line-height: 1.15em;
+    -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#contest-area .ad .ad-content {
+    padding: 10px 15px 5px 220px;
+    margin-top: -140px;
+}
+
+#contest-area .prize {
+    font-size: 14px;
+    color: #111;
+    font-weight: bold;
+}
+
+#winners-area {
+    width: 688px;
+    text-align: center;
+    margin: 15px auto 60px auto;
+    padding: 25px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    background-color: #F3F6EF;
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.50);
+    background-image: url(../images/light.png);
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+#winners-area .toggle a {
+    color: #437B18;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#winners-area .headline {
+    font-size: 32px;
+    color: #4B731D;
+    font-weight: bold;
+    text-shadow: 0em 0.1em 0em white;
+}
+
+#winners-area .contest-alert {
+    font-style: italic;
+    color: #DB1330;
+    font-size: 14px;
+}
+
+#winners-area .sub {
+    font-size: 20px;
+    color: #4B731D;
+    font-weight: bold;
+    text-shadow: 0em 0.1em 0em white;
+    border-bottom: solid 1px;
+    border-bottom-color: #D3D6CF;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 500px;
+}
+
+#winners-area p {
+    display: inline;
+    line-height: 1.7em;
+}
+
+#winners-area .prevwin {
+    color: #464646;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#winners-area .expired {
+    font-style: italic;
+    color: #DB1330;
+    font-size: 12px;
 }
 
 /************************************** DEMO LOGIN *********************************************/

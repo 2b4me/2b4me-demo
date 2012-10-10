@@ -22,7 +22,7 @@
                <div id="registration-content-main">
                   <h2>User Sign-up</h2>
                   <h3>Sign up for access to some of the hottest deals of South Florida</h3>
-                  <h5>Already have an account? <a id="registration-signin" href="sign-in.html">Click here instead to log in   </a></h5>
+                  <h5>Already have an account? <g:link action="login">Click here to log in!</g:link></h5>
                   <g:if test="${error}">
                      <div class="alert alert-error">${error}</div>
                   </g:if>
@@ -50,7 +50,7 @@
                         </div>
                      </div>
                      <div id="registration-content">
-                        <p><span class="green-text">An e-mail will be sent to you so that you can confirm your account.</span></p>
+                        <p><span class="green-text">&nbsp;</span></p>
                         <a id="registration-link" href="register" class="round-btn">Register</a>
                      </div>
                   </g:form>

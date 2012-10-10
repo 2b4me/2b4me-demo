@@ -44,6 +44,18 @@ class SessionService {
         return session
     }
     
+    synchronized cleanSession(sid) {
+        def session = Session.findBySessionId(sid)
+        if (session) {
+            def m = session.readData()
+            def keys = m.keySet()
+            def keysToRemove = []
+            m.keySet().each { if (m.get(it) == null) keysToRemove << it }
+            keysToRemove.each { m.remove(it) }
+            session.writeData(m)
+        }
+    }
+    
     synchronized deleteSession(sid) {
         def session = Session.findBySessionId(sid)
         session.delete()

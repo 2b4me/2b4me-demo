@@ -76,6 +76,17 @@ class UserController {
     }
     
     def login() {
+        if (!params.username) {
+            def err = request.data.loginError; request.data.loginError = null
+            def targetController = request.data.targetController; request.data.targetController = null
+            def targetAction = request.data.targetAction; request.data.targetAction = null
+            def targetId = request.data.targetId; request.data.targetId = null
+            log.debug "targetController: ${targetController}"
+            log.debug "targetAction: ${targetAction}"
+            log.debug "targetId: ${targetId}"
+            return [err: err, targetController: targetController, targetAction: targetAction, targetId: targetId]
+        }
+        
         if (params.username == '' || params.password == '') {
             log.debug 'Username and/or password were blank'
             def err = 'Username and password must be supplied'
@@ -96,6 +107,33 @@ class UserController {
     def logout() {
         sessionService.deleteSession(request.sid)
         render('Success')
+    }
+    
+    def processLoginForm() {
+        if (params.username == '' || params.password == '') {
+            request.data.loginError = 'Username and/or password were blank'
+            redirect action: 'login'
+            return
+        }
+        
+        def targetController = params.targetController ? params.targetController : 'featured'
+        def targetAction = params.targetAction ? params.targetAction : 'index'
+        def targetId = params.targetId ? params.targetId : null
+        
+        try {
+            def u = loginService.login(params.username, params.password)
+            request.userId = u.id
+            request.admin = u.admin
+            if (targetId) {
+                redirect controller: targetController, action: targetAction, id: targetId
+            } else {
+                redirect controller: targetController, action: targetAction
+            }
+        } catch (SecurityException e) {
+            log.debug "There was a security exception trying to log on user ${params.username}: ${e}"
+            request.data.loginError = 'Username and/or password not found'
+            redirect action: 'login'
+        }
     }
     
 }

@@ -1,11 +1,6 @@
 $(document).ready(function() {
     countdown(2012, 10, 13);
     
-    $('.nyi').click(function(event){
-       alert('not yet implemented');
-       event.preventDefault();
-    });
-    
     $('#contest-signup-email-input').focus(function(event) {
         if ($('#contest-signup-email-input').val() == 'Enter Your Email Address') {
             $('#contest-signup-email-input').val('');
