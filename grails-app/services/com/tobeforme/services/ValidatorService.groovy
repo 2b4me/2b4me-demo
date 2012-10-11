@@ -79,8 +79,8 @@ class ValidatorService {
     
     def validateCreditCardExpDate(ccExp) {
         if (!ccExp) return false
-        def p = ~/^(0[1-9]|1[012])[-/.]\d\d$/
-        return p?.matcher(ccNum).matches()
+        def p = java.util.regex.Pattern.compile('^(0[1-9]|1[012])[-/.]\\d\\d$')
+        return p?.matcher(ccExp).matches()
     }
 
 }
