@@ -5,6 +5,8 @@ import com.tobeforme.domain.*;
 class PurchaseController {
     
     def staticDataService
+    def creditCardService
+    def validatorService
     
     def index() {
         log.debug '/purchase/index not supported'
@@ -40,11 +42,52 @@ class PurchaseController {
         }
         
         // data binding
+        data.name = params.name
+        data.address1 = params.address1
+        data.address2 = params.address2
+        data.city = params.city
+        data.state = params.state
+        data.zipCode = params.zipCode
+        data.ccNum = params.ccNum?.replaceAll('[^0-9]+', '')
+        data.ccExp = params.ccExp
+        data.ccCvv = params.ccCvv
         
         // validation
+        if (!validatorService.validateNotBlank(params.name)) {
+            errors.put 'name', 'Name cannot be blank'
+        }
+        if (!validatorService.validateNotBlank(params.address1)) {
+            errors.put 'address1', 'Address cannot be blank'
+        }
+        if (!validatorService.validateNotBlank(params.city)) {
+            errors.put 'city', 'City cannot be blank'
+        }
+        if (!validatorService.validateNotBlank(params.state)) {
+            errors.put 'state', 'State cannot be blank'
+        }
+        if (!validatorService.validateZipCode(params.zipCode)) {
+            errors.put 'zipCode', 'Zip Code invalid'
+        }
+        if (!validatorService.validateCreditCard(params.ccNum,
+                creditCardService.getCreditCardType(ccNum))) {
+            errors.put 'ccNum', 'Credit card number invalid'
+        }
+        if (!validatorService.validateCreditCardExpDate(params.ccExp)) {
+            errors.put 'ccExp', 'Expiration date format not valid, must be mm/yy'
+        }
+        if (!validatorService.validateNotBlank(params.ccCvv)) {
+            errors.put 'ccCvv', 'CVV2 cannot be blank'
+        }
         
-        // process payment
+        if (!errors.isEmpty()) {
+            return [user: user, deal: deal, states: states,
+                    data: data, errors: errors]
+        }
+        
+        // save payment details to session
+        requests.data.paymentDetails = data
         
         // redirect to review order to confirm
+        
     }
 }
