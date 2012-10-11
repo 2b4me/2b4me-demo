@@ -1,5 +1,6 @@
 var nextIndex = 1;
 function loadNextDiv() {
+    return;
 	$.ajax({
 		url: "featured/deals?selectedDealIndex="+nextIndex,
 		cache: false

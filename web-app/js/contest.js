@@ -74,6 +74,7 @@ $(document).ready(function() {
        handleMerchantSignupLink(event);
     });
 
+    /*
     $('#merchantSignupForm div input').tooltip({
         placement: 'right',
         title: 'Can\'t be blank',
@@ -81,30 +82,31 @@ $(document).ready(function() {
        });
 
        $('#merchantContactName input').focus(function(event) {
-           $('#merchantContactName input').tooltip('hide');
-           $('#merchantContactName').removeClass("error");
-       });
+       $('#merchantContactName input').tooltip('hide');
+       $('#merchantContactName').removeClass("error");
+   });
+    */
 
-       $('#merchantCompanyName input').focus(function(event) {
-           $('#merchantCompanyName input').tooltip('hide');
-           $('#merchantCompanyName').removeClass("error");
-       });
-       
-       $('#merchantContactInfo input').focus(function(event) {
-           $('#merchantContactInfo input').tooltip('hide');
-           $('#merchantContactInfo').removeClass("error");
-       });
-       
-       $('#merchantBusiness input').focus(function(event) {
-           $('#merchantBusiness input').tooltip('hide');
-           $('#merchantBusiness').removeClass("error");
-       });
-       
-       $('#merchantBusiness input').keypress(function(event) {
-           if (event.which == 13) {
-               $('#merchantSubmit').trigger('click');
-           }
-       });
+   $('#merchantCompanyName input').focus(function(event) {
+       $('#merchantCompanyName input').tooltip('hide');
+       $('#merchantCompanyName').removeClass("error");
+   });
+   
+   $('#merchantContactInfo input').focus(function(event) {
+       $('#merchantContactInfo input').tooltip('hide');
+       $('#merchantContactInfo').removeClass("error");
+   });
+   
+   $('#merchantBusiness input').focus(function(event) {
+       $('#merchantBusiness input').tooltip('hide');
+       $('#merchantBusiness').removeClass("error");
+   });
+   
+   $('#merchantBusiness input').keypress(function(event) {
+       if (event.which == 13) {
+           $('#merchantSubmit').trigger('click');
+       }
+   });
     
     $('#merchantSubmit').click(function(event) {
         event.preventDefault();

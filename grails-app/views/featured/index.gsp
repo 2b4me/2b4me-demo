@@ -14,11 +14,9 @@
       <!-- END HEADER -->
       <!-- START CONTAINER-->
       <div class="container" id="home">
-         <%--
          <!-- START SLIDER -->
          <g:include controller="featured" action="deals" params="[selectedDealIndex: 0]" />
          <!-- END SLIDER -->
-          --%>
          <!--START CONTEST AREA-->
          <div id="contest-area">
             <div id="stamps"><img src="images/stamps.png" /></div>
@@ -28,7 +26,11 @@
             </p>
             <div>
                <form>
-                  <input id="contest-signup-email-input" class="textfieldstyle" name="textfield" type="text" size="30" value="Email Address" />  <input id="contest-signup-zipCode-input" class="textfieldstyle" name="textfield" type="text" size="15" value="Zip Code" />  <button id="contest-signup-submit-btn" type="submit" class="button">Sign up</button>
+                  <input id="contest-signup-email-input" class="textfieldstyle" name="textfield" type="text" size="30" value="Email Address" />
+                  <input id="contest-signup-zipCode-input" class="textfieldstyle" name="textfield" type="text" size="15" value="Zip Code" />
+                  <div id="contest-signup-submit-btn-wrapper">
+                     <button id="contest-signup-submit-btn" type="submit" class="button">Sign up</button>
+                  </div>
                </form>
                <p class="small" id="terms">For full contest rules  <a data-toggle="modal" href="#contestModal">click here</a>. If you lose your contest number, just submit your e-mail address again and it will be e-mailed to you. Your privacy is very important to us, <a data-toggle="modal" href="#privacyModal">click here to read our privacy policy</a>.</p>
             </div>
@@ -43,7 +45,7 @@
                      <img style="float:right;"src="images/cafe-dem-2.jpg"/>
                      <span class="prize">$10 Gift Certificate to<br/>CAFE DEMETRIO</span><br>
                      <span class="description">
-                        Located at 300 Alhambra Circel, Coral Gables, FL.<br>
+                        300 Alhambra Circle<br/>Coral Gables, FL.<br>
                         Ph. (305) 448-4949<br><br>
                         <strong style="font-size:11px;">Opening Hours:</strong><br>
                         <span style="font-size:11px; color:#666;"><strong>Monday - Thursday:</strong> 7:30am - 7pm,  <strong>Friday:</strong> 7:30am - Midnight<br>
@@ -54,7 +56,7 @@
                </div>
             </div>
             <div class="row">
-               <div class="item"> <!--style="margin-left: 110px;"-->
+               <div class="item first-item"> <!--style="margin-left: 110px;"-->
                   <img src="images/50.jpg" />
                   <div style="padding:10px 15px 5px 15px;">
                      <span class="prize">$50 Cash Prize</span><br />
@@ -87,7 +89,7 @@
                <span class="headline">10/06/2012 RAFFLE WINNERS</span><br /><br />
                <!--row-->
                <div class="row">
-                  <div class="item" style="height:275px;"> <!--style="margin-left: 110px;"-->
+                  <div class="item first-item" style="height:275px;"> <!--style="margin-left: 110px;"-->
                      <img src="images/50.jpg" />
                      <div style="padding:10px 15px 5px 15px;">
                         <span class="idnumber">01143</span><br />
@@ -115,15 +117,17 @@
                       <div class="button"><a href="mailto:info@2b4me.com?subject=Claim prize, contestant 09799">Claim Prize</a></div>
                   </div>
                </div>
-               <p class="contest-alert">Prizes expire in three (3) days from being awarded. Don't delay!</p>
-               <div class="sub">PREVIOUS WINNERS</div>
+               <div id="contest-alert">
+                  <p class="contest-alert">Prizes expire in three (3) days from being awarded. Don't delay!</p>
+               </div>
+               <div class="sub">RECENT WINNERS</div>
                <br />
                
-               <p class="prevwin">Drawing of 09/29/2012 <span class="prevwinid">07981</span> wins $50 Cash! <span class="expired">Expired</span></p>
+               <p class="prevwin">Drawing of 10/06/2012 <span class="prevwinid">07981</span> wins $50 Cash! <span class="expired">Expired</span></p>
                <br />
-               <p class="prevwin">Drawing of 09/29/2012 <span class="prevwinid">03400</span> wins $20 Cash! <span class="expired">Expired</span></p>
+               <p class="prevwin">Drawing of 10/06/2012 <span class="prevwinid">03400</span> wins $20 Cash! <span class="expired">Expired</span></p>
                <br />
-               <p class="prevwin">Drawing of 09/29/2012 <span class="prevwinid">02291</span> $10 Cafe Demetrio Gift Certificate! <span class="expired">Expired</span></p>
+               <p class="prevwin">Drawing of 10/06/2012 <span class="prevwinid">02291</span> $10 Cafe Demetrio Gift Certificate! <span class="expired">Expired</span></p>
                <br />
                
                <p class="prevwin">Drawing of 09/29/2012 <span class="prevwinid">08751</span> wins $50 Cash! <span class="expired">Expired</span></p>
@@ -132,39 +136,8 @@
                <br />
                <p class="prevwin">Drawing of 09/29/2012 <span class="prevwinid">09021</span> $10 Cafe Demetrio Gift Certificate! <span class="expired">Expired</span></p>
                <br />
-               
-               <p class="prevwin">Drawing of 09/25/2012 <span class="prevwinid">03077</span> wins $50 Cash! <span class="expired">Expired</span></p>
                <br />
-               <p class="prevwin">Drawing of 09/25/2012 <span class="prevwinid">01848</span> wins $20 Cash! <span class="expired">Expired</span></p>
-               <br />
-               <p class="prevwin">Drawing of 09/25/2012 <span class="prevwinid">08945</span> wins $10 Cafe Demetrio Gift Certificate! <span class="expired">Expired</span></p>
-               <br />
-               
-               <p class="prevwin">Drawing of 09/22/2012 <span class="prevwinid">Maria, from Hialeah, FL</span> wins $50 Cash!</p>
-               <br />
-               <p class="prevwin">Drawing of 09/22/2012 <span class="prevwinid">Adilen, from Hialeah, FL</span> wins $20 Cash!</p>
-               <br />
-               <p class="prevwin">Drawing of 09/22/2012 <span class="prevwinid">Francisco, from Miami, FL</span> wins $10 Cafe Demetrio Gift Certificate!</p>
-               <br />
-               
-               <p class="prevwin">Drawing of 09/18/2012 <span class="prevwinid">Sabrina, from Hialeah, FL</span> wins $50 Cash!</p>
-               <br />
-               <p class="prevwin">Drawing of 09/18/2012 <span class="prevwinid">03236</span> wins $20 Cash! <span class="expired">Expired</span></p>
-               <br />
-               <p class="prevwin">Drawing of 09/18/2012 <span class="prevwinid">06937</span> wins $10 Cafe Demetrio Gift Certificate! <span class="expired">Expired</span></p>
-               <br />
-               
-               <p class="prevwin">Drawing of 09/15/2012 <span class="prevwinid">07981</span> wins $50 Cash! <span class="expired">Expired</span></p>
-               <br />
-               <p class="prevwin">Drawing of 09/15/2012 <span class="prevwinid">00564</span> wins $20 Cash! <span class="expired">Expired</span></p>
-               <br />
-               <p class="prevwin">Drawing of 09/15/2012 <span class="prevwinid">00111</span> wins $10 Cafe Demetrio Gift Certificate! <span class="expired">Expired</span></p>
-               <br />
-               
-               <!--
-               <br />
-               <p class="green"><a href="#" id="hide-winners2" style="color: #437B18;">Close</a></p>
-                -->
+               <p class="green"><a href="#" style="color: #437B18;">See Full List</a></p>
             </div>
          </div>
          <!--END WINNERS AREA-->

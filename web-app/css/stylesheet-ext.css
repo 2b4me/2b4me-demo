@@ -588,7 +588,8 @@ div#content-main.nobg {
 }
 
 #contest-area {
-    width: 688px;
+    /*width: 688px;*/
+    width: 875px;
     height: 625px;
     text-align: center;
     margin: 25px auto;
@@ -609,8 +610,10 @@ div#content-main.nobg {
     position: absolute;
     float: right;
     clear: both;
-    margin-left: 580px;
+    /*margin-left: 580px;*/
+    margin-lefT: 700px;
     margin-top: -70px;
+    z-index: 99;
 }
 
 #contest-area .headline {
@@ -655,6 +658,11 @@ div#content-main.nobg {
     -webkit-appearance: button;
 }
 
+#contest-area #contest-signup-submit-btn-wrapper {
+    display: inline;
+    vertical-align: middle;
+}
+
 #contest-area #terms {
     width: 500px;
     margin-top: 15px;
@@ -695,6 +703,10 @@ div#content-main.nobg {
     float: left;
     margin-right: 10px;
     margin-bottom: 20px;
+}
+
+.row .first-item {
+    margin-left: 90px;
 }
 
 .item .idnumber {
@@ -744,6 +756,7 @@ div#content-main.nobg {
     float: left;
     margin-right: 10px;
     margin-bottom: 10px;
+    margin-left: 90px;
 }
 
 #contest-area .ad .ad-content {
@@ -758,7 +771,8 @@ div#content-main.nobg {
 }
 
 #winners-area {
-    width: 688px;
+    /*width: 688px;*/
+    width: 875px;
     text-align: center;
     margin: 15px auto 60px auto;
     padding: 25px;
@@ -787,7 +801,12 @@ div#content-main.nobg {
     text-shadow: 0em 0.1em 0em white;
 }
 
-#winners-area .contest-alert {
+#winners-area #contest-alert {
+    width: 500px;
+    margin: 0px auto;
+}
+
+#winners-area #contest-alert p {
     font-style: italic;
     color: #DB1330;
     font-size: 14px;
