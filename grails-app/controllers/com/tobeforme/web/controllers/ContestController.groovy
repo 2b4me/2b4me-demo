@@ -244,19 +244,84 @@ class ContestController {
     }
     
     def prizes() {
-        [prizes: Prize.list()]
+        [prizes: Prize.list(sort: 'prio', order: 'asc')]
     }
     
     def addPrize() {
         if (!params.formSubmitted) return
         
-        if (params.name == '') {
+        if (params.name == '' || params.description == '') {
             throw new IllegalStateException('All input boxes must be filled')
         }
         
-        def p = new Prize(name: params.name)
+        def p = new Prize(name: params.name, description: params.description)
         p.save()
         render "Prizes added"
+    }
+    
+    def editPrize() {
+        if (!params.id) {
+            throw new IllegalStateException('id parameter missing')
+        }
+        
+        def prize = Prize.get(params.id)
+        def errors = [:]
+        
+        if (!params.submit) {
+            return [prize: prize, errors: errors]
+        }
+        
+        if (params.submit == 'Cancel') {
+            redirect controller: 'contest', action: 'prizes'
+            return
+        }
+        
+        def data = [:]
+        data.id = params.id
+        data.prio = params.prio
+        data.name = params.name
+        data.description = params.description
+        
+        def xPrize = Prize.findByPrio(params.prio)
+        if (xPrize && xPrize.id.toString() != prize.id.toString()) {
+            errors.put 'prio', "Priority must be unqiue; the value ${params.prio} is already taken"
+        }
+        
+        if (errors.size() > 0) {
+            return [prize: data, errors: errors]
+        }
+        
+        log.debug "Old prio: ${prize.prio} | New prio: ${params.prio}"
+        log.debug "Old prio: ${prize.name} | New prio: ${params.name}"
+        log.debug "Old prio: ${prize.description} | New prio: ${params.description}"
+        
+        prize.prio = Integer.parseInt(params.prio, 10)
+        prize.name = params.name
+        prize.description = params.description
+        prize.save(failOnError: true)
+        
+        redirect controller: 'contest', action: 'prizes'
+    }
+    
+    def drawingDate() {
+        def errors = [:]
+        def data = [:]
+        def nd = NextDrawing.get(1)
+        
+        if (!params.submit) {
+            return [errors: errors, data: data, nextDrawingDate: nd.date]
+        }
+        
+        data.newDate = params.newDate
+        
+        try {
+            nd.date = new java.text.SimpleDateFormat('MM/dd/yyyy').parse(params.newDate)
+            nd.save()
+            return [errors: errors, data: [:], nextDrawingDate: nd.date]
+        } catch (Exception e) {
+            errors.put 'newDate', "There was an error trying to update the date: ${e}"
+            return [errors: errors, data: data, nextDrawingDate: nd.date]
+        }
     }
     
 }

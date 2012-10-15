@@ -1,5 +1,15 @@
 $(document).ready(function() {
-    countdown(2012, 10, 13);
+    var nextDrawingDate = $('#nextDrawingDate').html()
+    countdown(
+        parseInt(nextDrawingDate.substring(6,10), 10),
+        parseInt(nextDrawingDate.substring(0,2), 10),
+        parseInt(nextDrawingDate.substring(3,5), 10)
+    )
+    
+    var currentWinnersCount = $('#currentWinnersCount').html()
+    if (currentWinnersCount == '3') {
+        $('#previous-winners .row .first-item').css('margin-left', '90px');
+    }
     
     $('#contest-signup-email-input').focus(function(event) {
         if ($('#contest-signup-email-input').val() == 'Enter Your Email Address') {
@@ -219,6 +229,24 @@ $(document).ready(function() {
             $('#show-winners').fadeIn();
         });
     });
+    
+    $('#contest-area .button').hover(
+        function(event) {
+            $(this).css('background-position', 'bottom');
+        },
+        function(event) {
+            $(this).css('background-position', 'top');
+        }
+    );
+    
+    $('.item .button').hover(
+        function(event) {
+            $(this).css('background-position', 'bottom');
+        },
+        function(event) {
+            $(this).css('background-position', 'top');
+        }
+    );
     
 });
 

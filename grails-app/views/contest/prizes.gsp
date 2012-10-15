@@ -13,16 +13,20 @@
          <thead>
             <tr>
                <th>&nbsp;</th>
+               <th>Priority</th>
                <th>Name</th>
-               <th>&nbsp;</th>
+               <th>Description</th>
+               <th>Actions</th>
             </tr>
          </thead>
          <tbody>
             <g:each in="${prizes}" var="p" status="i">
                <tr>
                   <td>${i+1}</td>
+                  <td>${p.prio}</td>
                   <td>${p.name}</td>
-                  <td>No action available</td>
+                  <td>${p.description}</td>
+                  <td><g:link action="editPrize" id="${p.id}">Edit</g:link></td>
                </tr>
             </g:each>
          <tr>

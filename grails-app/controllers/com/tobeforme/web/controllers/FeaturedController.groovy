@@ -3,8 +3,16 @@ package com.tobeforme.web.controllers
 import com.tobeforme.domain.*
 
 class FeaturedController {
+    
+    def contestService
 
-    def index() { }
+    def index() {
+        def contest = contestService.generateContestModel()
+		def nextDrawingDate = NextDrawing.get(1).date
+		def prizes = Prize.list(sort: 'prio', order: 'asc')
+        
+        [contest: contest, nextDrawingDate: nextDrawingDate, prizes: prizes]
+    }
 	
 	def top() { }
 	
@@ -28,6 +36,7 @@ class FeaturedController {
 			}
 			otherDeals << fdList.get(i).deal
 		}
+		
 		[featuredDeal: featuredDeal, otherDeals: otherDeals, sliderIndex: 1]
 	}
 	

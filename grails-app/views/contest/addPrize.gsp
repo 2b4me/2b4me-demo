@@ -12,9 +12,17 @@
       <p>&nbsp;</p>
       <form name="addPrize" method="POST" action="addPrize">
          <input name="formSubmitted" type="hidden" value="true" />
-         <label>Name</label> <input name="name" type="text" />
-         <p>&nbsp;</p>
-         <p><input type="submit" /></p>
+         <div>
+            <label>Name</label> <input name="name" type="text" />
+            <p>&nbsp;</p>
+         </div>
+         <div>
+            <label>Description</label> <input name="description" type="text" />
+            <p>&nbsp;</p>
+         </div>
+         <div>
+            <p><input type="submit" /></p>
+         </div>
       </form>
    </body>
    <g:external dir="js" file="jquery-1.7.2.js" />

@@ -50,6 +50,54 @@ class ContestService implements InitializingBean {
         }
     }
     
+    def generateContestModel() {
+        def drawings = Drawing.list()
+        def drawingCount = drawings.size()
+        
+        def storeWinner = { store, winningDrawing, drawingDate ->
+            def x = [:]
+            x.prize = winningDrawing.prize.name
+            x.prizeDesc = winningDrawing.prize.description
+            
+            def winningNumberIterator = winningDrawing.winners.iterator()
+            for (i in 1..3) {
+                def w = winningNumberIterator.next()
+                if (!x.winningNumber && !w.ineligible) {
+                    x.winningNumber = w.entry
+                }
+            }
+            
+            x.drawingDate = drawingDate
+            store << x
+        }
+        
+        def d
+        def currentWinnersDrawingDate
+        
+        def currentWinners = []
+        d = drawings.get(drawingCount-1)
+        currentWinnersDrawingDate = d.drawingDate
+        d.winners.each {
+            storeWinner(currentWinners, it, d.drawingDate)
+        }
+        
+        def pastWinners = []
+        d = drawings.get(drawingCount-2)
+        d.winners.each {
+            storeWinner(pastWinners, it, d.drawingDate)
+        }
+        d = drawings.get(drawingCount-3)
+        d.winners.each {
+            storeWinner(pastWinners, it, d.drawingDate)
+        }
+        
+        def contest = [:]
+        contest.currentWinners = currentWinners
+        contest.pastWinners = pastWinners
+        contest.currentWinnersDrawingDate = currentWinnersDrawingDate
+        return contest
+    }
+    
     void afterPropertiesSet() {
         numbers = []
         def r = new Random(2746);

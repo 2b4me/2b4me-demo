@@ -35,7 +35,7 @@
                <p class="small" id="terms">For full contest rules  <a data-toggle="modal" href="#contestModal">click here</a>. If you lose your contest number, just submit your e-mail address again and it will be e-mailed to you. Your privacy is very important to us, <a data-toggle="modal" href="#privacyModal">click here to read our privacy policy</a>.</p>
             </div>
             <div>
-               <p id="next-drawing">NEXT DRAWING'S PRIZES ON <strong>10/9/2012</strong></p>
+               <p id="next-drawing">NEXT DRAWING'S PRIZES ON <strong id="nextDrawingDate"><g:formatDate format="MM/dd/yyyy" date="${nextDrawingDate}" /></strong></p>
                <p id="next-drawing-countdown"><img style="margin-bottom:3px; margin-right:3px;" src="images/clock.png" /><span id="d2">2</span> <span id="d2desc">DAYS</span> : <span id="h2">23</span> HOURS : <span id="m2">59</span> MINS : <span id="s2">59</span> SEC</p>
             </div>
             <div class="row">
@@ -56,66 +56,49 @@
                </div>
             </div>
             <div class="row">
-               <div class="item first-item"> <!--style="margin-left: 110px;"-->
-                  <img src="images/50.jpg" />
-                  <div style="padding:10px 15px 5px 15px;">
-                     <span class="prize">$50 Cash Prize</span><br />
-                     <span class="description">$50 cash to spend<br/>however you like!</span>
+               <g:each in="${prizes}" var="p" status="i">
+                  <g:if test="${i == 0}">
+                     <div class="item first-item">
+                  </g:if>
+                  <g:else>
+                     <div class="item">
+                  </g:else>
+                     <img src="https://s3.amazonaws.com/2b4me-contest/${p.name}.jpg" />
+                     <div style="padding:10px 15px 5px 15px;">
+                        <span class="prize">${p.name}</span><br />
+                        <span class="description">${p.description}</span>
+                     </div>
                   </div>
-               </div>
-               <div class="item">
-                  <img src="images/40.jpg" />
-                  <div style="padding:10px 15px 5px 15px;">
-                     <span class="prize">$40 Cash Prize</span><br />
-                     <span class="description">$40 cash to spend<br/>however you like!</span>
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="images/20.jpg" />
-                  <div style="padding:10px 15px 5px 15px;">
-                     <span class="prize">$20 Cash Prize</span><br />
-                     <span class="description">$20 cash to spend<br/>however you like!</span>
-                  </div>
-               </div>
+               </g:each>
             </div>
          </div>
          <!--END CONTEST AREA-->
          <!--START WINNERS AREA-->
+         <div id="currentWinnersCount" style="display:none;">${contest.currentWinners.size()}</div>
          <div id="winners-area">
             <p class="toggle"><a id="show-winners" href="#">Click here to see winners</a></p>
             <p class="toggle"><a id="hide-winners" href="#" style="display: none;">Click here to hide winners</a></p>
             <div id="previous-winners" style="display: none;">
                &nbsp;<br />
-               <span class="headline">10/06/2012 RAFFLE WINNERS</span><br /><br />
+               <span class="headline"><g:formatDate format="MM/dd/yyyy" date="${contest.currentWinnersDrawingDate}"/> RAFFLE WINNERS</span><br /><br />
                <!--row-->
                <div class="row">
-                  <div class="item first-item" style="height:275px;"> <!--style="margin-left: 110px;"-->
-                     <img src="images/50.jpg" />
-                     <div style="padding:10px 15px 5px 15px;">
-                        <span class="idnumber">01143</span><br />
-                        <span class="prize">$50 Cash Prize</span><br />
-                        <span class="description">$50 cash to spend<br/>however you like!</span>
+                  <g:each in="${contest.currentWinners}" var="w" status="i">
+                     <g:if test="${i == 0}">
+                        <div class="item first-item">
+                     </g:if>
+                     <g:else>
+                        <div class="item">
+                     </g:else>
+                        <img src="https://s3.amazonaws.com/2b4me-contest/${w.prize}.jpg" />
+                        <div style="padding:10px 15px 5px 15px;">
+                           <span class="idnumber">${w.winningNumber}</span><br />
+                           <span class="prize">${w.prize}</span><br />
+                           <span class="description">${w.prizeDesc}</span>
+                        </div>
+                        <div class="button"><a href="mailto:info@2b4me.com?subject=Claim prize, contestant ${w.winningNumber}">Claim Prize</a></div>
                      </div>
-                     <div class="button"><a href="mailto:info@2b4me.com?subject=Claim prize, contestant 01143">Claim Prize</a></div>
-                  </div>
-                  <div class="item" style="height:275px;">
-                     <img src="images/20.jpg" />
-                     <div style="padding:10px 15px 5px 15px;">
-                        <span class="idnumber">08407</span><br />
-                        <span class="prize">$20 Cash Prize</span><br />
-                        <span class="description">$20 cash to spend<br/>however you like!</span>
-                     </div>
-                     <div class="button"><a href="mailto:info@2b4me.com?subject=Claim prize, contestant 08407">Claim Prize</a></div>
-                  </div>
-                  <div class="item" style="height:275px;">
-                  	<img src="images/cafe-dem.jpg">
-                      <div style="padding:10px 15px 5px 15px;">
-                  	<span class="idnumber">09799</span><br>
-                      <span class="prize">$10 Gift Certificate</span><br>
-                      <span class="description">Smooth coffee and treats at<br/>Cafe Demetrio</span>
-                      </div>
-                      <div class="button"><a href="mailto:info@2b4me.com?subject=Claim prize, contestant 09799">Claim Prize</a></div>
-                  </div>
+                  </g:each>
                </div>
                <div id="contest-alert">
                   <p class="contest-alert">Prizes expire in three (3) days from being awarded. Don't delay!</p>
@@ -123,21 +106,15 @@
                <div class="sub">RECENT WINNERS</div>
                <br />
                
-               <p class="prevwin">Drawing of 10/06/2012 <span class="prevwinid">07981</span> wins $50 Cash! <span class="expired">Expired</span></p>
-               <br />
-               <p class="prevwin">Drawing of 10/06/2012 <span class="prevwinid">03400</span> wins $20 Cash! <span class="expired">Expired</span></p>
-               <br />
-               <p class="prevwin">Drawing of 10/06/2012 <span class="prevwinid">02291</span> $10 Cafe Demetrio Gift Certificate! <span class="expired">Expired</span></p>
-               <br />
+               <g:each in="${contest.pastWinners}" var="w" status="i">
+                  <p class="prevwin">Drawing of <g:formatDate format="MM/dd/yyyy" date="${w.drawingDate}"/> <span class="prevwinid">${w.winningNumber}</span> wins the ${w.prize}! <span class="expired">Expired</span></p>
+                  <br />
+               </g:each>
                
-               <p class="prevwin">Drawing of 09/29/2012 <span class="prevwinid">08751</span> wins $50 Cash! <span class="expired">Expired</span></p>
-               <br />
-               <p class="prevwin">Drawing of 09/29/2012 <span class="prevwinid">03165</span> wins $20 Cash! <span class="expired">Expired</span></p>
-               <br />
-               <p class="prevwin">Drawing of 09/29/2012 <span class="prevwinid">09021</span> $10 Cafe Demetrio Gift Certificate! <span class="expired">Expired</span></p>
-               <br />
+               <!--
                <br />
                <p class="green"><a href="#" style="color: #437B18;">See Full List</a></p>
+                -->
             </div>
          </div>
          <!--END WINNERS AREA-->

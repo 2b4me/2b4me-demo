@@ -705,8 +705,16 @@ div#content-main.nobg {
     margin-bottom: 20px;
 }
 
-.row .first-item {
-    margin-left: 90px;
+#contest-area .row .first-item {
+    margin-left: -16px; /* 90px (or 110px) if only three items */
+}
+
+#previous-winners .row .first-item {
+    margin-left: -16px;
+}
+
+#previous-winners .row .item {
+    height: 275px;
 }
 
 .item .idnumber {
@@ -724,6 +732,9 @@ div#content-main.nobg {
 .item .description {
     font-size: 12px;
     color: #007CB6;
+    width: 110px;
+    display: block;
+    margin: 0px auto;
 }
 
 .item .button {
@@ -774,7 +785,7 @@ div#content-main.nobg {
     /*width: 688px;*/
     width: 875px;
     text-align: center;
-    margin: 15px auto 60px auto;
+    margin: 15px auto 20px auto;
     padding: 25px;
     border-radius: 20px;
     -moz-border-radius: 20px;
