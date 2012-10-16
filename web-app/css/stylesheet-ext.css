@@ -754,6 +754,11 @@ div#content-main.nobg {
     color: white;
 }
 
+.prevwinid {
+    color: #437B18;
+    font-weight: bold;
+}
+
 #contest-area .ad {
     font-family: Arial, Helvetica, sans-serif;
     width: 640px;

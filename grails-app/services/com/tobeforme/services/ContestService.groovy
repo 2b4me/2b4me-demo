@@ -53,20 +53,13 @@ class ContestService implements InitializingBean {
     def generateContestModel() {
         def drawings = Drawing.list()
         def drawingCount = drawings.size()
+        def contestResult = ContestResult.list(sort: 'id', order: 'asc')
         
-        def storeWinner = { store, winningDrawing, drawingDate ->
+        def storeWinner = { store, cr, drawingDate ->
             def x = [:]
-            x.prize = winningDrawing.prize.name
-            x.prizeDesc = winningDrawing.prize.description
-            
-            def winningNumberIterator = winningDrawing.winners.iterator()
-            for (i in 1..3) {
-                def w = winningNumberIterator.next()
-                if (!x.winningNumber && !w.ineligible) {
-                    x.winningNumber = w.entry
-                }
-            }
-            
+            x.prize = cr.prize.name
+            x.prizeDesc = cr.prize.description
+            x.winningNumber = cr.contestNum
             x.drawingDate = drawingDate
             store << x
         }
@@ -77,17 +70,17 @@ class ContestService implements InitializingBean {
         def currentWinners = []
         d = drawings.get(drawingCount-1)
         currentWinnersDrawingDate = d.drawingDate
-        d.winners.each {
+        ContestResult.findAllBySeed(d.seed).each {
             storeWinner(currentWinners, it, d.drawingDate)
         }
         
         def pastWinners = []
         d = drawings.get(drawingCount-2)
-        d.winners.each {
+        ContestResult.findAllBySeed(d.seed).each {
             storeWinner(pastWinners, it, d.drawingDate)
         }
         d = drawings.get(drawingCount-3)
-        d.winners.each {
+        ContestResult.findAllBySeed(d.seed).each {
             storeWinner(pastWinners, it, d.drawingDate)
         }
         
