@@ -4,10 +4,10 @@ delete from user_address;
 delete from drawing_winners;
 delete from winners_contestant;
 delete from winners;
+delete from contest_result;
 delete from prize;
 delete from contestant;
 delete from drawing;
-delete from contest_result;
 \copy email_template from data/email_template.csv csv delimiter E'\t'
 \copy user_address from data/user_address.csv csv delimiter E'\t'
 \copy "user" from data/user.csv csv delimiter E'\t'
