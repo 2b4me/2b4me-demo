@@ -32,11 +32,13 @@
    </ul>
 </g:else>
 <div id="search-form">
+   <!--
    <label for="city">Choose your city</label>
    <select name="city" class="select-box">
       <option value="">Miami</option>
       <option value="">Barcelona</option>
    </select>
+   -->
    <g:form name="myForm" url="[action:'index',controller:'browse']" method="get">
       <div id="search-field">
          <input type="text" id="search-input" name="search" value="Search Deals..."  />

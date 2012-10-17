@@ -1,7 +1,6 @@
 var nextIndex = 1;
 function loadNextDiv() {
-    return;
-	$.ajax({
+    $.ajax({
 		url: "featured/deals?selectedDealIndex="+nextIndex,
 		cache: false
 	}).done(function( html ) {
@@ -14,7 +13,8 @@ function loadNextDiv() {
 	});
 }
 $(document).ready(function(){
-	$("#testBtn").click(function () {
+	$("#testBtn").click(function(event) {
+	    event.preventDefault();
 		loadNextDiv();
 	});
 	setInterval(function() {

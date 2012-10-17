@@ -12,6 +12,7 @@
          <g:include controller="featured" action="top" />
       </div>
       <!-- END HEADER -->
+      <!--<p><a id="testBtn" href="#">Test</a></p>-->
       <!-- START CONTAINER-->
       <div class="container" id="home">
          <!-- START SLIDER -->
