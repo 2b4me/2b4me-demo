@@ -858,6 +858,10 @@ div#content-main.nobg {
     font-size: 12px;
 }
 
+#landing #details, #purchase #details {
+    height: 340px;
+}
+
 /************************************** DEMO LOGIN *********************************************/
 #demo-login {
 	width: 603px;  min-height: 370px;
