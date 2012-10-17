@@ -79,7 +79,9 @@ class UserController {
         if (!params.username) {
             def err = request.data.loginError; request.data.loginError = null
             def targetController = request.data.targetController; request.data.targetController = null
+            if (!targetController && params.cn) targetController = params.cn
             def targetAction = request.data.targetAction; request.data.targetAction = null
+            if (!targetAction && params.an) targetAction = params.an
             def targetId = request.data.targetId; request.data.targetId = null
             log.debug "targetController: ${targetController}"
             log.debug "targetAction: ${targetAction}"

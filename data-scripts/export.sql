@@ -8,3 +8,4 @@
 \copy (SELECT * FROM drawing_winners ORDER BY DRAWING_WINNERS_ID ASC) to data/drawing_winners.csv csv delimiter E'\t'
 \copy (SELECT * FROM winners_contestant ORDER BY WINNERS_WINNERS_ID ASC) to data/winners_contestant.csv csv delimiter E'\t'
 \copy (SELECT * FROM contest_result ORDER BY ID ASC) to data/contest_result.csv csv delimiter E'\t'
+\copy (SELECT * FROM next_drawing ORDER BY ID ASC) to data/next_drawing.csv csv delimiter E'\t'

@@ -61,16 +61,15 @@ $(document).ready(function() {
             return;
         }
         
-        $.ajax('http://demo.2b4me.com/contest/signup', {
+        $.ajax('contest/signup', {
             data: {
                 email: email,
                 zipCode: zipCode
             }
         });
         
-        // show success no matter what
-        $("#emailSuccess").modal({
-            keyboard: true
+        $('#contest-form').fadeOut('slow', function() {
+            $('#contest-form-confirmation').fadeIn('slow');
         });
     });
     
@@ -358,10 +357,4 @@ function countdown(yr, m, d) {
         // exit the countdown
         return;
     }
-}
-
-function handleMerchantSignupLink(event) {
-    $("#merchantSignup").modal({
-        keyboard: true
-    });
 }

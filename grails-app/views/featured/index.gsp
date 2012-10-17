@@ -25,7 +25,8 @@
                <span class="sub">You could win CASH and DEALS up to $50 value!</span>
             </p>
             <div>
-               <form>
+               <p id="contest-form-confirmation" style="display:none;height:29px;margin-bottom:-6px;margin-top:29px;">Thank you for signing up! Your contest number has been sent to you by e-mail.</p>
+               <form id="contest-form">
                   <input id="contest-signup-email-input" class="textfieldstyle" name="textfield" type="text" size="30" value="Email Address" />
                   <input id="contest-signup-zipCode-input" class="textfieldstyle" name="textfield" type="text" size="15" value="Zip Code" />
                   <div id="contest-signup-submit-btn-wrapper">

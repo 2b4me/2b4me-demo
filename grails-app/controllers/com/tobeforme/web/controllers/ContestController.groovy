@@ -186,7 +186,7 @@ class ContestController {
     def selectWinners() {
         def contestants = Contestant.list()
         def prizes = Prize.list()
-
+        
         if (prizes.size() * 10 > contestants.size()) {
             throw new IllegalStateException("The number of contestants " +
                 "(${contestants.size()}) exceeded " +
@@ -210,15 +210,29 @@ class ContestController {
         def counter = 0
         def d  = new Drawing(drawingDate: datetime, seed: seed, winners: [])
         prizes.each { p ->
+            def winnerSelected = false
             def w = new Winners(prize: p, winners: [])
             for (i in 0..2) {
-                w.winners << winners.get(counter++)
+                def winner = winners.get(counter++)
+                if (!winner.ineligible && !winnerSelected) {
+                    ContestResult cr = new ContestResult()
+                    cr.email = winner.email
+                    cr.contestNum = winner.entry
+                    cr.dateWon = new Date(seed)
+                    cr.dateExpires = new Date(seed+(86400000*3)) // three days, should configure this externally
+                    cr.prize = p
+                    cr.claimed = false
+                    cr.seed = seed
+                    cr.save(failOnError: true)
+                    winnerSelected = true
+                }
+                w.winners << winner
             }
-            def s = w.save()
+            def s = w.save(failOnError: true)
             log.debug s
             d.winners << w
         }
-        d.save()
+        d.save(failOnError: true)
         
         render d.toString()   
     }

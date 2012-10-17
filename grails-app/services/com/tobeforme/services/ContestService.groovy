@@ -12,7 +12,7 @@ class ContestService implements InitializingBean {
     
     def processSignup(email, zipCode) {        
         def c = Contestant.findByEmail(email)
-    
+        
         if (!c) {
             c = new Contestant()
             c.email = email
@@ -21,6 +21,13 @@ class ContestService implements InitializingBean {
             c.entry = getNextEntry()
             c.zipCode = zipCode
             c.save()
+        } else {
+            log.debug "Existing user's zip code: '${c.zipCode}'"
+            if (c.zipCode == null) {
+                log.debug "Zip code either null or blank, update value with '${zipCode}'"
+                c.zipCode = zipCode
+                c.save()
+            }
         }
         
         log.debug 'Starting async process to send mail'
@@ -55,8 +62,9 @@ class ContestService implements InitializingBean {
         def drawingCount = drawings.size()
         def contestResult = ContestResult.list(sort: 'id', order: 'asc')
         
-        def storeWinner = { store, cr, drawingDate ->
+        def storeWinner = { store, cr, drawingDate, prio ->
             def x = [:]
+            x.prio = cr.prize.prio + prio
             x.prize = cr.prize.name
             x.prizeDesc = cr.prize.description
             x.winningNumber = cr.contestNum
@@ -71,18 +79,25 @@ class ContestService implements InitializingBean {
         d = drawings.get(drawingCount-1)
         currentWinnersDrawingDate = d.drawingDate
         ContestResult.findAllBySeed(d.seed).each {
-            storeWinner(currentWinners, it, d.drawingDate)
+            storeWinner(currentWinners, it, d.drawingDate, 10)
         }
         
         def pastWinners = []
         d = drawings.get(drawingCount-2)
         ContestResult.findAllBySeed(d.seed).each {
-            storeWinner(pastWinners, it, d.drawingDate)
+            storeWinner(pastWinners, it, d.drawingDate, 20)
         }
         d = drawings.get(drawingCount-3)
         ContestResult.findAllBySeed(d.seed).each {
-            storeWinner(pastWinners, it, d.drawingDate)
+            storeWinner(pastWinners, it, d.drawingDate, 30)
         }
+        d = drawings.get(drawingCount-4)
+        ContestResult.findAllBySeed(d.seed).each {
+            storeWinner(pastWinners, it, d.drawingDate, 40)
+        }
+        
+        currentWinners = currentWinners.sort { a,b -> a.prio <=> b.prio }
+        pastWinners = pastWinners.sort { a,b -> a.prio <=> b.prio }
         
         def contest = [:]
         contest.currentWinners = currentWinners

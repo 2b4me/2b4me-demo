@@ -41,6 +41,7 @@ class SecurityFilters {
                 if (controllerName in ['admin','contest']) {
                     if ((!request.userId || !request.admin) && actionName != 'login') {
                         forward(controller: 'admin', action: 'login', params: [cn: controllerName, an: actionName])
+                        return false
                     }
                 }
             }
@@ -54,7 +55,7 @@ class SecurityFilters {
             before = {
                 if (controllerName == 'profile' && actionName in ['index','purchasedDeals','updateProfileInfo']) {
                     if (!request.userId) {
-                        redirect controller: 'featured', action: 'index'
+                        forward(controller: 'user', action: 'login', params: [cn: controllerName, an: actionName])
             		    return false
             		}
                 }
