@@ -12,8 +12,8 @@ class ValidatorService {
             def ia = new InternetAddress(emailAddress)
         } catch (AddressException e) {
             return false
-        def tokens = emailAddress.split('@')
         }
+        def tokens = emailAddress.split('@')
         return tokens.length == 2 &&
                tokens[0] != '' &&
                tokens[1] != ''

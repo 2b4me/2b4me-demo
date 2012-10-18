@@ -8,6 +8,7 @@ class UserController {
     def loginService
     def validatorService
     def sessionService
+    def userService
     
     def index() {
         redirect action: 'signup'
@@ -49,7 +50,8 @@ class UserController {
         }
         
         def password = BCryptService.hashpw(params.password, BCryptService.gensalt(4))
-        def user = new User(emailAddress: params.emailAddress, password: password)
+        def user = new User(emailAddress: params.emailAddress, password: password,
+                            registrationKey: userService.generateRegistrationKey())
         if (user.save()) {
             request.data.userId = user.id
             redirect action: 'registrationComplete'
@@ -69,9 +71,37 @@ class UserController {
     
     def registrationComplete() {
         def userId = request.data.userId
+        userService.sendConfirmationEmail(userId)
         request.userId = request.data.userId
         if (!userId) {
             throw new IllegalStateException('Not allowed')
+        }
+    }
+    
+    def confirm() {
+        def errors = [:]
+        def data = [:]
+        
+        log.debug "formSubmitted: ${params.formSubmitted}"
+        
+        if (!params.formSubmitted) {
+            return [errors: errors, data: data]
+        }
+        
+        if (!params.key) {
+            log.debug 'Key field is blank and this is not supported'
+            errors.put 'Key blank', 'Please enter a key to confirm your account'
+            return [errors: errors, data: data]
+        }
+        
+        def user = User.findByRegistrationKey(params.key)
+        if (user) {
+            user.confirmed = true
+            render template: 'confirmComplete', model: [:]
+        } else {
+            errors.put 'Key invalid', 'The key you entered was not found'
+            data.put ('key', params.key)
+            return [errors: errors, data: data]
         }
     }
     

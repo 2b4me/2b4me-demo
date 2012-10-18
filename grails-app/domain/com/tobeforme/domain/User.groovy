@@ -7,7 +7,9 @@ class User implements Serializable {
 	String firstName
 	String lastName
 	UserAddress address
-	boolean admin = false // default value
+	boolean admin = false
+	boolean confirmed = false
+	String registrationKey
 	
 	static hasMany = [subscriptions: Subscription]
 
@@ -18,7 +20,6 @@ class User implements Serializable {
         subscriptions nullable: true
         password blank: false
         emailAddress  email: true, blank: false, unique: true
-        admin nullable: true
     }
     
     static mapping = {

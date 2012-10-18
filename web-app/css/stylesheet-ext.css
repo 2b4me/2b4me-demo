@@ -862,6 +862,18 @@ div#content-main.nobg {
     height: 340px;
 }
 
+#accountConfirmationDescription {
+    margin-bottom: 50px ! important;
+}
+
+#accountConfirmationRegistrationKey {
+    margin-bottom: 75px;
+}
+
+#accountConfirmationFormSubmit {
+    margin-left: 18px;
+}
+
 /************************************** DEMO LOGIN *********************************************/
 #demo-login {
 	width: 603px;  min-height: 370px;

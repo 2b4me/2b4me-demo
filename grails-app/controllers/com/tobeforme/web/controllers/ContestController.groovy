@@ -121,8 +121,6 @@ class ContestController {
     }
     
     def newTemplate() {
-        throw new UnsupportedOperationException(); // for now, until we're ready to finish this part
-        
         if (params.name.length() == 0 || params.content.length() == 0) {
             throw new IllegalStateException('Template content cannot be empty')
         }
@@ -140,7 +138,7 @@ class ContestController {
         e.content = unescapedContent
         e.save()
         
-        render e.id
+        render 'success'
     }
     
     def winnersPublished() {

@@ -22,7 +22,9 @@ class BootStrap {
         	firstName: 'Daniel',
         	lastName: 'Silva',
         	address: addr,
-        	admin: true
+        	admin: true,
+        	confirmed: true,
+        	registrationKey: '00001'
         ).save()
         
         VendorAddress vendorAddress = new VendorAddress(

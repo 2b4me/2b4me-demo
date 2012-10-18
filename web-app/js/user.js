@@ -32,4 +32,15 @@ $(document).ready(function(){
         $('#form-input-error.password2 ul').fadeOut();
     });
     
+    $('#accountConfirmationRegistrationKey').click(function(event) {
+        if (event.which == 13) {
+            $('#accountConfirmationForm').trigger('click');
+        }
+    });
+    
+    $('#accountConfirmationFormSubmit').click(function(event) {
+        event.preventDefault();
+        $('#accountConfirmationForm').submit();
+    })
+    
 });
