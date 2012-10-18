@@ -5,6 +5,9 @@ import java.util.*
 
 class UserService {
     
+    def contestService
+    def mailService
+    
     def generateRegistrationKey() {
         def decKey = Math.abs(new Random().nextInt(1048575)) // FFFFF max
         def hexString = Integer.toHexString(decKey).toUpperCase()
@@ -23,8 +26,8 @@ class UserService {
             log.debug 'Start'
             def emt = EmailTemplate.findByName('confirm-registration')
             def user = User.get(userId)
-            def content = setupVars(emt.content, [user.registrationKey, user.registrationKey])
-            mailService.sendMail(c.email, 'Please confirm your account', content)
+            def content = contestService.setupVars(emt.content, [user.registrationKey, user.registrationKey])
+            mailService.sendMail(user.emailAddress, 'Please confirm your account', content)
             log.debug 'End'
         }
     }

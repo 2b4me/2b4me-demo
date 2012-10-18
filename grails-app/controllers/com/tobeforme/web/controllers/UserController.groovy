@@ -84,7 +84,7 @@ class UserController {
         
         log.debug "formSubmitted: ${params.formSubmitted}"
         
-        if (!params.formSubmitted) {
+        if (!params.formSubmitted && !params.key) {
             return [errors: errors, data: data]
         }
         
@@ -96,8 +96,14 @@ class UserController {
         
         def user = User.findByRegistrationKey(params.key)
         if (user) {
-            user.confirmed = true
-            render template: 'confirmComplete', model: [:]
+            if (!user.confirmed) {
+                user.confirmed = true
+                render template: 'confirmComplete', model: [:]
+            } else {
+                errors.put 'User already registered', 'The account associated with this key has already been activated'
+                data.put ('key', params.key)
+                return [errors: errors, data: data]
+            }
         } else {
             errors.put 'Key invalid', 'The key you entered was not found'
             data.put ('key', params.key)
