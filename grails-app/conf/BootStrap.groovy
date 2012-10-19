@@ -140,8 +140,8 @@ class BootStrap {
         Subscription weddingDeals = new Subscription(code: 'WD', name: 'Wedding Deals').save()
         Subscription travelDeals = new Subscription(code: 'TD', name: 'Travel Deals').save()
         
-        def nextDrawingDate = new GregorianCalendar(2009, Calendar.JULY, 22)
-        NextDrawing nd = new NextDrawing(date: nextDrawingDate.getTime()).save()
+        def nextDrawingDate = new GregorianCalendar(2013, Calendar.DECEMBER, 31)
+        NextDrawing nd = new NextDrawing(code: 'CONTEST', date: nextDrawingDate.getTime()).save()
     }
 
     def destroy = {

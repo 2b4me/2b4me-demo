@@ -2,9 +2,11 @@ package com.tobeforme.domain
 
 class NextDrawing {
     
+    String code
     Date date
 
     static constraints = {
+        code unique: true
     }
     
     static mapping = {
