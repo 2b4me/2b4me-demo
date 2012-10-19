@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+      <title>2b4me - I want it all!</title>
+      <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="style.css" />
+      <link rel="stylesheet" type="text/css" href="style-ext.css" />
+      <link rel="stylesheet" type="text/css" href="style2.css" />
+      <link rel="stylesheet" type="text/css" href="normalize.css" />
+   </head>
+   <body style="background-color: white; background-image: none">
+      <!--START HEADER-->
+      <div id="header">
+         <div id="header-inner">
+            <a href="index.html" id="logo"><img src="images/2b4me-logo.png" /></a>
+         </div>
+      </div>
+      <!--END HEADER-->
+      <div id="container" style="height:500px; margin-top:-50px;">
+         <div class="bluebox" style="width:872px; height:450px;">
+            <p style="margin-top:10px;">
+               <span class="headline">We'll be right back</span>
+            </p>
+            <p style="margin-top:30px;">
+               <span class="sub">We're currently improving the 2b4me.com site,<br/>we will be back online shortly!</span>
+            </p>
+            <p style="margin-top:30px;">
+               <img src="images/maintenance-mode-2.png" />
+            </p>
+         </div>
+      </div>
+      <!--START FOOTER-->
+      <div id="footer">
+         <div id="footer-inner">
+            <p id="copyright-2b4me">Copyright &copy; 2011 - <span>2012</span> 2b4me, Inc</p>
+            <p id="subnav"><a href="http://www.facebook.com/2b4me/posts/320871854654031">Our Story</a></p>
+            <p id="social">Follow Us<a href="http://www.facebook.com/2b4me" class="social-btns" id="fb-btn"></a> <a href="https://twitter.com/2b4me_deals" class="social-btns" id="twitter-btn"></a></p>
+         </div>
+      </div>
+      <!--END FOOTER-->
+      <div id="shadow-bottom">
+         <!--required--> 
+      </div>
+      <script type="text/javascript">
+         var _gaq = _gaq || [];
+         _gaq.push(['_setAccount', 'UA-30565832-1']);
+         _gaq.push(['_setDomainName', '2b4me.com']);
+         _gaq.push(['_trackPageview']);
+         
+         (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+         })();
+      </script>
+   </body>
+</html>
