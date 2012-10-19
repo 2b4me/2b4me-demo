@@ -16,7 +16,7 @@
       <!-- START CONTAINER-->
       <div class="container" id="home">
          <!-- START SLIDER -->
-         <g:include controller="featured" action="deals" params="[selectedDealIndex: 0]" />
+         <%-- <g:include controller="featured" action="deals" params="[selectedDealIndex: 0]" /> --%>
          <!-- END SLIDER -->
          <!--START CONTEST AREA-->
          <div id="contest-area">
@@ -34,7 +34,7 @@
                      <button id="contest-signup-submit-btn" type="submit" class="button">Sign up</button>
                   </div>
                </form>
-               <p class="small" id="terms">For full contest rules  <a data-toggle="modal" href="#contestModal">click here</a>. If you lose your contest number, just submit your e-mail address again and it will be e-mailed to you. Your privacy is very important to us, <a data-toggle="modal" href="#privacyModal">click here to read our privacy policy</a>.</p>
+               <p class="small" id="terms">For full contest rules  <g:link controller="notices" action="termsAndConditions">click here</g:link>. If you lose your contest number, just submit your e-mail address again and it will be e-mailed to you. Your privacy is very important to us, <g:link controller="notices" action="privacyPolicy">click here to read our privacy policy</g:link>.</p>
             </div>
             <div>
                <p id="next-drawing">NEXT DRAWING'S PRIZES ON <strong id="nextDrawingDate"><g:formatDate format="MM/dd/yyyy" date="${nextDrawingDate}" /></strong></p>

@@ -874,6 +874,27 @@ div#content-main.nobg {
     margin-left: 18px;
 }
 
+#notice h1 {
+    text-transform: none;
+    margin-bottom: 40px;
+}
+
+#notice dl {
+    margin: 18px 25px;
+}
+
+#notice dt {
+    font-weight: bold;
+    line-height: 17px;
+    margin-bottom: 5px;
+}
+
+#notice dd {
+    margin-bottom: 25px;
+    margin-left: 9px;
+    line-height: 18px;
+}
+
 /************************************** DEMO LOGIN *********************************************/
 #demo-login {
 	width: 603px;  min-height: 370px;
