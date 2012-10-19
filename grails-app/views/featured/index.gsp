@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-      <title>Home</title>
+      <title>2b4me - I want it all!</title>
       <g:external dir="css" file="stylesheet.css" />
       <g:external dir="css" file="stylesheet-ext.css" />
    </head>
