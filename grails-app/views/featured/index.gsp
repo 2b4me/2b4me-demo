@@ -16,7 +16,7 @@
       <!-- START CONTAINER-->
       <div class="container" id="home">
          <!-- START SLIDER -->
-         <%-- <g:include controller="featured" action="deals" params="[selectedDealIndex: 0]" /> --%>
+         <g:include controller="featured" action="deals" params="[selectedDealIndex: 0]" />
          <!-- END SLIDER -->
          <!--START CONTEST AREA-->
          <div id="contest-area">
