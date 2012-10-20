@@ -26,7 +26,8 @@
                <span class="sub">You could win CASH and DEALS up to $50 value!</span>
             </p>
             <div>
-               <p id="contest-form-confirmation" style="display:none;height:29px;margin-bottom:-6px;margin-top:29px;">Thank you for signing up! Your contest number has been sent to you by e-mail.</p>
+               <p id="contest-form-confirmation" style="height:29px;margin-bottom:-6px;margin-top:29px;"><em>Contest Entry Form disabled for demo</em></p>
+               <%-->
                <form id="contest-form">
                   <input id="contest-signup-email-input" class="textfieldstyle" name="textfield" type="text" size="30" value="Email Address" />
                   <input id="contest-signup-zipCode-input" class="textfieldstyle" name="textfield" type="text" size="15" value="Zip Code" />
@@ -34,6 +35,7 @@
                      <button id="contest-signup-submit-btn" type="submit" class="button">Sign up</button>
                   </div>
                </form>
+                --%>
                <p class="small" id="terms">For full contest rules  <g:link controller="notices" action="termsAndConditions">click here</g:link>. If you lose your contest number, just submit your e-mail address again and it will be e-mailed to you. Your privacy is very important to us, <g:link controller="notices" action="privacyPolicy">click here to read our privacy policy</g:link>.</p>
             </div>
             <div>
