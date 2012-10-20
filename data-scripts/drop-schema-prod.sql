@@ -1,0 +1,2 @@
+DROP OWNED BY jxrlsvxnhkrnjp CASCADE;
+CREATE SCHEMA public;
