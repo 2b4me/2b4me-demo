@@ -15,6 +15,7 @@ class UrlMappings {
 		"/admin"(controller: "admin", action: "index")
 		"/company"(controller: "company", action: "index")
 		"/controllers"(view:"/index")
-		"500"(view:'/error')
+		"500"(controller: "error", action: "serverError")
+		"404"(controller:"error", action:"notFound")
 	}
 }

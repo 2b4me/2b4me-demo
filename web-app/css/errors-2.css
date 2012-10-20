@@ -1,0 +1,23 @@
+#error-header {
+    height: 129px;
+    background: url(../images/header-bg-2.png) repeat-x;
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    margin-left: -8px;
+}
+
+#error-header img {
+    margin-left: 28px;
+    margin-top: 10px;
+}
+
+#error-first-element {
+    margin-top: 150px;
+}
+
+.error-element {
+    margin-left: 20px;
+    color:#006dba;
+}
