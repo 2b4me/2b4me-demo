@@ -2,6 +2,7 @@ target
 stacktrace.log
 .eprj
 diff
+*.diff
 data/*
 tools/query-builder/input/*
 tools/query-builder/output/*
