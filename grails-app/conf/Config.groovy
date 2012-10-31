@@ -69,6 +69,9 @@ grails.plugin.awssdk.secretKey = 'v5Bd3ddp0xlItgeLMpIFK+2GJJU1mZTjJ/h6EC8G'
 // google static maps api key
 grails.google.staticmapsapi.key = 'AIzaSyB2TybU9pWsfBKj-tsGv-Eg4kOZf31RECE'
 
+// google analytics
+google.analytics.webPropertyID = 'UA-30565832-1'
+
 // set per-environment serverURL stem for creating absolute links
 environments {
     development {

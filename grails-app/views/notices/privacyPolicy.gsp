@@ -5,6 +5,7 @@
       <title>Privacy Policy</title>
       <g:external dir="css" file="stylesheet.css" />
       <g:external dir="css" file="stylesheet-ext.css" />
+      <ga:trackPageview />
    </head>
    <body>
       <!--START HEADER-->

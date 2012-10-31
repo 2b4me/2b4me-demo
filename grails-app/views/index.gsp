@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
 	<head>
 		<meta name="layout" content="main"/>
@@ -73,6 +72,7 @@
 				}
 			}
 		</style>
+		<ga:trackPageview />
 	</head>
 	<body>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

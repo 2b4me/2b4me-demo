@@ -2,6 +2,7 @@
    <head>
       <title>Page not found</title>
       <g:external dir="css" file="errors-2.css" />
+      <ga:trackPageview />
    </head>
    <body>
       <div id="error-header">

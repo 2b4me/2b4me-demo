@@ -5,6 +5,7 @@
       <title>2b4me - I want it all!</title>
       <g:external dir="css" file="stylesheet.css" />
       <g:external dir="css" file="stylesheet-ext.css" />
+      <ga:trackPageview />
    </head>
    <body>
       <!--START HEADER-->

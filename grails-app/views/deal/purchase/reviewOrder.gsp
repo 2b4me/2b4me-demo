@@ -5,6 +5,7 @@
       <title>Review Order</title>
       <g:external dir="css" file="stylesheet.css" />
       <g:external dir="css" file="stylesheet-ext.css" />
+      <ga:trackPageview />
    </head>
    <body>
       <g:img dir="images" file="only-a-demo-1.png" id="only-a-demo-1" />
